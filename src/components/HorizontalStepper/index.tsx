@@ -5,7 +5,7 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { ActiveStep } from "../ActiveStep";
+import ActiveStep from "../ActiveStep";
 
 const steps = [
   "Informacje o pacjencie",
