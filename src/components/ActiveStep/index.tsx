@@ -7,7 +7,7 @@ type ActiveStepProps = {
   activeStep: number;
 };
 
-export default function ActiveStep({ activeStep }: ActiveStepProps) {
+export default function ActiveStep({ activeStep }: Readonly<ActiveStepProps>) {
   switch (activeStep) {
     case 0:
       return <Step0 />;
