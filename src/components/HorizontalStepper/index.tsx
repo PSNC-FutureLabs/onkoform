@@ -6,6 +6,7 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ActiveStep from "../ActiveStep";
+import { Stack } from "@mui/material";
 
 const steps = [
   "Informacje o pacjencie",
@@ -96,7 +97,9 @@ export default function HorizontalLinearStepper() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <ActiveStep activeStep={activeStep} />
+          <Stack spacing={4} mt={4} style={{ minHeight: "50vh" }}>
+            <ActiveStep activeStep={activeStep} />
+          </Stack>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Button
               color="inherit"
