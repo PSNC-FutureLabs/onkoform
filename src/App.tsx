@@ -5,13 +5,15 @@ import HorizontalStepper from "./components/HorizontalStepper";
 import { Container } from "@mui/material";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-
-// TODO: infer FormValues type from zod
-type FormValues = any;
+import { FormFields, schema } from "./components/form-components/form-schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 function App() {
-  const methods = useForm();
-  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data);
+  const methods = useForm<FormFields>({
+    defaultValues: {},
+    resolver: zodResolver(schema),
+  });
+  const onSubmit: SubmitHandler<FormFields> = (data) => console.log(data);
 
   return (
     <FormProvider {...methods}>

@@ -1,3 +1,22 @@
+export const steps = [
+  {
+    id: "Step 1",
+    name: "Informacje o pacjencie",
+    fields: ["birthday", "gender", "disease", "hospitalWard"],
+  },
+  { id: "Step 2", name: "Niepokojące objawy", fields: [] },
+  {
+    id: "Step 3",
+    name: "Aktualne badania",
+    fields: [],
+  },
+  {
+    id: "Step 4",
+    name: "Poprzednie badania",
+    fields: [],
+  },
+];
+
 export const genderOptions: RadioOptionsType[] = [
   {
     label: "Kobieta",
