@@ -7,33 +7,34 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ActiveStep from "../ActiveStep";
 import { Stack } from "@mui/material";
-
-const steps = [
-  "Informacje o pacjencie",
-  "Niepokojące objawy",
-  "Aktualne badania",
-  "Poprzednie badania",
-];
+import { steps } from "../../business";
+import { useFormContext } from "react-hook-form";
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
+  const { trigger } = useFormContext();
 
   const isStepOptional = (step: number) => {
     // currently no step is optional
-    return false;
+    return step === -10;
   };
 
   const isStepSkipped = (step: number) => {
     return skipped.has(step);
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
       newSkipped.delete(activeStep);
     }
+
+    // Validate inputs from active step
+    const fields = steps[activeStep].fields;
+    const output = await trigger(fields, { shouldFocus: true });
+    if (!output) return;
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setSkipped(newSkipped);
@@ -65,7 +66,7 @@ export default function HorizontalLinearStepper() {
   return (
     <Box sx={{ width: "100%" }}>
       <Stepper activeStep={activeStep} alternativeLabel>
-        {steps.map((label, index) => {
+        {steps.map(({ name }, index) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {
             optional?: React.ReactNode;
@@ -79,8 +80,8 @@ export default function HorizontalLinearStepper() {
             stepProps.completed = false;
           }
           return (
-            <Step key={label} {...stepProps}>
-              <StepLabel {...labelProps}>{label}</StepLabel>
+            <Step key={name} {...stepProps}>
+              <StepLabel {...labelProps}>{name}</StepLabel>
             </Step>
           );
         })}
@@ -88,7 +89,7 @@ export default function HorizontalLinearStepper() {
       {activeStep === steps.length ? (
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed - you&apos;re finished
+            Wszystkie kroki zostały zakończone.
           </Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Box sx={{ flex: "1 1 auto" }} />
@@ -106,17 +107,21 @@ export default function HorizontalLinearStepper() {
               disabled={activeStep === 0}
               onClick={handleBack}
               sx={{ mr: 1 }}>
-              Back
+              Wróć
             </Button>
             <Box sx={{ flex: "1 1 auto" }} />
             {isStepOptional(activeStep) && (
               <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                Skip
+                Pomiń
               </Button>
             )}
-            <Button onClick={handleNext}>
-              {activeStep === steps.length - 1 ? "Finish" : "Next"}
-            </Button>
+            {activeStep === steps.length - 1 ? (
+              <Button onClick={handleNext} type="submit">
+                Zakończ
+              </Button>
+            ) : (
+              <Button onClick={handleNext}>Dalej</Button>
+            )}
           </Box>
         </React.Fragment>
       )}

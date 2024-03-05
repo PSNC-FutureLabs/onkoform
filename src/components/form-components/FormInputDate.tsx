@@ -7,8 +7,18 @@ export const FormInputDate = ({ name, control, label }: FormInputProps) => {
     <Controller
       name={name}
       control={control}
-      render={({ field: { onChange, value } }) => (
-        <DatePicker value={value} onChange={onChange} label={label} />
+      render={({ field: { onChange, value }, fieldState: { error } }) => (
+        <DatePicker
+          value={value}
+          onChange={onChange}
+          label={label}
+          slotProps={{
+            textField: {
+              error: !!error,
+              helperText: error?.message,
+            },
+          }}
+        />
       )}
     />
   );
