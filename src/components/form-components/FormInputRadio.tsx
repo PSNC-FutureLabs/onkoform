@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 import { Controller } from "react-hook-form";
 import { InputRadioProps } from "./FormInputProps";
+import { FormWarningText } from "./FormWarningText";
 
 export const FormInputRadio: React.FC<InputRadioProps> = ({
   name,
@@ -19,8 +20,8 @@ export const FormInputRadio: React.FC<InputRadioProps> = ({
       <FormControlLabel
         value={singleOption.value}
         label={singleOption.label}
-        control={<Radio />}
         key={singleOption.label}
+        control={<Radio />}
       />
     ));
   };
@@ -30,10 +31,13 @@ export const FormInputRadio: React.FC<InputRadioProps> = ({
       <Controller
         name={name}
         control={control}
-        render={({ field: { onChange, value } }) => (
-          <RadioGroup value={value} onChange={onChange} row>
-            {generateRadioOptions()}
-          </RadioGroup>
+        render={({ field: { onChange, value }, fieldState: { error } }) => (
+          <>
+            <RadioGroup value={value} onChange={onChange} row>
+              {generateRadioOptions()}
+            </RadioGroup>
+            {error ? <FormWarningText text={error?.message} /> : null}
+          </>
         )}
       />
     </FormControl>
