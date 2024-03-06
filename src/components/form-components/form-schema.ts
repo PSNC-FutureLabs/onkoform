@@ -1,16 +1,20 @@
 import { z } from "zod";
 
+const ERROR_MESSAGES = {
+  required: "Pole jest wymagane",
+};
+
 export const schema = z.object({
   birthday: z.date({
     errorMap: (issue, ctx) =>
       issue.code === z.ZodIssueCode.invalid_date
-        ? { message: "Data urodzenia jest wymagana" }
+        ? { message: ERROR_MESSAGES.required }
         : { message: ctx.defaultError },
     coerce: true,
   }),
-  gender: z.string(),
-  disease: z.string(),
-  hospitalWard: z.string(),
+  gender: z.string({ required_error: ERROR_MESSAGES.required }),
+  disease: z.string({ required_error: ERROR_MESSAGES.required }),
+  hospitalWard: z.string({ required_error: ERROR_MESSAGES.required }),
 });
 
 export type FormFields = z.infer<typeof schema>;

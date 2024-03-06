@@ -44,6 +44,10 @@ export default function HorizontalLinearStepper() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
+  const handleLast = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
   const handleSkip = () => {
     if (!isStepOptional(activeStep)) {
       // You probably want to guard against something like this,
@@ -116,7 +120,7 @@ export default function HorizontalLinearStepper() {
               </Button>
             )}
             {activeStep === steps.length - 1 ? (
-              <Button onClick={handleNext} type="submit">
+              <Button onClick={handleLast} type="submit">
                 Zakończ
               </Button>
             ) : (
