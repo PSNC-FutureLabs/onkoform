@@ -1,10 +1,15 @@
+import {
+  Control,
+  FieldValues,
+  UseFormGetValues,
+  UseFormSetValue,
+} from "react-hook-form";
 import { DropdownOptionsType, RadioOptionsType } from "../../business";
 
 export type FormInputProps = {
   name: string;
-  control: any;
+  control: Control<FieldValues, any, FieldValues>;
   label: string;
-  setValue?: any;
 };
 
 export type InputRadioProps = FormInputProps & {
@@ -12,4 +17,9 @@ export type InputRadioProps = FormInputProps & {
 };
 export type InputDropdownProps = FormInputProps & {
   options: DropdownOptionsType[];
+};
+
+export type FormInputMultiCheckboxProps = FormInputProps & {
+  setValue: UseFormSetValue<FieldValues>;
+  getValues: UseFormGetValues<FieldValues>;
 };

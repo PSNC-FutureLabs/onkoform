@@ -4,7 +4,11 @@ export const steps = [
     name: "Informacje o pacjencie",
     fields: ["birthday", "gender", "disease", "hospitalWard"],
   },
-  { id: "Step 2", name: "Niepokojące objawy", fields: [] },
+  {
+    id: "Step 2",
+    name: "Niepokojące objawy",
+    fields: ["temperature", "measurement-place", "symptoms"],
+  },
   {
     id: "Step 3",
     name: "Aktualne badania",
@@ -32,6 +36,17 @@ export const genderOptions: RadioOptionsType[] = [
   },
 ];
 
+export const measurementPlaceOptions: RadioOptionsType[] = [
+  {
+    label: "Czoło",
+    value: "forehead",
+  },
+  {
+    label: "Pacha",
+    value: "pacha",
+  },
+];
+
 export const diseaseOptions: DropdownOptionsType[] = [
   {
     label: "Choroba nr 1",
@@ -54,7 +69,38 @@ export const hospitalWardOptions: DropdownOptionsType[] = [
   },
 ];
 
+export const symptomsOptions: MultiCheckboxOptionsType[] = [
+  {
+    label: "Dreszcze",
+    value: "1",
+  },
+  {
+    label: "Senność/osłabienie",
+    value: "2",
+  },
+  {
+    label: "Krwawienia/wybroczyny/zasinienie",
+    value: "3",
+  },
+  {
+    label: "Toksyczności śluzkówkowe",
+    value: "4",
+  },
+  {
+    label: "Nudności lub wymioty",
+    value: "5",
+  },
+  {
+    label: "Inne",
+    value: "6",
+  },
+];
+
 export type RadioOptionsType = {
+  label: string;
+  value: string;
+};
+export type MultiCheckboxOptionsType = {
   label: string;
   value: string;
 };
