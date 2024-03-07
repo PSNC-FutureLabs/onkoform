@@ -9,6 +9,6 @@
   padding: 100px;
 }
 
-p.warning {
+body .warning {
   color: #d32f2f;
 }
