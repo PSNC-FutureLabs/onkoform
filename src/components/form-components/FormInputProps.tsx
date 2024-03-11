@@ -8,7 +8,7 @@ import { DropdownOptionsType, RadioOptionsType } from "../../business";
 
 export type FormInputProps = {
   name: string;
-  control: Control<FieldValues, any, FieldValues>;
+  control: Control<FieldValues, any>;
   label: string;
 };
 
