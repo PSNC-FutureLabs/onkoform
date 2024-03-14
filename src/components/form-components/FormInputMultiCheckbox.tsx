@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { Controller } from "react-hook-form";
 import { FormInputMultiCheckboxProps } from "./FormInputProps";
-import { symptomsOptions } from "../../business";
+import { MultiCheckboxOptionsType, symptomsOptions } from "../../business";
 
 export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
   name,
@@ -17,16 +17,18 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
   getValues,
   label,
 }) => {
-  const [selectedItems, setSelectedItems] = useState<any>([]);
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
   // we are handling the selection manually here
-  const handleSelect = (value: any) => {
+  const handleSelect = (value: string) => {
     const isPresent = selectedItems.indexOf(value) !== -1;
     if (isPresent) {
-      const remaining = selectedItems.filter((item: any) => item !== value);
-      setSelectedItems(remaining.sort());
+      const remaining = selectedItems
+        .filter((item) => item !== value)
+        .toSorted((a, b) => a.localeCompare(b));
+      setSelectedItems(remaining);
     } else {
-      setSelectedItems((prevItems: any) =>
-        [...prevItems, value].sort((a, b) => a - b)
+      setSelectedItems((prevItems) =>
+        [...prevItems, value].sort((a, b) => a.localeCompare(b))
       );
     }
   };
@@ -47,7 +49,7 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
       style={{ textAlign: "left" }}>
       <FormLabel component="legend">{label}</FormLabel>
       <Stack>
-        {symptomsOptions.map((option: any) => {
+        {symptomsOptions.map((option: MultiCheckboxOptionsType) => {
           return (
             <FormControlLabel
               control={

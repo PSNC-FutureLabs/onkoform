@@ -10,7 +10,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 function App() {
   const methods = useForm<FormFields>({
-    defaultValues: {},
+    defaultValues: {
+      symptoms: [],
+    },
     resolver: zodResolver(schema),
   });
   const onSubmit: SubmitHandler<FormFields> = (data) => console.log(data);

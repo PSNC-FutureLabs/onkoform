@@ -3,6 +3,7 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { Controller } from "react-hook-form";
 import { InputDropdownProps } from "./FormInputProps";
 import { FormWarningText } from "./FormWarningText";
+import { DropdownOptionsType } from "../../business";
 
 export const FormInputDropdown: React.FC<InputDropdownProps> = ({
   name,
@@ -11,7 +12,7 @@ export const FormInputDropdown: React.FC<InputDropdownProps> = ({
   options,
 }) => {
   const generateSingleOptions = () => {
-    return options.map((option: any) => {
+    return options.map((option: DropdownOptionsType) => {
       return (
         <MenuItem key={option.value} value={option.value}>
           {option.label}
