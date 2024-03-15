@@ -18,6 +18,14 @@ export const schema = z.object({
   temperature: z.string({ required_error: ERROR_MESSAGES.required }),
   "measurement-place": z.string({ required_error: ERROR_MESSAGES.required }),
   symptoms: z.string().array().optional(),
+  "examination-date": z.date({
+    errorMap: (issue, ctx) =>
+      issue.code === z.ZodIssueCode.invalid_date
+        ? { message: ERROR_MESSAGES.required }
+        : { message: ctx.defaultError },
+    coerce: true,
+  }),
+  HGBunits: z.string(),
 });
 
 export type FormFields = z.infer<typeof schema>;

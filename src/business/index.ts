@@ -12,7 +12,15 @@ export const steps = [
   {
     id: "Step 3",
     name: "Aktualne badania",
-    fields: [],
+    fields: [
+      "examination-date",
+      ["HGB", "HGBunit"],
+      "WBC",
+      "PLT",
+      "ALT",
+      "AST",
+      ["NEUT", "NEUTunit"],
+    ],
   },
   {
     id: "Step 4",
@@ -96,6 +104,11 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
   },
 ];
 
+export const HGBunits: MultiButtonOptionType[] = [
+  { value: "g/dl", label: "g/dl" },
+  { value: "mmol/l", label: "mmol/l" },
+];
+
 export type RadioOptionsType = {
   label: string;
   value: string;
@@ -106,6 +119,11 @@ export type MultiCheckboxOptionsType = {
 };
 
 export type DropdownOptionsType = {
+  label: string;
+  value: string;
+};
+
+export type MultiButtonOptionType = {
   label: string;
   value: string;
 };

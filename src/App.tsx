@@ -7,11 +7,13 @@ import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { FormFields, schema } from "./components/form-components/form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { HGBunits } from "./business";
 
 function App() {
   const methods = useForm<FormFields>({
     defaultValues: {
       symptoms: [],
+      HGBunits: HGBunits[0].value,
     },
     resolver: zodResolver(schema),
   });

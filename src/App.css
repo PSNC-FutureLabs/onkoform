@@ -12,3 +12,7 @@
 body .warning {
   color: #d32f2f;
 }
+
+body .MuiToggleButton-root {
+  text-transform: none;
+}
