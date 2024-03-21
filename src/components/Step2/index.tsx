@@ -13,6 +13,7 @@ export default function Step2() {
         name="temperature"
         control={control}
         label="Pomiar temperatury ciała"
+        placeholder="wartość w °C"
       />
       <FormInputRadio
         control={control}

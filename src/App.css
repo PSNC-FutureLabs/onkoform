@@ -16,3 +16,10 @@ body .warning {
 body .MuiToggleButton-root {
   text-transform: none;
 }
+
+body .MuiGrid-root .MuiGrid-item {
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,8 +1,8 @@
-import { Alert } from "@mui/material";
+import { Alert, Grid } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { FormInputDate } from "../form-components/FormInputDate";
-import { MultiButton } from "../form-components/MultiButton";
-import { HGBunits } from "../../business";
+import { HgbUnits, NeutUnits } from "../../business";
+import { MarkerRow } from "../form-components/MarkerRow";
 
 export default function Step3() {
   const { control } = useFormContext();
@@ -19,7 +19,14 @@ export default function Step3() {
         control={control}
         label="Data wykonania badania"
       />
-      <MultiButton name="HGBunits" options={HGBunits} />
+      <Grid container spacing={2}>
+        <MarkerRow control={control} markerName="HGB" options={HgbUnits} />
+        <MarkerRow control={control} markerName="WBC" options={["mmol/l"]} />
+        <MarkerRow control={control} markerName="PLT" options={["mmol/l"]} />
+        <MarkerRow control={control} markerName="ALT" options={["mmol/l"]} />
+        <MarkerRow control={control} markerName="AST" options={["mmol/l"]} />
+        <MarkerRow control={control} markerName="NEUT" options={NeutUnits} />
+      </Grid>
     </>
   );
 }

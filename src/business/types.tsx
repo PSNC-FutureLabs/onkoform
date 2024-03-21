@@ -4,12 +4,29 @@ import {
   UseFormGetValues,
   UseFormSetValue,
 } from "react-hook-form";
-import { DropdownOptionsType, RadioOptionsType } from "../../business";
+
+export type RadioOptionsType = {
+  label: string;
+  value: string;
+};
+
+export type MultiCheckboxOptionsType = {
+  label: string;
+  value: string;
+};
+
+export type DropdownOptionsType = {
+  label: string;
+  value: string;
+};
+
+export type UnitType = "g/dl" | "mmol/l" | "%" | "μl";
 
 export type FormInputProps = {
   name: string;
   control: Control<FieldValues, any>;
   label: string;
+  placeholder?: string;
 };
 
 export type InputRadioProps = FormInputProps & {
@@ -22,4 +39,10 @@ export type InputDropdownProps = FormInputProps & {
 export type FormInputMultiCheckboxProps = FormInputProps & {
   setValue: UseFormSetValue<FieldValues>;
   getValues: UseFormGetValues<FieldValues>;
+};
+
+export type MarkerRowProps = {
+  control: Control<FieldValues, any>;
+  markerName: string;
+  options: UnitType[];
 };

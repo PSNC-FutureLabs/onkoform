@@ -1,6 +1,6 @@
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Controller } from "react-hook-form";
-import { FormInputProps } from "./FormInputProps";
+import { FormInputProps } from "../../business/types";
 
 export const FormInputDate = ({ name, control, label }: FormInputProps) => {
   return (

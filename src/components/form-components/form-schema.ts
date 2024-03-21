@@ -25,7 +25,14 @@ export const schema = z.object({
         : { message: ctx.defaultError },
     coerce: true,
   }),
-  HGBunits: z.string(),
+  HGB: z.string({ required_error: ERROR_MESSAGES.required }),
+  HgbUnit: z.string(),
+  WBC: z.string({ required_error: ERROR_MESSAGES.required }),
+  PLT: z.string({ required_error: ERROR_MESSAGES.required }),
+  ALT: z.string({ required_error: ERROR_MESSAGES.required }),
+  AST: z.string({ required_error: ERROR_MESSAGES.required }),
+  NEUT: z.string({ required_error: ERROR_MESSAGES.required }),
+  NeutUnit: z.string(),
 });
 
 export type FormFields = z.infer<typeof schema>;
