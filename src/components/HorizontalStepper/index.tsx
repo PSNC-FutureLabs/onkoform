@@ -11,7 +11,7 @@ import { steps } from "../../business";
 import { useFormContext } from "react-hook-form";
 
 export default function HorizontalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(2);
+  const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
   const { trigger } = useFormContext();
 
