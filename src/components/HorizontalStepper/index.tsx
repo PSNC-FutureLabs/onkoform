@@ -11,7 +11,7 @@ import { steps } from "../../business";
 import { useFormContext } from "react-hook-form";
 
 export default function HorizontalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(2);
   const [skipped, setSkipped] = React.useState(new Set<number>());
   const { trigger } = useFormContext();
 
@@ -33,7 +33,7 @@ export default function HorizontalLinearStepper() {
 
     // Validate inputs from active step
     const fields = steps[activeStep].fields;
-    const output = await trigger(fields, { shouldFocus: true });
+    const output = await trigger(fields.flat(), { shouldFocus: true });
     if (!output) return;
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -103,6 +103,9 @@ export default function HorizontalLinearStepper() {
       ) : (
         <React.Fragment>
           <Stack spacing={4} mt={4} style={{ minHeight: "50vh" }}>
+            <Typography variant="h5">
+              Ostrożnie i dokładnie uzupełnij wszystkie pola
+            </Typography>
             <ActiveStep activeStep={activeStep} />
           </Stack>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>

@@ -1,9 +1,8 @@
 import React from "react";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { Controller } from "react-hook-form";
-import { InputDropdownProps } from "./FormInputProps";
+import { InputDropdownProps, DropdownOptionsType } from "../../business/types";
 import { FormWarningText } from "./FormWarningText";
-import { DropdownOptionsType } from "../../business";
 
 export const FormInputDropdown: React.FC<InputDropdownProps> = ({
   name,

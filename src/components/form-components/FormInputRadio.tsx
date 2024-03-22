@@ -6,7 +6,7 @@ import {
   RadioGroup,
 } from "@mui/material";
 import { Controller } from "react-hook-form";
-import { InputRadioProps } from "./FormInputProps";
+import { InputRadioProps } from "../../business/types";
 import { FormWarningText } from "./FormWarningText";
 
 export const FormInputRadio: React.FC<InputRadioProps> = ({

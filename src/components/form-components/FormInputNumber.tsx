@@ -1,8 +1,13 @@
 import { Controller } from "react-hook-form";
-import { FormInputProps } from "./FormInputProps";
+import { FormInputProps } from "../../business/types";
 import { TextField } from "@mui/material";
 
-export const FormInputNumber = ({ name, control, label }: FormInputProps) => {
+export const FormInputNumber = ({
+  name,
+  control,
+  label,
+  placeholder,
+}: FormInputProps) => {
   return (
     <Controller
       name={name}
@@ -15,7 +20,8 @@ export const FormInputNumber = ({ name, control, label }: FormInputProps) => {
           type="number"
           error={!!error}
           helperText={error?.message}
-          placeholder="wartość w °C"
+          placeholder={placeholder}
+          style={{ width: "100%" }}
         />
       )}
     />

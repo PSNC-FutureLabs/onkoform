@@ -7,8 +7,11 @@ import {
   Stack,
 } from "@mui/material";
 import { Controller } from "react-hook-form";
-import { FormInputMultiCheckboxProps } from "./FormInputProps";
-import { MultiCheckboxOptionsType, symptomsOptions } from "../../business";
+import {
+  FormInputMultiCheckboxProps,
+  MultiCheckboxOptionsType,
+} from "../../business/types";
+import { symptomsOptions } from "../../business";
 
 export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
   name,

@@ -1,3 +1,10 @@
+import {
+  DropdownOptionsType,
+  MultiCheckboxOptionsType,
+  RadioOptionsType,
+  UnitType,
+} from "./types";
+
 export const steps = [
   {
     id: "Step 1",
@@ -12,7 +19,15 @@ export const steps = [
   {
     id: "Step 3",
     name: "Aktualne badania",
-    fields: [],
+    fields: [
+      "examination-date",
+      ["HGB", "HgbUnit"],
+      "WBC",
+      "PLT",
+      "ALT",
+      "AST",
+      ["NEUT", "NEUTunit"],
+    ],
   },
   {
     id: "Step 4",
@@ -96,16 +111,5 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
   },
 ];
 
-export type RadioOptionsType = {
-  label: string;
-  value: string;
-};
-export type MultiCheckboxOptionsType = {
-  label: string;
-  value: string;
-};
-
-export type DropdownOptionsType = {
-  label: string;
-  value: string;
-};
+export const HgbUnits: UnitType[] = ["g/dl", "mmol/l"];
+export const NeutUnits: UnitType[] = ["%", "μl"];
