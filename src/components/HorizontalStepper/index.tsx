@@ -8,12 +8,17 @@ import Typography from "@mui/material/Typography";
 import ActiveStep from "../ActiveStep";
 import { Stack } from "@mui/material";
 import { steps } from "../../business";
-import { useFormContext } from "react-hook-form";
+import {
+  FieldValues,
+  SubmitErrorHandler,
+  SubmitHandler,
+  useFormContext,
+} from "react-hook-form";
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
-  const { trigger } = useFormContext();
+  const { trigger, handleSubmit } = useFormContext();
 
   const isStepOptional = (step: number) => {
     // currently no step is optional
@@ -44,7 +49,13 @@ export default function HorizontalLinearStepper() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
+  const onSubmit: SubmitHandler<FieldValues> = async (data) =>
+    console.log(data);
+  const onInvalid: SubmitErrorHandler<FieldValues> = (errors) =>
+    console.log(errors);
+
   const handleLast = () => {
+    handleSubmit(onSubmit, onInvalid)();
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
@@ -123,11 +134,13 @@ export default function HorizontalLinearStepper() {
               </Button>
             )}
             {activeStep === steps.length - 1 ? (
-              <Button onClick={handleLast} type="submit">
+              <Button onClick={handleLast} type="button">
                 Zakończ
               </Button>
             ) : (
-              <Button onClick={handleNext}>Dalej</Button>
+              <Button onClick={handleNext} type="button">
+                Dalej
+              </Button>
             )}
           </Box>
         </React.Fragment>

@@ -3,7 +3,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import HorizontalStepper from "./components/HorizontalStepper";
 import { Container } from "@mui/material";
-import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { FormFields, schema } from "./components/form-components/form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,13 +18,12 @@ function App() {
     },
     resolver: zodResolver(schema),
   });
-  const onSubmit: SubmitHandler<FormFields> = (data) => console.log(data);
 
   return (
     <FormProvider {...methods}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <Container maxWidth="sm">
-          <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <form>
             <HorizontalStepper />
           </form>
           <DevTool control={methods.control} />

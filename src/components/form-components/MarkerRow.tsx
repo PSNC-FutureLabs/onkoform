@@ -5,15 +5,16 @@ import { MarkerRowProps } from "../../business/types";
 import { MultiButton } from "./MultiButton";
 import { makeCamelCase } from "../../utils/helpers";
 
-export const MarkerRow = ({ control, markerName, options }: MarkerRowProps) => {
+export const MarkerRow = ({
+  control,
+  markerName,
+  label,
+  options,
+}: MarkerRowProps) => {
   return (
     <>
       <Grid item xs={8}>
-        <FormInputNumber
-          name={markerName}
-          control={control}
-          label={markerName}
-        />
+        <FormInputNumber name={markerName} control={control} label={label} />
       </Grid>
       <Grid item xs={4}>
         {options.length === 1 && <UnitCard unit={options[0]} />}

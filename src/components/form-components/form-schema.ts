@@ -33,6 +33,21 @@ export const schema = z.object({
   AST: z.string({ required_error: ERROR_MESSAGES.required }),
   NEUT: z.string({ required_error: ERROR_MESSAGES.required }),
   NeutUnit: z.string(),
+  "examination-date2": z.date({
+    errorMap: (issue, ctx) =>
+      issue.code === z.ZodIssueCode.invalid_date
+        ? { message: ERROR_MESSAGES.required }
+        : { message: ctx.defaultError },
+    coerce: true,
+  }),
+  HGB2: z.string({ required_error: ERROR_MESSAGES.required }),
+  Hgb2Unit: z.string(),
+  WBC2: z.string({ required_error: ERROR_MESSAGES.required }),
+  PLT2: z.string({ required_error: ERROR_MESSAGES.required }),
+  ALT2: z.string({ required_error: ERROR_MESSAGES.required }),
+  AST2: z.string({ required_error: ERROR_MESSAGES.required }),
+  NEUT2: z.string({ required_error: ERROR_MESSAGES.required }),
+  Neut2Unit: z.string(),
 });
 
 export type FormFields = z.infer<typeof schema>;

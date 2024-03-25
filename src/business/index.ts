@@ -32,7 +32,15 @@ export const steps = [
   {
     id: "Step 4",
     name: "Poprzednie badania",
-    fields: [],
+    fields: [
+      "examination-date2",
+      ["HGB2", "Hgb2Unit"],
+      "WBC2",
+      "PLT2",
+      "ALT2",
+      "AST2",
+      ["NEUT2", "NEUT2unit"],
+    ],
   },
 ];
 
