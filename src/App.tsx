@@ -15,6 +15,8 @@ function App() {
       symptoms: [],
       HgbUnit: HgbUnits[0],
       NeutUnit: NeutUnits[0],
+      Hgb2Unit: HgbUnits[0],
+      Neut2Unit: NeutUnits[0],
     },
     resolver: zodResolver(schema),
   });
