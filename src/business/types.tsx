@@ -44,5 +44,6 @@ export type FormInputMultiCheckboxProps = FormInputProps & {
 export type MarkerRowProps = {
   control: Control<FieldValues, any>;
   markerName: string;
+  label: string;
   options: UnitType[];
 };
