@@ -72,50 +72,110 @@ export const measurementPlaceOptions: RadioOptionsType[] = [
 
 export const diseaseOptions: DropdownOptionsType[] = [
   {
-    label: "Choroba nr 1",
-    value: "1",
+    label: "ALL",
+    value: "all",
   },
   {
-    label: "Choroba nr 2",
-    value: "2",
+    label: "AML",
+    value: "aml",
+  },
+  {
+    label: "CML",
+    value: "cml",
+  },
+  {
+    label: "Guzy germinalne",
+    value: "gg",
+  },
+  {
+    label: "Chłoniak Hodgkina",
+    value: "hodgkin",
+  },
+  {
+    label: "Chłoniak Burkitta",
+    value: "burkitt",
+  },
+  {
+    label: "Inne chłoniaki",
+    value: "other-lymphomas",
+  },
+  {
+    label: "Neuroblastoma",
+    value: "neuroblastoma",
+  },
+  {
+    label: "Guz Wilmsa",
+    value: "wilms",
+  },
+  {
+    label: "Mięsaki tkanek miękkich",
+    value: "mtm",
+  },
+  {
+    label: "Guzy OUN",
+    value: "oun",
+  },
+  {
+    label: "MDS",
+    value: "mds",
+  },
+  {
+    label: "HLH",
+    value: "hlh",
   },
 ];
 
 export const hospitalWardOptions: DropdownOptionsType[] = [
   {
-    label: "Odział szpitalny nr 1",
-    value: "1",
+    label: "Oddzial III",
+    value: "o3",
   },
   {
-    label: "Odział szpitalny nr 2",
-    value: "2",
+    label: "Odział V",
+    value: "o5",
+  },
+  {
+    label: "Odział TSK",
+    value: "otsk",
+  },
+  {
+    label: "Oddział Dzienny V/D",
+    value: "odvd",
+  },
+  {
+    label: "Poradnia Onkologiczna",
+    value: "po",
+  },
+  {
+    label: "Poradnia TSK",
+    value: "ptsk",
   },
 ];
 
 export const symptomsOptions: MultiCheckboxOptionsType[] = [
   {
     label: "Dreszcze",
-    value: "1",
+    value: "chills",
   },
   {
     label: "Senność/osłabienie",
-    value: "2",
+    value: "weakness",
   },
   {
     label: "Krwawienia/wybroczyny/zasinienie",
-    value: "3",
+    value: "bleeding",
   },
   {
     label: "Toksyczności śluzkówkowe",
-    value: "4",
+    value: "mucosal-toxicities",
   },
   {
     label: "Nudności lub wymioty",
-    value: "5",
+    value: "nausea",
   },
   {
     label: "Inne",
-    value: "6",
+    value: "others",
   },
 ];
 

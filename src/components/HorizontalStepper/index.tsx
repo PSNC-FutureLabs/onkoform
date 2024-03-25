@@ -103,12 +103,15 @@ export default function HorizontalLinearStepper() {
       </Stepper>
       {activeStep === steps.length ? (
         <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>
-            Wszystkie kroki zostały zakończone.
+          <Typography
+            sx={{ mt: 2, mb: 1 }}
+            variant="h5"
+            style={{ textAlign: "left", paddingLeft: "16x" }}>
+            Twoje wyniki
           </Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Box sx={{ flex: "1 1 auto" }} />
-            <Button onClick={handleReset}>Reset</Button>
+            <Button onClick={handleReset}>Wypełnij ponownie</Button>
           </Box>
         </React.Fragment>
       ) : (
