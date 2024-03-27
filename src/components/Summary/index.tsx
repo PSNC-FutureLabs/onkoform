@@ -10,14 +10,6 @@ export const Summary = () => {
         style={{ textAlign: "left", paddingLeft: "16x", marginTop: "22px" }}>
         Twoje wyniki
       </Typography>
-      <Typography
-        style={{
-          textAlign: "left",
-          paddingLeft: "16x",
-          paddingBottom: "16px",
-        }}>
-        Podstawowe informacje
-      </Typography>
       <BasicInfo />
     </>
   );

@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { BasicInfoCard } from "./BasicInfoCard";
 import { useFormContext } from "react-hook-form";
 import {
@@ -17,14 +17,24 @@ export const BasicInfo = () => {
   const wardValue = getHospitalWardValue(getValues("hospitalWard"));
 
   return (
-    <Grid
-      container
-      spacing={2}
-      style={{ borderBottom: "2px solid #88888877", paddingBottom: "20px" }}>
-      <BasicInfoCard label="Płeć" value={genderValue ?? ""} />
-      <BasicInfoCard label="Wiek" value={ageValue ?? ""} />
-      <BasicInfoCard label="Choroba" value={diseaseValue ?? ""} />
-      <BasicInfoCard label="Oddział" value={wardValue ?? ""} />
-    </Grid>
+    <>
+      <Typography
+        style={{
+          textAlign: "left",
+          paddingLeft: "16x",
+          paddingBottom: "16px",
+        }}>
+        Podstawowe informacje
+      </Typography>
+      <Grid
+        container
+        spacing={2}
+        style={{ borderBottom: "2px solid #88888877", paddingBottom: "20px" }}>
+        <BasicInfoCard label="Płeć" value={genderValue ?? ""} />
+        <BasicInfoCard label="Wiek" value={ageValue ?? ""} />
+        <BasicInfoCard label="Choroba" value={diseaseValue ?? ""} />
+        <BasicInfoCard label="Oddział" value={wardValue ?? ""} />
+      </Grid>
+    </>
   );
 };
