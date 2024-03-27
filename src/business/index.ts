@@ -127,7 +127,7 @@ export const diseaseOptions: DropdownOptionsType[] = [
 
 export const hospitalWardOptions: DropdownOptionsType[] = [
   {
-    label: "Oddzial III",
+    label: "Oddział III",
     value: "o3",
   },
   {

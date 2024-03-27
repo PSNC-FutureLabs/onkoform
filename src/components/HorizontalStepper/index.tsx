@@ -14,9 +14,10 @@ import {
   SubmitHandler,
   useFormContext,
 } from "react-hook-form";
+import { Summary } from "../Summary";
 
 export default function HorizontalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(4);
   const [skipped, setSkipped] = React.useState(new Set<number>());
   const { trigger, handleSubmit } = useFormContext();
 
@@ -103,12 +104,7 @@ export default function HorizontalLinearStepper() {
       </Stepper>
       {activeStep === steps.length ? (
         <React.Fragment>
-          <Typography
-            sx={{ mt: 2, mb: 1 }}
-            variant="h5"
-            style={{ textAlign: "left", paddingLeft: "16x" }}>
-            Twoje wyniki
-          </Typography>
+          <Summary />
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Box sx={{ flex: "1 1 auto" }} />
             <Button onClick={handleReset}>Wypełnij ponownie</Button>
