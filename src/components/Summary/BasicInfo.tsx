@@ -29,7 +29,7 @@ export const BasicInfo = () => {
       <Grid
         container
         spacing={2}
-        style={{ borderBottom: "2px solid #88888877", paddingBottom: "20px" }}>
+        style={{ borderBottom: "2px solid #88888877", paddingBottom: "32px" }}>
         <BasicInfoCard label="Płeć" value={genderValue ?? ""} />
         <BasicInfoCard label="Wiek" value={ageValue ?? ""} />
         <BasicInfoCard label="Choroba" value={diseaseValue ?? ""} />

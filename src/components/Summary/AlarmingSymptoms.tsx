@@ -6,7 +6,7 @@ export const AlarmingSymptoms = () => {
   const { getValues } = useFormContext();
 
   return (
-    <div style={{ padding: "16px 0", borderBottom: "2px solid #88888877" }}>
+    <div className="summary-section">
       <Typography
         style={{
           textAlign: "left",

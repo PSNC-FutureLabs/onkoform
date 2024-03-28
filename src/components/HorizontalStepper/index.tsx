@@ -17,7 +17,7 @@ import {
 import { Summary } from "../Summary";
 
 export default function HorizontalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(4);
+  const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
   const { trigger, handleSubmit } = useFormContext();
 

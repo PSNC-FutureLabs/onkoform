@@ -2,7 +2,7 @@ import { Alert, Typography } from "@mui/material";
 
 export const Result = () => {
   return (
-    <div style={{ padding: "16px 0", borderBottom: "2px solid #88888877" }}>
+    <div className="summary-section">
       <Typography
         style={{
           textAlign: "left",
