@@ -3,9 +3,14 @@ import { Card, Grid, Typography } from "@mui/material";
 type BasicInfoCardProps = {
   label: string;
   value: string | number;
+  optionalText?: string;
 };
 
-export const BasicInfoCard = ({ label, value }: BasicInfoCardProps) => {
+export const BasicInfoCard = ({
+  label,
+  value,
+  optionalText,
+}: BasicInfoCardProps) => {
   return (
     <Grid item xs={6}>
       <Card
@@ -16,6 +21,9 @@ export const BasicInfoCard = ({ label, value }: BasicInfoCardProps) => {
         }}>
         <Typography style={{ color: "#555555de" }}>{label}</Typography>
         <Typography style={{ fontSize: "20px" }}>{value}</Typography>
+        {optionalText ? (
+          <Typography style={{ color: "#555555de" }}>{optionalText}</Typography>
+        ) : null}
       </Card>
     </Grid>
   );
