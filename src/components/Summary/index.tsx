@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import { BasicInfo } from "./BasicInfo";
+import { Result } from "./Result";
 
 export const Summary = () => {
   return (
@@ -11,6 +12,7 @@ export const Summary = () => {
         Twoje wyniki
       </Typography>
       <BasicInfo />
+      <Result />
     </>
   );
 };

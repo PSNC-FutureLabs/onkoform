@@ -17,6 +17,11 @@ body .MuiToggleButton-root {
   text-transform: none;
 }
 
+body .MuiGrid-root.MuiGrid-container {
+  width: 100%;
+  margin-left: 0;
+}
+
 body .MuiGrid-root .MuiGrid-item {
   padding-left: 0;
   display: flex;
