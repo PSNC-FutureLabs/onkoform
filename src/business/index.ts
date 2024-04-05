@@ -14,7 +14,7 @@ export const steps = [
   {
     id: "Step 2",
     name: "Niepokojące objawy",
-    fields: ["temperature", "measurement-place", "symptoms"],
+    fields: ["temperature", "measurement-place", "symptoms", "otherSymptoms"],
   },
   {
     id: "Step 3",
