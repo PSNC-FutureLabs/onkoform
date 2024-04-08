@@ -20,26 +20,32 @@ export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const { trigger, handleSubmit } = useFormContext();
 
-  const handleNext = async () => {
-    // Validate inputs from active step
-    const fields = steps[activeStep].fields;
-    const output = await trigger(fields.flat(), { shouldFocus: true });
-    if (!output) return;
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
   const onSubmit: SubmitHandler<FieldValues> = async (data) =>
     console.log(data);
 
   const onInvalid: SubmitErrorHandler<FieldValues> = (errors) =>
     console.log(errors);
 
-  const handleLast = () => {
+  const validateStep = async () => {
+    const fields = steps[activeStep].fields;
+    const output = await trigger(fields.flat(), { shouldFocus: true });
+    return output;
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleNext = async () => {
+    const isStepValid = await validateStep();
+    if (!isStepValid) return;
+
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleLast = async () => {
+    const isStepValid = await validateStep();
+    if (!isStepValid) return;
     handleSubmit(onSubmit, onInvalid)();
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
