@@ -18,61 +18,36 @@ import { Summary } from "../Summary";
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
-  const [skipped, setSkipped] = React.useState(new Set<number>());
   const { trigger, handleSubmit } = useFormContext();
 
-  const isStepOptional = (step: number) => {
-    // currently no step is optional
-    return step === -10;
-  };
+  const onSubmit: SubmitHandler<FieldValues> = async (data) =>
+    console.log(data);
 
-  const isStepSkipped = (step: number) => {
-    return skipped.has(step);
-  };
+  const onInvalid: SubmitErrorHandler<FieldValues> = (errors) =>
+    console.log(errors);
 
-  const handleNext = async () => {
-    let newSkipped = skipped;
-    if (isStepSkipped(activeStep)) {
-      newSkipped = new Set(newSkipped.values());
-      newSkipped.delete(activeStep);
-    }
-
-    // Validate inputs from active step
+  const validateStep = async () => {
     const fields = steps[activeStep].fields;
     const output = await trigger(fields.flat(), { shouldFocus: true });
-    if (!output) return;
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped(newSkipped);
+    return output;
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) =>
-    console.log(data);
-  const onInvalid: SubmitErrorHandler<FieldValues> = (errors) =>
-    console.log(errors);
+  const handleNext = async () => {
+    const isStepValid = await validateStep();
+    if (!isStepValid) return;
 
-  const handleLast = () => {
-    handleSubmit(onSubmit, onInvalid)();
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
-    }
-
+  const handleLast = async () => {
+    const isStepValid = await validateStep();
+    if (!isStepValid) return;
+    handleSubmit(onSubmit, onInvalid)();
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped((prevSkipped) => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
   };
 
   const handleReset = () => {
@@ -82,22 +57,11 @@ export default function HorizontalLinearStepper() {
   return (
     <Box sx={{ width: "100%" }}>
       <Stepper activeStep={activeStep} alternativeLabel>
-        {steps.map(({ name }, index) => {
+        {steps.map(({ name }) => {
           const stepProps: { completed?: boolean } = {};
-          const labelProps: {
-            optional?: React.ReactNode;
-          } = {};
-          if (isStepOptional(index)) {
-            labelProps.optional = (
-              <Typography variant="caption">Optional</Typography>
-            );
-          }
-          if (isStepSkipped(index)) {
-            stepProps.completed = false;
-          }
           return (
             <Step key={name} {...stepProps}>
-              <StepLabel {...labelProps}>{name}</StepLabel>
+              <StepLabel>{name}</StepLabel>
             </Step>
           );
         })}
@@ -127,11 +91,6 @@ export default function HorizontalLinearStepper() {
               Wróć
             </Button>
             <Box sx={{ flex: "1 1 auto" }} />
-            {isStepOptional(activeStep) && (
-              <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                Pomiń
-              </Button>
-            )}
             {activeStep === steps.length - 1 ? (
               <Button onClick={handleLast} type="button">
                 Zakończ
