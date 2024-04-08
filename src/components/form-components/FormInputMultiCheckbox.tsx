@@ -28,6 +28,9 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
     if (isPresent) {
       const remaining = selectedItems.filter((item) => item !== value);
       setSelectedItems(remaining);
+      if (value == "others") {
+        setValue("otherSymptoms", null);
+      }
     } else {
       setSelectedItems((prevItems) => [...prevItems, value]);
     }
@@ -71,11 +74,13 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
             />
           );
         })}
-        <FormTextArea
-          name="otherSymptoms"
-          control={control}
-          placeholder="Inne symptomy"
-        />
+        {selectedItems.includes("others") ? (
+          <FormTextArea
+            name="otherSymptoms"
+            control={control}
+            placeholder="Inne symptomy"
+          />
+        ) : null}
       </Stack>
     </FormControl>
   );
