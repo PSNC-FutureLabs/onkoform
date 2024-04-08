@@ -12,6 +12,7 @@ import {
   MultiCheckboxOptionsType,
 } from "../../business/types";
 import { symptomsOptions } from "../../business";
+import { FormTextArea } from "./FormTextArea";
 
 export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
   name,
@@ -25,20 +26,19 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
   const handleSelect = (value: string) => {
     const isPresent = selectedItems.indexOf(value) !== -1;
     if (isPresent) {
-      const remaining = selectedItems
-        .filter((item) => item !== value)
-        .toSorted((a, b) => a.localeCompare(b));
+      const remaining = selectedItems.filter((item) => item !== value);
       setSelectedItems(remaining);
+      if (value == "others") {
+        setValue("otherSymptoms", null);
+      }
     } else {
-      setSelectedItems((prevItems) =>
-        [...prevItems, value].sort((a, b) => a.localeCompare(b))
-      );
+      setSelectedItems((prevItems) => [...prevItems, value]);
     }
   };
 
   useEffect(() => {
     setSelectedItems(getValues(name));
-  }, []);
+  }, [getValues, name]);
 
   // we are setting form value manually here
   useEffect(() => {
@@ -74,6 +74,13 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
             />
           );
         })}
+        {selectedItems.includes("others") ? (
+          <FormTextArea
+            name="otherSymptoms"
+            control={control}
+            placeholder="Inne symptomy"
+          />
+        ) : null}
       </Stack>
     </FormControl>
   );

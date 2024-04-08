@@ -26,7 +26,11 @@ export const FormInputDropdown: React.FC<InputDropdownProps> = ({
       <Controller
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <>
-            <Select onChange={onChange} value={value} error={!!error}>
+            <Select
+              onChange={onChange}
+              value={value}
+              error={!!error}
+              label={label}>
               {generateSingleOptions()}
             </Select>
             {error ? <FormWarningText text={error?.message} /> : null}

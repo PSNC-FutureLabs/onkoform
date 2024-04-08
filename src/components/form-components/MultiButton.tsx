@@ -16,6 +16,9 @@ export const MultiButton = ({ options, name }: MultiButtonProps) => {
     _: React.MouseEvent<HTMLElement>,
     newAlignment: UnitType
   ) => {
+    if (!newAlignment) {
+      return;
+    }
     setAlignment(newAlignment);
     setValue(name, newAlignment);
   };
@@ -23,7 +26,7 @@ export const MultiButton = ({ options, name }: MultiButtonProps) => {
   // we need to retrive value from FormContext when user go back to this tab
   useEffect(() => {
     setAlignment(getValues(name));
-  }, []);
+  }, [getValues, name]);
 
   return (
     <Controller
