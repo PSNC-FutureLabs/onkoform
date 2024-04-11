@@ -1,9 +1,4 @@
-import {
-  DropdownOptionsType,
-  MultiCheckboxOptionsType,
-  RadioOptionsType,
-  UnitType,
-} from "./types";
+import { DropdownOptionsType, RadioOptionsType, UnitType } from "./types";
 
 export const steps = [
   {
@@ -152,7 +147,7 @@ export const hospitalWardOptions: DropdownOptionsType[] = [
   },
 ];
 
-export const symptomsOptions: MultiCheckboxOptionsType[] = [
+export const symptomsOptions = [
   {
     label: "Dreszcze",
     value: "chills",
@@ -177,7 +172,7 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
     label: "Inne",
     value: "others",
   },
-];
+] as const;
 
 export const HgbUnits: UnitType[] = ["g/dl", "mmol/l"];
 export const NeutUnits: UnitType[] = ["%", "μl"];

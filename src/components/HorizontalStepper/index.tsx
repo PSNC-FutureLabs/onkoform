@@ -15,13 +15,18 @@ import {
   useFormContext,
 } from "react-hook-form";
 import { Summary } from "../Summary";
+import { ResultType } from "../../business/types";
+import { getExaminationResult } from "../../business/resultService";
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [result, setResult] = React.useState<ResultType>();
   const { trigger, handleSubmit } = useFormContext();
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) =>
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    setResult(getExaminationResult(data));
     console.log(data);
+  };
 
   const onInvalid: SubmitErrorHandler<FieldValues> = (errors) =>
     console.log(errors);
@@ -46,7 +51,7 @@ export default function HorizontalLinearStepper() {
   const handleLast = async () => {
     const isStepValid = await validateStep();
     if (!isStepValid) return;
-    handleSubmit(onSubmit, onInvalid)();
+    await handleSubmit(onSubmit, onInvalid)();
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 

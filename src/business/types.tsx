@@ -4,6 +4,7 @@ import {
   UseFormGetValues,
   UseFormSetValue,
 } from "react-hook-form";
+import { symptomsOptions } from ".";
 
 export type RadioOptionsType = {
   label: string;
@@ -46,4 +47,15 @@ export type MarkerRowProps = {
   markerName: string;
   label: string;
   options: UnitType[];
+};
+
+export type AlarmingSymptoms = (typeof symptomsOptions)[number]["value"][];
+
+export type ResultType = {
+  summary:
+    | "examinationIn3days"
+    | "examinationIn2days"
+    | "urgentConsultation"
+    | "consultation";
+  alarmingSymptoms: AlarmingSymptoms;
 };
