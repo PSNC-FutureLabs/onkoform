@@ -12,10 +12,17 @@ export const FormInputNumber = ({
     <Controller
       name={name}
       control={control}
-      render={({ field: { onChange, value }, fieldState: { error } }) => (
+      render={({
+        field: { onChange, onBlur, ref, value },
+        fieldState: { error },
+      }) => (
         <TextField
           value={value}
-          onChange={onChange}
+          onChange={(e) =>
+            onChange(e.target.value === "" ? "" : Number(e.target.value))
+          }
+          onBlur={onBlur}
+          ref={ref}
           label={label}
           type="number"
           error={!!error}

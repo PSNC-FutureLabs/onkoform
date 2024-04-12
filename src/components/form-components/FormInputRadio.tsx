@@ -31,9 +31,17 @@ export const FormInputRadio: React.FC<InputRadioProps> = ({
       <Controller
         name={name}
         control={control}
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
+        render={({
+          field: { onChange, onBlur, ref, value },
+          fieldState: { error },
+        }) => (
           <>
-            <RadioGroup value={value} onChange={onChange} row>
+            <RadioGroup
+              value={value}
+              onChange={onChange}
+              ref={ref}
+              onBlur={onBlur}
+              row>
               {generateRadioOptions()}
             </RadioGroup>
             {error ? <FormWarningText text={error?.message} /> : null}

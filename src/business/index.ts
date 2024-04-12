@@ -179,5 +179,5 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
   },
 ];
 
-export const HgbUnits: UnitType[] = ["g/dl", "mmol/l"];
-export const NeutUnits: UnitType[] = ["%", "μl"];
+export const HgbUnits = ["g/dl", "mmol/l"] as const;
+export const NeutUnits = ["%", "μl"] as const;

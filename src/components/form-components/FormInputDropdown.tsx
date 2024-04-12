@@ -24,10 +24,15 @@ export const FormInputDropdown: React.FC<InputDropdownProps> = ({
     <FormControl size={"small"}>
       <InputLabel>{label}</InputLabel>
       <Controller
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
+        render={({
+          field: { onChange, onBlur, ref, value },
+          fieldState: { error },
+        }) => (
           <>
             <Select
               onChange={onChange}
+              onBlur={onBlur}
+              ref={ref}
               value={value}
               error={!!error}
               label={label}>
