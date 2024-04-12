@@ -5,7 +5,7 @@ import HorizontalStepper from "./components/HorizontalStepper";
 import { Container } from "@mui/material";
 import { useForm, FormProvider } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-import { FormFields, schema } from "./components/form-components/form-schema";
+import { FormFields, schema } from "./business/form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { HgbUnits, NeutUnits } from "./business";
 
@@ -19,6 +19,8 @@ function App() {
       Neut2Unit: NeutUnits[0],
     },
     resolver: zodResolver(schema),
+    reValidateMode: "onBlur",
+    mode: "onBlur",
   });
 
   return (
