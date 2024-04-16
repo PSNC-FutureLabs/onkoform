@@ -7,16 +7,15 @@ import { useForm, FormProvider } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { FormFields, schema } from "./business/form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { HgbUnits, NeutUnits } from "./business";
 
 function App() {
   const methods = useForm<FormFields>({
     defaultValues: {
       symptoms: [],
-      HgbUnit: HgbUnits[0],
-      NeutUnit: NeutUnits[0],
-      Hgb2Unit: HgbUnits[0],
-      Neut2Unit: NeutUnits[0],
+      HgbUnit: "g/dl",
+      NeutUnit: "%",
+      Hgb2Unit: "g/dl",
+      Neut2Unit: "%",
     },
     resolver: zodResolver(schema),
     reValidateMode: "onBlur",
