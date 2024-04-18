@@ -19,7 +19,7 @@ export const FormInputNumber = ({
         <TextField
           value={value}
           onChange={(e) =>
-            onChange(e.target.value === "" ? "" : Number(e.target.value))
+            onChange(e.target.value === "" ? null : Number(e.target.value))
           }
           onBlur={onBlur}
           ref={ref}

@@ -1,3 +1,4 @@
+import { FormFields } from "./form-schema";
 import {
   DropdownOptionsType,
   MultiCheckboxOptionsType,
@@ -21,12 +22,12 @@ export const steps = [
     name: "Aktualne badania",
     fields: [
       "examination-date",
-      ["HGB", "HgbUnit"],
+      ["HGB.value", "HGB.unit"],
       "WBC",
       "PLT",
       "ALT",
       "AST",
-      ["NEUT", "NEUTunit"],
+      ["NEUT.value", "NEUT.unit"],
     ],
   },
   {
@@ -39,7 +40,7 @@ export const steps = [
       "PLT2",
       "ALT2",
       "AST2",
-      ["NEUT2", "NEUT2unit"],
+      ["NEUT2.value", "NEUT2.unit"],
     ],
   },
 ];
@@ -181,3 +182,33 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 
 export const HgbUnits: UnitType[] = ["g/dl", "mmol/l"];
 export const NeutUnits: UnitType[] = ["%", "μl"];
+
+export const defaultFromValues: Partial<FormFields> = {
+  disease: "",
+  hospitalWard: "",
+  symptoms: [],
+  HGB: {
+    value: 0,
+    unit: "g/dl",
+  },
+  WBC: { value: 0 },
+  PLT: { value: 0 },
+  ALT: { value: 0 },
+  AST: { value: 0 },
+  NEUT: {
+    value: 0,
+    unit: "%",
+  },
+  HGB2: {
+    value: 0,
+    unit: "g/dl",
+  },
+  WBC2: { value: 0 },
+  PLT2: { value: 0 },
+  ALT2: { value: 0 },
+  AST2: { value: 0 },
+  NEUT2: {
+    value: 0,
+    unit: "%",
+  },
+};
