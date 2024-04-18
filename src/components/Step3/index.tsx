@@ -1,7 +1,7 @@
 import { Alert, Grid } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { FormInputDate } from "../form-components/FormInputDate";
-import { HgbUnits } from "../../business";
+import { HgbUnits, NeutUnits } from "../../business";
 import { MarkerRow } from "../form-components/MarkerRow";
 
 export default function Step3() {
@@ -26,7 +26,7 @@ export default function Step3() {
           label="HGB"
           options={HgbUnits}
         />
-        {/* <MarkerRow
+        <MarkerRow
           control={control}
           markerName="WBC"
           label="WBC"
@@ -55,7 +55,7 @@ export default function Step3() {
           markerName="NEUT"
           label="NEUT"
           options={NeutUnits}
-        /> */}
+        />
       </Grid>
     </>
   );
