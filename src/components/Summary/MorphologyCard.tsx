@@ -2,7 +2,6 @@ import { Card, Grid, Typography } from "@mui/material";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { MorphologyCardTile } from "./MorphologyCardTile";
 import { useFormContext } from "react-hook-form";
-import { makeCamelCase } from "../../utils/helpers";
 
 type MorphologyCardProps = {
   markerName: string;
@@ -36,19 +35,19 @@ export const MorphologyCard = ({ markerName }: MorphologyCardProps) => {
           <Grid item xs={4}>
             <MorphologyCardTile
               label="Aktualny"
-              value={getValues(markerName)}
+              value={getValues(`${markerName}.value`)}
             />
           </Grid>
           <Grid item xs={4}>
             <MorphologyCardTile
               label="Poprzedni"
-              value={getValues(`${markerName}2`)}
+              value={getValues(`${markerName}2.value`)}
             />
           </Grid>
           <Grid item xs={4}>
             <MorphologyCardTile
               label="Jednostka"
-              value={getValues(`${makeCamelCase(markerName)}Unit`) ?? "mmol/l"}
+              value={getValues(`${markerName}.unit`) ?? "mmol/l"}
             />
           </Grid>
           <Grid item xs={12}>
