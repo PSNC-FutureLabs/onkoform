@@ -78,7 +78,7 @@ export default function HorizontalLinearStepper() {
         <React.Fragment>
           <Stack spacing={4} mt={4} style={{ minHeight: "50vh" }}>
             <Typography variant="h5">
-              Ostrożnie i dokładnie uzupełnij wszystkie pola
+              Uważnie wypełnij wszystkie pola
             </Typography>
             <ActiveStep activeStep={activeStep} />
           </Stack>

@@ -23,13 +23,13 @@ export default function Step1() {
       <FormInputDropdown
         name="disease"
         control={control}
-        label="Choroba"
+        label="Schorzenie"
         options={diseaseOptions}
       />
       <FormInputDropdown
         name="hospitalWard"
         control={control}
-        label="Wiodący oddział szpitalny"
+        label="Prowadzący oddział szpitalny"
         options={hospitalWardOptions}
       />
     </>
