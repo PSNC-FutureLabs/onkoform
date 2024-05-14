@@ -167,7 +167,7 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
     value: "bleeding",
   },
   {
-    label: "Toksyczności śluzkówkowe",
+    label: "Toksyczności śluzówkowe",
     value: "mucosal-toxicities",
   },
   {
