@@ -1,5 +1,6 @@
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import "dayjs/locale/pl";
 import HorizontalStepper from "./components/HorizontalStepper";
 import { Container } from "@mui/material";
 import { useForm, FormProvider } from "react-hook-form";
@@ -19,7 +20,7 @@ function App() {
 
 	return (
 		<FormProvider {...methods}>
-			<LocalizationProvider dateAdapter={AdapterDayjs}>
+			<LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pl">
 				<Container maxWidth="sm" sx={{ p: 2 }}>
 					<form>
 						<HorizontalStepper />
