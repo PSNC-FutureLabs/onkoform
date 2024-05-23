@@ -16,13 +16,33 @@ const theme = createTheme({
 	typography: {
 		fontFamily: "'Bio Sans', sans-serif",
 		h1: {
-			color: "gray",
+			color: "white",
 			fontSize: "48px",
 			fontWeight: "700",
 		},
+		h2: {
+			color: "white",
+			fontSize: "32px",
+			fontWeight: "700",
+		},
 		h3: {
-			color: "gray",
+			color: "white",
 			fontSize: "20px",
+			fontWeight: "400",
+		},
+		h4: {
+			color: "white",
+			fontSize: "20px",
+			fontWeight: "400",
+		},
+		h5: {
+			color: "white",
+			fontSize: "20px",
+			fontWeight: "400",
+		},
+		h6: {
+			color: "white",
+			fontSize: "16px",
 			fontWeight: "400",
 		},
 	},
@@ -64,7 +84,7 @@ function App() {
 		<ThemeProvider theme={theme}>
 			<FormProvider {...methods}>
 				<LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pl">
-					<Container maxWidth="sm" sx={{ p: 2 }}>
+					<Container maxWidth="lg" sx={{ p: 2 }}>
 						<form>
 							<HorizontalStepper />
 						</form>
