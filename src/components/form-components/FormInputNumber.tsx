@@ -20,7 +20,8 @@ export const FormInputNumber = ({ name, control, label, placeholder }: FormInput
 					inputProps={
 						name === "temperature"
 							? {
-									step: 0.1,
+									inputMode: "decimal",
+									step: 0.1
 							  }
 							: {}
 					}
