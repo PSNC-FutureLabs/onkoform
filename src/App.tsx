@@ -27,7 +27,7 @@ const theme = createTheme({
 		},
 		h3: {
 			color: "white",
-			fontSize: "20px",
+			fontSize: "24px",
 			fontWeight: "400",
 		},
 		h4: {
