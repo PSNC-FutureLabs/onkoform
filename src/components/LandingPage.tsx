@@ -1,10 +1,10 @@
-import { Box, Stack, Button, Typography, Icon } from "@mui/material";
+import { Box, Stack, Button, Typography } from "@mui/material";
 import imageMainBackground from "../../public/images/desktop-main-background.png";
 import imageBoyGirlTeddyBear from "../../public/images/boy-girl-teddybear.svg";
 import imageMomKid from "../../public/images/mom-kid.svg";
 import imageLogo from "../../public/images/logo-mm.svg";
-import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
-import DeviceThermostatIcon from "@mui/icons-material/DeviceThermostat";
+// import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
+// import DeviceThermostatIcon from "@mui/icons-material/DeviceThermostat";
 import SickIcon from "@mui/icons-material/Sick";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
@@ -21,12 +21,14 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 			<Box component="main">
 				<Box
 					sx={{
-						height: "400px",
+						height: "600px",
 						backgroundImage: `url(${imageMainBackground})`,
 						backgroundSize: "cover",
 						backgroundPosition: "center",
 						backgroundRepeat: "no-repeat",
 					}}
+					display="flex"
+					alignItems="center"
 				>
 					<Stack direction="row" alignItems="center">
 						<Box
@@ -39,10 +41,10 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 							alt="chłopiec, dziewczynka, pluszowy miś"
 						/>
 						<Box>
-							<Typography variant="h1" align="center">
+							<Typography variant="h1" align="center" mb={2}>
 								Wyniki badań krwi u dzieci z chorobami nowotworowymi
 							</Typography>
-							<Typography variant="h3" align="center">
+							<Typography variant="h3" align="center" mb={2}>
 								Kliknij “Rozpocznij” i przejdź do szybkiej i prostej analizy wyników badania krwi
 								Twojego dziecka
 							</Typography>
@@ -65,14 +67,14 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				</Box>
 			</Box>
 			<Box component="section">
-				<Stack direction="row" px={6} py={4}>
-					<Box p={4} sx={{ flex: 1 }}>
+				<Stack direction="row" mx={6} my={6}>
+					<Box p={6} sx={{ flex: 1 }}>
 						<Typography variant="h4" color="black">
 							W prosty i intuicyjny sposób zweryfikuj niepokojące objawy i wyniki badań laboratoryjnych
 							Twojego dziecka.
 						</Typography>
 					</Box>
-					<Box p={4} sx={{ flex: 1 }}>
+					<Box p={6} sx={{ flex: 1 }}>
 						<Typography variant="body2">
 							Dowiedz się czy konieczne jest powtórzenie badań lub pilna konsultacja z lekarzem. Jeśli tak
 							- otrzymasz także potrzebny numer telefonu. Zajmie Ci to jedynie około trzech minut.
@@ -82,13 +84,13 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 			</Box>
 			<Box component="section">
 				<Stack sx={{ backgroundColor: grey[100] }} p={1}>
-					<Typography variant="h3" align="center" pt={4} color="black" fontWeight={700}>
+					<Typography variant="h2" align="center" pt={4} color="black" fontWeight={700}>
 						Przygotuj
 					</Typography>
 					<Stack direction="row" p={6}>
 						<Box sx={{ flex: 1 }}>
 							<Stack alignItems="center">
-								<LocalHospitalIcon />
+								<LocalHospitalIcon fontSize="large" />
 								<Typography variant="h6" align="center" p={2} color="black">
 									Dane pacjenta
 								</Typography>
@@ -99,7 +101,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						</Box>
 						<Box sx={{ flex: 1 }}>
 							<Stack alignItems="center">
-								<SickIcon/>
+								<SickIcon fontSize="large" />
 								<Typography variant="h6" align="center" p={2} color="black">
 									Zaobserwowane objawy
 								</Typography>
@@ -110,7 +112,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						</Box>
 						<Box sx={{ flex: 1 }}>
 							<Stack alignItems="center">
-								<QueryStatsIcon/>
+								<QueryStatsIcon fontSize="large" />
 								<Typography variant="h6" align="center" p={2} color="black">
 									Aktualne i poprzednie badania{" "}
 								</Typography>
@@ -130,11 +132,11 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 			<Box component="section">
 				<Stack direction="row" px={6} py={4} justifyContent="space-around">
 					<Box p={4} sx={{ width: "40%" }}>
-						<Typography variant="h4" color="black">
+						<Typography variant="h3" color="black">
 							Tworzymy przestrzeń wsparcia dla{" "}
 							<strong>dzieci z chorobami nowotworowymi i ich opiekunów.</strong>
 						</Typography>
-						<Typography variant="body2">
+						<Typography variant="body2" mt={2}>
 							Dzięki zaangażowaniu doświadczonych lekarzy, programistów i grafików pomagamy lepiej
 							zrozumieć sytuację zdrowotną dziecka oraz podjąć odpowiednie kroki w odpowiednim czasie.
 						</Typography>
@@ -191,10 +193,10 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						alt="mama i dziecko"
 					/>
 					<Box p={4} sx={{ width: "40%" }}>
-						<Typography variant="h4" color="black">
+						<Typography variant="h3" color="black">
 							Kim są Mali Mocni?
 						</Typography>
-						<Typography variant="body2">
+						<Typography variant="body1" mt={3}>
 							Mali Mocni to prawdziwi bohaterowie, wykazujący się niezwykłą odwagą i siłą w obliczu walki
 							z chorobami onkologicznymi.
 						</Typography>
