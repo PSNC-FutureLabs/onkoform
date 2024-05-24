@@ -1,18 +1,14 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import ActiveStep from "../ActiveStep";
-import { Stack } from "@mui/material";
-import { steps } from "../../business";
+import { useState } from "react";
+import { Box, Stack, Stepper, Step, StepLabel, Button, Typography } from "@mui/material";
 import { FieldValues, SubmitErrorHandler, SubmitHandler, useFormContext } from "react-hook-form";
+import LandingPage from "../LandingPage";
+import ActiveStep from "../ActiveStep";
+import { steps } from "../../business";
 import { Summary } from "../Summary";
 
 export default function HorizontalLinearStepper() {
-	const [activeStep, setActiveStep] = React.useState(0);
+	const [isLandingPageActive, setIsLandingPageActive] = useState<boolean>(true);
+	const [activeStep, setActiveStep] = useState(0);
 	const { trigger, handleSubmit } = useFormContext();
 
 	const onSubmit: SubmitHandler<FieldValues> = async (data) => console.log(data);
@@ -23,6 +19,11 @@ export default function HorizontalLinearStepper() {
 		const fields = steps[activeStep].fields;
 		const output = await trigger(fields.flat(), { shouldFocus: true });
 		return output;
+	};
+
+	const handleStart = () => {
+		setIsLandingPageActive(false);
+		handleReset();
 	};
 
 	const handleBack = () => {
@@ -47,8 +48,12 @@ export default function HorizontalLinearStepper() {
 		setActiveStep(0);
 	};
 
+	if (isLandingPageActive) {
+		return <LandingPage onClickStart={handleStart} />;
+	}
+
 	return (
-		<Box sx={{ width: "100%" }}>
+		<Box>
 			<Stepper activeStep={activeStep} alternativeLabel>
 				{steps.map(({ name }) => {
 					const stepProps: { completed?: boolean } = {};
@@ -60,17 +65,19 @@ export default function HorizontalLinearStepper() {
 				})}
 			</Stepper>
 			{activeStep === steps.length ? (
-				<React.Fragment>
+				<>
 					<Summary />
 					<Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
 						<Box sx={{ flex: "1 1 auto" }} />
 						<Button onClick={handleReset}>Wypełnij ponownie</Button>
 					</Box>
-				</React.Fragment>
+				</>
 			) : (
-				<React.Fragment>
+				<>
 					<Stack spacing={4} mt={4} style={{ minHeight: "50vh" }}>
-						<Typography variant="h6" align="center">Uważnie wypełnij wszystkie pola</Typography>
+						<Typography variant="h6" align="center">
+							Uważnie wypełnij wszystkie pola
+						</Typography>
 						<ActiveStep activeStep={activeStep} />
 					</Stack>
 					<Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
@@ -92,7 +99,7 @@ export default function HorizontalLinearStepper() {
 							</Button>
 						)}
 					</Box>
-				</React.Fragment>
+				</>
 			)}
 		</Box>
 	);
