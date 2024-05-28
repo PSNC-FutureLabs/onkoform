@@ -19,55 +19,47 @@ interface LandingPageProps {
 
 export default function LandingPage({ onClickStart }: LandingPageProps) {
 	return (
-		<Grid item xs={12}>
-			<Box component="main">
-				<Box
-					sx={{
-						height: "600px",
-						backgroundImage: `url(${imageDesktopMainBackground})`,
-						backgroundSize: "cover",
-						backgroundPosition: "center",
-						backgroundRepeat: "no-repeat",
-					}}
-					display="flex"
-					alignItems="center"
-				>
-					<Stack direction="row" alignItems="center">
-						<Box
-							component="img"
-							sx={{
-								width: 300,
-								height: 300,
-							}}
-							src={imageBoyGirlTeddyBear}
-							alt="chłopiec, dziewczynka, pluszowy miś"
-						/>
-						<Box>
-							<Typography variant="h1" align="center" mb={2}>
-								Wyniki badań krwi u dzieci z chorobami nowotworowymi
-							</Typography>
-							<Typography variant="h3" align="center" mb={2}>
-								Kliknij “Rozpocznij” i przejdź do szybkiej i prostej analizy wyników badania krwi
-								Twojego dziecka
-							</Typography>
-							<Box display="flex" justifyContent="center" p={2}>
-								<Button variant="contained" onClick={onClickStart}>
-									Rozpocznij
-								</Button>
-							</Box>
-						</Box>
-						<Box
-							component="img"
-							sx={{
-								width: 300,
-								height: 300,
-							}}
-							src={imageMomKid}
-							alt="mama i dziecko"
-						/>
-					</Stack>
+		<>
+			<Grid
+				component="main"
+				item
+				xs={12}
+				sx={{
+					backgroundImage: `url(${imageDesktopMainBackground})`,
+					backgroundSize: "cover",
+					backgroundPosition: "center",
+					backgroundRepeat: "no-repeat",
+				}}
+				direction="column"
+			>
+				<Typography variant="h1" align="center" mb={2}>
+					Wyniki badań krwi u dzieci z chorobami nowotworowymi
+				</Typography>
+				<Typography variant="h3" align="center" mb={2}>
+					Kliknij “Rozpocznij” i przejdź do szybkiej i prostej analizy wyników badania krwi Twojego dziecka
+				</Typography>
+				<Box display="flex" justifyContent="center" mb={2}>
+					<Button variant="contained" onClick={onClickStart}>
+						Rozpocznij
+					</Button>
 				</Box>
-			</Box>
-		</Grid>
+			</Grid>
+			<Grid component="section" item sm={6} xs={12} sx={{ border: "1px solid red" }}>
+				<Box p={6}>
+					<Typography variant="h4" color="black">
+						W prosty i intuicyjny sposób zweryfikuj niepokojące objawy i wyniki badań laboratoryjnych
+						Twojego dziecka.
+					</Typography>
+				</Box>
+			</Grid>
+			<Grid component="section" item sm={6} xs={12} sx={{ border: "1px solid red" }}>
+				<Box p={6}>
+					<Typography variant="body1">
+						Dowiedz się czy konieczne jest powtórzenie badań lub pilna konsultacja z lekarzem. Jeśli tak -
+						otrzymasz także potrzebny numer telefonu. Zajmie Ci to jedynie około trzech minut.
+					</Typography>
+				</Box>
+			</Grid>
+		</>
 	);
 }
