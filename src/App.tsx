@@ -2,15 +2,17 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import "dayjs/locale/pl";
-import HorizontalStepper from "./components/HorizontalStepper";
-import { Container } from "@mui/material";
+// import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
+import Grid from "@mui/material/Grid";
+import { Container, CssBaseline } from "@mui/material";
+import { lightGreen, grey } from "@mui/material/colors";
 import { useForm, FormProvider } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { FormFields, schema } from "./business/form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { defaultFromValues } from "./business";
+import HorizontalStepper from "./components/HorizontalStepper";
 import "./App.css";
-import { lightGreen, grey } from "@mui/material/colors";
 
 const theme = createTheme({
 	typography: {
@@ -48,7 +50,7 @@ const theme = createTheme({
 	},
 	palette: {
 		background: {
-			default: grey[800],
+			default: grey[200],
 		},
 		primary: {
 			main: "#000",
@@ -84,11 +86,12 @@ function App() {
 		<ThemeProvider theme={theme}>
 			<FormProvider {...methods}>
 				<LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pl">
-					<Container maxWidth="lg" sx={{ p: 2 }}>
-						<form>
+					<Container maxWidth="md">
+						<Grid container>
+							<CssBaseline />
 							<HorizontalStepper />
-						</form>
-						<DevTool control={methods.control} />
+							<DevTool control={methods.control} />
+						</Grid>
 					</Container>
 				</LocalizationProvider>
 			</FormProvider>

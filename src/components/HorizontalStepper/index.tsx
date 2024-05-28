@@ -53,54 +53,56 @@ export default function HorizontalLinearStepper() {
 	}
 
 	return (
-		<Box>
-			<Stepper activeStep={activeStep} alternativeLabel>
-				{steps.map(({ name }) => {
-					const stepProps: { completed?: boolean } = {};
-					return (
-						<Step key={name} {...stepProps}>
-							<StepLabel>{name}</StepLabel>
-						</Step>
-					);
-				})}
-			</Stepper>
-			{activeStep === steps.length ? (
-				<>
-					<Summary />
-					<Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-						<Box sx={{ flex: "1 1 auto" }} />
-						<Button onClick={handleReset}>Wypełnij ponownie</Button>
-					</Box>
-				</>
-			) : (
-				<>
-					<Stack spacing={4} mt={4} style={{ minHeight: "50vh" }}>
-						<Typography variant="h6" align="center">
-							Uważnie wypełnij wszystkie pola
-						</Typography>
-						<ActiveStep activeStep={activeStep} />
-					</Stack>
-					<Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-						{activeStep !== 0 ? (
-							<Button color="inherit" onClick={handleBack} sx={{ mr: 1 }}>
-								Wróć
-							</Button>
-						) : (
-							""
-						)}
-						<Box sx={{ flex: "1 1 auto" }} />
-						{activeStep === steps.length - 1 ? (
-							<Button onClick={handleLast} type="button">
-								Zakończ
-							</Button>
-						) : (
-							<Button onClick={handleNext} type="button">
-								Dalej
-							</Button>
-						)}
-					</Box>
-				</>
-			)}
-		</Box>
+		<form>
+			<Box>
+				<Stepper activeStep={activeStep} alternativeLabel>
+					{steps.map(({ name }) => {
+						const stepProps: { completed?: boolean } = {};
+						return (
+							<Step key={name} {...stepProps}>
+								<StepLabel>{name}</StepLabel>
+							</Step>
+						);
+					})}
+				</Stepper>
+				{activeStep === steps.length ? (
+					<>
+						<Summary />
+						<Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+							<Box sx={{ flex: "1 1 auto" }} />
+							<Button onClick={handleReset}>Wypełnij ponownie</Button>
+						</Box>
+					</>
+				) : (
+					<>
+						<Stack spacing={4} mt={4} style={{ minHeight: "50vh" }}>
+							<Typography variant="h6" align="center">
+								Uważnie wypełnij wszystkie pola
+							</Typography>
+							<ActiveStep activeStep={activeStep} />
+						</Stack>
+						<Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+							{activeStep !== 0 ? (
+								<Button color="inherit" onClick={handleBack} sx={{ mr: 1 }}>
+									Wróć
+								</Button>
+							) : (
+								""
+							)}
+							<Box sx={{ flex: "1 1 auto" }} />
+							{activeStep === steps.length - 1 ? (
+								<Button onClick={handleLast} type="button">
+									Zakończ
+								</Button>
+							) : (
+								<Button onClick={handleNext} type="button">
+									Dalej
+								</Button>
+							)}
+						</Box>
+					</>
+				)}
+			</Box>
+		</form>
 	);
 }
