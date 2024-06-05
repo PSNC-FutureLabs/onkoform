@@ -13,7 +13,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { defaultFromValues } from "./business";
 import HorizontalStepper from "./components/HorizontalStepper";
 import "./App.css";
-import LandingPage from "./components/LandingPage";
 
 let theme = createTheme({
 	typography: {
