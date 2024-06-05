@@ -1,4 +1,4 @@
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import "dayjs/locale/pl";
@@ -13,17 +13,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { defaultFromValues } from "./business";
 import HorizontalStepper from "./components/HorizontalStepper";
 import "./App.css";
+import LandingPage from "./components/LandingPage";
 
-const theme = createTheme({
+let theme = createTheme({
 	typography: {
 		fontFamily: "'Bio Sans', sans-serif",
 		h1: {
 			color: "white",
-			fontSize: "48px",
+			fontSize: "44px",
 			fontWeight: "700",
 		},
 		h2: {
-			color: "white",
+			color: "black",
 			fontSize: "32px",
 			fontWeight: "700",
 		},
@@ -50,7 +51,7 @@ const theme = createTheme({
 	},
 	palette: {
 		background: {
-			default: grey[200],
+			default: grey[400],
 		},
 		primary: {
 			main: "#000",
@@ -74,6 +75,8 @@ const theme = createTheme({
 	},
 });
 
+theme = responsiveFontSizes(theme);
+
 function App() {
 	const methods = useForm<FormFields>({
 		defaultValues: defaultFromValues,
@@ -86,11 +89,11 @@ function App() {
 		<ThemeProvider theme={theme}>
 			<FormProvider {...methods}>
 				<LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pl">
-					<Container maxWidth="md">
-						<Grid container spacing={0}>
-							<CssBaseline />
+					<CssBaseline />
+					<Container disableGutters>
+						<Grid container maxWidth="lg">
 							<HorizontalStepper />
-							<DevTool control={methods.control} />
+							{ "" && <DevTool control={methods.control} />}
 						</Grid>
 					</Container>
 				</LocalizationProvider>
