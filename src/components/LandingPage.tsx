@@ -1,6 +1,6 @@
 // import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Grid from "@mui/material/Grid";
-import { Box, Stack, Button, Typography, Link } from "@mui/material";
+import { Box, Stack, Button, Typography } from "@mui/material";
 import imageDesktopMainBackground from "/images/desktop-main-background.png";
 import imageMobileMainBackground from "/images/mobile-main-background.png";
 import imageLogo from "/images/logo-mm.svg";
