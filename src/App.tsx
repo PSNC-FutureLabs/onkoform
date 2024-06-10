@@ -2,7 +2,6 @@ import { ThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/s
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import "dayjs/locale/pl";
-// import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Grid from "@mui/material/Grid";
 import { Container, CssBaseline } from "@mui/material";
 import { lightGreen, grey } from "@mui/material/colors";
@@ -11,7 +10,7 @@ import { DevTool } from "@hookform/devtools";
 import { FormFields, schema } from "./business/form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { defaultFromValues } from "./business";
-import HorizontalStepper from "./components/HorizontalStepper";
+import StepController from "./components/StepController";
 import "./App.css";
 
 let theme = createTheme({
@@ -91,7 +90,7 @@ function App() {
 					<CssBaseline />
 					<Container disableGutters>
 						<Grid container maxWidth="lg">
-							<HorizontalStepper />
+							<StepController />
 							{ "" && <DevTool control={methods.control} />}
 						</Grid>
 					</Container>
