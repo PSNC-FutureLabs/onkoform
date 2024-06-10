@@ -14,6 +14,7 @@ import SickIcon from "@mui/icons-material/Sick";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import { grey } from "@mui/material/colors";
+import Footer from "./Footer";
 
 interface LandingPageProps {
 	onClickStart: () => void;
@@ -341,46 +342,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Button>
 				</Box>
 			</Grid>
-			<Grid item component="footer" xs={12} sx={{ backgroundColor: grey[900] }}>
-				<Stack
-					direction="row"
-					alignContent="space-between"
-					justifyContent="space-between"
-					sx={{ width: "100%" }}
-				>
-					<Box p={1}>
-						<Typography variant="body2" align="center" color="white">
-							&copy; 2024 by{" "}
-							<Link
-								href="https://psnc.pl"
-								target="_blank"
-								rel="noreferrer"
-								color="inherit"
-								underline="hover"
-							>
-								PSNC
-							</Link>
-							. All rights reserved.
-						</Typography>
-					</Box>
-					<Stack direction="row">
-						<Box>
-							<Typography variant="body2" align="center" color="white" p={1}>
-								<Link href="#" color="inherit" underline="hover">
-									Privacy policy
-								</Link>
-							</Typography>
-						</Box>
-						<Box>
-							<Typography variant="body2" align="center" color="white" p={1}>
-								<Link href="#" color="inherit" underline="hover">
-									Terms & Conditions
-								</Link>
-							</Typography>
-						</Box>
-					</Stack>
-				</Stack>
-			</Grid>
+			<Footer />
 		</>
 	);
 }
