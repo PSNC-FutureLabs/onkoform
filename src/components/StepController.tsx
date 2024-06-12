@@ -7,13 +7,86 @@ import imageLogo from "/images/logo-mm.svg";
 import LandingPage from "./LandingPage";
 import Footer from "./Footer";
 import StraightIcon from "@mui/icons-material/Straight";
-import CheckIcon from '@mui/icons-material/Check';
+import CheckIcon from "@mui/icons-material/Check";
 
-type Step = {};
+enum StepStatus {
+	Empty,
+	Active,
+	Completed,
+}
+
+type StepDescription = {
+	name: string;
+	status: StepStatus;
+};
+
+const steps: Array<StepDescription> = [
+	{ name: "Informacje o pacjencie", status: StepStatus.Completed },
+	{ name: "Niepokojące objawy", status: StepStatus.Active },
+	{ name: "Aktualne badania", status: StepStatus.Empty },
+	{ name: "Poprzednie badania", status: StepStatus.Empty },
+];
 
 const stepLandingPage = 0;
 
-const steps = ["Informacje o pacjencie", "Niepokojące objawy", "Aktualne badania", "Poprzednie badania"];
+function Step({ step, stepIndex, stepsCount }: { step: StepDescription; stepIndex: number; stepsCount: number }) {
+	return (
+		<Stack color="white">
+			<Stack direction="row">
+				<Box
+					width={56}
+					height={56}
+					border={step.status === StepStatus.Completed ? "none" : 1}
+					borderRadius="50%"
+					display="flex"
+					alignItems="center"
+					justifyContent="center"
+					position="relative"
+					sx={{
+						background:
+							step.status === StepStatus.Completed
+								? "linear-gradient(225deg, #DC6D24 -2%, #EBCF41 122%)"
+								: "transparent",
+					}}
+				>
+					<Box
+						width={44}
+						height={44}
+						borderRadius="50%"
+						display="flex"
+						alignItems="center"
+						justifyContent="center"
+						position="absolute"
+						sx={{
+							backgroundColor: step.status === StepStatus.Active ? "white" : "transparent",
+						}}
+					>
+						{step.status === StepStatus.Completed ? (
+							<CheckIcon />
+						) : (
+							<Typography variant="h6" color={step.status === StepStatus.Active ? "green" : "inherit"}>
+								{stepIndex}
+							</Typography>
+						)}
+					</Box>
+				</Box>
+				<Box pl={2}>
+					<Typography variant="body2">
+						Krok {stepIndex}/{stepsCount}
+					</Typography>
+					<Typography variant="h5">{step.name}</Typography>
+				</Box>
+			</Stack>
+			{stepIndex < stepsCount ? (
+				<Box width={56} py={2} display="flex" justifyContent="center">
+					<StraightIcon fontSize="large" color="inherit" sx={{ transform: "rotate(180deg)" }} />
+				</Box>
+			) : (
+				""
+			)}
+		</Stack>
+	);
+}
 
 export default function StepController() {
 	const [activeStep, setActiveStep] = useState<number>(stepLandingPage);
@@ -54,58 +127,8 @@ export default function StepController() {
 							mt={2}
 							mb={4}
 						/>
-						{steps.map((step, idx) => (
-							<Stack color="white">
-								<Stack direction="row">
-									<Box
-										width={56}
-										height={56}
-										border={2}
-										borderRadius="50%"
-										display="flex"
-										alignItems="center"
-										justifyContent="center"
-										position="relative"
-									>
-										<Box
-											width={43}
-											height={43}
-											borderRadius="50%"
-											display="flex"
-											alignItems="center"
-											justifyContent="center"
-											position="absolute"
-											sx={{
-												backgroundColor: idx + 1 === activeStep ? "white" : "transparent",
-											}}
-										>
-											<Typography
-												variant="h6"
-												color={idx + 1 === activeStep ? "green" : "inherit"}
-											>
-												{idx + 1}
-											</Typography>
-										</Box>
-									</Box>
-									<Box pl={2}>
-										<Typography variant="body2">
-											Krok {idx + 1}/{steps.length}
-										</Typography>
-										<Typography variant="h5">{step}</Typography>
-									</Box>
-								</Stack>
-								{idx < steps.length - 1 ? (
-									<Box py={2}>
-										<StraightIcon
-											fontSize="large"
-											color="inherit"
-											sx={{ transform: "rotate(180deg)" }}
-										/>
-									</Box>
-								) : (
-									""
-								)}
-							</Stack>
+						{steps.map((item, idx) => (
+							<Step key={idx} step={item} stepIndex={idx + 1} stepsCount={steps.length} />
 						))}
 					</Stack>
 				</Grid>
