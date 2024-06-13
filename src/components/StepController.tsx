@@ -91,6 +91,10 @@ function Step({ step, stepIndex, stepsCount }: { step: StepDescription; stepInde
 export default function StepController() {
 	const [activeStep, setActiveStep] = useState<number>(stepLandingPage);
 
+	const handleLandingPage = () => {
+		setActiveStep(stepLandingPage);
+	};
+
 	const handleStart = () => {
 		setActiveStep(stepLandingPage + 1);
 	};
@@ -123,9 +127,11 @@ export default function StepController() {
 							alt="logo MaliMocni"
 							sx={{
 								height: { xs: 20, sm: 40 },
+								cursor: "pointer"
 							}}
 							mt={2}
 							mb={4}
+							onClick={handleLandingPage}
 						/>
 						{steps.map((item, idx) => (
 							<Step key={idx} step={item} stepIndex={idx + 1} stepsCount={steps.length} />
