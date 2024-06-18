@@ -169,36 +169,36 @@ export default function StepController() {
 					</Stack>
 				</Grid>
 				<Grid item xs={12} sm={8} sx={{ backgroundColor: "white" }}>
-						<Stack
-							height="100%"
-							width="100%"
-							py={{ xs: 2, sm: 6 }}
-							px={{ xs: 2, sm: 16 }}
-							spacing={{ xs: 2, sm: 4 }}
+					<Stack
+						height="100%"
+						width="100%"
+						py={{ xs: 2, sm: 6 }}
+						px={{ xs: 2, sm: 16 }}
+						spacing={{ xs: 2, sm: 4 }}
+					>
+						<Typography variant="h4" color="black" align="left">
+							Uważnie wypełnij wszystkie pola
+						</Typography>
+						<ActiveStep activeStep={activeStep} />
+						<Stack direction="row" justifyContent="space-between">
+							<Button
+								variant="outlined"
+								onClick={activeStep === 0 ? handleGoToLandingPage : handlePrevious}
+								sx={{ width: "25%" }}
 							>
-							<Typography variant="h4" color="black" align="left">
-								Uważnie wypełnij wszystkie pola
-							</Typography>
-							<ActiveStep activeStep={activeStep} />{" "}
-							<Stack direction="row" justifyContent="space-between">
-								<Button
-									variant="outlined"
-									onClick={activeStep === stepFirstId ? handleGoToLandingPage : handlePrevious}
-									sx={{ width: "25%" }}
-								>
-									<NavigateBeforeIcon />
-									{activeStep === stepFirstId ? "Wyjdź" : "Cofnij"}
-								</Button>
-								<Button
-									variant="outlined"
-									onClick={activeStep === stepLastId ? handleGoToSummary : handleNext}
-									sx={{ width: "25%" }}
-								>
-									{activeStep === stepLastId ? "Wyniki" : "Dalej"}
-									<NavigateNextIcon />
-								</Button>
-							</Stack>
+								<NavigateBeforeIcon />
+								{activeStep === 0 ? "Wyjdź" : "Cofnij"}
+							</Button>
+							<Button
+								variant="outlined"
+								onClick={activeStep === steps.length - 1 ? handleGoToSummary : handleNext}
+								sx={{ width: "25%" }}
+							>
+								{activeStep === stepLastId ? "Wyniki" : "Dalej"}
+								<NavigateNextIcon />
+							</Button>
 						</Stack>
+					</Stack>
 				</Grid>
 			</Grid>
 			<Footer />
