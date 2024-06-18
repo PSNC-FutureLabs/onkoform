@@ -11,7 +11,7 @@ export const steps: Array<StepType> = [
 	{
 		id: 1,
 		name: "Informacje o pacjencie",
-		fields: ["birthday", "gender", "disease", "hospitalWard"],
+		fields: ["dateOfBirth", "gender", "disease", "hospitalWard"],
 	},
 	{
 		id: 2,
@@ -63,26 +63,26 @@ export const genderOptions: RadioOptionsType[] = [
 
 export const measurementPlaceOptions: RadioOptionsType[] = [
 	{
-		label: "Czoło",
+		label: "czoło",
 		value: "forehead",
 	},
 	{
-		label: "Pacha",
-		value: "pacha",
+		label: "pacha",
+		value: "armpit",
 	},
 ];
 
 export const diseaseOptions: DropdownOptionsType[] = [
 	{
-		label: "ALL",
+		label: "ALL (ostra białaczka limfoblastyczna)",
 		value: "all",
 	},
 	{
-		label: "AML",
+		label: "AML (ostra białaczka mieloblastyczna/szpikowa)",
 		value: "aml",
 	},
 	{
-		label: "CML",
+		label: "CML (przewlekły nowotwór mieloproliferacyjny)",
 		value: "cml",
 	},
 	{
