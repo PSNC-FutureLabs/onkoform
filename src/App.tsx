@@ -86,15 +86,17 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<FormProvider {...methods}>
-				<LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pl">
-					<CssBaseline />
-					<Container disableGutters>
-						<Grid container maxWidth="lg">
-							<Stepper />
-							{ "" && <DevTool control={methods.control} />}
-						</Grid>
-					</Container>
-				</LocalizationProvider>
+				<form>
+					<LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pl">
+						<CssBaseline />
+						<Container disableGutters>
+							<Grid container maxWidth="lg">
+								<Stepper />
+								{"" && <DevTool control={methods.control} />}
+							</Grid>
+						</Container>
+					</LocalizationProvider>
+				</form>
 			</FormProvider>
 		</ThemeProvider>
 	);
