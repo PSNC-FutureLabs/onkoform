@@ -10,7 +10,7 @@ import { DevTool } from "@hookform/devtools";
 import { FormFields, schema } from "./business/form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { defaultFromValues } from "./business";
-import StepController from "./components/StepController";
+import StepController from "./components/Stepper";
 import "./App.css";
 
 let theme = createTheme({
