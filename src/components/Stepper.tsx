@@ -106,8 +106,11 @@ export default function StepController() {
 		setActiveStep(stepLandingPage);
 	};
 
-	const handleGoToSummary = () => {
-		setActiveStep(steps.length);
+	const handleGoToSummary = async () => {
+		const isStepValid = await validateStep();
+		if (!isStepValid) return;
+		handleSubmit(onSubmit, onInvalid)();
+		setActiveStep((prevActiveStep) => prevActiveStep + 1);
 	};
 
 	const handleStart = () => {
