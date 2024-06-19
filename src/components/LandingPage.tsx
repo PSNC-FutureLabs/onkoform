@@ -14,7 +14,6 @@ import SickIcon from "@mui/icons-material/Sick";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import { grey } from "@mui/material/colors";
-import Footer from "./Footer";
 
 interface LandingPageProps {
 	onClickStart: () => void;
@@ -342,7 +341,6 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Button>
 				</Box>
 			</Grid>
-			<Footer />
 		</>
 	);
 }
