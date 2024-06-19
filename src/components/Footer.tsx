@@ -4,7 +4,7 @@ import { grey } from "@mui/material/colors";
 
 export default function Footer() {
 	return (
-		<Grid item component="footer" xs={12} sx={{ backgroundColor: grey[900] }}>
+		<Grid item component="footer" xs={12} sx={{ backgroundColor: grey[900] }} maxHeight="3rem">
 			<Stack direction="row" alignContent="space-between" justifyContent="space-between" sx={{ width: "100%" }}>
 				<Box p={1}>
 					<Typography variant="body2" align="center" color="white">
