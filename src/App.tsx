@@ -12,6 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { defaultFromValues } from "./business";
 import Stepper from "./components/Stepper";
 import "./App.css";
+import Footer from "./components/Footer";
 
 let theme = createTheme({
 	typography: {
@@ -90,9 +91,10 @@ function App() {
 					<LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pl">
 						<CssBaseline />
 						<Container disableGutters>
-							<Grid container maxWidth="lg">
+							<Grid container minWidth="xs" maxWidth="lg">
 								<Stepper />
 								{"" && <DevTool control={methods.control} />}
+								<Footer />
 							</Grid>
 						</Container>
 					</LocalizationProvider>
