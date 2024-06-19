@@ -5,11 +5,11 @@ import imageDesktopFormSideBackground from "/images/desktop-form-side-background
 import imageMobileFormTopBackground from "/images/mobile-form-top-background.png";
 import imageLogo from "/images/logo-mm.svg";
 import LandingPage from "./LandingPage";
-import Footer from "./Footer";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import CheckIcon from "@mui/icons-material/Check";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import ReplayIcon from "@mui/icons-material/Replay";
 import { StepType, steps } from "../business";
 import ActiveStep from "./ActiveStep";
 import { Summary } from "./Summary";
@@ -19,9 +19,6 @@ const stepLandingPage: number = -1;
 export default function StepController() {
 	const [activeStep, setActiveStep] = useState<number>(stepLandingPage);
 	const { trigger, handleSubmit } = useFormContext();
-
-	const stepFirstId = steps.length > 0 ? steps[0].id : 0;
-	const stepLastId = steps.length > 0 ? steps[steps.length - 1].id : 0;
 
 	const onSubmit: SubmitHandler<FieldValues> = async (data) => console.log(data);
 
@@ -97,7 +94,7 @@ export default function StepController() {
 					</Box>
 				</Stack>
 				{index + 1 < count && (
-					<Box width={56} py={2} display="flex" justifyContent="center">
+					<Box width={56} py={2} justifyContent="center" display={{ xs: "none", sm: "flex" }}>
 						<HorizontalRuleIcon fontSize="large" color="inherit" sx={{ transform: "rotate(90deg)" }} />
 					</Box>
 				)}
@@ -110,7 +107,7 @@ export default function StepController() {
 	};
 
 	const handleGoToSummary = () => {
-		setActiveStep(stepLandingPage);
+		setActiveStep(steps.length);
 	};
 
 	const handleStart = () => {
@@ -133,75 +130,98 @@ export default function StepController() {
 	}
 
 	return (
-		<>
-			<Grid container component="main">
-				<Grid
-					item
-					xs={12}
-					sm={4}
-					sx={{
-						backgroundImage: {
-							xs: `url(${imageMobileFormTopBackground})`,
-							sm: `url(${imageDesktopFormSideBackground})`,
-						},
-						backgroundSize: "cover",
-						backgroundPosition: "top",
-						backgroundRepeat: "no-repeat",
-					}}
-					pb={{ sm: 40 }}
-				>
-					<Stack mb={4}>
-						<Box
-							component="img"
-							src={imageLogo}
-							alt="logo MaliMocni"
-							sx={{
-								height: { xs: 20, sm: 40 },
-								cursor: "pointer",
-							}}
-							mt={2}
-							mb={4}
-							onClick={handleGoToLandingPage}
-						/>
+		<Grid container component="main" minHeight="90vh">
+			<Grid
+				item
+				xs={12}
+				sm={4}
+				sx={{
+					backgroundImage: {
+						xs: `url(${imageMobileFormTopBackground})`,
+						sm: `url(${imageDesktopFormSideBackground})`,
+					},
+					backgroundSize: "cover",
+					backgroundPosition: "top",
+					backgroundRepeat: "no-repeat",
+				}}
+			>
+				<Stack mt={2} mb={{ xs: 0, sm: 4 }} height="100%">
+					<Box
+						component="img"
+						src={imageLogo}
+						alt="logo MaliMocni"
+						sx={{
+							height: { xs: 20, sm: 40 },
+							cursor: "pointer",
+						}}
+						mt={2}
+						mb={4}
+						onClick={handleGoToLandingPage}
+					/>
+					<Box display={{ xs: "none", sm: "block" }}>
 						{steps.map((item, idx) => (
 							<Step key={idx} prefix="Krok " step={item} index={idx} count={steps.length} />
 						))}
-					</Stack>
-				</Grid>
-				<Grid item xs={12} sm={8} sx={{ backgroundColor: "white" }}>
-					<Stack
-						height="100%"
-						width="100%"
-						py={{ xs: 2, sm: 6 }}
-						px={{ xs: 2, sm: 16 }}
-						spacing={{ xs: 2, sm: 4 }}
-					>
-						<Typography variant="h4" color="black" align="left">
-							Uważnie wypełnij wszystkie pola
-						</Typography>
-						<ActiveStep activeStep={activeStep} />
-						<Stack direction="row" justifyContent="space-between">
-							<Button
-								variant="outlined"
-								onClick={activeStep === 0 ? handleGoToLandingPage : handlePrevious}
-								sx={{ width: "25%" }}
-							>
-								<NavigateBeforeIcon />
-								{activeStep === 0 ? "Wyjdź" : "Cofnij"}
-							</Button>
-							<Button
-								variant="outlined"
-								onClick={activeStep === steps.length - 1 ? handleGoToSummary : handleNext}
-								sx={{ width: "25%" }}
-							>
-								{activeStep === stepLastId ? "Wyniki" : "Dalej"}
-								<NavigateNextIcon />
-							</Button>
-						</Stack>
-					</Stack>
-				</Grid>
+					</Box>
+					<Box display={{ xs: "block", sm: "none" }}>
+						{activeStep < steps.length && (
+							<Step
+								key={activeStep}
+								prefix="Krok "
+								step={steps[activeStep]}
+								index={activeStep}
+								count={steps.length}
+							/>
+						)}
+					</Box>
+				</Stack>
 			</Grid>
-			<Footer />
-		</>
+			<Grid item xs={12} sm={8} sx={{ backgroundColor: "white" }}>
+				<Stack
+					height="100%"
+					width="100%"
+					py={{ xs: 2, sm: 6 }}
+					px={{ xs: 2, sm: 16 }}
+					spacing={{ xs: 2, sm: 4 }}
+				>
+					{activeStep < steps.length ? (
+						<>
+							<Typography variant="h4" color="black" align="left">
+								Uważnie wypełnij wszystkie pola
+							</Typography>
+							<ActiveStep activeStep={activeStep} />
+							<Stack direction="row" justifyContent="space-between">
+								<Button
+									variant="outlined"
+									onClick={activeStep === 0 ? handleGoToLandingPage : handlePrevious}
+									sx={{ width: "25%" }}
+								>
+									<NavigateBeforeIcon />
+									{activeStep === 0 ? "Wyjdź" : "Cofnij"}
+								</Button>
+								<Button
+									variant="outlined"
+									onClick={activeStep === steps.length - 1 ? handleGoToSummary : handleNext}
+									sx={{ width: "25%" }}
+								>
+									{activeStep === steps.length - 1 ? "Wyniki" : "Dalej"}
+									<NavigateNextIcon />
+								</Button>
+							</Stack>
+						</>
+					) : (
+						<>
+							<Summary />
+							<Stack direction="row" justifyContent="center">
+								<Button variant="outlined" onClick={handleStart}>
+									<ReplayIcon />
+									&nbsp;Wypełnij ponownie
+								</Button>
+							</Stack>
+						</>
+					)}
+				</Stack>
+			</Grid>
+		</Grid>
 	);
 }
