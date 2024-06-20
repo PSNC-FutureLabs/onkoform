@@ -24,7 +24,7 @@ export const steps: Array<StepType> = [
 	{
 		id: 2,
 		name: "Niepokojące objawy",
-		fields: ["temperature", "measurement-place", "symptoms", "otherSymptoms"],
+		fields: ["temperature", "symptoms", "otherSymptoms"],
 	},
 	{
 		id: 3,
@@ -69,6 +69,7 @@ export const genderOptions: RadioOptionsType[] = [
 	},
 ];
 
+// to be removed if no longer needed
 export const measurementPlaceOptions: RadioOptionsType[] = [
 	{
 		label: "czoło",
@@ -95,15 +96,15 @@ export const diseaseOptions: DropdownOptionsType[] = [
 	},
 	{
 		label: "Guzy germinalne",
-		value: "gg",
+		value: "germ-cell-tumors",
 	},
 	{
 		label: "Chłoniak Hodgkina",
-		value: "hodgkin",
+		value: "hodgkin-lymphoma",
 	},
 	{
 		label: "Chłoniak Burkitta",
-		value: "burkitt",
+		value: "burkitt-lymphoma",
 	},
 	{
 		label: "Inne chłoniaki",
@@ -115,22 +116,22 @@ export const diseaseOptions: DropdownOptionsType[] = [
 	},
 	{
 		label: "Guz Wilmsa",
-		value: "wilms",
+		value: "wilms-tumor",
 	},
 	{
 		label: "Mięsaki tkanek miękkich",
-		value: "mtm",
+		value: "soft-tissue-sarcomas",
 	},
 	{
 		label: "Guzy OUN",
-		value: "oun",
+		value: "central-nervous-systems-tumors",
 	},
 	{
-		label: "MDS",
+		label: "MDS (zespoły mielodysplastyczne)",
 		value: "mds",
 	},
 	{
-		label: "HLH",
+		label: "HLH (limfohistiocytoza hemofagocytowa)",
 		value: "hlh",
 	},
 ];
