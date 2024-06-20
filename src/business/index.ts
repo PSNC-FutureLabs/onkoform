@@ -3,7 +3,7 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 
 export const versionTag = {
 	majorNo: 0,
-	minorNo: 1,
+	minorNo: 2,
 	patchNo: 0,
 	status: "alpha",	
 	date: "2024.06.20",
@@ -24,7 +24,7 @@ export const steps: Array<StepType> = [
 	{
 		id: 2,
 		name: "Niepokojące objawy",
-		fields: ["temperature", "measurement-place", "symptoms", "otherSymptoms"],
+		fields: ["temperature", "symptoms", "otherSymptoms"],
 	},
 	{
 		id: 3,
@@ -69,6 +69,7 @@ export const genderOptions: RadioOptionsType[] = [
 	},
 ];
 
+// to be removed if no longer needed
 export const measurementPlaceOptions: RadioOptionsType[] = [
 	{
 		label: "czoło",
@@ -95,15 +96,15 @@ export const diseaseOptions: DropdownOptionsType[] = [
 	},
 	{
 		label: "Guzy germinalne",
-		value: "gg",
+		value: "germ-cell-tumors",
 	},
 	{
 		label: "Chłoniak Hodgkina",
-		value: "hodgkin",
+		value: "hodgkin-lymphoma",
 	},
 	{
 		label: "Chłoniak Burkitta",
-		value: "burkitt",
+		value: "burkitt-lymphoma",
 	},
 	{
 		label: "Inne chłoniaki",
@@ -115,22 +116,22 @@ export const diseaseOptions: DropdownOptionsType[] = [
 	},
 	{
 		label: "Guz Wilmsa",
-		value: "wilms",
+		value: "wilms-tumor",
 	},
 	{
 		label: "Mięsaki tkanek miękkich",
-		value: "mtm",
+		value: "soft-tissue-sarcomas",
 	},
 	{
 		label: "Guzy OUN",
-		value: "oun",
+		value: "central-nervous-systems-tumors",
 	},
 	{
-		label: "MDS",
+		label: "MDS (zespoły mielodysplastyczne)",
 		value: "mds",
 	},
 	{
-		label: "HLH",
+		label: "HLH (limfohistiocytoza hemofagocytowa)",
 		value: "hlh",
 	},
 ];
@@ -164,28 +165,56 @@ export const hospitalWardOptions: DropdownOptionsType[] = [
 
 export const symptomsOptions: MultiCheckboxOptionsType[] = [
 	{
-		label: "Dreszcze",
+		label: "dreszcze",
 		value: "chills",
 	},
 	{
-		label: "Senność/osłabienie",
-		value: "weakness",
+		label: "senność/osłabienie",
+		value: "drowsiness-weakness",
 	},
 	{
-		label: "Krwawienia/wybroczyny/zasinienie",
-		value: "bleeding",
+		label: "ból głowy",
+		value: "headache",
 	},
 	{
-		label: "Toksyczności śluzówkowe",
+		label: "toksyczności śluzówkowe",
 		value: "mucosal-toxicities",
 	},
 	{
-		label: "Nudności lub wymioty",
-		value: "nausea",
+		label: "utrzymujące się wymioty",
+		value: "vomiting",
 	},
 	{
-		label: "Inne",
-		value: "others",
+		label: "biegunka",
+		value: "biegunka",
+	},
+	{
+		label: "krwawienie",
+		value: "bleeding",
+	},
+	{
+		label: "nowe/świeże wybroczyny",
+		value: "fresh-petechiae",
+	},
+	{
+		label: "sinica lub zasinienie ciała",
+		value: "cyanosis-or-body-bruising",
+	},
+	{
+		label: "nasilone obrzęki obwodowe",
+		value: "severe-peripheral-edema",
+	},
+	{
+		label: "drgawki / brak kontaktu",
+		value: "drg",
+	},
+	{
+		label: "zaburzenia widzenia",
+		value: "vision-disturbances",
+	},
+	{
+		label: "ból / niepokój",
+		value: "pain-anxiety",
 	},
 ];
 
