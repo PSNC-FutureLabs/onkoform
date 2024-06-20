@@ -165,28 +165,56 @@ export const hospitalWardOptions: DropdownOptionsType[] = [
 
 export const symptomsOptions: MultiCheckboxOptionsType[] = [
 	{
-		label: "Dreszcze",
+		label: "dreszcze",
 		value: "chills",
 	},
 	{
-		label: "Senność/osłabienie",
-		value: "weakness",
+		label: "senność/osłabienie",
+		value: "drowsiness-weakness",
 	},
 	{
-		label: "Krwawienia/wybroczyny/zasinienie",
-		value: "bleeding",
+		label: "ból głowy",
+		value: "headache",
 	},
 	{
-		label: "Toksyczności śluzówkowe",
+		label: "toksyczności śluzówkowe",
 		value: "mucosal-toxicities",
 	},
 	{
-		label: "Nudności lub wymioty",
-		value: "nausea",
+		label: "utrzymujące się wymioty",
+		value: "vomiting",
 	},
 	{
-		label: "Inne",
-		value: "others",
+		label: "biegunka",
+		value: "biegunka",
+	},
+	{
+		label: "krwawienie",
+		value: "bleeding",
+	},
+	{
+		label: "nowe/świeże wybroczyny",
+		value: "fresh-petechiae",
+	},
+	{
+		label: "sinica lub zasinienie ciała",
+		value: "cyanosis-or-body-bruising",
+	},
+	{
+		label: "nasilone obrzęki obwodowe",
+		value: "severe-peripheral-edema",
+	},
+	{
+		label: "drgawki / brak kontaktu",
+		value: "drg",
+	},
+	{
+		label: "zaburzenia widzenia",
+		value: "vision-disturbances",
+	},
+	{
+		label: "ból / niepokój",
+		value: "pain-anxiety",
 	},
 ];
 
