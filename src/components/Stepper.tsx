@@ -205,7 +205,7 @@ export default function StepController() {
 								<Button
 									variant="outlined"
 									onClick={activeStep === steps.length - 1 ? handleGoToSummary : handleNext}
-									sx={{ width: "25%" }}
+									sx={{ width: "30%" }}
 								>
 									{activeStep === steps.length - 1 ? "Wyniki" : "Dalej"}
 									<NavigateNextIcon />
