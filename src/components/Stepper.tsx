@@ -179,25 +179,22 @@ export default function StepController() {
 					</Box>
 				</Stack>
 			</Grid>
-			<Grid item xs={12} sm={8} sx={{ backgroundColor: "white" }}>
-				<Stack
-					height="100%"
-					width="100%"
-					py={{ xs: 2, sm: 6 }}
-					px={{ xs: 2, sm: 16 }}
-					spacing={{ xs: 2, sm: 4 }}
-				>
-					{activeStep < steps.length ? (
-						<>
+			<Grid item container xs={12} sm={8} sx={{ backgroundColor: "white" }}>
+				{activeStep < steps.length ? (
+					<>
+						<Grid item py={2}>
 							<Typography variant="h4" color="black" align="left">
 								Uważnie wypełnij wszystkie pola
 							</Typography>
+						</Grid>
+						<Grid item container xs={12}>
 							<ActiveStep activeStep={activeStep} />
-							<Stack direction="row" justifyContent="space-between">
+						</Grid>
+						<Grid item xs={12}>
+							<Stack direction="row" justifyContent="space-between" spacing={4} py={2}>
 								<Button
 									variant="outlined"
 									onClick={activeStep === 0 ? handleGoToLandingPage : handlePrevious}
-									sx={{ width: "25%" }}
 								>
 									<NavigateBeforeIcon />
 									{activeStep === 0 ? "Wyjdź" : "Cofnij"}
@@ -205,25 +202,24 @@ export default function StepController() {
 								<Button
 									variant="outlined"
 									onClick={activeStep === steps.length - 1 ? handleGoToSummary : handleNext}
-									sx={{ width: "30%" }}
 								>
 									{activeStep === steps.length - 1 ? "Wyniki" : "Dalej"}
 									<NavigateNextIcon />
 								</Button>
 							</Stack>
-						</>
-					) : (
-						<>
-							<Summary />
-							<Stack direction="row" justifyContent="center">
-								<Button variant="outlined" onClick={handleStart}>
-									<ReplayIcon />
-									&nbsp;Wypełnij ponownie
-								</Button>
-							</Stack>
-						</>
-					)}
-				</Stack>
+						</Grid>
+					</>
+				) : (
+					<>
+						<Summary />
+						<Stack direction="row" justifyContent="center">
+							<Button variant="outlined" onClick={handleStart}>
+								<ReplayIcon />
+								&nbsp;Wypełnij ponownie
+							</Button>
+						</Stack>
+					</>
+				)}
 			</Grid>
 		</Grid>
 	);
