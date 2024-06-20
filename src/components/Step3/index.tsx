@@ -14,7 +14,7 @@ export default function Step3() {
 				<br />W kolejnym kroku podasz wyniki z poprzedniego badania laboratoryjnego.
 			</Alert>
 			<FormInputDate name="examination-date" control={control} label="Data wykonania badania" />
-			<Grid container spacing={2}>
+			<Grid container spacing={2} justifyContent="flex-start" alignItems="center">
 				<MarkerRow control={control} markerName="HGB" label="HGB" options={HgbUnits} />
 				<MarkerRow control={control} markerName="WBC" label="WBC" options={["mmol/l"]} />
 				<MarkerRow control={control} markerName="PLT" label="PLT" options={["mmol/l"]} />
