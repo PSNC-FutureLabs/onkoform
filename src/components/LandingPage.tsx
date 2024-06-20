@@ -14,6 +14,7 @@ import SickIcon from "@mui/icons-material/Sick";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import { grey } from "@mui/material/colors";
+import { versionTag } from "../business";
 
 interface LandingPageProps {
 	onClickStart: () => void;
@@ -85,6 +86,9 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 								Rozpocznij
 							</Button>
 						</Box>
+						<Typography variant="body2" align="center" mt={2} mb={1} color={grey[800]}>
+							wersja {versionTag.majorNo}.{versionTag.minorNo}.{versionTag.patchNo}-{versionTag.status} ({versionTag.date})
+						</Typography>
 					</Stack>
 				</Grid>
 				<Grid item xs={6} sm={3}>

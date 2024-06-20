@@ -1,6 +1,14 @@
 import { FormFields } from "./form-schema";
 import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitType } from "./types";
 
+export const versionTag = {
+	majorNo: 0,
+	minorNo: 1,
+	patchNo: 0,
+	status: "alpha",	
+	date: "2024.06.20",
+};
+
 export type StepType = {
 	id: number;
 	name: string;
