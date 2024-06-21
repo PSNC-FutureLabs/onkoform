@@ -3,8 +3,8 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 
 export const versionTag = {
 	majorNo: 0,
-	minorNo: 2,
-	patchNo: 2,
+	minorNo: 3,
+	patchNo: 1,
 	status: "alpha",	
 	date: "2024.06.21",
 };
@@ -186,7 +186,7 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 	},
 	{
 		label: "biegunka",
-		value: "biegunka",
+		value: "diarrhea",
 	},
 	{
 		label: "krwawienie",
@@ -206,7 +206,7 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 	},
 	{
 		label: "drgawki / brak kontaktu",
-		value: "drg",
+		value: "seizures-unresponsiveness",
 	},
 	{
 		label: "zaburzenia widzenia",
