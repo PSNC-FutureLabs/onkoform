@@ -3,10 +3,10 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 
 export const versionTag = {
 	majorNo: 0,
-	minorNo: 3,
-	patchNo: 1,
+	minorNo: 4,
+	patchNo: 0,
 	status: "alpha",	
-	date: "2024.06.21",
+	date: "2024.06.22",
 };
 
 export type StepType = {
@@ -142,11 +142,11 @@ export const hospitalWardOptions: DropdownOptionsType[] = [
 		value: "o3",
 	},
 	{
-		label: "Odział V",
+		label: "Oddział V",
 		value: "o5",
 	},
 	{
-		label: "Odział TSK",
+		label: "Oddział TSK",
 		value: "otsk",
 	},
 	{
