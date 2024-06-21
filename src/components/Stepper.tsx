@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { Grid, Box, Stack, Typography, Button } from "@mui/material";
 import { FieldValues, SubmitErrorHandler, SubmitHandler, useFormContext } from "react-hook-form";
-import imageDesktopFormSideBackground from "/images/desktop-form-side-background.png";
-import imageMobileFormTopBackground from "/images/mobile-form-top-background.png";
-import imageLogo from "/images/logo-mm.svg";
-import LandingPage from "./LandingPage";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import CheckIcon from "@mui/icons-material/Check";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import ReplayIcon from "@mui/icons-material/Replay";
-import { StepType, steps } from "../business";
-import ActiveStep from "./ActiveStep";
+import { grey } from "@mui/material/colors";
+import imageDesktopFormSideBackground from "/images/desktop-form-side-background.png";
+import imageMobileFormTopBackground from "/images/mobile-form-top-background.png";
+import imageLogo from "/images/logo-mm.svg";
+import LandingPage from "./LandingPage";
+import { versionTag, StepType, steps } from "../business";
 import { Summary } from "./Summary";
+import ActiveStep from "./ActiveStep";
 
 const stepLandingPage: number = -1;
 
@@ -158,9 +159,15 @@ export default function StepController() {
 							cursor: "pointer",
 						}}
 						mt={2}
-						mb={4}
+						mb={1}
 						onClick={handleGoToLandingPage}
 					/>
+					<Box>
+						<Typography variant="body2" align="center" mt={0} mb={3} color={grey[800]}>
+							wersja {versionTag.majorNo}.{versionTag.minorNo}.{versionTag.patchNo}-{versionTag.status} (
+							{versionTag.date})
+						</Typography>
+					</Box>
 					<Box display={{ xs: "none", sm: "block" }}>
 						{steps.map((item, idx) => (
 							<Step key={idx} prefix="Krok " step={item} index={idx} count={steps.length} />
