@@ -2,7 +2,6 @@ import { Stack, Alert, Typography } from "@mui/material";
 import { OverridableStringUnion } from "@mui/types";
 import { AlertColor, AlertPropsColorOverrides } from "@mui/material";
 import { useFormContext } from "react-hook-form";
-import { symptomsOptions } from "../../business";
 
 enum DiagnoseLevel {
 	Unconclusive,
@@ -63,25 +62,46 @@ const DiagnosesDefinitions: Diagnoses = [
 
 export const Result = () => {
 	const { getValues } = useFormContext();
-	let calculatedDiagnoseLevel: DiagnoseLevel = 0;
+
+	const updateCalculatedDiagnoseLevel = (diagnoseLevel: DiagnoseLevel) =>
+		(calculatedDiagnoseLevel = Math.max(calculatedDiagnoseLevel, diagnoseLevel));
+
+	let calculatedDiagnoseLevel: DiagnoseLevel = DiagnoseLevel.Unconclusive;
 
 	const symptoms = getValues("symptoms");
 
-	// if (symptoms.includes("drowsiness-weakness")) calculatedDiagnoseLevel = DiagnoseLevel.Unconclusive;
-	
-	if (symptoms.includes("vomiting")) calculatedDiagnoseLevel = DiagnoseLevel.Consultation;
-	if (symptoms.includes("diarrhea")) calculatedDiagnoseLevel = DiagnoseLevel.Consultation;
+	const HGB = getValues("HGB").value;
+	const HGB2 = getValues("HGB2").value;
 
-	if (symptoms.includes("chills")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
-	if (symptoms.includes("bleeding")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
-	if (symptoms.includes("fresh-petechiae")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
-	if (symptoms.includes("cyanosis-or-body-bruising")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
-	if (symptoms.includes("severe-peripheral-edema")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
-	if (symptoms.includes("seizures-unresponsiveness")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
-	if (symptoms.includes("vision-disturbances")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
+	const HGBLastValueMgPrc = HGB * 1;
+	const HGBFirstValueMgPrc = HGB2 * 1;
+
+	if (HGBLastValueMgPrc < 8.0) updateCalculatedDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
+	if (HGBLastValueMgPrc >= 8.0 && HGBLastValueMgPrc < 9.0) {
+		if (HGBLastValueMgPrc < HGBFirstValueMgPrc) updateCalculatedDiagnoseLevel(DiagnoseLevel.RepeatTest);
+		else updateCalculatedDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
+	}
+	if (HGBLastValueMgPrc >= 9.0) {
+		if (HGBLastValueMgPrc < HGBFirstValueMgPrc) updateCalculatedDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
+		else updateCalculatedDiagnoseLevel(DiagnoseLevel.NoAction);
+	}
+
+	// if (symptoms.includes("drowsiness-weakness")) calculatedDiagnoseLevel = DiagnoseLevel.Unconclusive;
+
+	if (symptoms.includes("vomiting")) updateCalculatedDiagnoseLevel(DiagnoseLevel.Consultation);
+	if (symptoms.includes("diarrhea")) updateCalculatedDiagnoseLevel(DiagnoseLevel.Consultation);
+
+	if (symptoms.includes("chills")) updateCalculatedDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
+	if (symptoms.includes("bleeding")) updateCalculatedDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
+	if (symptoms.includes("fresh-petechiae")) updateCalculatedDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
+	if (symptoms.includes("cyanosis-or-body-bruising")) updateCalculatedDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
+	if (symptoms.includes("severe-peripheral-edema")) updateCalculatedDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
+	if (symptoms.includes("seizures-unresponsiveness")) updateCalculatedDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
+	if (symptoms.includes("vision-disturbances")) updateCalculatedDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
 
 	const diagnose =
-		DiagnosesDefinitions.find((item) => item.level === calculatedDiagnoseLevel) ?? DiagnosesDefinitions[DiagnoseLevel.Unconclusive];
+		DiagnosesDefinitions.find((item) => item.level === calculatedDiagnoseLevel) ??
+		DiagnosesDefinitions[DiagnoseLevel.Unconclusive];
 
 	return (
 		<Stack>
