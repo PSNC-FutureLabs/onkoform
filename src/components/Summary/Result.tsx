@@ -1,6 +1,8 @@
 import { Stack, Alert, Typography } from "@mui/material";
 import { OverridableStringUnion } from "@mui/types";
 import { AlertColor, AlertPropsColorOverrides } from "@mui/material";
+import { useFormContext } from "react-hook-form";
+import { symptomsOptions } from "../../business";
 
 enum DiagnoseLevel {
 	Unconclusive,
@@ -60,7 +62,23 @@ const DiagnosesDefinitions: Diagnoses = [
 ];
 
 export const Result = () => {
-	const calculatedDiagnoseLevel: DiagnoseLevel = 0;
+	const { getValues } = useFormContext();
+	let calculatedDiagnoseLevel: DiagnoseLevel = 0;
+
+	const symptoms = getValues("symptoms");
+
+	// if (symptoms.includes("drowsiness-weakness")) calculatedDiagnoseLevel = DiagnoseLevel.Unconclusive;
+	
+	if (symptoms.includes("vomiting")) calculatedDiagnoseLevel = DiagnoseLevel.Consultation;
+	if (symptoms.includes("diarrhea")) calculatedDiagnoseLevel = DiagnoseLevel.Consultation;
+
+	if (symptoms.includes("chills")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
+	if (symptoms.includes("bleeding")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
+	if (symptoms.includes("fresh-petechiae")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
+	if (symptoms.includes("cyanosis-or-body-bruising")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
+	if (symptoms.includes("severe-peripheral-edema")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
+	if (symptoms.includes("seizures-unresponsiveness")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
+	if (symptoms.includes("vision-disturbances")) calculatedDiagnoseLevel = DiagnoseLevel.UrgentConsultation;
 
 	const diagnose =
 		DiagnosesDefinitions.find((item) => item.level === calculatedDiagnoseLevel) ?? DiagnosesDefinitions[DiagnoseLevel.Unconclusive];
