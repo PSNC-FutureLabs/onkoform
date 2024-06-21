@@ -1,38 +1,32 @@
 @font-face {
-  font-family: 'Bio Sans';
-  src: url('/fonts/BioSans-Regular.woff2') format('woff2'),
-       url('/fonts/BioSans-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+	font-family: "Bio Sans";
+	src: url("/fonts/BioSans-Regular.woff2") format("woff2"), url("/fonts/BioSans-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
 }
 
 body .warning {
-  color: #d32f2f;
+	color: #d32f2f;
 }
 
 body .MuiToggleButton-root {
-  text-transform: none;
+	text-transform: none;
 }
 
 body .MuiGrid-root .MuiGrid-item {
-  padding-left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	padding-left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .arrow-icon {
-  width: 26px;
-  height: 26px;
-  background-color: #e73b3f;
-  border-radius: 50%;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.summary-section {
-  padding: 32px 0;
-  border-bottom: 2px solid #88888877;
+	width: 26px;
+	height: 26px;
+	background-color: #e73b3f;
+	border-radius: 50%;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
