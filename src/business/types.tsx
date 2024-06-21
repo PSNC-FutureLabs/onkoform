@@ -44,3 +44,17 @@ export type MarkerRowProps = {
 	options: UnitType[];
 };
 
+export type SymptomValues =
+	| "chills"
+	| "drowsiness-weakness"
+	| "headache"
+	| "mucosal-toxicities"
+	| "vomiting"
+	| "diarrhea"
+	| "bleeding"
+	| "fresh-petechiae"
+	| "cyanosis-or-body-bruising"
+	| "severe-peripheral-edema"
+	| "seizures-unresponsiveness"
+	| "vision-disturbances"
+	| "pain-anxiety";
