@@ -186,7 +186,7 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 	},
 	{
 		label: "biegunka",
-		value: "biegunka",
+		value: "diarrhea",
 	},
 	{
 		label: "krwawienie",
@@ -206,7 +206,7 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 	},
 	{
 		label: "drgawki / brak kontaktu",
-		value: "drg",
+		value: "seizures-unresponsiveness",
 	},
 	{
 		label: "zaburzenia widzenia",
