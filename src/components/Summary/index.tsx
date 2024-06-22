@@ -6,7 +6,7 @@ import { Morphology } from "./Morphology";
 
 export const Summary = () => {
 	return (
-		<Stack px={2}>
+		<Stack p={2}>
 			<Result />
 			<Morphology />
 			<BasicInfo />
