@@ -24,7 +24,7 @@ export const steps: Array<StepType> = [
 	{
 		id: 2,
 		name: "Niepokojące objawy",
-		fields: ["temperature", "symptoms", "otherSymptoms"],
+		fields: ["temperature", "symptoms"],
 	},
 	{
 		id: 3,
