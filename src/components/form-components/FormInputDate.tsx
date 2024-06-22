@@ -9,6 +9,7 @@ export const FormInputDate = ({ name, control, label }: FormInputProps) => {
 			control={control}
 			render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => (
 				<DatePicker
+					disableFuture
 					value={value}
 					onChange={onChange}
 					ref={ref}
