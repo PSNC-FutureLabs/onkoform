@@ -1,15 +1,15 @@
 import { Grid, Stack, Typography } from "@mui/material";
-import { BasicInfoCard } from "./BasicInfoCard";
 import { useFormContext } from "react-hook-form";
 import { getDiseaseValue, getGenderValue, getHospitalWardValue, getPolishAgeDescription } from "./helpers";
+import { BasicInfoCard } from "./BasicInfoCard";
 
 export const BasicInfo = () => {
 	const { getValues } = useFormContext();
 
 	const genderValue = getGenderValue(getValues("gender"));
 	const ageDescription = getPolishAgeDescription(new Date(getValues("dateOfBirth")));
-	const diseaseValue = getDiseaseValue(getValues("disease"));
-	const wardValue = getHospitalWardValue(getValues("hospitalWard"));
+	const medicalCondition = getDiseaseValue(getValues("disease"));
+	const hospitalWard = getHospitalWardValue(getValues("hospitalWard"));
 
 	return (
 		<Stack mt={3} pt={2} borderTop={1}>
@@ -19,8 +19,8 @@ export const BasicInfo = () => {
 			<Grid container spacing={2}>
 				<BasicInfoCard label="Płeć" value={genderValue ?? ""} />
 				<BasicInfoCard label="Wiek" value={ageDescription ?? ""} />
-				<BasicInfoCard label="Choroba" value={diseaseValue ?? ""} />
-				<BasicInfoCard label="Oddział" value={wardValue ?? ""} />
+				<BasicInfoCard label="Schorzenie" value={medicalCondition ?? ""} />
+				<BasicInfoCard label="Oddział" value={hospitalWard ?? ""} />
 			</Grid>
 		</Stack>
 	);
