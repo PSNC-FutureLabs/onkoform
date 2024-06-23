@@ -48,7 +48,6 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 							component="img"
 							src={imageLogo}
 							alt="Logo projektu Mali Mocni"
-							display={{ xs: "block", sm: "none" }}
 							mb={2}
 							sx={{
 								height: 40,
@@ -83,10 +82,9 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 							<br />
 							nowotworowymi
 						</Typography>
-						<Typography variant="h3" align="center" mb={4}>
-							Kliknij “Rozpocznij” i przejdź do szybkiej i prostej
-							<br />
-							analizy wyników badania krwi Twojego dziecka
+						<Typography variant="h3" align="center" mb={4} px={{xs:6, sm:0}}>
+							Kliknij “Rozpocznij” i przejdź do szybkiej i prostej analizy wyników badania krwi Twojego
+							dziecka
 						</Typography>
 						<Box display="flex" justifyContent="center" mb={0}>
 							<Button variant="contained" onClick={onClickStart}>
