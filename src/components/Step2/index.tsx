@@ -14,6 +14,7 @@ export default function Step2() {
 					control={control}
 					label="Pomiar temperatury ciała"
 					placeholder="wartość w °C"
+					unit={["°C"]}
 				/>
 				<FormInputMultiCheckbox
 					control={control}

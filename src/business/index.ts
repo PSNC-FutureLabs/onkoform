@@ -4,9 +4,9 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 3,
-	patchNo: 1,
-	status: "alpha",	
-	date: "2024.06.21",
+	patchNo: 2,
+	status: "alpha",
+	date: "2024.06.23",
 };
 
 export type StepType = {
@@ -24,7 +24,7 @@ export const steps: Array<StepType> = [
 	{
 		id: 2,
 		name: "Niepokojące objawy",
-		fields: ["temperature", "symptoms", "otherSymptoms"],
+		fields: ["temperature", "symptoms"],
 	},
 	{
 		id: 3,
@@ -34,9 +34,9 @@ export const steps: Array<StepType> = [
 			["HGB.value", "HGB.unit"],
 			"WBC",
 			"PLT",
+			["NEUT.value", "NEUT.unit"],
 			"ALT",
 			"AST",
-			["NEUT.value", "NEUT.unit"],
 		],
 	},
 	{
@@ -47,9 +47,9 @@ export const steps: Array<StepType> = [
 			["HGB2", "Hgb2Unit"],
 			"WBC2",
 			"PLT2",
+			["NEUT2.value", "NEUT2.unit"],
 			"ALT2",
 			"AST2",
-			["NEUT2.value", "NEUT2.unit"],
 		],
 	},
 ];
@@ -142,11 +142,11 @@ export const hospitalWardOptions: DropdownOptionsType[] = [
 		value: "o3",
 	},
 	{
-		label: "Odział V",
+		label: "Oddział V",
 		value: "o5",
 	},
 	{
-		label: "Odział TSK",
+		label: "Oddział TSK",
 		value: "otsk",
 	},
 	{
@@ -219,6 +219,7 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 ];
 
 export const HgbUnits: UnitType[] = ["g/dl", "mmol/l"];
+export const WBCUnits: UnitType[] = ["K/μl", "tys./μl", "mmol/l"];
 export const NeutUnits: UnitType[] = ["%", "μl"];
 
 export const defaultFromValues: Partial<FormFields> = {

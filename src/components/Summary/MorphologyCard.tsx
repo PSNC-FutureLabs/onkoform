@@ -47,7 +47,7 @@ export const MorphologyCard = ({ markerName }: MorphologyCardProps) => {
 								borderTop: "2px solid #88888877",
 							}}
 						>
-							Wynik ekstremalnie powyżej normy
+							(ocena wyniku - do implementacji)
 						</Typography>
 					</Grid>
 				</Grid>

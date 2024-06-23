@@ -3,7 +3,7 @@ import { FormInputProps } from "../../business/types";
 import { TextField } from "@mui/material";
 import { InputAdornment } from "@mui/material";
 
-export const FormInputNumber = ({ name, control, label, placeholder }: FormInputProps) => {
+export const FormInputNumber = ({ name, control, label, placeholder, unit }: FormInputProps) => {
 	return (
 		<Controller
 			name={name}
@@ -11,18 +11,18 @@ export const FormInputNumber = ({ name, control, label, placeholder }: FormInput
 			render={({ field: { onChange, onBlur, ref, value }, fieldState: { error } }) => (
 				<TextField
 					InputProps={
-						name === "temperature"
+						unit
 							? {
-									endAdornment: <InputAdornment position="end">&deg;C</InputAdornment>,
-							  }
+									endAdornment: <InputAdornment position="end">{unit[0]}</InputAdornment>,
+							}
 							: {}
 					}
 					inputProps={
 						name === "temperature"
 							? {
 									inputMode: "decimal",
-									step: 0.1
-							  }
+									step: 0.1,
+							}
 							: {}
 					}
 					value={value}

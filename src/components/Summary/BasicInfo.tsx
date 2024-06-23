@@ -1,15 +1,15 @@
 import { Grid, Stack, Typography } from "@mui/material";
-import { BasicInfoCard } from "./BasicInfoCard";
 import { useFormContext } from "react-hook-form";
-import { getCurrentAge, getDiseaseValue, getGenderValue, getHospitalWardValue } from "./helpers";
+import { getDiseaseValue, getGenderValue, getHospitalWardValue, getPolishAgeDescription } from "./helpers";
+import { BasicInfoCard } from "./BasicInfoCard";
 
 export const BasicInfo = () => {
 	const { getValues } = useFormContext();
 
 	const genderValue = getGenderValue(getValues("gender"));
-	const age = getCurrentAge(getValues("dateOfBirth"));
-	const diseaseValue = getDiseaseValue(getValues("disease"));
-	const wardValue = getHospitalWardValue(getValues("hospitalWard"));
+	const ageDescription = getPolishAgeDescription(new Date(getValues("dateOfBirth")));
+	const medicalCondition = getDiseaseValue(getValues("disease"));
+	const hospitalWard = getHospitalWardValue(getValues("hospitalWard"));
 
 	return (
 		<Stack mt={3} pt={2} borderTop={1}>
@@ -18,9 +18,9 @@ export const BasicInfo = () => {
 			</Typography>
 			<Grid container spacing={2}>
 				<BasicInfoCard label="Płeć" value={genderValue ?? ""} />
-				<BasicInfoCard label="Wiek" value={age.years + " lat " + age.months + " m-cy"} />
-				<BasicInfoCard label="Choroba" value={diseaseValue ?? ""} />
-				<BasicInfoCard label="Oddział" value={wardValue ?? ""} />
+				<BasicInfoCard label="Wiek" value={ageDescription ?? ""} />
+				<BasicInfoCard label="Schorzenie" value={medicalCondition ?? ""} />
+				<BasicInfoCard label="Oddział" value={hospitalWard ?? ""} />
 			</Grid>
 		</Stack>
 	);
