@@ -18,9 +18,9 @@ export default function Step4() {
 					<MarkerRow control={control} markerName="HGB2" label="HGB" options={HgbUnits} />
 					<MarkerRow control={control} markerName="WBC2" label="WBC" options={["mmol/l"]} />
 					<MarkerRow control={control} markerName="PLT2" label="PLT" options={["mmol/l"]} />
+					<MarkerRow control={control} markerName="NEUT2" label="NEUT" options={NeutUnits} />
 					<MarkerRow control={control} markerName="ALT2" label="ALT" options={["mmol/l"]} />
 					<MarkerRow control={control} markerName="AST2" label="AST" options={["mmol/l"]} />
-					<MarkerRow control={control} markerName="NEUT2" label="NEUT" options={NeutUnits} />
 				</Grid>
 			</Stack>
 		</Grid>

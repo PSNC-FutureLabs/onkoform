@@ -9,9 +9,9 @@ export const Morphology = () => {
 				<MorphologyCard markerName="HGB" />
 				<MorphologyCard markerName="WBC" />
 				<MorphologyCard markerName="PLT" />
+				<MorphologyCard markerName="NEUT" />
 				<MorphologyCard markerName="ALT" />
 				<MorphologyCard markerName="AST" />
-				<MorphologyCard markerName="NEUT" />
 			</Grid>
 		</Stack>
 	);
