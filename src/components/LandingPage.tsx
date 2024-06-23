@@ -3,7 +3,8 @@ import Grid from "@mui/material/Grid";
 import { Box, Stack, Button, Typography, Hidden } from "@mui/material";
 import imageDesktopMainBackground from "/images/desktop-main-background.png";
 import imageMobileMainBackground from "/images/mobile-main-background.png";
-import imageLogo from "/images/logo-mm.svg";
+import imageTextLogo from "/images/logo-mm.svg";
+import imageCrownLogo from "/images/logo-mm-crown.svg";
 import imageBoyGirlTeddyBear from "/images/boy-girl-teddybear.svg";
 import imageMomKid from "/images/mom-kid.svg";
 import imageCoopLogo1 from "/images/coop-logo-1.png";
@@ -46,7 +47,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					<Grid item xs={12}>
 						<Box
 							component="img"
-							src={imageLogo}
+							src={imageTextLogo}
 							alt="Logo projektu Mali Mocni"
 							mb={2}
 							sx={{
@@ -85,7 +86,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 							dziecka
 						</Typography>
 						<Box display="flex" justifyContent="center" mb={0}>
-							<Button variant="contained" onClick={onClickStart}>
+							<Button variant="contained" size="large" onClick={onClickStart}>
 								Rozpocznij
 							</Button>
 						</Box>
@@ -113,8 +114,8 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						color="black"
 						sx={{ textAlign: { xs: "center", sm: "left" } }}
 					>
-						W prosty i intuicyjny sposób zweryfikuj niepokojące objawy i wyniki badań laboratoryjnych
-						Twojego dziecka.
+						W prosty i intuicyjny sposób zweryfikuj <strong>niepokojące</strong> objawy i wyniki badań
+						laboratoryjnych <strong>Twojego dziecka</strong>.
 					</Typography>
 				</Box>
 			</Grid>
@@ -135,10 +136,12 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				<Box py={2} px={4}>
 					<Stack alignItems="center">
 						<LocalHospitalIcon fontSize="large" />
-						<Typography variant="h5" align="center" p={2} color="black">
-							Dane pacjenta
+						<Typography variant="h5" align="center" p={2} color="black" sx={{ textTransform: "uppercase" }}>
+							Dane
+							<br />
+							pacjenta
 						</Typography>
-						<Typography variant="body2" align="center">
+						<Typography variant="body1" align="center">
 							Podstawowe dane, takie jak data urodzenia czy prowadzący oddział szpitalny.
 						</Typography>
 					</Stack>
@@ -148,11 +151,13 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				<Box py={2} px={4}>
 					<Stack alignItems="center">
 						<SickIcon fontSize="large" />
-						<Typography variant="h5" align="center" p={2} color="black">
-							Zaobserwowane objawy
+						<Typography variant="h5" align="center" p={2} color="black" sx={{ textTransform: "uppercase" }}>
+							Zaobserwowane
+							<br />
+							objawy
 						</Typography>
-						<Typography variant="body2" align="center">
-							Temperatura i niepokojące symptomy np. dreszcze, toksyczności śluzówkowe.{" "}
+						<Typography variant="body1" align="center">
+							Temperatura i niepokojące symptomy np. dreszcze, toksyczności śluzówkowe.
 						</Typography>
 					</Stack>
 				</Box>
@@ -161,10 +166,12 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				<Box py={2} px={4}>
 					<Stack alignItems="center">
 						<QueryStatsIcon fontSize="large" />
-						<Typography variant="h5" align="center" p={2} color="black">
-							Aktualne i poprzednie badania{" "}
+						<Typography variant="h5" align="center" p={2} color="black" sx={{ textTransform: "uppercase" }}>
+							Aktualne i poprzednie
+							<br />
+							badania
 						</Typography>
-						<Typography variant="body2" align="center">
+						<Typography variant="body1" align="center">
 							Wyniki badań laboratoryjnych (HGB, WBC, PLT, ALT, AST, NEUT).{" "}
 						</Typography>
 					</Stack>
@@ -172,7 +179,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 			</Grid>
 			<Grid item component="section" xs={12} sx={{ backgroundColor: backgroundColorAlternate }}>
 				<Box display="flex" justifyContent="center" p={6}>
-					<Button variant="contained" onClick={onClickStart}>
+					<Button variant="contained" size="large" onClick={onClickStart}>
 						Przejdź do formularza
 					</Button>
 				</Box>
@@ -188,7 +195,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					<Box sx={{ width: { xs: "60%", sm: "40%" } }} p={2}>
 						<Typography variant="h3" color="black" mb={2}>
 							Tworzymy przestrzeń wsparcia dla{" "}
-							<strong>dzieci z chorobami nowotworowymi i ich opiekunów.</strong>
+							<strong>dzieci z chorobami nowotworowymi</strong> i ich opiekunów.
 						</Typography>
 						<Typography variant="body2">
 							Dzięki zaangażowaniu doświadczonych lekarzy, programistów i grafików pomagamy lepiej
@@ -215,7 +222,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				<Stack p={{ xs: 6, sm: 10 }}>
 					<Box
 						component="img"
-						src={imageLogo}
+						src={imageCrownLogo}
 						alt="logo MaliMocni"
 						mb={4}
 						sx={{
@@ -247,10 +254,10 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						alt="chłopiec, dziewczynka, pluszowy miś"
 					/>
 					<Box sx={{ width: "50%" }}>
-						<Typography variant="h3" color="black">
+						<Typography variant="h2" color="black">
 							Kim są Mali Mocni?
 						</Typography>
-						<Typography variant="body1" mt={3}>
+						<Typography variant="h4" color="black" mt={3}>
 							Mali Mocni to prawdziwi bohaterowie, wykazujący się niezwykłą odwagą i siłą w obliczu walki
 							z chorobami onkologicznymi.
 						</Typography>
@@ -342,7 +349,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				sx={{ backgroundColor: backgroundColorAlternate }}
 			>
 				<Box display="flex" justifyContent="center" p={4}>
-					<Button variant="contained" onClick={onClickStart}>
+					<Button variant="contained" size="large" onClick={onClickStart}>
 						Przejdź do formularza
 					</Button>
 				</Box>
