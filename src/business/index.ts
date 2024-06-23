@@ -3,10 +3,10 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 
 export const versionTag = {
 	majorNo: 0,
-	minorNo: 4,
-	patchNo: 0,
+	minorNo: 3,
+	patchNo: 2,
 	status: "alpha",
-	date: "2024.06.22",
+	date: "2024.06.23",
 };
 
 export type StepType = {
