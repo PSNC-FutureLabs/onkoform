@@ -1,6 +1,6 @@
 // import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Grid from "@mui/material/Grid";
-import { Box, Stack, Button, Typography } from "@mui/material";
+import { Box, Stack, Button, Typography, Hidden } from "@mui/material";
 import imageDesktopMainBackground from "/images/desktop-main-background.png";
 import imageMobileMainBackground from "/images/mobile-main-background.png";
 import imageLogo from "/images/logo-mm.svg";
@@ -38,21 +38,23 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					backgroundPosition: "center",
 					backgroundRepeat: "no-repeat",
 				}}
-				pt={{ xs: 2, sm: 10 }}
-				pb={{ xs: 4, sm: 10 }}
+				pt={{ xs: 2, sm: 0 }}
+				pb={{ xs: 4, sm: 0 }}
 			>
-				<Grid item xs={12}>
-					<Box
-						component="img"
-						src={imageLogo}
-						alt="Logo projektu Mali Mocni"
-						display={{ xs: "block", sm: "none" }}
-						mb={2}
-						sx={{
-							height: 40,
-						}}
-					/>
-				</Grid>
+				<Hidden smUp>
+					<Grid item xs={12}>
+						<Box
+							component="img"
+							src={imageLogo}
+							alt="Logo projektu Mali Mocni"
+							display={{ xs: "block", sm: "none" }}
+							mb={2}
+							sx={{
+								height: 40,
+							}}
+						/>
+					</Grid>
+				</Hidden>
 				<Grid item xs={12} sm={3}>
 					<Box
 						component="img"
@@ -75,11 +77,15 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				<Grid item xs={12} sm={6}>
 					<Stack>
 						<Typography variant="h1" align="center" mt={2} mb={2}>
-							Wyniki badań krwi<br />u dzieci z chorobami<br />nowotworowymi
+							Wyniki badań krwi
+							<br />u dzieci z chorobami
+							<br />
+							nowotworowymi
 						</Typography>
 						<Typography variant="h3" align="center" mb={4}>
-							Kliknij “Rozpocznij” i przejdź do szybkiej i prostej<br />analizy wyników badania krwi Twojego
-							dziecka
+							Kliknij “Rozpocznij” i przejdź do szybkiej i prostej
+							<br />
+							analizy wyników badania krwi Twojego dziecka
 						</Typography>
 						<Box display="flex" justifyContent="center" mb={0}>
 							<Button variant="contained" onClick={onClickStart}>
@@ -87,7 +93,8 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 							</Button>
 						</Box>
 						<Typography variant="body2" align="center" mt={2} mb={1} color={grey[800]}>
-							wersja {versionTag.majorNo}.{versionTag.minorNo}.{versionTag.patchNo}-{versionTag.status} ({versionTag.date})
+							wersja {versionTag.majorNo}.{versionTag.minorNo}.{versionTag.patchNo}-{versionTag.status} (
+							{versionTag.date})
 						</Typography>
 					</Stack>
 				</Grid>
