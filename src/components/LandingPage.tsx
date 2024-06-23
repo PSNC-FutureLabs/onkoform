@@ -75,10 +75,10 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				<Grid item xs={12} sm={6}>
 					<Stack>
 						<Typography variant="h1" align="center" mt={2} mb={2}>
-							Wyniki badań krwi u dzieci z chorobami nowotworowymi
+							Wyniki badań krwi<br />u dzieci z chorobami<br />nowotworowymi
 						</Typography>
 						<Typography variant="h3" align="center" mb={4}>
-							Kliknij “Rozpocznij” i przejdź do szybkiej i prostej analizy wyników badania krwi Twojego
+							Kliknij “Rozpocznij” i przejdź do szybkiej i prostej<br />analizy wyników badania krwi Twojego
 							dziecka
 						</Typography>
 						<Box display="flex" justifyContent="center" mb={0}>
