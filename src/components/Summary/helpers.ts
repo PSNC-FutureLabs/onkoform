@@ -4,8 +4,8 @@ export const getGenderValue = (gender: string) => {
 	return genderOptions.find((opt) => opt.value == gender)?.label;
 };
 
-export const getCurrentAge = (dateOfBirthText: string): { years: number; months: number } => {
-	const dob = new Date(dateOfBirthText);
+export const getCurrentAge = (dateOfBirthTimestamp: number): { years: number; months: number } => {
+	const dob = new Date(dateOfBirthTimestamp);
 	const now = new Date();
 
 	let years = now.getFullYear() - dob.getFullYear();
