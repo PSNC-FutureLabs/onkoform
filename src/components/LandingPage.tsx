@@ -56,23 +56,21 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Grid>
 				</Hidden>
 				<Grid item xs={12} sm={3}>
-					<Box
-						component="img"
-						src={imageBoyGirlTeddyBear}
-						alt="chłopiec, dziewczynka, pluszowy miś"
-						sx={{
-							height: { xs: 200, sm: 300 },
-						}}
-					/>
-					<Box
-						component="img"
-						src={imageMomKid}
-						alt="mama i dziecko"
-						display={{ xs: "block", sm: "none" }}
-						sx={{
-							height: { xs: 200, sm: 300 },
-						}}
-					/>
+					<Stack direction="row">
+						<Box
+							component="img"
+							src={imageBoyGirlTeddyBear}
+							alt="chłopiec, dziewczynka, pluszowy miś"
+							width={{ xs: "50%", sm: "100%" }}
+						/>
+						<Box
+							component="img"
+							src={imageMomKid}
+							alt="mama i dziecko"
+							display={{ xs: "block", sm: "none" }}
+							sx={{ width: "50%" }}
+						/>
+					</Stack>
 				</Grid>
 				<Grid item xs={12} sm={6}>
 					<Stack>
@@ -82,7 +80,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 							<br />
 							nowotworowymi
 						</Typography>
-						<Typography variant="h3" align="center" mb={4} px={{xs:6, sm:0}}>
+						<Typography variant="h3" align="center" mb={4} px={{ xs: 6, sm: 0 }}>
 							Kliknij “Rozpocznij” i przejdź do szybkiej i prostej analizy wyników badania krwi Twojego
 							dziecka
 						</Typography>
@@ -103,9 +101,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						src={imageMomKid}
 						alt="mama i dziecko"
 						display={{ xs: "none", sm: "block" }}
-						sx={{
-							height: { xs: 200, sm: 300 },
-						}}
+						sx={{ width: "100%" }}
 					/>
 				</Grid>
 			</Grid>
