@@ -40,6 +40,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				}}
 				pt={{ xs: 2, sm: 0 }}
 				pb={{ xs: 4, sm: 0 }}
+				height={900}
 			>
 				<Hidden smUp>
 					<Grid item xs={12}>
