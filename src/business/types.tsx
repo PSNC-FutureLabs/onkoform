@@ -16,13 +16,14 @@ export type DropdownOptionsType = {
 	value: string;
 };
 
-export type UnitType = "g/dl" | "mmol/l" | "%" | "μl";
+export type UnitType = "g/dl" | "mmol/l" | "%" | "μl" | "mg/%" | "K/μl" | "tys./μl" | "M/μl" | "U/L";
 
 export type FormInputProps = {
 	name: string;
 	control: Control<FieldValues, any>;
 	label: string;
 	placeholder?: string;
+	unit?: Array<string>
 };
 
 export type InputRadioProps = FormInputProps & {
@@ -58,3 +59,45 @@ export type SymptomValues =
 	| "seizures-unresponsiveness"
 	| "vision-disturbances"
 	| "pain-anxiety";
+
+export type NullableNumber = number | null;
+
+export class MedicalParameter {
+	actualValue: number;
+	referenceValue?: NullableNumber;
+	unit: UnitType;
+
+	constructor(actualValue: number, unit: UnitType, referenceValue?: number) {
+		this.actualValue = actualValue;
+		this.referenceValue = referenceValue ?? null;
+		this.unit = unit;
+	}
+
+	isInRange(): boolean {
+		return false;
+	}
+
+	getActualValue(unit?: UnitType): NullableNumber {
+		return unit === this.unit ? this.actualValue : null;
+	}
+
+	setActualValue(value: number): void {
+		this.actualValue = value;
+	}
+
+	getReferenceValue(): NullableNumber {
+		return this.referenceValue ?? null;
+	}
+
+	setReferenceValue(value: number): void {
+		this.referenceValue = value;
+	}
+
+	getUnit(): UnitType {
+		return this.unit;
+	}
+
+	setUnit(unit: UnitType): void {
+		this.unit = unit;
+	}
+}
