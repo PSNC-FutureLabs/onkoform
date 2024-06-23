@@ -5,7 +5,7 @@ export const versionTag = {
 	majorNo: 0,
 	minorNo: 4,
 	patchNo: 0,
-	status: "alpha",	
+	status: "alpha",
 	date: "2024.06.22",
 };
 
@@ -34,9 +34,9 @@ export const steps: Array<StepType> = [
 			["HGB.value", "HGB.unit"],
 			"WBC",
 			"PLT",
+			["NEUT.value", "NEUT.unit"],
 			"ALT",
 			"AST",
-			["NEUT.value", "NEUT.unit"],
 		],
 	},
 	{
@@ -47,9 +47,9 @@ export const steps: Array<StepType> = [
 			["HGB2", "Hgb2Unit"],
 			"WBC2",
 			"PLT2",
+			["NEUT2.value", "NEUT2.unit"],
 			"ALT2",
 			"AST2",
-			["NEUT2.value", "NEUT2.unit"],
 		],
 	},
 ];
@@ -219,6 +219,7 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 ];
 
 export const HgbUnits: UnitType[] = ["g/dl", "mmol/l"];
+export const WBCUnits: UnitType[] = ["K/μl", "tys./μl", "mmol/l"];
 export const NeutUnits: UnitType[] = ["%", "μl"];
 
 export const defaultFromValues: Partial<FormFields> = {
