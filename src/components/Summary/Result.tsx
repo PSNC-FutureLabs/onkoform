@@ -102,7 +102,7 @@ export const Result = () => {
 	/* HGB */
 
 	const HGBLatestValue = getValues("HGB").value;
-	const HGBPreviousValue = getValues("HGB2").value;
+	const HGBPreviousValue = getValues("HGBPrev").value;
 	const mpHGB: MedicalParameter = new MedicalParameter(HGBLatestValue, "g/dl", HGBPreviousValue);
 
 	const HGBLatestValueMgPrc = mpHGB.getActualValue("mg/%");
@@ -122,7 +122,7 @@ export const Result = () => {
 	/* WBC */
 
 	const WBCLatestValue = getValues("WBC").value;
-	const WBCPreviousValue = getValues("WBC2").value;
+	const WBCPreviousValue = getValues("WBCPrev").value;
 
 	if (WBCLatestValue < 900) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
 	else if (inRange(WBCLatestValue, "[1000, 1500)")) {

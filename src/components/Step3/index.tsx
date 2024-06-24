@@ -1,7 +1,7 @@
 import { Grid, Stack, Alert } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { FormInputDate } from "../form-components/FormInputDate";
-import { HGBUnits, NEUTUnits } from "../../business";
+import { ALTUnits, ASTUnits, HGBUnits, NEUTUnits, PLTUnits, WBCUnits } from "../../business";
 import { MarkerRow } from "../form-components/MarkerRow";
 
 export default function Step3() {
@@ -17,11 +17,11 @@ export default function Step3() {
 				<FormInputDate name="examination-date" control={control} label="Data wykonania badania" />
 				<Grid item container spacing={2} justifyContent="flex-start" alignItems="center">
 					<MarkerRow control={control} markerName="HGB" label="HGB" options={HGBUnits} />
-					<MarkerRow control={control} markerName="WBC" label="WBC" options={["mmol/l"]} />
-					<MarkerRow control={control} markerName="PLT" label="PLT" options={["mmol/l"]} />
+					<MarkerRow control={control} markerName="WBC" label="WBC" options={WBCUnits} />
+					<MarkerRow control={control} markerName="PLT" label="PLT" options={PLTUnits} />
 					<MarkerRow control={control} markerName="NEUT" label="NEUT" options={NEUTUnits} />
-					<MarkerRow control={control} markerName="ALT" label="ALT" options={["mmol/l"]} />
-					<MarkerRow control={control} markerName="AST" label="AST" options={["mmol/l"]} />
+					<MarkerRow control={control} markerName="ALT" label="ALT" options={ALTUnits} />
+					<MarkerRow control={control} markerName="AST" label="AST" options={ASTUnits} />
 				</Grid>
 			</Stack>
 		</Grid>
