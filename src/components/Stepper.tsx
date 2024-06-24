@@ -233,7 +233,7 @@ export default function StepController() {
 				) : (
 					<>
 						<Summary />
-						<Stack direction="row" justifyContent="center">
+						<Stack direction="row" justifyContent="center" mb={4}>
 							<Button variant="outlined" onClick={handleStart}>
 								<ReplayIcon />
 								&nbsp;Wypełnij ponownie
