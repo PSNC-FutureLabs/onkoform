@@ -16,14 +16,27 @@ export type DropdownOptionsType = {
 	value: string;
 };
 
-export type UnitType = "g/dl" | "mmol/l" | "%" | "μl" | "mg/%" | "K/μl" | "tys./μl" | "M/μl" | "U/L";
+export type UnitType =
+	| "%"
+	| "%/μl"
+	| "G/l"
+	| "K/μl"
+	| "M/μl"
+	| "U/L"
+	| "U/l"
+	| "g/dl"
+	| "mg/%"
+	| "mmol/l"
+	| "tys./mm³"
+	| "tys./μl"
+	| "μl";
 
 export type FormInputProps = {
 	name: string;
 	control: Control<FieldValues, any>;
 	label: string;
 	placeholder?: string;
-	unit?: Array<string>
+	unit?: Array<UnitType>;
 };
 
 export type InputRadioProps = FormInputProps & {

@@ -218,9 +218,12 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 	},
 ];
 
-export const HgbUnits: UnitType[] = ["g/dl", "mmol/l"];
-export const WBCUnits: UnitType[] = ["K/μl", "tys./μl", "mmol/l"];
-export const NeutUnits: UnitType[] = ["%", "μl"];
+export const HGBUnits: UnitType[] = ["mg/%", "g/dl"];
+export const WBCUnits: UnitType[] = ["K/μl", "tys./μl"];
+export const PLTUnits: UnitType[] = ["tys./μl", "tys./mm³"];
+export const NEUTUnits: UnitType[] = ["%", "μl"];
+export const ALTUnits: UnitType[] = ["U/l"];
+export const ASTUnits: UnitType[] = ["U/l"];
 
 export const defaultFromValues: Partial<FormFields> = {
 	disease: "",
