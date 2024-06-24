@@ -29,12 +29,12 @@ export const schema = z.object({
 	AST: ASTschema,
 	NEUT: NEUTschema,
 	"examination-date2": dateSchema,
-	HGB2: HGBschema,
-	WBC2: WBCschema,
-	PLT2: PLTschema,
-	ALT2: ALTschema,
-	AST2: ASTschema,
-	NEUT2: NEUTschema,
+	HGBprev: HGBschema,
+	WBCprev: WBCschema,
+	PLTprev: PLTschema,
+	ALTprev: ALTschema,
+	ASTprev: ASTschema,
+	NEUTprev: NEUTschema,
 });
 
 export type FormFields = z.infer<typeof schema>;
