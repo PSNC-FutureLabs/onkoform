@@ -15,12 +15,12 @@ export default function Step4() {
 				</Alert>
 				<FormInputDate name="examination-date2" control={control} label="Data wykonania badania" />
 				<Grid item container spacing={2} justifyContent="flex-start" alignItems="center">
-					<MarkerRow control={control} markerName="HGBPrev" label="HGB" options={HGBUnits} />
-					<MarkerRow control={control} markerName="WBCPrev" label="WBC" options={WBCUnits} />
-					<MarkerRow control={control} markerName="PLTPrev" label="PLT" options={PLTUnits} />
-					<MarkerRow control={control} markerName="NEUTPrev" label="NEUT" options={NEUTUnits} />
-					<MarkerRow control={control} markerName="ALTPrev" label="ALT" options={ALTUnits} />
-					<MarkerRow control={control} markerName="ASTPrev" label="AST" options={ASTUnits} />
+					<MarkerRow control={control} markerName="HGBprev" label="HGB" options={HGBUnits} />
+					<MarkerRow control={control} markerName="WBCprev" label="WBC" options={WBCUnits} />
+					<MarkerRow control={control} markerName="PLTprev" label="PLT" options={PLTUnits} />
+					<MarkerRow control={control} markerName="NEUTprev" label="NEUT" options={NEUTUnits} />
+					<MarkerRow control={control} markerName="ALTprev" label="ALT" options={ALTUnits} />
+					<MarkerRow control={control} markerName="ASTprev" label="AST" options={ASTUnits} />
 				</Grid>
 			</Stack>
 		</Grid>
