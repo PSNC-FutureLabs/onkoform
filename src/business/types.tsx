@@ -18,6 +18,7 @@ export type DropdownOptionsType = {
 
 export type UnitType =
 	| "%"
+	| "°C"
 	| "%/μl"
 	| "G/l"
 	| "K/μl"
