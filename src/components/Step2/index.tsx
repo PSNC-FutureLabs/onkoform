@@ -2,6 +2,7 @@ import { Grid, Stack } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { FormInputNumber } from "../form-components/FormInputNumber";
 import { FormInputMultiCheckbox } from "../form-components/FormInputMultiCheckbox";
+import { TemperatureUnits } from "../../business";
 
 export default function Step2() {
 	const { control, setValue, getValues } = useFormContext();
@@ -14,7 +15,7 @@ export default function Step2() {
 					control={control}
 					label="Pomiar temperatury ciała"
 					placeholder="wartość w °C"
-					unit={["°C"]}
+					unit={TemperatureUnits}
 				/>
 				<FormInputMultiCheckbox
 					control={control}
