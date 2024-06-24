@@ -39,7 +39,7 @@ const DiagnosesDefinitions: Diagnoses = [
 		level: DiagnoseLevel.RepeatTestIn3Days,
 		header: "Powtórz badanie za 3 dni",
 		body: "Zapoznaj się ze szczegółami poniżej",
-		severity: "info",
+		severity: "warning",
 	},
 	{
 		level: DiagnoseLevel.RepeatTestIn2Dazs,
@@ -51,7 +51,7 @@ const DiagnosesDefinitions: Diagnoses = [
 		level: DiagnoseLevel.ConsultationNeeded,
 		header: "Wyniki wymagają pilnej konsultacji z lekarzem.",
 		body: "Zapoznaj się ze szczegółami poniżej",
-		severity: "warning",
+		severity: "error",
 	},
 	{
 		level: DiagnoseLevel.UrgentConsultationNeeded,
