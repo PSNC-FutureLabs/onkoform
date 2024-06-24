@@ -236,21 +236,21 @@ export const defaultFromValues: Partial<FormFields> = {
 	},
 	WBC: { value: 0 },
 	PLT: { value: 0 },
-	ALT: { value: 0 },
-	AST: { value: 0 },
 	NEUT: {
 		value: 0,
 		unit: "%",
 	},
-	HGB2: {
+	ALT: { value: 0 },
+	AST: { value: 0 },
+	HGBprev: {
 		value: 0,
 		unit: "g/dl",
 	},
-	WBC2: { value: 0 },
-	PLT2: { value: 0 },
-	ALT2: { value: 0 },
-	AST2: { value: 0 },
-	NEUT2: {
+	WBCprev: { value: 0 },
+	PLTprev: { value: 0 },
+	ALTprev: { value: 0 },
+	ASTprev: { value: 0 },
+	NEUTprev: {
 		value: 0,
 		unit: "%",
 	},
