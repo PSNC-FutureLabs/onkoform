@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Grid, Box, Stack, Typography, Button } from "@mui/material";
 import { FieldValues, SubmitErrorHandler, SubmitHandler, useFormContext } from "react-hook-form";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
@@ -19,6 +19,7 @@ const stepLandingPage: number = -1;
 
 export default function StepController() {
 	const [activeStep, setActiveStep] = useState<number>(stepLandingPage);
+	const [lastValidatedStep, setLastValidatedStep] = useState<number>(0);
 	const { trigger, handleSubmit } = useFormContext();
 
 	const onSubmit: SubmitHandler<FieldValues> = async (data) => console.log(data);
@@ -30,6 +31,12 @@ export default function StepController() {
 		const output = await trigger(fields.flat(), { shouldFocus: true });
 		return output;
 	};
+	
+	useEffect(() => {
+		if (activeStep > lastValidatedStep) {
+			setLastValidatedStep(activeStep);
+		}
+	}, [activeStep, lastValidatedStep]);
 
 	function Step({
 		prefix,
@@ -170,7 +177,14 @@ export default function StepController() {
 					</Box>
 					<Box display={{ xs: "none", sm: "block" }}>
 						{steps.map((item, idx) => (
-							<Step key={idx} prefix="Krok " step={item} index={idx} count={steps.length} />
+							<Step
+								key={idx}
+								prefix="Krok "
+								step={item}
+								index={idx}
+								count={steps.length}
+								isValidated={idx < lastValidatedStep}
+							/>
 						))}
 					</Box>
 					<Box display={{ xs: "block", sm: "none" }}>
