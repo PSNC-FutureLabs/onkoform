@@ -1,5 +1,4 @@
 import { Card, Grid, Typography } from "@mui/material";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { MorphologyCardTile } from "./MorphologyCardTile";
 import { useFormContext } from "react-hook-form";
 
@@ -26,18 +25,22 @@ export const MorphologyCard = ({ markerName }: MorphologyCardProps) => {
 						<Typography variant="h5" color="black" pl={2}>
 							{markerName}
 						</Typography>
-						<div className="arrow-icon">
-							<ArrowUpwardIcon fontSize="small" />
+						<div>
 						</div>
 					</Grid>
-					<Grid item xs={4}>
-						<MorphologyCardTile label="Aktualny" value={getValues(`${markerName}.value`)} />
+					<Grid item xs={6}>
+						<MorphologyCardTile
+							label="Aktualny"
+							value={getValues(`${markerName}.value`) + " " + (getValues(`${markerName}.unit`) ?? "")}
+						/>
 					</Grid>
-					<Grid item xs={4}>
-						<MorphologyCardTile label="Poprzedni" value={getValues(`${markerName}2.value`)} />
-					</Grid>
-					<Grid item xs={4}>
-						<MorphologyCardTile label="Jednostka" value={getValues(`${markerName}.unit`) ?? "mmol/l"} />
+					<Grid item xs={6}>
+						<MorphologyCardTile
+							label="Poprzedni"
+							value={
+								getValues(`${markerName}prev.value`) + " " + (getValues(`${markerName}prev.unit`) ?? "")
+							}
+						/>
 					</Grid>
 					<Grid item xs={12}>
 						<Typography
