@@ -8,7 +8,7 @@ enum DiagnoseLevel {
 	Unconclusive,
 	OK,
 	RepeatTestIn3Days,
-	RepeatTestIn2Dazs,
+	RepeatTestIn2Days,
 	ConsultationNeeded,
 	UrgentConsultationNeeded,
 }
@@ -42,7 +42,7 @@ const DiagnosesDefinitions: Diagnoses = [
 		severity: "warning",
 	},
 	{
-		level: DiagnoseLevel.RepeatTestIn2Dazs,
+		level: DiagnoseLevel.RepeatTestIn2Days,
 		header: "Powtórz badanie za 2 dni",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "warning",
@@ -111,7 +111,7 @@ export const Result = () => {
 	if (HGBLatestValueMgPrc) {
 		if (HGBLatestValueMgPrc < 8.0) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
 		else if (inRange(HGBLatestValueMgPrc, "[8.0, 9.0)")) {
-			if (HGBLatestValueMgPrc < HGBPreviousValueMgPrc) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn2Dazs);
+			if (HGBLatestValueMgPrc < HGBPreviousValueMgPrc) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn2Days);
 			else updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
 		} else if (HGBLatestValueMgPrc >= 9.0) {
 			if (HGBLatestValueMgPrc < HGBPreviousValueMgPrc) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
@@ -126,10 +126,10 @@ export const Result = () => {
 
 	if (WBCLatestValue < 900) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
 	else if (inRange(WBCLatestValue, "[1000, 1500)")) {
-		if (WBCPreviousValue > WBCLatestValue) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn2Dazs); /* falling */
+		if (WBCPreviousValue > WBCLatestValue) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn2Days); /* falling */
 		else updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days); /* growing */
 	} else if (WBCLatestValue >= 1500) {
-		if (WBCPreviousValue > WBCLatestValue) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn2Dazs);
+		if (WBCPreviousValue > WBCLatestValue) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn2Days);
 		else updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
 	}
 
