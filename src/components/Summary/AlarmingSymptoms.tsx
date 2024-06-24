@@ -19,7 +19,7 @@ export const AlarmingSymptoms = () => {
 			</Typography>
 			<Grid container spacing={2}>
 				<BasicInfoCard label="Temperatura ciała" value={getValues("temperature") + " °C"} />
-				<BasicInfoCard label="Symptomy towarzyszące" value={symptomsText} />
+				<BasicInfoCard label="Symptomy towarzyszące" value={symptomsText.length === 0 ? "brak" : symptomsText} />
 			</Grid>
 		</Stack>
 	);
