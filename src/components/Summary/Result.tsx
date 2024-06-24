@@ -6,11 +6,11 @@ import { MedicalParameter, SymptomValues } from "../../business/types";
 
 enum DiagnoseLevel {
 	Unconclusive,
-	NoAction,
+	OK,
 	RepeatTestIn3Days,
-	RepeatTest,
-	Consultation,
-	UrgentConsultation,
+	RepeatTestIn2Dazs,
+	ConsultationNeeded,
+	UrgentConsultationNeeded,
 }
 
 type Diagnose = {
@@ -30,31 +30,31 @@ const DiagnosesDefinitions: Diagnoses = [
 		severity: "warning",
 	},
 	{
-		level: DiagnoseLevel.NoAction,
-		header: "Wyniki są w poprawne",
-		body: "",
+		level: DiagnoseLevel.OK,
+		header: "Wyniki są w normie",
+		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "success",
 	},
 	{
 		level: DiagnoseLevel.RepeatTestIn3Days,
-		header: "Wyniki wymagają uwagi",
-		body: "Wykonaj ponowne badanie za 3 dni",
+		header: "Powtórz badanie za 3 dni",
+		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "info",
 	},
 	{
-		level: DiagnoseLevel.RepeatTest,
-		header: "Wyniki wymagają uwagi",
-		body: "Wykonaj ponowne badanie w najbliższym terminie",
+		level: DiagnoseLevel.RepeatTestIn2Dazs,
+		header: "Powtórz badanie za 2 dni",
+		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "warning",
 	},
 	{
-		level: DiagnoseLevel.Consultation,
-		header: "Wyniki wymagają uwagi",
-		body: "Skonsultuj się z lekarzem z kliniki",
+		level: DiagnoseLevel.ConsultationNeeded,
+		header: "Wyniki wymagają pilnej konsultacji z lekarzem.",
+		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "warning",
 	},
 	{
-		level: DiagnoseLevel.UrgentConsultation,
+		level: DiagnoseLevel.UrgentConsultationNeeded,
 		header: "Wyniki wymagają pilnej konsultacji z lekarzem.",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "error",
@@ -109,26 +109,27 @@ export const Result = () => {
 	const HGBPreviousValueMgPrc = HGBPreviousValue * 1;
 
 	if (HGBLatestValueMgPrc) {
-		if (HGBLatestValueMgPrc < 8.0) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
+		if (HGBLatestValueMgPrc < 8.0) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
 		else if (inRange(HGBLatestValueMgPrc, "[8.0, 9.0)")) {
-			if (HGBLatestValueMgPrc < HGBPreviousValueMgPrc) updateDiagnoseLevel(DiagnoseLevel.RepeatTest);
+			if (HGBLatestValueMgPrc < HGBPreviousValueMgPrc) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn2Dazs);
 			else updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
 		} else if (HGBLatestValueMgPrc >= 9.0) {
 			if (HGBLatestValueMgPrc < HGBPreviousValueMgPrc) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
-			else updateDiagnoseLevel(DiagnoseLevel.NoAction);
+			else updateDiagnoseLevel(DiagnoseLevel.OK);
 		}
 	}
+
 	/* WBC */
 
 	const WBCLatestValue = getValues("WBC").value;
 	const WBCPreviousValue = getValues("WBC2").value;
 
-	if (WBCLatestValue < 900) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
+	if (WBCLatestValue < 900) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
 	else if (inRange(WBCLatestValue, "[1000, 1500)")) {
-		if (WBCPreviousValue > WBCLatestValue) updateDiagnoseLevel(DiagnoseLevel.RepeatTest); /* falling */
+		if (WBCPreviousValue > WBCLatestValue) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn2Dazs); /* falling */
 		else updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days); /* growing */
 	} else if (WBCLatestValue >= 1500) {
-		if (WBCPreviousValue > WBCLatestValue) updateDiagnoseLevel(DiagnoseLevel.RepeatTest);
+		if (WBCPreviousValue > WBCLatestValue) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn2Dazs);
 		else updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
 	}
 
@@ -136,16 +137,16 @@ export const Result = () => {
 
 	if (hasSymptom(symptoms, "drowsiness-weakness")) updateDiagnoseLevel(DiagnoseLevel.Unconclusive);
 
-	if (hasSymptom(symptoms, "vomiting")) updateDiagnoseLevel(DiagnoseLevel.Consultation);
-	if (hasSymptom(symptoms, "diarrhea")) updateDiagnoseLevel(DiagnoseLevel.Consultation);
+	if (hasSymptom(symptoms, "vomiting")) updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
+	if (hasSymptom(symptoms, "diarrhea")) updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
 
-	if (hasSymptom(symptoms, "chills")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
-	if (hasSymptom(symptoms, "bleeding")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
-	if (hasSymptom(symptoms, "fresh-petechiae")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
-	if (hasSymptom(symptoms, "cyanosis-or-body-bruising")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
-	if (hasSymptom(symptoms, "severe-peripheral-edema")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
-	if (hasSymptom(symptoms, "seizures-unresponsiveness")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
-	if (hasSymptom(symptoms, "vision-disturbances")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultation);
+	if (hasSymptom(symptoms, "chills")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+	if (hasSymptom(symptoms, "bleeding")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+	if (hasSymptom(symptoms, "fresh-petechiae")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+	if (hasSymptom(symptoms, "cyanosis-or-body-bruising")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+	if (hasSymptom(symptoms, "severe-peripheral-edema")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+	if (hasSymptom(symptoms, "seizures-unresponsiveness")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+	if (hasSymptom(symptoms, "vision-disturbances")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
 
 	const diagnose =
 		DiagnosesDefinitions.find((item) => item.level === calculatedDiagnoseLevel) ??
