@@ -93,8 +93,8 @@ function App() {
 				<form>
 					<LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pl">
 						<CssBaseline />
-						<Container disableGutters>
-							<Grid container minWidth="xs" maxWidth="lg">
+						<Container disableGutters maxWidth="xl">
+							<Grid container>
 								<Stepper />
 								{"" && <DevTool control={methods.control} />}
 								<Footer />
