@@ -26,6 +26,7 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 							: {}
 					}
 					value={value}
+					onSubmit={(e)=>e.preventDefault()}
 					onChange={(e) => onChange(e.target.value === "" ? null : Number(e.target.value))}
 					onBlur={onBlur}
 					ref={ref}
