@@ -78,13 +78,20 @@ export type NullableNumber = number | null;
 
 export class MedicalParameter {
 	actualValue: number;
-	referenceValue?: NullableNumber;
 	unit: UnitType;
+	referenceValue?: NullableNumber;
+	referenceUnit?: UnitType;
 
-	constructor(actualValue: number, unit: UnitType, referenceValue?: number) {
+	constructor(actualValue: number, unit: UnitType, referenceValue?: number, referenceUnit?: UnitType) {
 		this.actualValue = actualValue;
-		this.referenceValue = referenceValue ?? null;
 		this.unit = unit;
+		this.referenceValue = referenceValue ?? null;
+		if (referenceUnit) this.referenceUnit = referenceUnit;
+	}
+
+	in(unit: UnitType): NullableNumber {
+		if (this.unit === unit) return this.actualValue;
+		return null;
 	}
 
 	isInRange(): boolean {
