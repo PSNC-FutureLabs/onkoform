@@ -95,7 +95,7 @@ function App() {
 						<CssBaseline />
 						<Container
 							disableGutters
-							maxWidth="xl"
+							maxWidth="lg"
 							sx={{
 								minWidth: {
 									xs: "100%", 
