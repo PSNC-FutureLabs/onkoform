@@ -7,10 +7,10 @@ import imageTextLogo from "/images/logo-mm.svg";
 import imageCrownLogo from "/images/logo-mm-crown.svg";
 import imageBoyGirlTeddyBear from "/images/boy-girl-teddybear.svg";
 import imageMomKid from "/images/mom-kid.svg";
-import imageCoopLogo1 from "/images/coop-logo-1.png";
-import imageCoopLogo2 from "/images/coop-logo-2.png";
-import imageCoopLogo3 from "/images/coop-logo-3.png";
-import imageCoopLogo4 from "/images/coop-logo-4.png";
+import imageCoCreatorLogo1 from "/images/logo-szpital-kliniczny-im-karola-jonschera.svg";
+import imageCoCreatorLogo2 from "/images/logo-fundacja-pomocy-dzieciom-z-chorobami-nowotworowymi.svg";
+import imageCoCreatorLogo3 from "/images/logo-capgemini.svg";
+import imageCoCreatorLogo4 from "/images/logo-psnc-future-labs.svg";
 import SickIcon from "@mui/icons-material/Sick";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
@@ -274,10 +274,10 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					<Stack alignItems="center">
 						<Box
 							component="img"
-							src={imageCoopLogo1}
+							src={imageCoCreatorLogo1}
 							alt="logo 1"
 							sx={{
-								height: { xs: 24, sm: 36 },
+								height: { xs: 95, sm: 95 },
 							}}
 						/>
 						<Typography variant="h6" align="center" p={2} color="black">
@@ -292,10 +292,10 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					<Stack alignItems="center">
 						<Box
 							component="img"
-							src={imageCoopLogo2}
+							src={imageCoCreatorLogo2}
 							alt="logo 2"
 							sx={{
-								height: { xs: 24, sm: 36 },
+								height: { xs: 95, sm: 95 },
 							}}
 						/>
 						<Typography variant="h6" align="center" p={2} color="black">
@@ -310,10 +310,10 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					<Stack alignItems="center">
 						<Box
 							component="img"
-							src={imageCoopLogo3}
+							src={imageCoCreatorLogo3}
 							alt="logo 3"
 							sx={{
-								height: { xs: 24, sm: 36 },
+								height: { xs: 95, sm: 95 },
 							}}
 						/>
 						<Typography variant="h6" align="center" p={2} color="black">
@@ -328,10 +328,10 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					<Stack alignItems="center">
 						<Box
 							component="img"
-							src={imageCoopLogo4}
+							src={imageCoCreatorLogo4}
 							alt="logo 4"
 							sx={{
-								height: { xs: 24, sm: 36 },
+								height: { xs: 95, sm: 95 },
 							}}
 						/>
 						<Typography variant="h6" align="center" p={2} color="black">
