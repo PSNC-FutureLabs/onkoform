@@ -76,6 +76,35 @@ export type SymptomValues =
 
 export type NullableNumber = number | null;
 
+export function inRange(value: NullableNumber, range: string): boolean {
+
+	if (!value) return false;
+
+	const trimmedRange = range.replace(/\s/g, "");
+
+	const isLowerInclusive = trimmedRange.startsWith("[");
+	const isUpperInclusive = trimmedRange.endsWith("]");
+
+	const bounds = trimmedRange.substring(1, trimmedRange.length - 1).split(",");
+
+	const lowerBound = parseFloat(bounds[0]);
+	const upperBound = parseFloat(bounds[1]);
+
+	if (isLowerInclusive) {
+		if (isUpperInclusive) {
+			return value >= lowerBound && value <= upperBound;
+		} else {
+			return value >= lowerBound && value < upperBound;
+		}
+	} else {
+		if (isUpperInclusive) {
+			return value > lowerBound && value <= upperBound;
+		} else {
+			return value > lowerBound && value < upperBound;
+		}
+	}
+}
+
 export class MedicalParameter {
 	actualValue: number;
 	unit: UnitType;
@@ -94,8 +123,12 @@ export class MedicalParameter {
 		return null;
 	}
 
-	isInRange(): boolean {
-		return false;
+	isGrowing():boolean{
+		return this.referenceValue ? this.actualValue > this.referenceValue : false;
+	}
+
+	isDeclining():boolean{
+		return this.referenceValue ? this.actualValue < this.referenceValue : false;
 	}
 
 	getActualValue(unit?: UnitType): NullableNumber {
