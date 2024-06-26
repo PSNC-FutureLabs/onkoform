@@ -25,6 +25,29 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 	const backgroundColor = "white";
 	const backgroundColorAlternate = grey[200];
 
+	interface CoCreatorSubSectionProps {
+		image: string;
+		title: string;
+		body: string;
+	}
+
+	const CoCreatorSubSection: React.FC<CoCreatorSubSectionProps> = ({ image, title, body }) => {
+		return (
+			<Grid item component="section" xs={12} sm={6} lg={3} sx={{ backgroundColor: backgroundColorAlternate }}>
+				<Box>
+					<Stack alignItems="center">
+						<Box height={100} display="flex" alignItems="center">
+							<Box component="img" src={image} alt={"logo " + title} />
+						</Box>
+						<Typography variant="h6" align="center" p={2} color="black">
+							{body}
+						</Typography>
+					</Stack>
+				</Box>
+			</Grid>
+		);
+	};
+
 	return (
 		<>
 			<Grid
@@ -194,8 +217,8 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				>
 					<Box sx={{ width: { xs: "60%", sm: "40%" } }} p={2}>
 						<Typography variant="h3" color="black" mb={2}>
-							Tworzymy przestrzeń wsparcia dla{" "}
-							<strong>dzieci z chorobami nowotworowymi</strong> i ich opiekunów.
+							Tworzymy przestrzeń wsparcia dla <strong>dzieci z chorobami nowotworowymi</strong> i ich
+							opiekunów.
 						</Typography>
 						<Typography variant="body2">
 							Dzięki zaangażowaniu doświadczonych lekarzy, programistów i grafików pomagamy lepiej
@@ -269,78 +292,26 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					Współtwórcy
 				</Typography>
 			</Grid>
-			<Grid item component="section" xs={12} sm={3} sx={{ backgroundColor: backgroundColorAlternate }}>
-				<Box p={{ xs: 1, sm: 2 }}>
-					<Stack alignItems="center">
-						<Box
-							component="img"
-							src={imageCoCreatorLogo1}
-							alt="logo 1"
-							sx={{
-								height: { xs: 95, sm: 95 },
-							}}
-						/>
-						<Typography variant="h6" align="center" p={2} color="black">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut
-							consectetur nesciunt...
-						</Typography>
-					</Stack>
-				</Box>
-			</Grid>
-			<Grid item component="section" xs={12} sm={3} sx={{ backgroundColor: backgroundColorAlternate }}>
-				<Box p={{ xs: 1, sm: 2 }}>
-					<Stack alignItems="center">
-						<Box
-							component="img"
-							src={imageCoCreatorLogo2}
-							alt="logo 2"
-							sx={{
-								height: { xs: 95, sm: 95 },
-							}}
-						/>
-						<Typography variant="h6" align="center" p={2} color="black">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut
-							consectetur nesciunt...
-						</Typography>
-					</Stack>
-				</Box>
-			</Grid>
-			<Grid item component="section" xs={12} sm={3} sx={{ backgroundColor: backgroundColorAlternate }}>
-				<Box p={{ xs: 1, sm: 2 }}>
-					<Stack alignItems="center">
-						<Box
-							component="img"
-							src={imageCoCreatorLogo3}
-							alt="logo 3"
-							sx={{
-								height: { xs: 95, sm: 95 },
-							}}
-						/>
-						<Typography variant="h6" align="center" p={2} color="black">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut
-							consectetur nesciunt...
-						</Typography>
-					</Stack>
-				</Box>
-			</Grid>
-			<Grid item component="section" xs={12} sm={3} sx={{ backgroundColor: backgroundColorAlternate }}>
-				<Box p={{ xs: 1, sm: 2 }}>
-					<Stack alignItems="center">
-						<Box
-							component="img"
-							src={imageCoCreatorLogo4}
-							alt="logo 4"
-							sx={{
-								height: { xs: 95, sm: 95 },
-							}}
-						/>
-						<Typography variant="h6" align="center" p={2} color="black">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut
-							consectetur nesciunt...
-						</Typography>
-					</Stack>
-				</Box>
-			</Grid>
+			<CoCreatorSubSection
+				image={imageCoCreatorLogo1}
+				title="Szpital"
+				body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut consectetur nesciunt..."
+			/>
+			<CoCreatorSubSection
+				image={imageCoCreatorLogo2}
+				title="Fundacja"
+				body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut consectetur nesciunt..."
+			/>
+			<CoCreatorSubSection
+				image={imageCoCreatorLogo3}
+				title="Software House"
+				body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut consectetur nesciunt..."
+			/>
+			<CoCreatorSubSection
+				image={imageCoCreatorLogo4}
+				title="Koordynacja"
+				body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut consectetur nesciunt..."
+			/>
 			<Grid
 				item
 				component="section"
