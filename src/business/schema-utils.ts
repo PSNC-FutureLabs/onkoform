@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const ERROR_MESSAGES = {
-	required: "Pole jest wymagane",
+	required: "Wartość jest wymagana",
 };
 
 const valueSchema = z

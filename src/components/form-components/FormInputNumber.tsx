@@ -17,16 +17,12 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 							}
 							: {}
 					}
-					inputProps={
-						name === "temperature"
-							? {
-									inputMode: "decimal",
-									step: 0.1,
-							}
-							: {}
-					}
+					inputProps={{
+						inputMode: "decimal",
+						step: 0.1,
+					}}
 					value={value}
-					onSubmit={(e)=>e.preventDefault()}
+					onSubmit={(e) => e.preventDefault()}
 					onChange={(e) => onChange(e.target.value === "" ? null : Number(e.target.value))}
 					onBlur={onBlur}
 					ref={ref}
@@ -35,6 +31,7 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 					error={!!error}
 					helperText={error?.message}
 					placeholder={placeholder}
+					size="medium"
 				/>
 			)}
 		/>

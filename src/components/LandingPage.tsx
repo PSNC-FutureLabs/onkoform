@@ -237,7 +237,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Box>
 				</Stack>
 			</Grid>
-			<Grid item component="section" sx={{ backgroundColor: backgroundColor }}>
+			<Grid item component="section" xs={12} sx={{ backgroundColor: backgroundColor }}>
 				<Stack
 					direction="row"
 					px={{ xs: 0, sm: 6 }}

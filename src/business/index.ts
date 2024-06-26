@@ -4,7 +4,7 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 5,
-	patchNo: 0,
+	patchNo: 1,
 	status: "alpha",
 	date: "2024.06.24",
 };
@@ -218,9 +218,13 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 	},
 ];
 
-export const HgbUnits: UnitType[] = ["g/dl", "mmol/l"];
-export const WBCUnits: UnitType[] = ["K/μl", "tys./μl", "mmol/l"];
-export const NeutUnits: UnitType[] = ["%", "μl"];
+export const TemperatureUnits: UnitType[] = ["°C"];
+export const HGBUnits: UnitType[] = ["mg/%", "g/dl"];
+export const WBCUnits: UnitType[] = ["K/μl", "tys./μl", "G/l"];
+export const PLTUnits: UnitType[] = ["tys./μl", "tys./mm³"];
+export const NEUTUnits: UnitType[] = ["%", "μl"];
+export const ALTUnits: UnitType[] = ["U/l"];
+export const ASTUnits: UnitType[] = ["U/l"];
 
 export const defaultFromValues: Partial<FormFields> = {
 	disease: "",
@@ -232,21 +236,21 @@ export const defaultFromValues: Partial<FormFields> = {
 	},
 	WBC: { value: 0 },
 	PLT: { value: 0 },
-	ALT: { value: 0 },
-	AST: { value: 0 },
 	NEUT: {
 		value: 0,
 		unit: "%",
 	},
-	HGB2: {
+	ALT: { value: 0 },
+	AST: { value: 0 },
+	HGBprev: {
 		value: 0,
 		unit: "g/dl",
 	},
-	WBC2: { value: 0 },
-	PLT2: { value: 0 },
-	ALT2: { value: 0 },
-	AST2: { value: 0 },
-	NEUT2: {
+	WBCprev: { value: 0 },
+	PLTprev: { value: 0 },
+	ALTprev: { value: 0 },
+	ASTprev: { value: 0 },
+	NEUTprev: {
 		value: 0,
 		unit: "%",
 	},

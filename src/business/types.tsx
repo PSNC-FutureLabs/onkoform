@@ -16,14 +16,28 @@ export type DropdownOptionsType = {
 	value: string;
 };
 
-export type UnitType = "g/dl" | "mmol/l" | "%" | "μl" | "mg/%" | "K/μl" | "tys./μl" | "M/μl" | "U/L";
+export type UnitType =
+	| "%"
+	| "°C"
+	| "%/μl"
+	| "G/l"
+	| "K/μl"
+	| "M/μl"
+	| "U/L"
+	| "U/l"
+	| "g/dl"
+	| "mg/%"
+	| "mmol/l"
+	| "tys./mm³"
+	| "tys./μl"
+	| "μl";
 
 export type FormInputProps = {
 	name: string;
 	control: Control<FieldValues, any>;
 	label: string;
 	placeholder?: string;
-	unit?: Array<string>
+	unit?: Array<UnitType>;
 };
 
 export type InputRadioProps = FormInputProps & {
@@ -62,19 +76,59 @@ export type SymptomValues =
 
 export type NullableNumber = number | null;
 
+export function inRange(value: NullableNumber, range: string): boolean {
+
+	if (!value) return false;
+
+	const trimmedRange = range.replace(/\s/g, "");
+
+	const isLowerInclusive = trimmedRange.startsWith("[");
+	const isUpperInclusive = trimmedRange.endsWith("]");
+
+	const bounds = trimmedRange.substring(1, trimmedRange.length - 1).split(",");
+
+	const lowerBound = parseFloat(bounds[0]);
+	const upperBound = parseFloat(bounds[1]);
+
+	if (isLowerInclusive) {
+		if (isUpperInclusive) {
+			return value >= lowerBound && value <= upperBound;
+		} else {
+			return value >= lowerBound && value < upperBound;
+		}
+	} else {
+		if (isUpperInclusive) {
+			return value > lowerBound && value <= upperBound;
+		} else {
+			return value > lowerBound && value < upperBound;
+		}
+	}
+}
+
 export class MedicalParameter {
 	actualValue: number;
-	referenceValue?: NullableNumber;
 	unit: UnitType;
+	referenceValue?: NullableNumber;
+	referenceUnit?: UnitType;
 
-	constructor(actualValue: number, unit: UnitType, referenceValue?: number) {
+	constructor(actualValue: number, unit: UnitType, referenceValue?: number, referenceUnit?: UnitType) {
 		this.actualValue = actualValue;
-		this.referenceValue = referenceValue ?? null;
 		this.unit = unit;
+		this.referenceValue = referenceValue ?? null;
+		if (referenceUnit) this.referenceUnit = referenceUnit;
 	}
 
-	isInRange(): boolean {
-		return false;
+	in(unit: UnitType): NullableNumber {
+		if (this.unit === unit) return this.actualValue;
+		return null;
+	}
+
+	isGrowing():boolean{
+		return this.referenceValue ? this.actualValue > this.referenceValue : false;
+	}
+
+	isDeclining():boolean{
+		return this.referenceValue ? this.actualValue < this.referenceValue : false;
 	}
 
 	getActualValue(unit?: UnitType): NullableNumber {
