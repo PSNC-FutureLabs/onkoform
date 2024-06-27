@@ -24,9 +24,6 @@ interface LandingPageProps {
 }
 
 export default function LandingPage({ onClickStart }: LandingPageProps) {
-	const backgroundColor = "white";
-	const backgroundColorAlternate = grey[200];
-
 	interface CoCreatorSubSectionProps {
 		image: string;
 		title: string;
@@ -35,7 +32,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 
 	const CoCreatorSubSection: React.FC<CoCreatorSubSectionProps> = ({ image, title, body }) => {
 		return (
-			<Grid item component="section" xs={12} sm={6} lg={3} sx={{ backgroundColor: backgroundColorAlternate }}>
+			<Grid item component="section" xs={12} sm={6} lg={3}>
 				<Box>
 					<Stack alignItems="center">
 						<Box height={100} display="flex" alignItems="center">
@@ -130,7 +127,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					/>
 				</Grid>
 			</Grid>
-			<Grid item component="section" xs={12} sx={{ backgroundColor: backgroundColor }}>
+			<Grid item component="section" xs={12}>
 				<Stack direction={{ xs: "column", sm: "row" }} p={4}>
 					<Box
 						component="img"
@@ -158,12 +155,12 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Box>
 				</Stack>
 			</Grid>
-			<Grid item component="section" xs={12} sx={{ backgroundColor: backgroundColorAlternate }}>
+			<Grid item component="section" xs={12}>
 				<Typography variant="h2" align="center" p={4} fontWeight={700}>
 					Przygotuj
 				</Typography>
 			</Grid>
-			<Grid item component="section" xs={12} sm={4} sx={{ backgroundColor: backgroundColorAlternate }}>
+			<Grid item component="section" xs={12} sm={4}>
 				<Box py={2} px={4}>
 					<Stack alignItems="center">
 						<LocalHospitalIcon fontSize="large" />
@@ -178,7 +175,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Stack>
 				</Box>
 			</Grid>
-			<Grid item component="section" xs={12} sm={4} sx={{ backgroundColor: backgroundColorAlternate }}>
+			<Grid item component="section" xs={12} sm={4}>
 				<Box py={2} px={4}>
 					<Stack alignItems="center">
 						<SickIcon fontSize="large" />
@@ -193,7 +190,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Stack>
 				</Box>
 			</Grid>
-			<Grid item component="section" xs={12} sm={4} sx={{ backgroundColor: backgroundColorAlternate }}>
+			<Grid item component="section" xs={12} sm={4}>
 				<Box py={2} px={4}>
 					<Stack alignItems="center">
 						<QueryStatsIcon fontSize="large" />
@@ -208,14 +205,14 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Stack>
 				</Box>
 			</Grid>
-			<Grid item component="section" xs={12} sx={{ backgroundColor: backgroundColorAlternate }}>
+			<Grid item component="section" xs={12}>
 				<Box display="flex" justifyContent="center" p={6}>
 					<Button variant="contained" size="large" onClick={onClickStart}>
 						Przejdź do formularza
 					</Button>
 				</Box>
 			</Grid>
-			<Grid item component="section" sx={{ backgroundColor: backgroundColor }}>
+			<Grid item component="section">
 				<Stack
 					direction="row"
 					px={{ xs: 0, sm: 6 }}
@@ -268,7 +265,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Box>
 				</Stack>
 			</Grid>
-			<Grid item component="section" xs={12} sx={{ backgroundColor: backgroundColor }}>
+			<Grid item component="section" xs={12}>
 				<Stack
 					direction="row"
 					px={{ xs: 0, sm: 6 }}
@@ -295,7 +292,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Box>
 				</Stack>
 			</Grid>
-			<Grid item component="section" xs={12} sx={{ backgroundColor: backgroundColorAlternate }}>
+			<Grid item component="section" xs={12}>
 				<Typography variant="h2" align="center" p={{ xs: 2, sm: 4 }} fontWeight={700}>
 					Współtwórcy
 				</Typography>
@@ -320,13 +317,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				title="Koordynacja"
 				body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut consectetur nesciunt..."
 			/>
-			<Grid
-				item
-				component="section"
-				xs={12}
-				pb={{ xs: 3, sm: 6 }}
-				sx={{ backgroundColor: backgroundColorAlternate }}
-			>
+			<Grid item component="section" xs={12} pb={{ xs: 3, sm: 6 }}>
 				<Box display="flex" justifyContent="center" p={4}>
 					<Button variant="contained" size="large" onClick={onClickStart}>
 						Przejdź do formularza
