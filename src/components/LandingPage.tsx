@@ -1,4 +1,3 @@
-// import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Grid from "@mui/material/Grid";
 import { Box, Stack, Button, Typography } from "@mui/material";
 import imageDesktopMainBackground from "/images/desktop-main-background.png";
@@ -9,13 +8,13 @@ import imageBoyGirlTeddyBear from "/images/boy-girl-teddybear.svg";
 import imageMomKid from "/images/mom-kid.svg";
 import imageSectionOverview from "/images/section-overview.svg";
 import imageSectionMission from "/images/section-mission.svg";
+import iconPatientInfo from "/images/icon-patient-info.svg";
+import iconSymptoms from "/images/icon-symptoms.svg";
+import iconLabTests from "/images/icon-lab-tests.svg";
 import imageCoCreatorLogo1 from "/images/logo-szpital-kliniczny-im-karola-jonschera.svg";
 import imageCoCreatorLogo2 from "/images/logo-fundacja-pomocy-dzieciom-z-chorobami-nowotworowymi.svg";
 import imageCoCreatorLogo3 from "/images/logo-capgemini.svg";
 import imageCoCreatorLogo4 from "/images/logo-psnc-future-labs.svg";
-import SickIcon from "@mui/icons-material/Sick";
-import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
-import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import { grey } from "@mui/material/colors";
 import { versionTag } from "../business";
 
@@ -158,8 +157,14 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 			<Grid item component="section" xs={12} sm={4}>
 				<Box py={2} px={4}>
 					<Stack alignItems="center">
-						<LocalHospitalIcon fontSize="large" />
-						<Typography variant="h5" align="center" p={2} sx={{ textTransform: "uppercase" }}>
+						<Box component="img" src={iconPatientInfo} />
+						<Typography
+							variant="h5"
+							align="center"
+							p={2}
+							fontWeight={700}
+							sx={{ textTransform: "uppercase" }}
+						>
 							Dane
 							<br />
 							pacjenta
@@ -173,8 +178,14 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 			<Grid item component="section" xs={12} sm={4}>
 				<Box py={2} px={4}>
 					<Stack alignItems="center">
-						<SickIcon fontSize="large" />
-						<Typography variant="h5" align="center" p={2} sx={{ textTransform: "uppercase" }}>
+						<Box component="img" src={iconSymptoms} />
+						<Typography
+							variant="h5"
+							align="center"
+							p={2}
+							fontWeight={700}
+							sx={{ textTransform: "uppercase" }}
+						>
 							Zaobserwowane
 							<br />
 							objawy
@@ -188,14 +199,20 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 			<Grid item component="section" xs={12} sm={4}>
 				<Box py={2} px={4}>
 					<Stack alignItems="center">
-						<QueryStatsIcon fontSize="large" />
-						<Typography variant="h5" align="center" p={2} sx={{ textTransform: "uppercase" }}>
+						<Box component="img" src={iconLabTests} />
+						<Typography
+							variant="h5"
+							align="center"
+							p={2}
+							fontWeight={700}
+							sx={{ textTransform: "uppercase" }}
+						>
 							Aktualne i poprzednie
 							<br />
 							badania
 						</Typography>
 						<Typography variant="body1" align="center">
-							Wyniki badań laboratoryjnych (HGB, WBC, PLT, ALT, AST, NEUT).{" "}
+							Wyniki badań laboratoryjnych (HGB, WBC, PLT, NEUT, ALT, AST).
 						</Typography>
 					</Stack>
 				</Box>
