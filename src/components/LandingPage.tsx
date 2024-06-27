@@ -274,30 +274,24 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Box>
 				</Stack>
 			</Grid>
-			<Grid item component="section" xs={12}>
-				<Stack
-					direction="row"
-					px={{ xs: 0, sm: 6 }}
-					py={{ xs: 2, sm: 4 }}
-					justifyContent="space-around"
-					alignItems="center"
-				>
-					<Box
-						component="img"
-						sx={{
-							height: { xs: 150, sm: 300 },
-						}}
-						src={imageBoyGirlTeddyBear}
-						alt="chłopiec, dziewczynka, pluszowy miś"
-					/>
-					<Box sx={{ width: "50%" }}>
-						<Typography variant="h2">Kim są Mali Mocni?</Typography>
-						<Typography variant="h4" mt={3}>
-							Mali Mocni to prawdziwi bohaterowie, wykazujący się niezwykłą odwagą i siłą w obliczu walki
-							z chorobami onkologicznymi.
-						</Typography>
-					</Box>
-				</Stack>
+			<Grid item component="section" xs={12} sm={6} p={{ xs: 7, sm: 10 }}>
+				<Box
+					component="img"
+					sx={{
+						height: { xs: 260, sm: 416 },
+					}}
+					src={imageBoyGirlTeddyBear}
+					alt="chłopiec, dziewczynka, pluszowy miś"
+				/>
+			</Grid>
+			<Grid item component="section" xs={12} sm={6} p={{ xs: 2, sm: 10 }} mb={{ xs: 10, sm: 0 }}>
+				<Box p={{ xs: 0, sm: 10 }} px={{ xs: 2, sm: 10 }}>
+					<Typography variant="h2">Kim są Mali Mocni?</Typography>
+					<Typography variant="h4" mt={3}>
+						Mali Mocni to prawdziwi bohaterowie, wykazujący się niezwykłą odwagą i siłą w obliczu walki z
+						chorobami onkologicznymi.
+					</Typography>
+				</Box>
 			</Grid>
 			<Grid item component="section" xs={12}>
 				<Typography variant="h2" align="center" p={{ xs: 2, sm: 4 }} fontWeight={700}>
