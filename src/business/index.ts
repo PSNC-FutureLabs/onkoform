@@ -6,7 +6,7 @@ export const versionTag = {
 	minorNo: 5,
 	patchNo: 2,
 	status: "alpha",
-	date: "2024.06.26",
+	date: "2024.06.27",
 };
 
 export type StepType = {
