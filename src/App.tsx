@@ -19,39 +19,33 @@ let theme = createTheme(
 		typography: {
 			fontFamily: "'Bio Sans', sans-serif",
 			h1: {
-				color: "white",
 				fontSize: "44px",
 				fontWeight: "700",
 			},
 			h2: {
-				color: "black",
 				fontSize: "32px",
 				fontWeight: "700",
 			},
 			h3: {
-				color: "white",
 				fontSize: "24px",
 				fontWeight: "400",
 			},
 			h4: {
-				color: "white",
 				fontSize: "20px",
 				fontWeight: "400",
 			},
 			h5: {
-				color: "white",
 				fontSize: "20px",
 				fontWeight: "400",
 			},
 			h6: {
-				color: "white",
 				fontSize: "16px",
 				fontWeight: "400",
 			},
 		},
 		palette: {
 			background: {
-				default: grey[400],
+				default: "white",
 			},
 			primary: {
 				main: "#000",
@@ -95,7 +89,7 @@ function App() {
 						<CssBaseline />
 						<Container
 							disableGutters
-							maxWidth="xl"
+							maxWidth="lg"
 							sx={{
 								minWidth: {
 									xs: "100%", 
