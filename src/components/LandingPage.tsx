@@ -218,7 +218,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				</Box>
 			</Grid>
 			<Grid item component="section" xs={12}>
-				<Box display="flex" justifyContent="center" p={6}>
+				<Box display="flex" justifyContent="center" p={4}>
 					<Button variant="contained" size="large" onClick={onClickStart}>
 						Przejdź do formularza
 					</Button>
