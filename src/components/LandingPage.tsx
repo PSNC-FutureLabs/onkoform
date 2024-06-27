@@ -7,6 +7,7 @@ import imageTextLogo from "/images/logo-mm.svg";
 import imageCrownLogo from "/images/logo-mm-crown.svg";
 import imageBoyGirlTeddyBear from "/images/boy-girl-teddybear.svg";
 import imageMomKid from "/images/mom-kid.svg";
+import imageSectionOverview from "/images/section-overview.svg";
 import imageSectionMission from "/images/section-mission.svg";
 import imageCoCreatorLogo1 from "/images/logo-szpital-kliniczny-im-karola-jonschera.svg";
 import imageCoCreatorLogo2 from "/images/logo-fundacja-pomocy-dzieciom-z-chorobami-nowotworowymi.svg";
@@ -130,26 +131,33 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					/>
 				</Grid>
 			</Grid>
-			<Grid item component="section" xs={12} sm={6} sx={{ backgroundColor: backgroundColor }}>
-				<Box p={{ xs: 2, sm: 10 }}>
-					<Typography
-						variant="h3"
-						lineHeight={1.5}
-						color="black"
-						sx={{ textAlign: { xs: "center", sm: "left" } }}
-					>
-						W prosty i intuicyjny sposób zweryfikuj <strong>niepokojące</strong> objawy i wyniki badań
-						laboratoryjnych <strong>Twojego dziecka</strong>.
-					</Typography>
-				</Box>
-			</Grid>
-			<Grid item component="section" xs={12} sm={6} sx={{ backgroundColor: backgroundColor }}>
-				<Box p={{ xs: 2, sm: 10 }}>
-					<Typography variant="body1" sx={{ textAlign: { xs: "center", sm: "left" } }}>
-						Dowiedz się czy konieczne jest powtórzenie badań lub pilna konsultacja z lekarzem. Jeśli tak -
-						otrzymasz także potrzebny numer telefonu. Zajmie Ci to jedynie około trzech minut.
-					</Typography>
-				</Box>
+			<Grid item component="section" xs={12} sx={{ backgroundColor: backgroundColor }}>
+				<Stack direction={{ xs: "column", sm: "row" }} p={4}>
+					<Box
+						component="img"
+						sx={{
+							height: { xs: 405, sm: 647 },
+						}}
+						src={imageSectionOverview}
+						alt="poglądowy wygląd aplikacji na smartfonie"
+					/>
+					<Box pl={{ xs: 2, sm: 0 }} pr={{ xs: 2, sm: 15 }} py={{ xs: 2, sm: 10 }}>
+						<Typography
+							variant="h2"
+							lineHeight={1.5}
+							color="black"
+							mb={3}
+							sx={{ textAlign: { xs: "left", sm: "left" } }}
+						>
+							W prosty i intuicyjny sposób zweryfikuj <strong>niepokojące</strong> objawy i wyniki badań
+							laboratoryjnych <strong>Twojego dziecka</strong>.
+						</Typography>
+						<Typography variant="h3" color="black" sx={{ textAlign: { xs: "left", sm: "left" } }}>
+							Dowiedz się czy konieczne jest powtórzenie badań lub pilna konsultacja z lekarzem. Jeśli tak
+							- otrzymasz także potrzebny numer telefonu. Zajmie Ci to jedynie około trzech minut.
+						</Typography>
+					</Box>
+				</Stack>
 			</Grid>
 			<Grid item component="section" xs={12} sx={{ backgroundColor: backgroundColorAlternate }}>
 				<Typography variant="h2" align="center" p={4} fontWeight={700}>
