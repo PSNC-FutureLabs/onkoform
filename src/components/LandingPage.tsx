@@ -224,33 +224,30 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Button>
 				</Box>
 			</Grid>
-			<Grid item component="section">
-				<Stack
-					direction="row"
-					px={{ xs: 0, sm: 6 }}
-					py={{ xs: 2, sm: 8 }}
-					justifyContent="space-around"
-					alignItems="center"
-				>
-					<Box sx={{ width: { xs: "60%", sm: "40%" } }} p={4}>
-						<Typography variant="h3" mb={2}>
-							Tworzymy przestrzeń wsparcia dla <strong>dzieci z chorobami nowotworowymi</strong> i ich
-							opiekunów.
-						</Typography>
-						<Typography variant="body1">
-							Dzięki zaangażowaniu doświadczonych lekarzy, programistów i grafików pomagamy lepiej
-							zrozumieć sytuację zdrowotną dziecka oraz podjąć odpowiednie kroki w odpowiednim czasie.
-						</Typography>
-					</Box>
-					<Box
-						component="img"
-						sx={{
-							height: { xs: 180, sm: 574 },
-						}}
-						src={imageSectionMission}
-						alt="zespół podczas pracy nad aplikacją"
-					/>
-				</Stack>
+			<Grid item component="section" xs={12} sm={6}>
+				<Box p={{ xs: 5, sm: 10 }}>
+					<Typography variant="h3" mb={2}>
+						Tworzymy przestrzeń wsparcia dla <strong>dzieci z chorobami nowotworowymi</strong> i ich
+						opiekunów.
+					</Typography>
+					<Typography variant="body1">
+						Dzięki zaangażowaniu doświadczonych lekarzy, programistów i grafików pomagamy lepiej zrozumieć
+						sytuację zdrowotną dziecka oraz podjąć odpowiednie kroki w odpowiednim czasie.
+					</Typography>
+				</Box>
+			</Grid>
+			<Grid item component="section" xs={12} sm={6}>
+				<Box
+					component="img"
+					src={imageSectionMission}
+					alt="zespół podczas pracy nad aplikacją"
+					p={4}
+					sx={{
+						width: "100%",
+						height: "auto",
+						maxWidth: "100%",
+					}}
+				/>
 			</Grid>
 			<Grid
 				item
@@ -259,48 +256,42 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					background: "linear-gradient(158.95deg, #04804C -64.05%, #7FBB53 130.65%)",
 				}}
 			>
-				<Stack p={{ xs: 6, sm: 10 }}>
+				<Stack px={{ xs: 10, sm: 30 }} py={{ xs: 10, sm: 15 }}>
 					<Box
 						component="img"
 						src={imageCrownLogo}
 						alt="logo MaliMocni"
 						mb={4}
 						sx={{
-							height: { xs: 20, sm: 40 },
+							height: { xs: 64, sm: 64 },
 						}}
 					/>
 					<Box>
-						<Typography variant="h2" align="center" color="white">
+						<Typography variant="h2" align="center" color="white" fontWeight={400}>
 							Rodzic zna swoje dziecko najlepiej i często jako pierwszy dostrzega niepokojące objawy.
 							Dlatego zapewniamy mu wsparcie, aby mógł szybko i pewnie reagować.
 						</Typography>
 					</Box>
 				</Stack>
 			</Grid>
-			<Grid item component="section" xs={12}>
-				<Stack
-					direction="row"
-					px={{ xs: 0, sm: 6 }}
-					py={{ xs: 2, sm: 4 }}
-					justifyContent="space-around"
-					alignItems="center"
-				>
-					<Box
-						component="img"
-						sx={{
-							height: { xs: 150, sm: 300 },
-						}}
-						src={imageBoyGirlTeddyBear}
-						alt="chłopiec, dziewczynka, pluszowy miś"
-					/>
-					<Box sx={{ width: "50%" }}>
-						<Typography variant="h2">Kim są Mali Mocni?</Typography>
-						<Typography variant="h4" mt={3}>
-							Mali Mocni to prawdziwi bohaterowie, wykazujący się niezwykłą odwagą i siłą w obliczu walki
-							z chorobami onkologicznymi.
-						</Typography>
-					</Box>
-				</Stack>
+			<Grid item component="section" xs={12} sm={6} p={{ xs: 7, sm: 10 }}>
+				<Box
+					component="img"
+					sx={{
+						height: { xs: 260, sm: 416 },
+					}}
+					src={imageBoyGirlTeddyBear}
+					alt="chłopiec, dziewczynka, pluszowy miś"
+				/>
+			</Grid>
+			<Grid item component="section" xs={12} sm={6} p={{ xs: 2, sm: 10 }} mb={{ xs: 10, sm: 0 }}>
+				<Box p={{ xs: 0, sm: 10 }} px={{ xs: 2, sm: 10 }}>
+					<Typography variant="h2">Kim są Mali Mocni?</Typography>
+					<Typography variant="h4" mt={3}>
+						Mali Mocni to prawdziwi bohaterowie, wykazujący się niezwykłą odwagą i siłą w obliczu walki z
+						chorobami onkologicznymi.
+					</Typography>
+				</Box>
 			</Grid>
 			<Grid item component="section" xs={12}>
 				<Typography variant="h2" align="center" p={{ xs: 2, sm: 4 }} fontWeight={700}>
