@@ -224,33 +224,30 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					</Button>
 				</Box>
 			</Grid>
-			<Grid item component="section">
-				<Stack
-					direction="row"
-					px={{ xs: 0, sm: 6 }}
-					py={{ xs: 2, sm: 8 }}
-					justifyContent="space-around"
-					alignItems="center"
-				>
-					<Box sx={{ width: { xs: "60%", sm: "40%" } }} p={4}>
-						<Typography variant="h3" mb={2}>
-							Tworzymy przestrzeń wsparcia dla <strong>dzieci z chorobami nowotworowymi</strong> i ich
-							opiekunów.
-						</Typography>
-						<Typography variant="body1">
-							Dzięki zaangażowaniu doświadczonych lekarzy, programistów i grafików pomagamy lepiej
-							zrozumieć sytuację zdrowotną dziecka oraz podjąć odpowiednie kroki w odpowiednim czasie.
-						</Typography>
-					</Box>
-					<Box
-						component="img"
-						sx={{
-							height: { xs: 180, sm: 574 },
-						}}
-						src={imageSectionMission}
-						alt="zespół podczas pracy nad aplikacją"
-					/>
-				</Stack>
+			<Grid item component="section" xs={12} sm={6}>
+				<Box p={{ xs: 5, sm: 10 }}>
+					<Typography variant="h3" mb={2}>
+						Tworzymy przestrzeń wsparcia dla <strong>dzieci z chorobami nowotworowymi</strong> i ich
+						opiekunów.
+					</Typography>
+					<Typography variant="body1">
+						Dzięki zaangażowaniu doświadczonych lekarzy, programistów i grafików pomagamy lepiej zrozumieć
+						sytuację zdrowotną dziecka oraz podjąć odpowiednie kroki w odpowiednim czasie.
+					</Typography>
+				</Box>
+			</Grid>
+			<Grid item component="section" xs={12} sm={6}>
+				<Box
+					component="img"
+					src={imageSectionMission}
+					alt="zespół podczas pracy nad aplikacją"
+					p={4}
+					sx={{
+						width: "100%",
+						height: "auto",
+						maxWidth: "100%",
+					}}
+				/>
 			</Grid>
 			<Grid
 				item
