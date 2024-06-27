@@ -256,18 +256,18 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					background: "linear-gradient(158.95deg, #04804C -64.05%, #7FBB53 130.65%)",
 				}}
 			>
-				<Stack p={{ xs: 6, sm: 10 }}>
+				<Stack px={{ xs: 10, sm: 30 }} py={{ xs: 10, sm: 15 }}>
 					<Box
 						component="img"
 						src={imageCrownLogo}
 						alt="logo MaliMocni"
 						mb={4}
 						sx={{
-							height: { xs: 20, sm: 40 },
+							height: { xs: 64, sm: 64 },
 						}}
 					/>
 					<Box>
-						<Typography variant="h2" align="center" color="white">
+						<Typography variant="h2" align="center" color="white" fontWeight={400}>
 							Rodzic zna swoje dziecko najlepiej i często jako pierwszy dostrzega niepokojące objawy.
 							Dlatego zapewniamy mu wsparcie, aby mógł szybko i pewnie reagować.
 						</Typography>
