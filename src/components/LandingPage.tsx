@@ -1,6 +1,6 @@
 // import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Grid from "@mui/material/Grid";
-import { Box, Stack, Button, Typography, Hidden } from "@mui/material";
+import { Box, Stack, Button, Typography } from "@mui/material";
 import imageDesktopMainBackground from "/images/desktop-main-background.png";
 import imageMobileMainBackground from "/images/mobile-main-background.png";
 import imageTextLogo from "/images/logo-mm.svg";
@@ -66,21 +66,20 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				}}
 				pt={{ xs: 2, sm: 0 }}
 				pb={{ xs: 4, sm: 0 }}
-				height={900}
+				height={1080}
+				alignItems="flex-start"
 			>
-				<Hidden smUp>
-					<Grid item xs={12}>
+				<Grid item xs={12} height="40px">
+					<Stack direction="row" width="100%" justifyContent={{ xs: "center", sm: "flex-start" }}>
 						<Box
 							component="img"
 							src={imageTextLogo}
 							alt="Logo projektu Mali Mocni"
-							mb={2}
-							sx={{
-								height: 40,
-							}}
+							height={{ xs: "20", sm: "32" }}
+							p={4}
 						/>
-					</Grid>
-				</Hidden>
+					</Stack>
+				</Grid>
 				<Grid item xs={12} sm={3}>
 					<Stack direction="row">
 						<Box
