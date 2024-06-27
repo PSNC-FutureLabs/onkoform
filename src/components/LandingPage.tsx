@@ -7,6 +7,7 @@ import imageTextLogo from "/images/logo-mm.svg";
 import imageCrownLogo from "/images/logo-mm-crown.svg";
 import imageBoyGirlTeddyBear from "/images/boy-girl-teddybear.svg";
 import imageMomKid from "/images/mom-kid.svg";
+import imageSectionMission from "/images/section-mission.svg";
 import imageCoCreatorLogo1 from "/images/logo-szpital-kliniczny-im-karola-jonschera.svg";
 import imageCoCreatorLogo2 from "/images/logo-fundacja-pomocy-dzieciom-z-chorobami-nowotworowymi.svg";
 import imageCoCreatorLogo3 from "/images/logo-capgemini.svg";
@@ -215,12 +216,12 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					justifyContent="space-around"
 					alignItems="center"
 				>
-					<Box sx={{ width: { xs: "60%", sm: "40%" } }} p={2}>
+					<Box sx={{ width: { xs: "60%", sm: "40%" } }} p={4}>
 						<Typography variant="h3" color="black" mb={2}>
 							Tworzymy przestrzeń wsparcia dla <strong>dzieci z chorobami nowotworowymi</strong> i ich
 							opiekunów.
 						</Typography>
-						<Typography variant="body2">
+						<Typography variant="body1">
 							Dzięki zaangażowaniu doświadczonych lekarzy, programistów i grafików pomagamy lepiej
 							zrozumieć sytuację zdrowotną dziecka oraz podjąć odpowiednie kroki w odpowiednim czasie.
 						</Typography>
@@ -228,10 +229,10 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					<Box
 						component="img"
 						sx={{
-							height: { xs: 180, sm: 300 },
+							height: { xs: 180, sm: 574 },
 						}}
-						src={imageMomKid}
-						alt="mama i dziecko"
+						src={imageSectionMission}
+						alt="zespół podczas pracy nad aplikacją"
 					/>
 				</Stack>
 			</Grid>
