@@ -63,7 +63,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				pt={{ xs: 2, sm: 0 }}
 				pb={{ xs: 4, sm: 0 }}
 				color="white"
-				height={1080}
+				height={{ sm: 1080 }}
 				alignItems="flex-start"
 			>
 				<Grid item xs={12} height="40px">
