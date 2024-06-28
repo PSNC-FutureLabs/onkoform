@@ -35,7 +35,7 @@ export type UnitType =
 export type FormInputProps = {
 	name: string;
 	control: Control<FieldValues, any>;
-	label: string;
+	label?: string;
 	placeholder?: string;
 	unit?: Array<UnitType>;
 };
@@ -57,6 +57,7 @@ export type MarkerRowProps = {
 	markerName: string;
 	label: string;
 	options: UnitType[];
+	description?: string;
 };
 
 export type SymptomValues =
@@ -77,7 +78,6 @@ export type SymptomValues =
 export type NullableNumber = number | null;
 
 export function inRange(value: NullableNumber, range: string): boolean {
-
 	if (!value) return false;
 
 	const trimmedRange = range.replace(/\s/g, "");
@@ -123,11 +123,11 @@ export class MedicalParameter {
 		return null;
 	}
 
-	isGrowing():boolean{
+	isGrowing(): boolean {
 		return this.referenceValue ? this.actualValue > this.referenceValue : false;
 	}
 
-	isDeclining():boolean{
+	isDeclining(): boolean {
 		return this.referenceValue ? this.actualValue < this.referenceValue : false;
 	}
 

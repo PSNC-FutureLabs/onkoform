@@ -1,4 +1,4 @@
-import { Grid, Stack } from "@mui/material";
+import { Grid, Stack, FormLabel } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { FormInputNumber } from "../form-components/FormInputNumber";
 import { FormInputMultiCheckbox } from "../form-components/FormInputMultiCheckbox";
@@ -10,13 +10,15 @@ export default function Step2() {
 	return (
 		<Grid item xs={12}>
 			<Stack spacing={4}>
-				<FormInputNumber
-					name="temperature"
-					control={control}
-					label="Pomiar temperatury ciała"
-					placeholder="wartość w °C"
-					unit={TemperatureUnits}
-				/>
+				<Stack spacing={1}>
+					<FormLabel>Pomiar temperatury ciała</FormLabel>
+					<FormInputNumber
+						name="temperature"
+						control={control}
+						placeholder="podaj wartość w °C"
+						unit={TemperatureUnits}
+					/>
+				</Stack>
 				<FormInputMultiCheckbox
 					control={control}
 					getValues={getValues}
