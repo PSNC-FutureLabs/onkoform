@@ -1,19 +1,24 @@
-import { Grid } from "@mui/material";
+import { Stack, FormLabel, Tooltip } from "@mui/material";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { FormInputNumber } from "./FormInputNumber";
 import { UnitCard } from "./UnitCard";
 import { MarkerRowProps } from "../../business/types";
 import { MultiButton } from "./MultiButton";
 
-export const MarkerRow = ({ control, markerName, label, options }: MarkerRowProps) => {
+export const MarkerRow = ({ control, markerName, label, options, description }: MarkerRowProps) => {
 	return (
-		<>
-			<Grid item xs={8}>
-				<FormInputNumber name={`${markerName}.value`} control={control} label={label} />
-			</Grid>
-			<Grid item xs={4}>
+		<Stack spacing={1}>
+			<Stack direction="row" spacing={1}>
+				<FormLabel>{label}</FormLabel>
+				<Tooltip title={description ?? markerName}>
+					<InfoOutlinedIcon sx={{ cursor: "pointer" }} />
+				</Tooltip>
+			</Stack>
+			<Stack direction="row">
+				<FormInputNumber name={`${markerName}.value`} control={control} />
 				{options.length === 1 && <UnitCard unit={options[0]} />}
 				{options.length > 1 && <MultiButton name={`${markerName}.unit`} options={options} />}
-			</Grid>
-		</>
+			</Stack>
+		</Stack>
 	);
 };
