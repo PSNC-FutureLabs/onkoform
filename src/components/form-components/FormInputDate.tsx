@@ -13,7 +13,7 @@ export const FormInputDate = ({ name, control, label }: FormInputProps) => {
 					value={value}
 					onChange={onChange}
 					ref={ref}
-					label={label}
+					label={label ?? ""}
 					slotProps={{
 						textField: {
 							error: !!error,
