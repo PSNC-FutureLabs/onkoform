@@ -200,19 +200,19 @@ export default function StepController() {
 					</Box>
 				</Stack>
 			</Grid>
-			<Grid item container xs={12} sm={8} sx={{ backgroundColor: "white" }}>
+			<Grid item container xs={12} sm={8}>
 				{activeStep < steps.length ? (
-					<>
-						<Grid item py={2}>
+					<Stack>
+						<Grid item xs={12} py={2} mb={4}>
 							<Typography variant="h4" color="black" align="left">
 								Uważnie wypełnij wszystkie pola
 							</Typography>
 						</Grid>
-						<Grid item container xs={12}>
+						<Grid item container xs={12} mb={4}>
 							<ActiveStep activeStep={activeStep} />
 						</Grid>
 						<Grid item xs={12}>
-							<Stack direction="row" justifyContent="space-between" spacing={4} py={2}>
+							<Stack direction="row" justifyContent="space-between" py={2} width="100%">
 								<Button
 									variant="outlined"
 									onClick={activeStep === 0 ? handleGoToLandingPage : handlePrevious}
@@ -229,7 +229,7 @@ export default function StepController() {
 								</Button>
 							</Stack>
 						</Grid>
-					</>
+					</Stack>
 				) : (
 					<>
 						<Summary />
