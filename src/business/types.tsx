@@ -57,6 +57,7 @@ export type MarkerRowProps = {
 	markerName: string;
 	label: string;
 	options: UnitType[];
+	description?: string;
 };
 
 export type SymptomValues =
