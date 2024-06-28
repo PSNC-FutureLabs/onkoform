@@ -1,4 +1,4 @@
-import { Grid, Stack } from "@mui/material";
+import { FormLabel, Grid, Stack } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { FormInputRadio } from "../form-components/FormInputRadio";
 import { diseaseOptions, genderOptions, hospitalWardOptions } from "../../business";
@@ -11,15 +11,19 @@ export default function Step1() {
 	return (
 		<Grid item xs={12}>
 			<Stack spacing={4}>
-				<FormInputDate name="dateOfBirth" control={control} label="Data urodzenia" />
+				<Stack spacing={1}>
+					<FormLabel>Data urodzenia</FormLabel>
+					<FormInputDate name="dateOfBirth" control={control} />
+				</Stack>
 				<FormInputRadio name="gender" label="Płeć" control={control} options={genderOptions} />
-				<FormInputDropdown name="disease" control={control} label="Schorzenie" options={diseaseOptions} />
-				<FormInputDropdown
-					name="hospitalWard"
-					control={control}
-					label="Prowadzący oddział szpitalny"
-					options={hospitalWardOptions}
-				/>
+				<Stack spacing={1}>
+					<FormLabel>Schorzenie</FormLabel>
+					<FormInputDropdown name="disease" control={control} options={diseaseOptions} />
+				</Stack>
+				<Stack spacing={1}>
+					<FormLabel>Prowadzący oddział szpitalny</FormLabel>
+					<FormInputDropdown name="hospitalWard" control={control} options={hospitalWardOptions} />
+				</Stack>
 			</Stack>
 		</Grid>
 	);
