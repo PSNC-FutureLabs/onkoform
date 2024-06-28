@@ -16,6 +16,17 @@ export type DropdownOptionsType = {
 	value: string;
 };
 
+export type Markers = "HGB" | "WBC" | "PLT" | "NEUT" | "ALT" | "AST";
+
+export const MarkerDescriptions: { [key in Markers]: string } = {
+    HGB: "stężenie hemoglobiny",
+    WBC: "liczba białych krwinek",
+    PLT: "liczba płytek krwi",
+    NEUT: "granulocyty obojętochłonne",
+    ALT: "poziom aminotransferazy alaninowej",
+    AST: "poziom aminotransferazy asparaginianowej"
+};
+
 export type UnitType =
 	| "%"
 	| "°C"

@@ -32,6 +32,7 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 					helperText={error?.message}
 					placeholder={placeholder}
 					size="medium"
+					hiddenLabel
 				/>
 			)}
 		/>
