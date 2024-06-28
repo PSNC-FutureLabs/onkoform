@@ -9,20 +9,18 @@ export default function Step3() {
 
 	return (
 		<Grid item xs={12} sm={8}>
-			<Stack spacing={4}>
+			<Stack spacing={4} p={2}>
 				<Alert variant="outlined" severity="info">
 					W tym kroku należy podać <strong>najnowsze</strong> wyniki badań.
 					<br />W kolejnym kroku podasz wyniki z poprzedniego badania laboratoryjnego.
 				</Alert>
 				<FormInputDate name="examination-date" control={control} label="Data wykonania badania" />
-				<Grid item container spacing={2} justifyContent="flex-start" alignItems="center">
-					<MarkerRow control={control} markerName="HGB" label="HGB" options={HGBUnits} />
+					<MarkerRow control={control} markerName="HGB" label="HGB" description="stężenie hemoglobiny" options={HGBUnits} />
 					<MarkerRow control={control} markerName="WBC" label="WBC" options={WBCUnits} />
 					<MarkerRow control={control} markerName="PLT" label="PLT" options={PLTUnits} />
 					<MarkerRow control={control} markerName="NEUT" label="NEUT" options={NEUTUnits} />
 					<MarkerRow control={control} markerName="ALT" label="ALT" options={ALTUnits} />
 					<MarkerRow control={control} markerName="AST" label="AST" options={ASTUnits} />
-				</Grid>
 			</Stack>
 		</Grid>
 	);
