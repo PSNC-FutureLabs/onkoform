@@ -38,7 +38,7 @@ export default function StepController() {
 		if (activeStep > lastValidatedStep) {
 			setLastValidatedStep(activeStep);
 		}
-		scrollToTop()
+		scrollToTop();
 	}, [activeStep, lastValidatedStep]);
 
 	function Step({
@@ -70,9 +70,7 @@ export default function StepController() {
 						justifyContent="center"
 						position="relative"
 						sx={{
-							background: isValidated
-								? "linear-gradient(225deg, #DC6D24 -2%, #EBCF41 122%)"
-								: "transparent",
+							background: isValidated ? "#7FBB53" : "transparent",
 						}}
 					>
 						<Box
@@ -90,7 +88,7 @@ export default function StepController() {
 							{isValidated ? (
 								<CheckIcon />
 							) : (
-								<Typography variant="h6" color={isActive ? "green" : "inherit"}>
+								<Typography variant="h6" color={isActive ? "#36984e" : "inherit"}>
 									{step.id}
 								</Typography>
 							)}
@@ -203,38 +201,32 @@ export default function StepController() {
 					</Box>
 				</Stack>
 			</Grid>
-			<Grid item container xs={12} sm={8}>
+			<Grid item xs={12} sm={8}>
 				{activeStep < steps.length ? (
-					<Stack>
-						<Grid item xs={12} py={2} mb={4}>
-							<Typography variant="h4" color="black" align="left">
-								Uważnie wypełnij wszystkie pola
-							</Typography>
-						</Grid>
-						<Grid item container xs={12} mb={4}>
-							<ActiveStep activeStep={activeStep} />
-						</Grid>
-						<Grid item xs={12}>
-							<Stack direction="row" justifyContent="space-between" py={2} width="100%">
-								<Button
-									variant="outlined"
-									onClick={activeStep === 0 ? handleGoToLandingPage : handlePrevious}
-								>
-									<NavigateBeforeIcon />
-									{activeStep === 0 ? "Wyjdź" : "Cofnij"}
-								</Button>
-								<Button
-									variant="outlined"
-									onClick={activeStep === steps.length - 1 ? handleGoToSummary : handleNext}
-								>
-									{activeStep === steps.length - 1 ? "Wyniki" : "Dalej"}
-									<NavigateNextIcon />
-								</Button>
-							</Stack>
-						</Grid>
+					<Stack width={{ xs: "90vw", sm: "60%" }}>
+						<Typography variant="h4" color="black" align="left" py={4}>
+							Uważnie wypełnij wszystkie pola
+						</Typography>
+						<ActiveStep activeStep={activeStep} />
+						<Stack direction="row" justifyContent="space-between" py={4} width="100%">
+							<Button
+								variant="outlined"
+								onClick={activeStep === 0 ? handleGoToLandingPage : handlePrevious}
+							>
+								<NavigateBeforeIcon />
+								{activeStep === 0 ? "Wyjdź" : "Cofnij"}
+							</Button>
+							<Button
+								variant="outlined"
+								onClick={activeStep === steps.length - 1 ? handleGoToSummary : handleNext}
+							>
+								{activeStep === steps.length - 1 ? "Wyniki" : "Dalej"}
+								<NavigateNextIcon />
+							</Button>
+						</Stack>
 					</Stack>
 				) : (
-					<>
+					<Stack>
 						<Summary />
 						<Stack direction="row" justifyContent="center" mb={4}>
 							<Button variant="outlined" onClick={handleStart}>
@@ -242,7 +234,7 @@ export default function StepController() {
 								&nbsp;Wypełnij ponownie
 							</Button>
 						</Stack>
-					</>
+					</Stack>
 				)}
 			</Grid>
 		</Grid>
