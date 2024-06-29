@@ -71,7 +71,7 @@ export default function StepController() {
 						position="relative"
 						sx={{
 							background: isValidated
-								? "linear-gradient(225deg, #DC6D24 -2%, #EBCF41 122%)"
+								? "#7FBB53"
 								: "transparent",
 						}}
 					>
@@ -90,7 +90,7 @@ export default function StepController() {
 							{isValidated ? (
 								<CheckIcon />
 							) : (
-								<Typography variant="h6" color={isActive ? "green" : "inherit"}>
+								<Typography variant="h6" color={isActive ? "#36984e" : "inherit"}>
 									{step.id}
 								</Typography>
 							)}
