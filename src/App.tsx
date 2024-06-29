@@ -2,7 +2,7 @@ import { ThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/s
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import "dayjs/locale/pl";
-import { plPL } from "@mui/material/locale";
+import { plPL } from '@mui/x-date-pickers/locales';
 import { Container, CssBaseline, Grid } from "@mui/material";
 import { FormFields, schema } from "./business/form-schema";
 import { useForm, FormProvider } from "react-hook-form";
