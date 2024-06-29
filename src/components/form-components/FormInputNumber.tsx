@@ -10,6 +10,19 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 			control={control}
 			render={({ field: { onChange, onBlur, ref, value }, fieldState: { error } }) => (
 				<TextField
+					value={value}
+					onSubmit={(e) => e.preventDefault()}
+					onChange={(e) => onChange(e.target.value === "" ? null : Number(e.target.value))}
+					onFocus={(e) => e.target.select()}
+					onBlur={onBlur}
+					ref={ref}
+					label={label}
+					type="number"
+					error={!!error}
+					helperText={error?.message}
+					placeholder={placeholder}
+					size="medium"
+					hiddenLabel
 					InputProps={
 						unit
 							? {
@@ -21,18 +34,6 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 						inputMode: "decimal",
 						step: 0.1,
 					}}
-					value={value}
-					onSubmit={(e) => e.preventDefault()}
-					onChange={(e) => onChange(e.target.value === "" ? null : Number(e.target.value))}
-					onBlur={onBlur}
-					ref={ref}
-					label={label}
-					type="number"
-					error={!!error}
-					helperText={error?.message}
-					placeholder={placeholder}
-					size="medium"
-					hiddenLabel
 				/>
 			)}
 		/>
