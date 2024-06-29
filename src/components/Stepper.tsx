@@ -26,6 +26,8 @@ export default function StepController() {
 
 	const onInvalid: SubmitErrorHandler<FieldValues> = (errors) => console.log(errors);
 
+	const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
 	const validateStep = async () => {
 		const fields = steps[activeStep].fields;
 		const output = await trigger(fields.flat(), { shouldFocus: true });
@@ -36,6 +38,7 @@ export default function StepController() {
 		if (activeStep > lastValidatedStep) {
 			setLastValidatedStep(activeStep);
 		}
+		scrollToTop()
 	}, [activeStep, lastValidatedStep]);
 
 	function Step({
@@ -127,7 +130,6 @@ export default function StepController() {
 
 	const handlePrevious = () => {
 		setActiveStep((prevActiveStep) => prevActiveStep - 1);
-		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
 
 	const handleNext = async () => {
@@ -135,7 +137,6 @@ export default function StepController() {
 		if (!isStepValid) return;
 
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
-		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
 
 	if (activeStep === stepLandingPage) {
