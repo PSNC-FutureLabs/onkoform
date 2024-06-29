@@ -31,7 +31,7 @@ export default function StepController() {
 		const output = await trigger(fields.flat(), { shouldFocus: true });
 		return output;
 	};
-	
+
 	useEffect(() => {
 		if (activeStep > lastValidatedStep) {
 			setLastValidatedStep(activeStep);
@@ -127,6 +127,7 @@ export default function StepController() {
 
 	const handlePrevious = () => {
 		setActiveStep((prevActiveStep) => prevActiveStep - 1);
+		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
 
 	const handleNext = async () => {
@@ -134,6 +135,7 @@ export default function StepController() {
 		if (!isStepValid) return;
 
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
+		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
 
 	if (activeStep === stepLandingPage) {
