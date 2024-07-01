@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Checkbox, FormControl, FormControlLabel, FormLabel, Stack } from "@mui/material";
+import { Checkbox, FormControl, FormControlLabel, FormLabel, Stack, Rating } from "@mui/material";
 import { Controller } from "react-hook-form";
 import { FormInputMultiCheckboxProps, MultiCheckboxOptionsType } from "../../business/types";
 import { symptomsOptions } from "../../business";
-import { FormTextArea } from "./FormTextArea";
+import LooksOneOutlinedIcon from '@mui/icons-material/LooksOneOutlined';
 
 export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 	name,
@@ -42,29 +42,32 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 			<Stack>
 				{symptomsOptions.map((option: MultiCheckboxOptionsType) => {
 					return (
-						<FormControlLabel
-							control={
-								<Controller
-									name={name}
-									render={() => {
-										return (
-											<Checkbox
-												checked={selectedItems.includes(option.value)}
-												onChange={() => handleSelect(option.value)}
-											/>
-										);
-									}}
-									control={control}
-								/>
-							}
-							label={option.label}
-							key={option.value}
-						/>
+						<Stack>
+							<FormControlLabel
+								control={
+									<Controller
+										name={name}
+										render={() => {
+											return (
+												<Checkbox
+													checked={selectedItems.includes(option.value)}
+													onChange={() => handleSelect(option.value)}
+												/>
+											);
+										}}
+										control={control}
+									/>
+								}
+								label={option.label}
+								key={option.value}
+							/>
+							{(selectedItems.includes("headache") || selectedItems.includes("pain-anxiety")) &&
+							selectedItems.includes(option.value) ? (
+								<Rating name="read-only" value={3} readOnly size="large" icon={<LooksOneOutlinedIcon />}/>
+							) : null}
+						</Stack>
 					);
 				})}
-				{selectedItems.includes("others") ? (
-					<FormTextArea name="otherSymptoms" control={control} placeholder="Inne symptomy" />
-				) : null}
 			</Stack>
 		</FormControl>
 	);

@@ -4,7 +4,7 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 6,
-	patchNo: 2,
+	patchNo: 3,
 	status: "alpha",
 	date: "2024.06.29",
 };
@@ -24,7 +24,7 @@ export const steps: Array<StepType> = [
 	{
 		id: 2,
 		name: "Niepokojące objawy",
-		fields: ["temperature", "symptoms"],
+		fields: ["temperature", "symptoms", "headache-level", "pain-level"],
 	},
 	{
 		id: 3,
