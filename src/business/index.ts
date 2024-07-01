@@ -219,8 +219,8 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 ];
 
 export const TemperatureUnits: UnitType[] = ["°C"];
-export const HGBUnits: UnitType[] = ["mg/%", "g/dl"];
-export const WBCUnits: UnitType[] = ["K/μl", "tys./μl", "G/l"];
+export const HGBUnits: UnitType[] = ["g/dl","mg/%", "mg/dl", "mmol/l"];
+export const WBCUnits: UnitType[] = ["K/μl", "tys./μl", "G/l", "10³/μl"];
 export const PLTUnits: UnitType[] = ["tys./μl", "tys./mm³"];
 export const NEUTUnits: UnitType[] = ["%", "μl"];
 export const ALTUnits: UnitType[] = ["U/l"];
