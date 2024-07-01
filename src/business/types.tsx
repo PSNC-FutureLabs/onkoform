@@ -19,17 +19,18 @@ export type DropdownOptionsType = {
 export type Markers = "HGB" | "WBC" | "PLT" | "NEUT" | "ALT" | "AST";
 
 export const MarkerDescriptions: { [key in Markers]: string } = {
-    HGB: "stężenie hemoglobiny",
-    WBC: "liczba białych krwinek",
-    PLT: "liczba płytek krwi",
-    NEUT: "granulocyty obojętochłonne",
-    ALT: "poziom aminotransferazy alaninowej",
-    AST: "poziom aminotransferazy asparaginianowej"
+	HGB: "stężenie hemoglobiny",
+	WBC: "liczba białych krwinek",
+	PLT: "liczba płytek krwi",
+	NEUT: "granulocyty obojętochłonne",
+	ALT: "poziom aminotransferazy alaninowej",
+	AST: "poziom aminotransferazy asparaginianowej",
 };
 
 export type UnitType =
 	| "%"
 	| "°C"
+	| "μl"
 	| "%/μl"
 	| "G/l"
 	| "K/μl"
@@ -37,11 +38,12 @@ export type UnitType =
 	| "U/L"
 	| "U/l"
 	| "g/dl"
+	| "mg/dl"
 	| "mg/%"
 	| "mmol/l"
 	| "tys./mm³"
 	| "tys./μl"
-	| "μl";
+	| "10³/μl";
 
 export type FormInputProps = {
 	name: string;
