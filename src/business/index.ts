@@ -3,10 +3,10 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 
 export const versionTag = {
 	majorNo: 0,
-	minorNo: 6,
-	patchNo: 2,
+	minorNo: 7,
+	patchNo: 0,
 	status: "alpha",
-	date: "2024.06.29",
+	date: "2024.07.02",
 };
 
 export type StepType = {
@@ -24,7 +24,7 @@ export const steps: Array<StepType> = [
 	{
 		id: 2,
 		name: "Niepokojące objawy",
-		fields: ["temperature", "symptoms"],
+		fields: ["temperature", "symptoms", "headache-rating", "pain-rating"],
 	},
 	{
 		id: 3,
@@ -230,6 +230,9 @@ export const defaultFromValues: Partial<FormFields> = {
 	disease: "",
 	hospitalWard: "",
 	symptoms: [],
+	"headache-rating": "",
+	"pain-anxiety-rating": "",
+	"mucosal-toxicities-rating": "",
 	HGB: {
 		value: 0,
 		unit: "g/dl",

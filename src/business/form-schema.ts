@@ -13,13 +13,16 @@ import {
 } from "./schema-utils";
 
 export const schema = z.object({
-	birthday: dateSchema,
+	dateOfBirth: dateSchema,
 	gender: z.string({ required_error: ERROR_MESSAGES.required }),
 	disease: dropdownSchema,
 	hospitalWard: dropdownSchema,
 	temperature: temperatureSchema,
-	"measurement-place": z.string({ required_error: ERROR_MESSAGES.required }),
+	"measurement-place": z.string().optional(),
 	symptoms: z.string().array().optional(),
+	"headache-rating": z.string().nullable(),
+	"pain-anxiety-rating": z.string().nullable(),
+	"mucosal-toxicities-rating": z.string().nullable(),
 	otherSymptoms: z.string().optional(),
 	"examination-date": dateSchema,
 	HGB: HGBschema,

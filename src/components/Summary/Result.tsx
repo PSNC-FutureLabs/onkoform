@@ -49,7 +49,7 @@ const DiagnosesDefinitions: Diagnoses = [
 	},
 	{
 		level: DiagnoseLevel.ConsultationNeeded,
-		header: "Wyniki wymagają pilnej konsultacji z lekarzem.",
+		header: "Wyniki wymagają konsultacji z lekarzem.",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "error",
 	},
@@ -64,7 +64,9 @@ const DiagnosesDefinitions: Diagnoses = [
 export const Result = () => {
 	const { getValues } = useFormContext();
 
-	const hasSymptom = (symptoms: Array<SymptomValues>, symptom: SymptomValues) => symptoms.includes(symptom);
+	const hasSymptom = (symptoms: Array<SymptomValues>, symptom: SymptomValues): boolean => symptoms.includes(symptom);
+	const hasAnyOfSymptoms = (symptoms: Array<SymptomValues>, selectedSymptoms: Array<SymptomValues>): boolean =>
+		selectedSymptoms.some((symptom) => symptoms.includes(symptom));
 
 	const updateDiagnoseLevel = (diagnoseLevel: DiagnoseLevel): DiagnoseLevel =>
 		(calculatedDiagnoseLevel = Math.max(calculatedDiagnoseLevel, diagnoseLevel));
@@ -72,6 +74,8 @@ export const Result = () => {
 	let calculatedDiagnoseLevel: DiagnoseLevel = DiagnoseLevel.Unconclusive;
 
 	const symptoms = getValues("symptoms");
+	const headacheRating = parseInt(getValues("headache-rating"));
+	const painAnxietyRating = parseInt(getValues("pain-anxiety-rating"));
 
 	/* HGB */
 
@@ -105,20 +109,60 @@ export const Result = () => {
 		else updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
 	}
 
+	// calculatedDiagnoseLevel = DiagnoseLevel.Unconclusive;
+
 	/* Symptoms */
 
 	if (hasSymptom(symptoms, "drowsiness-weakness")) updateDiagnoseLevel(DiagnoseLevel.Unconclusive);
 
-	if (hasSymptom(symptoms, "vomiting")) updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
-	if (hasSymptom(symptoms, "diarrhea")) updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
+	if (hasAnyOfSymptoms(symptoms, ["vomiting", "diarrhea"])) updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
 
-	if (hasSymptom(symptoms, "chills")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	if (hasSymptom(symptoms, "bleeding")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	if (hasSymptom(symptoms, "fresh-petechiae")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	if (hasSymptom(symptoms, "cyanosis-or-body-bruising")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	if (hasSymptom(symptoms, "severe-peripheral-edema")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	if (hasSymptom(symptoms, "seizures-unresponsiveness")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	if (hasSymptom(symptoms, "vision-disturbances")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+	if (
+		hasAnyOfSymptoms(symptoms, [
+			"chills",
+			"bleeding",
+			"fresh-petechiae",
+			"cyanosis-or-body-bruising",
+			"severe-peripheral-edema",
+			"seizures-unresponsiveness",
+			"vision-disturbances",
+		])
+	)
+		updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+
+	if (hasSymptom(symptoms, "headache")) {
+		switch (headacheRating) {
+			case 1:
+			case 2:
+				updateDiagnoseLevel(DiagnoseLevel.OK);
+				break;
+			case 3:
+			case 4:
+				updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
+				break;
+			case 5:
+				updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+				break;
+		}
+	}
+
+	if (hasSymptom(symptoms, "pain-anxiety")) {
+		switch (painAnxietyRating) {
+			case 1:
+			case 2:
+				updateDiagnoseLevel(DiagnoseLevel.OK);
+				break;
+			case 3:
+			case 4:
+				updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
+				break;
+			case 5:
+				updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+				break;
+		}
+	}
+
+	// console.log("calculatedDiagnoseLevel:", calculatedDiagnoseLevel);
 
 	const diagnose =
 		DiagnosesDefinitions.find((item) => item.level === calculatedDiagnoseLevel) ??

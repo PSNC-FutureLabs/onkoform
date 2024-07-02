@@ -3,7 +3,7 @@ import { Checkbox, FormControl, FormControlLabel, FormLabel, Stack } from "@mui/
 import { Controller } from "react-hook-form";
 import { FormInputMultiCheckboxProps, MultiCheckboxOptionsType } from "../../business/types";
 import { symptomsOptions } from "../../business";
-import { FormTextArea } from "./FormTextArea";
+import { FormCustomRating } from "./FormCustomRating";
 
 export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 	name,
@@ -19,8 +19,11 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 		if (isPresent) {
 			const remaining = selectedItems.filter((item) => item !== value);
 			setSelectedItems(remaining);
-			if (value == "others") {
-				setValue("otherSymptoms", null);
+			if (value == "headache-rating") {
+				setValue("headache-rating", 0);
+			}
+			if (value == "pain-anxiety-rating") {
+				setValue("pain-anxiety-rating", 0);
 			}
 		} else {
 			setSelectedItems((prevItems) => [...prevItems, value]);
@@ -42,29 +45,33 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 			<Stack>
 				{symptomsOptions.map((option: MultiCheckboxOptionsType) => {
 					return (
-						<FormControlLabel
-							control={
-								<Controller
-									name={name}
-									render={() => {
-										return (
-											<Checkbox
-												checked={selectedItems.includes(option.value)}
-												onChange={() => handleSelect(option.value)}
-											/>
-										);
-									}}
-									control={control}
-								/>
-							}
-							label={option.label}
-							key={option.value}
-						/>
+						<Stack key={option.value}>
+							<FormControlLabel
+								control={
+									<Controller
+										name={name}
+										render={() => {
+											return (
+												<Checkbox
+													checked={selectedItems.includes(option.value)}
+													onChange={() => handleSelect(option.value)}
+												/>
+											);
+										}}
+										control={control}
+									/>
+								}
+								label={option.label}
+							/>
+							{selectedItems.includes("headache") && option.value == "headache" ? (
+								<FormCustomRating name={`${option.value}-rating`} control={control} />
+							) : null}
+							{selectedItems.includes("pain-anxiety") && option.value == "pain-anxiety" ? (
+								<FormCustomRating name={`${option.value}-rating`} control={control} />
+							) : null}
+						</Stack>
 					);
 				})}
-				{selectedItems.includes("others") ? (
-					<FormTextArea name="otherSymptoms" control={control} placeholder="Inne symptomy" />
-				) : null}
 			</Stack>
 		</FormControl>
 	);

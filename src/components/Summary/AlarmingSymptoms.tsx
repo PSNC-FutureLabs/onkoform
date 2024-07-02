@@ -9,7 +9,12 @@ export const AlarmingSymptoms = () => {
 	const symptoms = getValues("symptoms");
 	const symptomsText = symptomsOptions
 		.filter((option) => symptoms.includes(option.value))
-		.map((option) => option.label)
+		.map(
+			(option) =>
+				option.label +
+				(option.value == "headache" ? ` (${getValues("headache-rating")}/5)` : "") +
+				(option.value == "pain-anxiety" ? ` (${getValues("pain-anxiety-rating")}/5)` : "")
+		)
 		.join(", ");
 
 	return (
@@ -19,7 +24,10 @@ export const AlarmingSymptoms = () => {
 			</Typography>
 			<Grid container spacing={2}>
 				<BasicInfoCard label="Temperatura ciała" value={getValues("temperature") + " °C"} />
-				<BasicInfoCard label="Symptomy towarzyszące" value={symptomsText.length === 0 ? "brak" : symptomsText} />
+				<BasicInfoCard
+					label="Symptomy towarzyszące"
+					value={symptomsText.length === 0 ? "brak" : symptomsText}
+				/>
 			</Grid>
 		</Stack>
 	);
