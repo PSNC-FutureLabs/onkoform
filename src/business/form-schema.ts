@@ -22,6 +22,7 @@ export const schema = z.object({
 	symptoms: z.string().array().optional(),
 	"headache-rating": z.string().nullable(),
 	"pain-anxiety-rating": z.string().nullable(),
+	"mucosal-toxicities-rating": z.string().nullable(),
 	otherSymptoms: z.string().optional(),
 	"examination-date": dateSchema,
 	HGB: HGBschema,

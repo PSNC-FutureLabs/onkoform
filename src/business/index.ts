@@ -232,6 +232,7 @@ export const defaultFromValues: Partial<FormFields> = {
 	symptoms: [],
 	"headache-rating": "",
 	"pain-anxiety-rating": "",
+	"mucosal-toxicities-rating": "",
 	HGB: {
 		value: 0,
 		unit: "g/dl",
