@@ -64,7 +64,9 @@ const DiagnosesDefinitions: Diagnoses = [
 export const Result = () => {
 	const { getValues } = useFormContext();
 
-	const hasSymptom = (symptoms: Array<SymptomValues>, symptom: SymptomValues) => symptoms.includes(symptom);
+	const hasSymptom = (symptoms: Array<SymptomValues>, symptom: SymptomValues): boolean => symptoms.includes(symptom);
+	const hasAnyOfSymptoms = (symptoms: Array<SymptomValues>, selectedSymptoms: Array<SymptomValues>): boolean =>
+		selectedSymptoms.some((symptom) => symptoms.includes(symptom));
 
 	const updateDiagnoseLevel = (diagnoseLevel: DiagnoseLevel): DiagnoseLevel =>
 		(calculatedDiagnoseLevel = Math.max(calculatedDiagnoseLevel, diagnoseLevel));
@@ -113,16 +115,20 @@ export const Result = () => {
 
 	if (hasSymptom(symptoms, "drowsiness-weakness")) updateDiagnoseLevel(DiagnoseLevel.Unconclusive);
 
-	if (hasSymptom(symptoms, "vomiting")) updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
-	if (hasSymptom(symptoms, "diarrhea")) updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
+	if (hasAnyOfSymptoms(symptoms, ["vomiting", "diarrhea"])) updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
 
-	if (hasSymptom(symptoms, "chills")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	if (hasSymptom(symptoms, "bleeding")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	if (hasSymptom(symptoms, "fresh-petechiae")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	if (hasSymptom(symptoms, "cyanosis-or-body-bruising")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	if (hasSymptom(symptoms, "severe-peripheral-edema")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	if (hasSymptom(symptoms, "seizures-unresponsiveness")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	if (hasSymptom(symptoms, "vision-disturbances")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+	if (
+		hasAnyOfSymptoms(symptoms, [
+			"chills",
+			"bleeding",
+			"fresh-petechiae",
+			"cyanosis-or-body-bruising",
+			"severe-peripheral-edema",
+			"seizures-unresponsiveness",
+			"vision-disturbances",
+		])
+	)
+		updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
 
 	if (hasSymptom(symptoms, "headache")) {
 		switch (headacheRating) {
