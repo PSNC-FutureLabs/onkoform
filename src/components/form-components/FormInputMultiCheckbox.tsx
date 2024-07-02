@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Checkbox, FormControl, FormControlLabel, FormLabel, Stack, Rating } from "@mui/material";
+import { Checkbox, FormControl, FormControlLabel, FormLabel, Stack } from "@mui/material";
 import { Controller } from "react-hook-form";
 import { FormInputMultiCheckboxProps, MultiCheckboxOptionsType } from "../../business/types";
 import { symptomsOptions } from "../../business";
-import LooksOneOutlinedIcon from '@mui/icons-material/LooksOneOutlined';
+import { FormCustomRating } from "./FormCustomRating";
 
 export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 	name,
@@ -19,8 +19,11 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 		if (isPresent) {
 			const remaining = selectedItems.filter((item) => item !== value);
 			setSelectedItems(remaining);
-			if (value == "others") {
-				setValue("otherSymptoms", null);
+			if (value == "headache-rating") {
+				setValue("headache-rating", 0);
+			}
+			if (value == "pain-anxiety-rating") {
+				setValue("pain-anxiety-rating", 0);
 			}
 		} else {
 			setSelectedItems((prevItems) => [...prevItems, value]);
@@ -61,9 +64,11 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 								label={option.label}
 								key={option.value}
 							/>
-							{(selectedItems.includes("headache") || selectedItems.includes("pain-anxiety")) &&
-							selectedItems.includes(option.value) ? (
-								<Rating name="read-only" value={3} readOnly size="large" icon={<LooksOneOutlinedIcon />}/>
+							{selectedItems.includes("headache") && option.value == "headache" ? (
+								<FormCustomRating name={`${option.value}-rating`} control={control} />
+							) : null}
+							{selectedItems.includes("pain-anxiety") && option.value == "pain-anxiety" ? (
+								<FormCustomRating name={`${option.value}-rating`} control={control} />
 							) : null}
 						</Stack>
 					);
