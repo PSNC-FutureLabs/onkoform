@@ -72,6 +72,8 @@ export const Result = () => {
 	let calculatedDiagnoseLevel: DiagnoseLevel = DiagnoseLevel.Unconclusive;
 
 	const symptoms = getValues("symptoms");
+	const headacheRating = parseInt(getValues("headache-rating"));
+	const painAnxietyRating = parseInt(getValues("pain-anxiety-rating"));
 
 	/* HGB */
 
@@ -105,6 +107,8 @@ export const Result = () => {
 		else updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
 	}
 
+	// calculatedDiagnoseLevel = DiagnoseLevel.Unconclusive;
+
 	/* Symptoms */
 
 	if (hasSymptom(symptoms, "drowsiness-weakness")) updateDiagnoseLevel(DiagnoseLevel.Unconclusive);
@@ -119,6 +123,40 @@ export const Result = () => {
 	if (hasSymptom(symptoms, "severe-peripheral-edema")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
 	if (hasSymptom(symptoms, "seizures-unresponsiveness")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
 	if (hasSymptom(symptoms, "vision-disturbances")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+
+	if (hasSymptom(symptoms, "headache")) {
+		switch (headacheRating) {
+			case 1:
+			case 2:
+				updateDiagnoseLevel(DiagnoseLevel.OK);
+				break;
+			case 3:
+			case 4:
+				updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
+				break;
+			case 5:
+				updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+				break;
+		}
+	}
+
+	if (hasSymptom(symptoms, "pain-anxiety")) {
+		switch (painAnxietyRating) {
+			case 1:
+			case 2:
+				updateDiagnoseLevel(DiagnoseLevel.OK);
+				break;
+			case 3:
+			case 4:
+				updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
+				break;
+			case 5:
+				updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+				break;
+		}
+	}
+
+	// console.log("calculatedDiagnoseLevel:", calculatedDiagnoseLevel);
 
 	const diagnose =
 		DiagnosesDefinitions.find((item) => item.level === calculatedDiagnoseLevel) ??
