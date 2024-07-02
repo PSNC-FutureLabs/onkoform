@@ -20,6 +20,10 @@ body .MuiGrid-root .MuiGrid-item {
 	align-items: center;
 }
 
+body .MuiRating-iconEmpty .MuiSvgIcon-root {
+	color: #aaa;
+}
+
 .arrow-icon {
 	width: 26px;
 	height: 26px;
