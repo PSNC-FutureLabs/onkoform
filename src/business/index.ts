@@ -24,7 +24,7 @@ export const steps: Array<StepType> = [
 	{
 		id: 2,
 		name: "Niepokojące objawy",
-		fields: ["temperature", "symptoms", "headache-level", "pain-level"],
+		fields: ["temperature", "symptoms", "headache-rating", "pain-rating"],
 	},
 	{
 		id: 3,
@@ -230,6 +230,8 @@ export const defaultFromValues: Partial<FormFields> = {
 	disease: "",
 	hospitalWard: "",
 	symptoms: [],
+	"headache-rating": "",
+	"pain-anxiety-rating": "",
 	HGB: {
 		value: 0,
 		unit: "g/dl",
