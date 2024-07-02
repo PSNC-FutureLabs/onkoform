@@ -45,7 +45,7 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 			<Stack>
 				{symptomsOptions.map((option: MultiCheckboxOptionsType) => {
 					return (
-						<Stack>
+						<Stack key={option.value}>
 							<FormControlLabel
 								control={
 									<Controller
@@ -62,7 +62,6 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 									/>
 								}
 								label={option.label}
-								key={option.value}
 							/>
 							{selectedItems.includes("headache") && option.value == "headache" ? (
 								<FormCustomRating name={`${option.value}-rating`} control={control} />
