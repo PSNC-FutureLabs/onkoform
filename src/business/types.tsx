@@ -54,6 +54,7 @@ export type FormInputProps = {
 export type InputRadioProps = FormInputProps & {
 	options: RadioOptionsType[];
 };
+
 export type InputDropdownProps = FormInputProps & {
 	options: DropdownOptionsType[];
 };
