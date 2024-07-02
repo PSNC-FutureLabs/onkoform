@@ -49,7 +49,7 @@ const DiagnosesDefinitions: Diagnoses = [
 	},
 	{
 		level: DiagnoseLevel.ConsultationNeeded,
-		header: "Wyniki wymagają pilnej konsultacji z lekarzem.",
+		header: "Wyniki wymagają konsultacji z lekarzem.",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "error",
 	},
