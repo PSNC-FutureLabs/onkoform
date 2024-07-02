@@ -1,4 +1,4 @@
-import { FormControl, Rating } from "@mui/material";
+import { FormControl, Rating, Stack, Typography } from "@mui/material";
 import { Controller } from "react-hook-form";
 import { FormInputProps } from "../../business/types";
 import { FormWarningText } from "./FormWarningText";
@@ -19,7 +19,7 @@ const customIcons: {
 	},
 	2: {
 		icon: <SentimentDissatisfiedIcon color="warning" />,
-		label: "Trochę mocniej",
+		label: "Boli trochę mocniej",
 	},
 	3: {
 		icon: <SentimentDissatisfiedIcon color="warning" />,
@@ -27,7 +27,7 @@ const customIcons: {
 	},
 	4: {
 		icon: <SentimentDissatisfiedIcon color="error" />,
-		label: "Bardzo mocno",
+		label: "Bardzo mocno boli",
 	},
 	5: {
 		icon: <SentimentVeryDissatisfiedIcon color="error" />,
@@ -41,14 +41,13 @@ function IconContainer(props: IconContainerProps) {
 }
 
 export const FormCustomRating: React.FC<FormInputProps> = ({ name, control }) => {
-	// console.log("FormCustomRating", name);
 	return (
 		<FormControl>
 			<Controller
 				name={name}
 				control={control}
 				render={({ field: { onChange, onBlur, ref, value }, fieldState: { error } }) => (
-					<>
+					<Stack direction="row">
 						<Rating
 							value={value}
 							onChange={onChange}
@@ -59,8 +58,9 @@ export const FormCustomRating: React.FC<FormInputProps> = ({ name, control }) =>
 							getLabelText={(value: number) => customIcons[value].label}
 							highlightSelectedOnly
 						/>
+						{!isNaN(value) && <Typography ml={1}>{value ? customIcons[value].label : ""}</Typography>}
 						{error ? <FormWarningText text={error?.message} /> : null}
-					</>
+					</Stack>
 				)}
 			/>
 		</FormControl>
