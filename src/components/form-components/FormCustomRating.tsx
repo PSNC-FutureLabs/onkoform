@@ -52,7 +52,7 @@ export const FormCustomRating: React.FC<FormInputProps> = ({ name, control }) =>
 						<Rating
 							value={value}
 							onChange={onChange}
-							onChangeActive={(event, newHover) => {
+							onChangeActive={(_event, newHover) => {
 								setHover(newHover);
 							}}
 							ref={ref}
