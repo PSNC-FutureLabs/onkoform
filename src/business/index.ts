@@ -4,7 +4,7 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 7,
-	patchNo: 0,
+	patchNo: 1,
 	status: "alpha",
 	date: "2024.07.02",
 };
@@ -66,6 +66,25 @@ export const genderOptions: RadioOptionsType[] = [
 	{
 		label: "inna",
 		value: "other",
+	},
+];
+
+export const mucosalToxicitiesLevels: RadioOptionsType[] = [
+	{
+		label: "Pojawienie się bólu z możliwym towarzyszącym zaczerwienieniem śluzówek",
+		value: "1",
+	},
+	{
+		label: "Silne zaczerwienienie, owrzodzenia, dziecko może przyjmować pokarmy doustne",
+		value: "2",
+	},
+	{
+		label: "Nasilone owrzodzenia z towarzyszącym obrzękiem, dziecko odmawia przyjmowania pokarmów stałych",
+		value: "3",
+	},
+	{
+		label: "Objawy są bardzo nasilone, uniemożliwiają przyjmowanie pokarmów stałych",
+		value: "4",
 	},
 ];
 

@@ -1,11 +1,11 @@
-import { FormControl, Rating, Stack, Typography } from "@mui/material";
+import { FormControl, Rating, Stack, Chip } from "@mui/material";
 import { Controller } from "react-hook-form";
 import { FormInputProps } from "../../business/types";
-import { FormWarningText } from "./FormWarningText";
 import { IconContainerProps } from "@mui/material/Rating";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
+import React from "react";
 
 const customIcons: {
 	[index: string]: {
@@ -41,16 +41,20 @@ function IconContainer(props: IconContainerProps) {
 }
 
 export const FormCustomRating: React.FC<FormInputProps> = ({ name, control }) => {
+	const [hover, setHover] = React.useState<number>(-1);
 	return (
 		<FormControl>
 			<Controller
 				name={name}
 				control={control}
-				render={({ field: { onChange, onBlur, ref, value }, fieldState: { error } }) => (
-					<Stack direction="row">
+				render={({ field: { onChange, onBlur, ref, value } }) => (
+					<Stack direction="row" alignItems="center">
 						<Rating
 							value={value}
 							onChange={onChange}
+							onChangeActive={(_event, newHover) => {
+								setHover(newHover);
+							}}
 							ref={ref}
 							onBlur={onBlur}
 							size="large"
@@ -58,8 +62,15 @@ export const FormCustomRating: React.FC<FormInputProps> = ({ name, control }) =>
 							getLabelText={(value: number) => customIcons[value].label}
 							highlightSelectedOnly
 						/>
-						{!isNaN(value) && <Typography ml={1}>{value ? customIcons[value].label : ""}</Typography>}
-						{error ? <FormWarningText text={error?.message} /> : null}
+						{ (
+							<Chip
+								variant={ hover > 0 ? "outlined" : "filled"}
+								color="warning"
+								size="medium"
+								sx={{ ml: 1 }}
+								label={ hover > 0 ? customIcons[hover].label : value > 0 ? customIcons[value].label : "?"}
+							/>
+						)}
 					</Stack>
 				)}
 			/>
