@@ -69,6 +69,25 @@ export const genderOptions: RadioOptionsType[] = [
 	},
 ];
 
+export const mucosalToxicitiesLevels: RadioOptionsType[] = [
+	{
+		label: "Pojawienie się bólu z możliwym towarzyszącym zaczerwienieniem śluzówek",
+		value: "MT1",
+	},
+	{
+		label: "Silne zaczerwienienie, owrzodzenia, dziecko może przyjmować pokarmy doustne",
+		value: "MT2",
+	},
+	{
+		label: "Nasilone owrzodzenia z towarzyszącym obrzękiem, dziecko odmawia przyjmowania pokarmów stałych",
+		value: "MT3",
+	},
+	{
+		label: "Objawy są bardzo nasilone, uniemożliwiają przyjmowanie pokarmów stałych",
+		value: "MT4",
+	},
+];
+
 // to be removed if no longer needed
 export const measurementPlaceOptions: RadioOptionsType[] = [
 	{
