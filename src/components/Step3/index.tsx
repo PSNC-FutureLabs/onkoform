@@ -14,7 +14,7 @@ export default function Step3() {
 				W tym kroku należy podać <strong>najnowsze</strong> wyniki badań.
 				<br />W kolejnym kroku podasz wyniki z poprzedniego badania laboratoryjnego.
 			</Alert>
-			<FormInputDate name="examination-date" control={control} label="Data wykonania badania" />
+			<FormInputDate name="actual-lab-test-date" control={control} label="Data wykonania badania" />
 			<MarkerRow
 				control={control}
 				markerName="HGB"

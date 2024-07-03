@@ -17,7 +17,7 @@ export default function Step1() {
 			<FormInputRadio name="gender" label="Płeć" control={control} options={genderOptions} />
 			<Stack spacing={1}>
 				<FormLabel>Schorzenie</FormLabel>
-				<FormInputDropdown name="disease" control={control} options={medicalConditionOptions} />
+				<FormInputDropdown name="medicalCondition" control={control} options={medicalConditionOptions} />
 			</Stack>
 			<Stack spacing={1}>
 				<FormLabel>Prowadzący oddział szpitalny</FormLabel>
