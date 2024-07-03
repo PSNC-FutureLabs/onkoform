@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Checkbox, FormControl, FormControlLabel, FormLabel, Stack } from "@mui/material";
+import { Checkbox, FormControl, FormControlLabel, FormLabel, Stack, Tooltip } from "@mui/material";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { Controller } from "react-hook-form";
 import { FormInputMultiCheckboxProps, MultiCheckboxOptionsType } from "../../business/types";
 import { mucosalToxicitiesLevels, symptomsOptions } from "../../business";
@@ -47,23 +48,31 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 				{symptomsOptions.map((option: MultiCheckboxOptionsType) => {
 					return (
 						<Stack key={option.value}>
-							<FormControlLabel
-								control={
-									<Controller
-										name={name}
-										render={() => {
-											return (
-												<Checkbox
-													checked={selectedItems.includes(option.value)}
-													onChange={() => handleSelect(option.value)}
-												/>
-											);
-										}}
-										control={control}
-									/>
-								}
-								label={option.label}
-							/>
+							<Stack direction="row" alignItems="center">
+								<FormControlLabel
+									control={
+										<Controller
+											name={name}
+											render={() => {
+												return (
+													<Checkbox
+														checked={selectedItems.includes(option.value)}
+														onChange={() => handleSelect(option.value)}
+													/>
+												);
+											}}
+											control={control}
+										/>
+									}
+									label={option.label}
+									sx={{ mr: 1 }}
+								/>
+								{option.description && (
+									<Tooltip title={option.description}>
+										<InfoOutlinedIcon sx={{ cursor: "pointer" }} color="info"/>
+									</Tooltip>
+								)}
+							</Stack>
 							{selectedItems.includes("headache") && option.value == "headache" ? (
 								<FormCustomRating name={`${option.value}-rating`} control={control} />
 							) : null}
@@ -71,7 +80,11 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 								<FormCustomRating name={`${option.value}-rating`} control={control} />
 							) : null}
 							{selectedItems.includes("mucosal-toxicities") && option.value == "mucosal-toxicities" ? (
-								<FormMucosalToxicitiesRating name={`${option.value}-rating`} control={control} options={mucosalToxicitiesLevels} />
+								<FormMucosalToxicitiesRating
+									name={`${option.value}-rating`}
+									control={control}
+									options={mucosalToxicitiesLevels}
+								/>
 							) : null}
 						</Stack>
 					);
