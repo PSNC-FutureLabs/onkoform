@@ -19,7 +19,7 @@ export const steps: Array<StepType> = [
 	{
 		id: 1,
 		name: "Informacje o pacjencie",
-		fields: ["dateOfBirth", "gender", "disease", "hospitalWard"],
+		fields: ["dateOfBirth", "gender", "medicalCondition", "hospitalWard"],
 	},
 	{
 		id: 2,
