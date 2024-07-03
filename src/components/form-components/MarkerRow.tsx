@@ -11,7 +11,7 @@ export const MarkerRow = ({ control, markerName, label, options, description }: 
 			<Stack direction="row" spacing={1}>
 				<FormLabel>{label}</FormLabel>
 				<Tooltip title={description ?? markerName}>
-					<InfoOutlinedIcon sx={{ cursor: "pointer" }} />
+					<InfoOutlinedIcon sx={{ cursor: "pointer" }} color="info"/>
 				</Tooltip>
 			</Stack>
 			<Stack direction="row">
