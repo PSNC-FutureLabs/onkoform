@@ -11,7 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { defaultFromValues } from "./business";
 import Stepper from "./components/Stepper";
 import Footer from "./components/Footer";
-import { lightGreen, grey } from "@mui/material/colors";
+import { lightGreen, grey, blue } from "@mui/material/colors";
 import "./App.css";
 
 let theme = createTheme(
@@ -62,9 +62,9 @@ let theme = createTheme(
 				contrastText: grey["A100"],
 			},
 			info: {
-				main: lightGreen[500],
-				light: lightGreen[900],
-				dark: lightGreen[200],
+				main: blue[500],
+				light: blue[900],
+				dark: blue[200],
 			},
 		},
 	},
