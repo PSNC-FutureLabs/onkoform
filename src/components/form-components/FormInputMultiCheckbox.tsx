@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Checkbox, FormControl, FormControlLabel, FormLabel, Stack } from "@mui/material";
 import { Controller } from "react-hook-form";
 import { FormInputMultiCheckboxProps, MultiCheckboxOptionsType } from "../../business/types";
-import { symptomsOptions } from "../../business";
+import { mucosalToxicitiesLevels, symptomsOptions } from "../../business";
 import { FormCustomRating } from "./FormCustomRating";
+import { FormMucosalToxicitiesRating } from "./FormMucosalToxicitiesRating";
 
 export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 	name,
@@ -68,6 +69,9 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 							) : null}
 							{selectedItems.includes("pain-anxiety") && option.value == "pain-anxiety" ? (
 								<FormCustomRating name={`${option.value}-rating`} control={control} />
+							) : null}
+							{selectedItems.includes("mucosal-toxicities") && option.value == "mucosal-toxicities" ? (
+								<FormMucosalToxicitiesRating name={`${option.value}-rating`} control={control} options={mucosalToxicitiesLevels} />
 							) : null}
 						</Stack>
 					);
