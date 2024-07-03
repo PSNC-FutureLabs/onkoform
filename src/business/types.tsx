@@ -1,28 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Control, FieldValues, UseFormGetValues, UseFormSetValue } from "react-hook-form";
 
-export type RadioOptionsType = {
+type OptionType = {
 	label: string;
 	value: string;
 };
 
-export type MultiCheckboxOptionsType = {
-	label: string;
-	value: string;
-};
-
-export type DropdownOptionsType = {
-	label: string;
-	value: string;
-};
+export type RadioOptionsType = OptionType;
+export type MultiCheckboxOptionsType = OptionType;
+export type DropdownOptionsType = OptionType;
 
 export type Markers = "HGB" | "WBC" | "PLT" | "NEUT" | "ALT" | "AST";
 
 export const MarkerDescriptions: { [key in Markers]: string } = {
     HGB: "stężenie hemoglobiny",
-    WBC: "liczba białych krwinek",
+    WBC: "liczba białych krwinek (leukocyty)",
     PLT: "liczba płytek krwi",
-    NEUT: "granulocyty obojętochłonne",
+    NEUT: "granulocyty obojętochłonne (neutrofile)",
     ALT: "poziom aminotransferazy alaninowej",
     AST: "poziom aminotransferazy asparaginianowej"
 };

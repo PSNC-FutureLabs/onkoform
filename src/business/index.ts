@@ -4,9 +4,9 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 7,
-	patchNo: 1,
+	patchNo: 2,
 	status: "alpha",
-	date: "2024.07.02",
+	date: "2024.07.03",
 };
 
 export type StepType = {
@@ -100,7 +100,7 @@ export const measurementPlaceOptions: RadioOptionsType[] = [
 	},
 ];
 
-export const diseaseOptions: DropdownOptionsType[] = [
+export const medicalConditionOptions: DropdownOptionsType[] = [
 	{
 		label: "ALL (ostra białaczka limfoblastyczna)",
 		value: "all",
@@ -246,7 +246,7 @@ export const ALTUnits: UnitType[] = ["U/l"];
 export const ASTUnits: UnitType[] = ["U/l"];
 
 export const defaultFromValues: Partial<FormFields> = {
-	disease: "",
+	medicalCondition: "",
 	hospitalWard: "",
 	symptoms: [],
 	"headache-rating": "",
