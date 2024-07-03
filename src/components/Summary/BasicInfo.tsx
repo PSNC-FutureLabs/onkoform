@@ -1,6 +1,6 @@
 import { Grid, Stack, Typography } from "@mui/material";
 import { useFormContext } from "react-hook-form";
-import { getDiseaseValue, getGenderValue, getHospitalWardValue, getPolishAgeDescription } from "./helpers";
+import { getMedicalConditionValue, getGenderValue, getHospitalWardValue, getPolishAgeDescription } from "./helpers";
 import { BasicInfoCard } from "./BasicInfoCard";
 
 export const BasicInfo = () => {
@@ -8,7 +8,7 @@ export const BasicInfo = () => {
 
 	const genderValue = getGenderValue(getValues("gender"));
 	const ageDescription = getPolishAgeDescription(new Date(getValues("dateOfBirth")));
-	const medicalCondition = getDiseaseValue(getValues("disease"));
+	const medicalCondition = getMedicalConditionValue(getValues("medicalCondition"));
 	const hospitalWard = getHospitalWardValue(getValues("hospitalWard"));
 
 	return (
