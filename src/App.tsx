@@ -77,8 +77,8 @@ function App() {
 	const methods = useForm<FormFields>({
 		defaultValues: defaultFromValues,
 		resolver: zodResolver(schema),
-		reValidateMode: "onBlur",
-		mode: "onBlur",
+		reValidateMode: "onChange",
+		mode: "all",
 	});
 
 	return (
