@@ -64,8 +64,8 @@ export function getPolishAgeDescription(dateOfBirth: Date): string {
 	return ageString;
 }
 
-export const getDiseaseValue = (disease: string) => {
-	return medicalConditionOptions.find((opt) => opt.value == disease)?.label;
+export const getMedicalConditionValue = (medicalCondition: string) => {
+	return medicalConditionOptions.find((opt) => opt.value == medicalCondition)?.label;
 };
 
 export const getHospitalWardValue = (hospitalWard: string) => {
