@@ -4,6 +4,7 @@ import { Control, FieldValues, UseFormGetValues, UseFormSetValue } from "react-h
 type OptionType = {
 	label: string;
 	value: string;
+	description?: string;
 };
 
 export type RadioOptionsType = OptionType;
