@@ -186,50 +186,69 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 	{
 		label: "dreszcze",
 		value: "chills",
+		description: "uczucie zimna połączone z drżeniem mięśni",
 	},
 	{
 		label: "senność/osłabienie",
 		value: "drowsiness-weakness",
+		description: "zwiększona potrzeba snu/obniżenie sił fizycznych",
 	},
 	{
 		label: "ból głowy",
 		value: "headache",
+		description:
+			"dolegliwości bólowe, lokalizujące się w okolicy głowy - zarówno w obrębie jej skóry, jak i lokalizujący się wewnątrzczaszkowo",
 	},
 	{
 		label: "toksyczności śluzówkowe",
 		value: "mucosal-toxicities",
+		description:
+			"powikłania śluzówkowe chemioterapii, zmiany toksyczne śluzówek jamy ustnej, przewodu pokarmowego oraz często okolic krocza oraz odbytu; nadżerki, afty, zmiany podkrwawiające, często bolesne, wymagające podawania leków przeciwbólowych.",
 	},
 	{
 		label: "utrzymujące się wymioty",
 		value: "vomiting",
+		description: "nagłe wydalenie treści żołądkowej, zazwyczaj poprzedzone nudnościami",
 	},
 	{
 		label: "biegunka",
 		value: "diarrhea",
+		description:
+			"oddanie 3 lub więcej luźnych/wodnistych stolców w ciągu doby lub stolec zawierający śluz, krew lub ropę",
 	},
 	{
 		label: "krwawienie",
 		value: "bleeding",
+		description:
+			"utrata krwi w skutek np. urazu naczynia krwionośnego, które może być szczególnie nasilone i gwałtowne w przypadku zaburzeń hematologicznych takich, jak obniżona liczna płytek krwi czy zaburzenia krzepnięcia",
 	},
 	{
 		label: "nowe/świeże wybroczyny",
 		value: "fresh-petechiae",
+		description:
+			"punkcikowe, czerwone zmiany, pojawiające się przy niskiej liczbie płytek krwi, świadczące o skazie krwotocznej",
 	},
 	{
 		label: "sinica lub zasinienie ciała",
 		value: "cyanosis-or-body-bruising",
+		description:
+			"pojawienie się niebieskawego zabarwienia skóry, a także błon śluzowych u dziecka, wiążąca się z rozpoczynającym się niedotlenieniem organizmu.",
 	},
 	{
 		label: "nasilone obrzęki obwodowe",
 		value: "severe-peripheral-edema",
+		description:
+			"gromadzenie nadmiaru płynu najczęściej w okolicy kostek lub, w przypadku pozycji leżącej, w okolicy lędźwiowej",
 	},
 	{
 		label: "drgawki / brak kontaktu",
 		value: "seizures-unresponsiveness",
+		description: "mimowolne, gwałtowne skurcze mięśni u dzieci, mogące być objawem choroby neurologicznej, jak i współwystępować z podwyższoną ciepłotą ciała"
 	},
 	{
 		label: "zaburzenia widzenia",
 		value: "vision-disturbances",
+		description: "zgłaszane przez dziecko pogorszenie jakości widzenia, zniekształcenie obrazu, utrata wzroku"
 	},
 	{
 		label: "ból / niepokój",
