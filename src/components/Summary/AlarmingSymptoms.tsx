@@ -13,7 +13,8 @@ export const AlarmingSymptoms = () => {
 			(option) =>
 				option.label +
 				(option.value == "headache" ? ` (${getValues("headache-rating")}/5)` : "") +
-				(option.value == "pain-anxiety" ? ` (${getValues("pain-anxiety-rating")}/5)` : "")
+				(option.value == "pain-anxiety" ? ` (${getValues("pain-anxiety-rating")}/5)` : "") + 
+				(option.value == "mucosal-toxicities" ? ` (${getValues("mucosal-toxicities-rating")}/4)` : "")
 		)
 		.join(", ");
 
