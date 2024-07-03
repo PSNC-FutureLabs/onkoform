@@ -243,12 +243,13 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 	{
 		label: "drgawki / brak kontaktu",
 		value: "seizures-unresponsiveness",
-		description: "mimowolne, gwałtowne skurcze mięśni u dzieci, mogące być objawem choroby neurologicznej, jak i współwystępować z podwyższoną ciepłotą ciała"
+		description:
+			"mimowolne, gwałtowne skurcze mięśni u dzieci, mogące być objawem choroby neurologicznej, jak i współwystępować z podwyższoną ciepłotą ciała",
 	},
 	{
 		label: "zaburzenia widzenia",
 		value: "vision-disturbances",
-		description: "zgłaszane przez dziecko pogorszenie jakości widzenia, zniekształcenie obrazu, utrata wzroku"
+		description: "zgłaszane przez dziecko pogorszenie jakości widzenia, zniekształcenie obrazu, utrata wzroku",
 	},
 	{
 		label: "ból / niepokój",
