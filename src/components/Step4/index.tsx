@@ -13,7 +13,7 @@ export default function Step4() {
 			<Alert variant="outlined" severity="info">
 				W tym kroku należy podać wyniki z poprzedniego badania laboratoryjnego.
 			</Alert>
-			<FormInputDate name="examination-date2" control={control} label="Data wykonania badania" />
+			<FormInputDate name="previous-lab-test-date" control={control} label="Data wykonania badania" />
 			<MarkerRow
 				control={control}
 				markerName="HGBprev"

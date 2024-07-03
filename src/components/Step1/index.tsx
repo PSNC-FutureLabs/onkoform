@@ -1,7 +1,7 @@
 import { FormLabel, Stack } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { FormInputRadio } from "../form-components/FormInputRadio";
-import { diseaseOptions, genderOptions, hospitalWardOptions } from "../../business";
+import { medicalConditionOptions, genderOptions, hospitalWardOptions } from "../../business";
 import { FormInputDate } from "../form-components/FormInputDate";
 import { FormInputDropdown } from "../form-components/FormInputDropdown";
 
@@ -17,7 +17,7 @@ export default function Step1() {
 			<FormInputRadio name="gender" label="Płeć" control={control} options={genderOptions} />
 			<Stack spacing={1}>
 				<FormLabel>Schorzenie</FormLabel>
-				<FormInputDropdown name="disease" control={control} options={diseaseOptions} />
+				<FormInputDropdown name="medicalCondition" control={control} options={medicalConditionOptions} />
 			</Stack>
 			<Stack spacing={1}>
 				<FormLabel>Prowadzący oddział szpitalny</FormLabel>
