@@ -4,9 +4,9 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 7,
-	patchNo: 4,
+	patchNo: 6,
 	status: "alpha",
-	date: "2024.07.03",
+	date: "2024.07.04",
 };
 
 export type StepType = {
@@ -290,8 +290,8 @@ export const defaultFromValues: Partial<FormFields> = {
 	},
 	WBCprev: { value: 0 },
 	PLTprev: { value: 0 },
-	ALTprev: { value: 0 },
-	ASTprev: { value: 0 },
+	ALTprev: { value: null },
+	ASTprev: { value: null },
 	NEUTprev: {
 		value: 0,
 		unit: "%",
