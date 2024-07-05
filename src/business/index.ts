@@ -265,7 +265,7 @@ export const NEUTUnits: UnitType[] = ["%", "μl"];
 export const ALTUnits: UnitType[] = ["U/l"];
 export const ASTUnits: UnitType[] = ["U/l"];
 
-export const defaultFromValues: Partial<FormFields> = {
+export const formDefaultValues: Partial<FormFields> = {
 	medicalCondition: "",
 	hospitalWard: "",
 	symptoms: [],
@@ -282,10 +282,45 @@ export const defaultFromValues: Partial<FormFields> = {
 		value: 0,
 		unit: "%",
 	},
-	ALT: { value: 0 },
-	AST: { value: 0 },
+	ALT: { value: null },
+	AST: { value: null },
 	HGBprev: {
 		value: 0,
+		unit: "g/dl",
+	},
+	WBCprev: { value: 0 },
+	PLTprev: { value: 0 },
+	ALTprev: { value: null },
+	ASTprev: { value: null },
+	NEUTprev: {
+		value: 0,
+		unit: "%",
+	},
+};
+
+export const formTestValues: Partial<FormFields> = {
+	gender: "male",
+	medicalCondition: "all",
+	hospitalWard: "o3",
+	temperature: 36.6,
+	symptoms: [],
+	"headache-rating": "",
+	"pain-anxiety-rating": "",
+	"mucosal-toxicities-rating": "",
+	HGB: {
+		value: 11.6,
+		unit: "g/dl",
+	},
+	WBC: { value: 0 },
+	PLT: { value: 0 },
+	NEUT: {
+		value: 0,
+		unit: "%",
+	},
+	ALT: { value: null },
+	AST: { value: null },
+	HGBprev: {
+		value: 10.9,
 		unit: "g/dl",
 	},
 	WBCprev: { value: 0 },
