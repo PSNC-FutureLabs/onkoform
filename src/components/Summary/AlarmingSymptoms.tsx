@@ -6,6 +6,8 @@ import { symptomsOptions } from "../../business";
 export const AlarmingSymptoms = () => {
 	const { getValues } = useFormContext();
 
+	const temperature = getValues("temperature");
+
 	const symptoms = getValues("symptoms");
 	const symptomsText = symptomsOptions
 		.filter((option) => symptoms.includes(option.value))
@@ -24,7 +26,7 @@ export const AlarmingSymptoms = () => {
 				Niepokojące objawy
 			</Typography>
 			<Grid container spacing={2}>
-				<BasicInfoCard label="Temperatura ciała" value={`${getValues("temperature")} °C`} />
+				<BasicInfoCard label="Temperatura ciała" value={`${temperature.toFixed(1).replace(".", ",")} °C`} />
 				<BasicInfoCard
 					label="Symptomy towarzyszące"
 					value={symptomsText.length === 0 ? "brak" : symptomsText}
