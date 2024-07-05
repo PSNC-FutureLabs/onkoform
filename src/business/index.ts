@@ -30,7 +30,7 @@ export const steps: Array<StepType> = [
 		id: 3,
 		name: "Aktualne badania",
 		fields: [
-			"examination-date",
+			"actual-lab-test-date",
 			["HGB.value", "HGB.unit"],
 			"WBC",
 			"PLT",
@@ -43,7 +43,7 @@ export const steps: Array<StepType> = [
 		id: 4,
 		name: "Poprzednie badania",
 		fields: [
-			"examination-date2",
+			"previous-lab-test-date",
 			["HGB2", "Hgb2Unit"],
 			"WBC2",
 			"PLT2",
