@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { FormInputDate } from "../form-components/FormInputDate";
 import { ALTUnits, ASTUnits, HGBUnits, NEUTUnits, PLTUnits, WBCUnits } from "../../business";
 import { MarkerRow } from "../form-components/MarkerRow";
-import { MarkerDescriptions } from "../../business/types";
+import { BloodMarkerDescriptions } from "../../business/types";
 
 export default function Step3() {
 	const { control } = useFormContext();
@@ -19,42 +19,42 @@ export default function Step3() {
 				control={control}
 				markerName="HGB"
 				label="HGB"
-				description={MarkerDescriptions.HGB}
+				description={BloodMarkerDescriptions.HGB}
 				options={HGBUnits}
 			/>
 			<MarkerRow
 				control={control}
 				markerName="WBC"
 				label="WBC"
-				description={MarkerDescriptions.WBC}
+				description={BloodMarkerDescriptions.WBC}
 				options={WBCUnits}
 			/>
 			<MarkerRow
 				control={control}
 				markerName="PLT"
 				label="PLT"
-				description={MarkerDescriptions.PLT}
+				description={BloodMarkerDescriptions.PLT}
 				options={PLTUnits}
 			/>
 			<MarkerRow
 				control={control}
 				markerName="NEUT"
 				label="NEUT"
-				description={MarkerDescriptions.NEUT}
+				description={BloodMarkerDescriptions.NEUT}
 				options={NEUTUnits}
 			/>
 			<MarkerRow
 				control={control}
 				markerName="ALT"
 				label="ALT"
-				description={MarkerDescriptions.ALT}
+				description={BloodMarkerDescriptions.ALT}
 				options={ALTUnits}
 			/>
 			<MarkerRow
 				control={control}
 				markerName="AST"
 				label="AST"
-				description={MarkerDescriptions.AST}
+				description={BloodMarkerDescriptions.AST}
 				options={ASTUnits}
 			/>
 		</Stack>

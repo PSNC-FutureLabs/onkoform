@@ -11,6 +11,8 @@ const valueSchema = z
 	})
 	.min(0, { message: "Wartość nie może być ujemna" });
 
+const nullableNumberSchema = z.number().nullable();
+
 export const HGBschema = z
 	.object({
 		value: valueSchema,
@@ -37,10 +39,10 @@ export const PLTschema = z.object({
 	value: valueSchema,
 });
 export const ALTschema = z.object({
-	value: valueSchema,
+	value: nullableNumberSchema,
 });
 export const ASTschema = z.object({
-	value: valueSchema,
+	value: nullableNumberSchema,
 });
 
 export const dateSchema = z.date({

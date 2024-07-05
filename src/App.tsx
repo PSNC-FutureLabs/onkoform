@@ -2,13 +2,13 @@ import { ThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/s
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import "dayjs/locale/pl";
-import { plPL } from '@mui/x-date-pickers/locales';
+import { plPL } from "@mui/x-date-pickers/locales";
 import { Container, CssBaseline, Grid } from "@mui/material";
 import { FormFields, schema } from "./business/form-schema";
 import { useForm, FormProvider } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { defaultFromValues } from "./business";
+import { formDefaultValues, formTestValues } from "./business";
 import Stepper from "./components/Stepper";
 import Footer from "./components/Footer";
 import { lightGreen, grey, blue } from "@mui/material/colors";
@@ -75,7 +75,7 @@ theme = responsiveFontSizes(theme);
 
 function App() {
 	const methods = useForm<FormFields>({
-		defaultValues: defaultFromValues,
+		defaultValues: window.location.hostname === "localhost" ? formTestValues : formDefaultValues,
 		resolver: zodResolver(schema),
 		reValidateMode: "onChange",
 		mode: "all",
@@ -92,7 +92,7 @@ function App() {
 							maxWidth="lg"
 							sx={{
 								minWidth: {
-									xs: "100%", 
+									xs: "100%",
 									sm: "800px",
 								},
 							}}
