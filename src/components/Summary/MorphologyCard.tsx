@@ -10,7 +10,7 @@ type MorphologyCardProps = {
 
 export const MorphologyCard = ({ markerName, bloodMarker }: MorphologyCardProps) => {
 	return (
-		<Grid item xs={6}>
+		<Grid item xs={12} sm={6}>
 			<Card variant="outlined" sx={{ background: "#F8F8F8", width: "100%", p: 1, m: 1 }}>
 				<Stack spacing={2}>
 					<Stack direction="row" spacing={1} alignItems="center">
