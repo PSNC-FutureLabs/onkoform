@@ -124,6 +124,7 @@ export default function StepController() {
 
 	const handleStart = () => {
 		setActiveStep(stepLandingPage + 1);
+		setLastValidatedStep(stepLandingPage + 1);
 	};
 
 	const handlePrevious = () => {
@@ -202,7 +203,7 @@ export default function StepController() {
 				</Stack>
 			</Grid>
 			<Grid item xs={12} sm={8}>
-				{activeStep < steps.length ? (
+				{activeStep < steps.length - 1 ? (
 					<Stack width={{ xs: "90vw", sm: "60%" }}>
 						<Typography variant="h4" color="black" align="left" py={4}>
 							Uważnie wypełnij wszystkie pola
@@ -220,7 +221,7 @@ export default function StepController() {
 								variant="outlined"
 								onClick={activeStep === steps.length - 1 ? handleGoToSummary : handleNext}
 							>
-								{activeStep === steps.length - 1 ? "Wyniki" : "Dalej"}
+								{activeStep === steps.length - 2 ? "Wyniki" : "Dalej"}
 								<NavigateNextIcon />
 							</Button>
 						</Stack>
