@@ -5,7 +5,7 @@ import { BloodMarkers } from "../../business/types";
 export const Morphology = ({ bloodMarkers }: { bloodMarkers: BloodMarkers }) => {
 	return (
 		<Stack>
-			<Typography variant="h5" color="black">
+			<Typography variant="h5" color="black" sx={{textAlign: {xs: "center"}}}>
 				Zestawienie wyników z badań morfologii krwi
 			</Typography>
 			<Grid container spacing={0}>
