@@ -4,9 +4,9 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 7,
-	patchNo: 7,
+	patchNo: 8,
 	status: "alpha",
-	date: "2024.07.05",
+	date: "2024.07.06",
 };
 
 export type StepType = {
@@ -24,7 +24,7 @@ export const steps: Array<StepType> = [
 	{
 		id: 2,
 		name: "Niepokojące objawy",
-		fields: ["temperature", "symptoms", "headache-rating", "pain-rating"],
+		fields: ["temperature", "symptoms"],
 	},
 	{
 		id: 3,
@@ -44,13 +44,18 @@ export const steps: Array<StepType> = [
 		name: "Poprzednie badania",
 		fields: [
 			"previous-lab-test-date",
-			["HGB2", "Hgb2Unit"],
-			"WBC2",
-			"PLT2",
-			["NEUT2.value", "NEUT2.unit"],
-			"ALT2",
-			"AST2",
+			["HGBprev.value", "Hgbprev.unit"],
+			"WBCprev",
+			"PLTprev",
+			["NEUTprev.value", "NEUTprev.unit"],
+			"ALTprev",
+			"ASTprev",
 		],
+	},
+	{
+		id: 5,
+		name: "Wyniki",
+		fields: [],
 	},
 ];
 
