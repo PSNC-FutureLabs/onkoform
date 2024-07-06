@@ -1,8 +1,8 @@
 import { medicalConditionOptions, genderOptions, hospitalWardOptions } from "../../business";
 
-export const getGenderValue = (gender: string) => {
-	return genderOptions.find((opt) => opt.value == gender)?.label;
-};
+export function getFormattedNumber(n: number, decimalPlaces: number = 0): string {
+	return n.toFixed(decimalPlaces).replace(".", ",");
+}
 
 export const getCurrentAge = (dateOfBirthTimestamp: number): { years: number; months: number } => {
 	const dob = new Date(dateOfBirthTimestamp);
@@ -15,7 +15,7 @@ export const getCurrentAge = (dateOfBirthTimestamp: number): { years: number; mo
 		years--;
 		months += 12;
 	}
-
+	
 	return {
 		years,
 		months,
@@ -63,6 +63,10 @@ export function getPolishAgeDescription(dateOfBirth: Date): string {
 	// return ageString + ` (${dateOfBirth.toLocaleString()})`;
 	return ageString;
 }
+
+export const getGenderValue = (gender: string) => {
+	return genderOptions.find((opt) => opt.value == gender)?.label;
+};
 
 export const getMedicalConditionValue = (medicalCondition: string) => {
 	return medicalConditionOptions.find((opt) => opt.value == medicalCondition)?.label;

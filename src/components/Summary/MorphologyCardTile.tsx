@@ -1,5 +1,6 @@
 import { Stack, Typography } from "@mui/material";
 import { MedicalParameter } from "../../business/types";
+import { getFormattedNumber } from "./helpers";
 
 type MorphologyCardTileProps = {
 	parameter: MedicalParameter;
@@ -15,7 +16,7 @@ export const MorphologyCardTile = ({ parameter, valueType }: MorphologyCardTileP
 			</Typography>
 			<Stack direction="row" alignItems="baseline">
 				<Typography variant="h5" fontWeight={700}>
-					{parameter.getValue()}
+					{getFormattedNumber(parameter.getValue() ?? 0, 1)}
 				</Typography>
 				<Typography variant="body2">&nbsp;{`${parameter.getUnit()}`}</Typography>
 			</Stack>
