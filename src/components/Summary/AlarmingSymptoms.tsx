@@ -2,6 +2,7 @@ import { Grid, Stack, Typography } from "@mui/material";
 import { BasicInfoCard } from "./BasicInfoCard";
 import { useFormContext } from "react-hook-form";
 import { symptomsOptions } from "../../business";
+import { getFormattedNumber } from "./helpers";
 
 export const AlarmingSymptoms = () => {
 	const { getValues } = useFormContext();
@@ -15,7 +16,7 @@ export const AlarmingSymptoms = () => {
 			(option) =>
 				option.label +
 				(option.value == "headache" ? ` (${getValues("headache-rating")}/5)` : "") +
-				(option.value == "pain-anxiety" ? ` (${getValues("pain-anxiety-rating")}/5)` : "") + 
+				(option.value == "pain-anxiety" ? ` (${getValues("pain-anxiety-rating")}/5)` : "") +
 				(option.value == "mucosal-toxicities" ? ` (${getValues("mucosal-toxicities-rating")}/4)` : "")
 		)
 		.join(", ");
@@ -26,7 +27,7 @@ export const AlarmingSymptoms = () => {
 				Niepokojące objawy
 			</Typography>
 			<Grid container spacing={2}>
-				<BasicInfoCard label="Temperatura ciała" value={`${temperature.toFixed(1).replace(".", ",")} °C`} />
+				<BasicInfoCard label="Temperatura ciała" value={`${getFormattedNumber(temperature, 1)} °C`} />
 				<BasicInfoCard
 					label="Symptomy towarzyszące"
 					value={symptomsText.length === 0 ? "brak" : symptomsText}
