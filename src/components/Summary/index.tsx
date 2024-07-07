@@ -5,6 +5,7 @@ import { Result } from "./Result";
 import { AlarmingSymptoms } from "./AlarmingSymptoms";
 import { Morphology } from "./Morphology";
 import {
+	UnitType,
 	SymptomValues,
 	DiagnoseLevel,
 	MedicalParameter,
@@ -30,35 +31,37 @@ export const Summary = () => {
 	const headacheRating = parseInt(getValues("headache-rating"));
 	const painAnxietyRating = parseInt(getValues("pain-anxiety-rating"));
 
-	function createMedicalParameter(name: BloodMarkersNames): MedicalParameter {
+	function createMedicalParameter(name: BloodMarkersNames, baseUnit: UnitType): MedicalParameter {
 		return new MedicalParameter(
 			getValues(name).value,
 			getValues(name).unit,
+			baseUnit,
 			new Date(getValues("actual-lab-test-date")),
 			new MedicalParameter(
 				getValues(`${name}prev`).value,
 				getValues(`${name}prev`).unit,
+				baseUnit,
 				new Date(getValues("previous-lab-test-date"))
 			)
 		);
 	}
 
 	const bloodMarkers: BloodMarkers = {
-		HGB: createMedicalParameter("HGB"),
-		WBC: createMedicalParameter("WBC"),
-		PLT: createMedicalParameter("PLT"),
-		NEUT: createMedicalParameter("NEUT"),
-		ALT: createMedicalParameter("ALT"),
-		AST: createMedicalParameter("AST"),
+		HGB: createMedicalParameter("HGB", "g/dl"),
+		WBC: createMedicalParameter("WBC", "10^3/μl"),
+		PLT: createMedicalParameter("PLT", "tys./mm³"),
+		NEUT: createMedicalParameter("NEUT", "%/μl"),
+		ALT: createMedicalParameter("ALT", "U/L"),
+		AST: createMedicalParameter("AST", "U/L"),
 	};
 
 	/* HGB */
 
-	if (inRange(bloodMarkers.HGB.in("mg/%"), "[0, 8.0)")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
-	else if (inRange(bloodMarkers.HGB.in("mg/%"), "[8.0, 9.0)")) {
+	if (inRange(bloodMarkers.HGB.in("g/dl"), "[0, 8.0)")) updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+	else if (inRange(bloodMarkers.HGB.in("g/dl"), "[8.0, 9.0)")) {
 		if (bloodMarkers.HGB.isDeclining()) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn2Days);
 		else updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
-	} else if (inRange(bloodMarkers.HGB.in("mg/%"), "[9, 100]")) {
+	} else if (inRange(bloodMarkers.HGB.in("g/dl"), "[9, 100]")) {
 		if (bloodMarkers.HGB.isDeclining()) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
 		else updateDiagnoseLevel(DiagnoseLevel.OK);
 	}
@@ -125,7 +128,7 @@ export const Summary = () => {
 		DiagnosesDefinitions[DiagnoseLevel.Unconclusive];
 
 	return (
-		<Stack p={2} border={1}>
+		<Stack p={2} spacing={2}>
 			<Result diagnose={diagnose} />
 			<Morphology bloodMarkers={bloodMarkers} />
 			<BasicInfo />

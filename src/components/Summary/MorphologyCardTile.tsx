@@ -17,12 +17,16 @@ export const MorphologyCardTile = ({ parameter, valueType }: MorphologyCardTileP
 			</Typography>
 			<Stack direction="row" alignItems="baseline">
 				<Typography variant="h5" fontWeight={700}>
-					{getFormattedNumber(parameter.getValue() ?? 0, 1)}
+					{getFormattedNumber(parameter.in(parameter.getBaseUnit()) ?? 0, 1)}
 				</Typography>
-				<Typography variant="body2">&nbsp;{`${parameter.getUnit()}`}</Typography>
+				<Typography variant="body2">&nbsp;{`${parameter.getBaseUnit()}`}</Typography>
 			</Stack>
-			<Typography variant="body2" fontWeight={700}>
-				({getFormattedNumber(parameter.getValue() ?? 0, 1)}&nbsp;{`${parameter.getUnit()}`})
+			<Typography variant="body2">
+				{parameter.getUnit() === parameter.getBaseUnit() ? (
+					<>&nbsp;</>
+				) : (
+					<>({getFormattedNumber(parameter.getValue() ?? 0, 1)}&nbsp;{parameter.getUnit()})</>
+				)}
 			</Typography>
 		</Stack>
 	);
