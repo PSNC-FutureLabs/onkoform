@@ -60,6 +60,7 @@ export type UnitType =
 	| "mmol/l"
 	| "tys./mm³"
 	| "tys./μl"
+	| "10^3/μl"
 	| "μl";
 
 export type FormInputProps = {
@@ -159,12 +160,14 @@ export function getUnitConversionRatio(baseUnit: UnitType, targetUnit: UnitType)
 export class MedicalParameter {
 	value: number;
 	unit: UnitType;
+	baseUnit: UnitType;
 	date?: NullableDate;
 	reference?: MedicalParameter;
 
-	constructor(actualValue: number, unit: UnitType, date?: NullableDate, reference?: MedicalParameter) {
+	constructor(actualValue: number, unit: UnitType, baseUnit: UnitType, date?: NullableDate, reference?: MedicalParameter) {
 		this.value = actualValue;
 		this.unit = unit;
+		this.baseUnit = baseUnit;
 		this.date = date ?? null;
 		if (reference) {
 			this.reference = reference;
@@ -189,16 +192,16 @@ export class MedicalParameter {
 		return this.value;
 	}
 
-	setActualValue(value: number): void {
-		this.value = value;
-	}
-
 	getReferenceValue(): NullableNumber {
 		return this.reference?.value ?? null;
 	}
 
 	getUnit(): UnitType {
 		return this.unit;
+	}
+
+	getBaseUnit(): UnitType {
+		return this.baseUnit;
 	}
 
 	setUnit(unit: UnitType): void {
