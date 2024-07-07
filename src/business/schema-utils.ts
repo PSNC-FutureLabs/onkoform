@@ -16,7 +16,7 @@ const nullableNumberSchema = z.number().nullable();
 export const HGBschema = z
 	.object({
 		value: valueSchema,
-		unit: z.enum(["g/dl", "mmol/l"]),
+		unit: z.enum(["g/dl", "mmol/l", "mg/%"]),
 	})
 	.refine((data) => !(data.unit == "g/dl" && data.value > 20), {
 		message: "Dla jednostki g/dl maksymalna wartość to 20",
