@@ -1,11 +1,12 @@
 import { Grid, Stack, Typography } from "@mui/material";
 import { MorphologyCard } from "./MorphologyCard";
 import { BloodMarkers } from "../../business/types";
+import { grey } from "@mui/material/colors";
 
 export const Morphology = ({ bloodMarkers }: { bloodMarkers: BloodMarkers }) => {
 	return (
 		<Stack>
-			<Typography variant="h5" color="black" sx={{textAlign: {xs: "center"}}}>
+			<Typography variant="h5" color={grey[900]} sx={{ textAlign: { xs: "center", sm: "left" } }}>
 				Zestawienie wyników z badań morfologii krwi
 			</Typography>
 			<Grid container spacing={0}>
