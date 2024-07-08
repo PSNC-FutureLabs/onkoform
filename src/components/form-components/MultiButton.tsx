@@ -38,7 +38,7 @@ export const MultiButton = ({ options, name }: MultiButtonProps) => {
 					aria-label="Units"
 				>
 					{options.map((opt) => (
-						<ToggleButton value={opt} key={opt} style={{ height: "50px", minWidth: "75px" }}>
+						<ToggleButton value={opt} key={opt} style={{ height: "50px", minWidth: "50px" }}>
 							{opt}
 						</ToggleButton>
 					))}

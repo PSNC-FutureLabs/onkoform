@@ -16,7 +16,7 @@ const nullableNumberSchema = z.number().nullable();
 export const HGBschema = z
 	.object({
 		value: valueSchema,
-		unit: z.enum(["g/dl", "mmol/l"]),
+		unit: z.enum(["g/dl", "mmol/l", "mg/%"]),
 	})
 	.refine((data) => !(data.unit == "g/dl" && data.value > 20), {
 		message: "Dla jednostki g/dl maksymalna wartość to 20",
@@ -27,20 +27,25 @@ export const HGBschema = z
 		path: ["value"],
 	});
 
-export const NEUTschema = z.object({
-	value: valueSchema,
-	unit: z.enum(["%", "μl"]),
-});
-
 export const WBCschema = z.object({
 	value: valueSchema,
+	unit: z.enum(["K/μl", "10^3/μl", "tys./μl", "G/l"]),
 });
+
 export const PLTschema = z.object({
 	value: valueSchema,
+	unit: z.enum(["K/μl", "10^3/μl", "tys./μl", "G/l"]),
 });
+
+export const NEUTschema = z.object({
+	value: valueSchema,
+	unit: z.enum(["tys./μl", "K/μl"]),
+});
+
 export const ALTschema = z.object({
 	value: nullableNumberSchema,
 });
+
 export const ASTschema = z.object({
 	value: nullableNumberSchema,
 });
