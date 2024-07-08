@@ -27,6 +27,7 @@ export const Summary = () => {
 
 	let calculatedDiagnoseLevel: DiagnoseLevel = DiagnoseLevel.Unconclusive;
 
+	const temperature = getValues("temperature");
 	const symptoms = getValues("symptoms");
 	const headacheRating = parseInt(getValues("headache-rating"));
 	const painAnxietyRating = parseInt(getValues("pain-anxiety-rating"));
@@ -68,7 +69,34 @@ export const Summary = () => {
 
 	/* WBC */
 
+	if (inRange(bloodMarkers.WBC.in("10^3/μl"), "[0, 1.0)"))
+		updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+	else if (inRange(bloodMarkers.WBC.in("10^3/μl"), "[1.0, 1.5)")) {
+		if (bloodMarkers.WBC.isDeclining()) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn2Days);
+		else updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
+	} else if (inRange(bloodMarkers.WBC.in("10^3/μl"), "[1.5, 100]")) {
+		if (bloodMarkers.WBC.isDeclining()) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
+		else updateDiagnoseLevel(DiagnoseLevel.OK);
+	}
+
+	/* PLT */
+
+	if (inRange(bloodMarkers.PLT.in("tys./mm³"), "[0, 25)"))
+		updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+	if (inRange(bloodMarkers.PLT.in("tys./mm³"), "[25, 35)")) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn2Days);
+	if (inRange(bloodMarkers.PLT.in("tys./mm³"), "[35, 50)")) updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
+	if (inRange(bloodMarkers.PLT.in("tys./mm³"), "[50, 1000)")) updateDiagnoseLevel(DiagnoseLevel.OK);
+
+	/* NEUT */
+	/* ALT */
+	/* AST */
+
 	// calculatedDiagnoseLevel = DiagnoseLevel.Unconclusive;
+
+	/* Temperature */
+
+	if (temperature < 38.0) updateDiagnoseLevel(DiagnoseLevel.OK);
+	else updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
 
 	/* Symptoms */
 
