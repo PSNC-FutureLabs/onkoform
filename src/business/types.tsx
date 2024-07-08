@@ -143,6 +143,16 @@ export function getUnitConversionRatio(baseUnit: UnitType, targetUnit: UnitType)
 
 	const conversionRatios: Record<string, NullableNumber> = {
 		"mg/dl:mg/%": 1,
+
+		"K/μl:10^3/μl": 1,
+		"G/l:10^3/μl": 1,
+		"tys./μl:10^3/μl": 1,
+
+		"K/μl:10^3/mm³": 1,
+		"G/l:10^3/mm³": 1,
+		"tys./μl:10^3/mm³": 1,
+
+		"K/μl:tys./mm³":1,
 		"g/dl:mg/%": 100,
 		"g/dl:mg/dl": 1000,
 		"mg/%:mg/dl": 10,
