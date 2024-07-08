@@ -88,6 +88,12 @@ export const Summary = () => {
 	if (inRange(bloodMarkers.PLT.in("tys./mm³"), "[50, 1000)")) updateDiagnoseLevel(DiagnoseLevel.OK);
 
 	/* NEUT */
+
+	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0, 0.5)") && bloodMarkers.NEUT.isDeclining())
+		updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0.5, 100)") && bloodMarkers.NEUT.isGrowing())
+		updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
+
 	/* ALT */
 	/* AST */
 
