@@ -6,7 +6,7 @@ export const versionTag = {
 	minorNo: 7,
 	patchNo: 9,
 	status: "alpha",
-	date: "2024.07.06",
+	date: "2024.07.08",
 };
 
 export type StepType = {
@@ -32,8 +32,8 @@ export const steps: Array<StepType> = [
 		fields: [
 			"actual-lab-test-date",
 			["HGB.value", "HGB.unit"],
-			"WBC",
-			"PLT",
+			["WBC.value", "WBC.unit"],
+			["PLT.value", "PLT.unit"],
 			["NEUT.value", "NEUT.unit"],
 			"ALT",
 			"AST",
@@ -45,8 +45,8 @@ export const steps: Array<StepType> = [
 		fields: [
 			"previous-lab-test-date",
 			["HGBprev.value", "Hgbprev.unit"],
-			"WBCprev",
-			"PLTprev",
+			["WBCprev.value", "WBCprev.unit"],
+			["PLTprev.value", "PLTprev.unit"],
 			["NEUTprev.value", "NEUTprev.unit"],
 			"ALTprev",
 			"ASTprev",
@@ -264,8 +264,8 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 
 export const TemperatureUnits: UnitType[] = ["°C"];
 export const HGBUnits: UnitType[] = ["g/dl", "mg/%"];
-export const WBCUnits: UnitType[] = ["K/μl", "tys./μl", "G/l"];
-export const PLTUnits: UnitType[] = ["tys./μl", "tys./mm³"];
+export const WBCUnits: UnitType[] = ["K/μl", "G/l", "10^3/μl", "tys./μl"];
+export const PLTUnits: UnitType[] = ["K/μl", "G/l", "10^3/μl", "tys./μl"];
 export const NEUTUnits: UnitType[] = ["%", "μl"];
 export const ALTUnits: UnitType[] = ["U/l"];
 export const ASTUnits: UnitType[] = ["U/l"];
@@ -281,8 +281,14 @@ export const formDefaultValues: Partial<FormFields> = {
 		value: 0,
 		unit: "g/dl",
 	},
-	WBC: { value: 0 },
-	PLT: { value: 0 },
+	WBC: {
+		value: 0,
+		unit: "K/μl",
+	},
+	PLT: {
+		value: 0,
+		unit: "K/μl",
+	},
 	NEUT: {
 		value: 0,
 		unit: "%",
@@ -293,14 +299,20 @@ export const formDefaultValues: Partial<FormFields> = {
 		value: 0,
 		unit: "g/dl",
 	},
-	WBCprev: { value: 0 },
-	PLTprev: { value: 0 },
-	ALTprev: { value: null },
-	ASTprev: { value: null },
+	WBCprev: {
+		value: 0,
+		unit: "K/μl",
+	},
+	PLTprev: {
+		value: 0,
+		unit: "K/μl",
+	},
 	NEUTprev: {
 		value: 0,
 		unit: "%",
 	},
+	ALTprev: { value: null },
+	ASTprev: { value: null },
 };
 
 export const formTestValues: Partial<FormFields> = {
@@ -316,8 +328,14 @@ export const formTestValues: Partial<FormFields> = {
 		value: 11.6,
 		unit: "g/dl",
 	},
-	WBC: { value: 0 },
-	PLT: { value: 0 },
+	WBC: {
+		value: 1.1,
+		unit: "K/μl",
+	},
+	PLT: {
+		value: 68,
+		unit: "K/μl",
+	},
 	NEUT: {
 		value: 0,
 		unit: "%",
@@ -328,12 +346,18 @@ export const formTestValues: Partial<FormFields> = {
 		value: 10.9,
 		unit: "g/dl",
 	},
-	WBCprev: { value: 0 },
-	PLTprev: { value: 0 },
-	ALTprev: { value: null },
-	ASTprev: { value: null },
+	WBCprev: {
+		value: 1.9,
+		unit: "K/μl",
+	},
+	PLTprev: {
+		value: 306,
+		unit: "K/μl",
+	},
 	NEUTprev: {
 		value: 0,
 		unit: "%",
 	},
+	ALTprev: { value: null },
+	ASTprev: { value: null },
 };
