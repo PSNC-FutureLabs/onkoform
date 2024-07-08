@@ -39,7 +39,7 @@ export const PLTschema = z.object({
 
 export const NEUTschema = z.object({
 	value: valueSchema,
-	unit: z.enum(["%", "μl"]),
+	unit: z.enum(["tys./μl", "K/μl"]),
 });
 
 export const ALTschema = z.object({

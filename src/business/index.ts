@@ -291,7 +291,7 @@ export const formDefaultValues: Partial<FormFields> = {
 	},
 	NEUT: {
 		value: 0,
-		unit: "%",
+		unit: "tys./μl",
 	},
 	ALT: { value: null },
 	AST: { value: null },
@@ -309,7 +309,7 @@ export const formDefaultValues: Partial<FormFields> = {
 	},
 	NEUTprev: {
 		value: 0,
-		unit: "%",
+		unit: "tys./μl",
 	},
 	ALTprev: { value: null },
 	ASTprev: { value: null },
@@ -338,7 +338,7 @@ export const formTestValues: Partial<FormFields> = {
 	},
 	NEUT: {
 		value: 0,
-		unit: "%",
+		unit: "tys./μl",
 	},
 	ALT: { value: null },
 	AST: { value: null },
@@ -355,8 +355,8 @@ export const formTestValues: Partial<FormFields> = {
 		unit: "K/μl",
 	},
 	NEUTprev: {
-		value: 0,
-		unit: "%",
+		value: 0.26,
+		unit: "tys./μl",
 	},
 	ALTprev: { value: null },
 	ASTprev: { value: null },
