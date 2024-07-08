@@ -14,7 +14,7 @@ export const MarkerRow = ({ control, markerName, label, options, description }: 
 					<InfoOutlinedIcon sx={{ cursor: "pointer" }} color="info"/>
 				</Tooltip>
 			</Stack>
-			<Stack direction="row" spacing={1}>
+			<Stack direction="row" spacing={1} alignItems={"center"}>
 				<FormInputNumber name={`${markerName}.value`} control={control} />
 				{options.length === 1 && <UnitCard unit={options[0]} />}
 				{options.length > 1 && <MultiButton name={`${markerName}.unit`} options={options} />}
