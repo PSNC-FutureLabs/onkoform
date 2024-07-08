@@ -27,20 +27,25 @@ export const HGBschema = z
 		path: ["value"],
 	});
 
+export const WBCschema = z.object({
+	value: valueSchema,
+	unit: z.enum(["K/μl", "10^3/μl", "tys./μl", "G/l"]),
+});
+
+export const PLTschema = z.object({
+	value: valueSchema,
+	unit: z.enum(["K/μl", "10^3/μl", "tys./μl", "G/l"]),
+});
+
 export const NEUTschema = z.object({
 	value: valueSchema,
 	unit: z.enum(["%", "μl"]),
 });
 
-export const WBCschema = z.object({
-	value: valueSchema,
-});
-export const PLTschema = z.object({
-	value: valueSchema,
-});
 export const ALTschema = z.object({
 	value: nullableNumberSchema,
 });
+
 export const ASTschema = z.object({
 	value: nullableNumberSchema,
 });
