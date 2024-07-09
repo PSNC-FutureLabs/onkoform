@@ -14,8 +14,12 @@ export const Morphology = ({ bloodMarkers }: { bloodMarkers: BloodMarkers }) => 
 				<MorphologyCard markerName="WBC" bloodMarker={bloodMarkers.WBC} />
 				<MorphologyCard markerName="PLT" bloodMarker={bloodMarkers.PLT} />
 				<MorphologyCard markerName="NEUT" bloodMarker={bloodMarkers.NEUT} />
-				<MorphologyCard markerName="ALT" bloodMarker={bloodMarkers.ALT} />
-				<MorphologyCard markerName="AST" bloodMarker={bloodMarkers.AST} />
+				{bloodMarkers.ALT.getValue() ? (
+					<MorphologyCard markerName="ALT" bloodMarker={bloodMarkers.ALT} />
+				) : null}
+				{bloodMarkers.AST.getValue() ? (
+					<MorphologyCard markerName="AST" bloodMarker={bloodMarkers.AST} />
+				) : null}
 			</Grid>
 		</Stack>
 	);
