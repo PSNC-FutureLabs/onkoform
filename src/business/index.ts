@@ -266,7 +266,7 @@ export const TemperatureUnits: UnitType[] = ["°C"];
 export const HGBUnits: UnitType[] = ["g/dl", "mg/%"];
 export const WBCUnits: UnitType[] = ["K/μl", "G/l", "10^3/μl", "tys./μl"];
 export const PLTUnits: UnitType[] = ["K/μl", "G/l", "10^3/μl", "tys./μl"];
-export const NEUTUnits: UnitType[] = ["%", "μl"];
+export const NEUTUnits: UnitType[] = ["K/μl", "G/l", "10^3/μl", "tys./μl"];
 export const ALTUnits: UnitType[] = ["U/l"];
 export const ASTUnits: UnitType[] = ["U/l"];
 
@@ -291,7 +291,7 @@ export const formDefaultValues: Partial<FormFields> = {
 	},
 	NEUT: {
 		value: 0,
-		unit: "tys./μl",
+		unit: "K/μl",
 	},
 	ALT: { value: null, unit: "U/L" },
 	AST: { value: null, unit: "U/L" },
@@ -309,7 +309,7 @@ export const formDefaultValues: Partial<FormFields> = {
 	},
 	NEUTprev: {
 		value: 0,
-		unit: "tys./μl",
+		unit: "K/μl",
 	},
 	ALTprev: { value: null, unit: "U/L" },
 	ASTprev: { value: null, unit: "U/L" },
@@ -338,7 +338,7 @@ export const formTestValues: Partial<FormFields> = {
 	},
 	NEUT: {
 		value: 0.26,
-		unit: "tys./μl",
+		unit: "K/μl",
 	},
 	ALT: { value: null, unit: "U/L" },
 	AST: { value: null, unit: "U/L" },
@@ -356,7 +356,7 @@ export const formTestValues: Partial<FormFields> = {
 	},
 	NEUTprev: {
 		value: 0.31,
-		unit: "tys./μl",
+		unit: "K/μl",
 	},
 	ALTprev: { value: null, unit: "U/L" },
 	ASTprev: { value: null, unit: "U/L" },
