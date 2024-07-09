@@ -44,10 +44,12 @@ export const NEUTschema = z.object({
 
 export const ALTschema = z.object({
 	value: nullableNumberSchema,
+	unit: z.enum(["U/L"]),
 });
 
 export const ASTschema = z.object({
 	value: nullableNumberSchema,
+	unit: z.enum(["U/L"]),
 });
 
 export const dateSchema = z.date({
