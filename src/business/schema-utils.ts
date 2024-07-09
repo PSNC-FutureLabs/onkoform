@@ -27,30 +27,55 @@ export const HGBschema = z
 		path: ["value"],
 	});
 
-export const WBCschema = z.object({
-	value: valueSchema,
-	unit: z.enum(["K/μl", "10^3/μl", "tys./μl", "G/l"]),
-});
+export const WBCschema = z
+	.object({
+		value: valueSchema,
+		unit: z.enum(["K/μl", "10^3/μl", "tys./μl", "G/l"]),
+	})
+	.refine((data) => !(data.value > 30), {
+		message: "maksymalna wartość parametru: 30",
+		path: ["value"],
+	});
 
-export const PLTschema = z.object({
-	value: valueSchema,
-	unit: z.enum(["K/μl", "10^3/μl", "tys./μl", "G/l"]),
-});
+export const PLTschema = z
+	.object({
+		value: valueSchema,
+		unit: z.enum(["K/μl", "10^3/μl", "tys./μl", "G/l"]),
+	})
+	.refine((data) => !(data.value > 900), {
+		message: "maksymalna wartość parametru: 900",
+		path: ["value"],
+	});
 
-export const NEUTschema = z.object({
-	value: valueSchema,
-	unit: z.enum(["K/μl", "10^3/μl", "tys./μl", "G/l"]),
-});
+export const NEUTschema = z
+	.object({
+		value: valueSchema,
+		unit: z.enum(["K/μl", "10^3/μl", "tys./μl", "G/l"]),
+	})
+	.refine((data) => !(data.value > 20), {
+		message: "maksymalna wartość parametru: 20",
+		path: ["value"],
+	});
 
-export const ALTschema = z.object({
-	value: nullableNumberSchema,
-	unit: z.enum(["U/L"]),
-});
+export const ALTschema = z
+	.object({
+		value: nullableNumberSchema,
+		unit: z.enum(["U/l"]),
+	})
+	.refine((data) => !(data.value && data.value > 99), {
+		message: "maksymalna wartość parametru: 99",
+		path: ["value"],
+	});
 
-export const ASTschema = z.object({
-	value: nullableNumberSchema,
-	unit: z.enum(["U/L"]),
-});
+export const ASTschema = z
+	.object({
+		value: nullableNumberSchema,
+		unit: z.enum(["U/l"]),
+	})
+	.refine((data) => !(data.value && data.value > 99), {
+		message: "maksymalna wartość parametru: 99",
+		path: ["value"],
+	});
 
 export const dateSchema = z.date({
 	errorMap: (issue, ctx) =>
