@@ -4,9 +4,9 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 7,
-	patchNo: 9,
+	patchNo: 10,
 	status: "alpha",
-	date: "2024.07.08",
+	date: "2024.07.09",
 };
 
 export type StepType = {
@@ -266,7 +266,7 @@ export const TemperatureUnits: UnitType[] = ["°C"];
 export const HGBUnits: UnitType[] = ["g/dl", "mg/%"];
 export const WBCUnits: UnitType[] = ["K/μl", "G/l", "10^3/μl", "tys./μl"];
 export const PLTUnits: UnitType[] = ["K/μl", "G/l", "10^3/μl", "tys./μl"];
-export const NEUTUnits: UnitType[] = ["%", "μl"];
+export const NEUTUnits: UnitType[] = ["K/μl", "G/l", "10^3/μl", "tys./μl"];
 export const ALTUnits: UnitType[] = ["U/l"];
 export const ASTUnits: UnitType[] = ["U/l"];
 
@@ -291,10 +291,10 @@ export const formDefaultValues: Partial<FormFields> = {
 	},
 	NEUT: {
 		value: 0,
-		unit: "tys./μl",
+		unit: "K/μl",
 	},
-	ALT: { value: null },
-	AST: { value: null },
+	ALT: { value: null, unit: "U/l" },
+	AST: { value: null, unit: "U/l" },
 	HGBprev: {
 		value: 0,
 		unit: "g/dl",
@@ -309,10 +309,10 @@ export const formDefaultValues: Partial<FormFields> = {
 	},
 	NEUTprev: {
 		value: 0,
-		unit: "tys./μl",
+		unit: "K/μl",
 	},
-	ALTprev: { value: null },
-	ASTprev: { value: null },
+	ALTprev: { value: null, unit: "U/l" },
+	ASTprev: { value: null, unit: "U/l" },
 };
 
 export const formTestValues: Partial<FormFields> = {
@@ -325,39 +325,39 @@ export const formTestValues: Partial<FormFields> = {
 	"pain-anxiety-rating": "",
 	"mucosal-toxicities-rating": "",
 	HGB: {
-		value: 11.6,
-		unit: "g/dl",
-	},
-	WBC: {
-		value: 1.1,
-		unit: "K/μl",
-	},
-	PLT: {
-		value: 68,
-		unit: "K/μl",
-	},
-	NEUT: {
-		value: 0,
-		unit: "tys./μl",
-	},
-	ALT: { value: null },
-	AST: { value: null },
-	HGBprev: {
 		value: 10.9,
 		unit: "g/dl",
 	},
-	WBCprev: {
+	WBC: {
 		value: 1.9,
 		unit: "K/μl",
 	},
-	PLTprev: {
+	PLT: {
 		value: 306,
 		unit: "K/μl",
 	},
-	NEUTprev: {
+	NEUT: {
 		value: 0.26,
-		unit: "tys./μl",
+		unit: "K/μl",
 	},
-	ALTprev: { value: null },
-	ASTprev: { value: null },
+	ALT: { value: null, unit: "U/l" },
+	AST: { value: null, unit: "U/l" },
+	HGBprev: {
+		value: 11.6,
+		unit: "g/dl",
+	},
+	WBCprev: {
+		value: 1.1,
+		unit: "K/μl",
+	},
+	PLTprev: {
+		value: 68,
+		unit: "K/μl",
+	},
+	NEUTprev: {
+		value: 0.31,
+		unit: "K/μl",
+	},
+	ALTprev: { value: null, unit: "U/l" },
+	ASTprev: { value: null, unit: "U/l" },
 };
