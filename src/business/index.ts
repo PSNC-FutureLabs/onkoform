@@ -293,8 +293,8 @@ export const formDefaultValues: Partial<FormFields> = {
 		value: 0,
 		unit: "K/μl",
 	},
-	ALT: { value: null, unit: "U/L" },
-	AST: { value: null, unit: "U/L" },
+	ALT: { value: null, unit: "U/l" },
+	AST: { value: null, unit: "U/l" },
 	HGBprev: {
 		value: 0,
 		unit: "g/dl",
@@ -311,8 +311,8 @@ export const formDefaultValues: Partial<FormFields> = {
 		value: 0,
 		unit: "K/μl",
 	},
-	ALTprev: { value: null, unit: "U/L" },
-	ASTprev: { value: null, unit: "U/L" },
+	ALTprev: { value: null, unit: "U/l" },
+	ASTprev: { value: null, unit: "U/l" },
 };
 
 export const formTestValues: Partial<FormFields> = {
@@ -340,8 +340,8 @@ export const formTestValues: Partial<FormFields> = {
 		value: 0.26,
 		unit: "K/μl",
 	},
-	ALT: { value: null, unit: "U/L" },
-	AST: { value: null, unit: "U/L" },
+	ALT: { value: null, unit: "U/l" },
+	AST: { value: null, unit: "U/l" },
 	HGBprev: {
 		value: 11.6,
 		unit: "g/dl",
@@ -358,6 +358,6 @@ export const formTestValues: Partial<FormFields> = {
 		value: 0.31,
 		unit: "K/μl",
 	},
-	ALTprev: { value: null, unit: "U/L" },
-	ASTprev: { value: null, unit: "U/L" },
+	ALTprev: { value: null, unit: "U/l" },
+	ASTprev: { value: null, unit: "U/l" },
 };
