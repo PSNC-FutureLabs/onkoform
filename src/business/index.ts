@@ -293,8 +293,8 @@ export const formDefaultValues: Partial<FormFields> = {
 		value: 0,
 		unit: "tys./μl",
 	},
-	ALT: { value: null },
-	AST: { value: null },
+	ALT: { value: null, unit: "U/L" },
+	AST: { value: null, unit: "U/L" },
 	HGBprev: {
 		value: 0,
 		unit: "g/dl",
@@ -311,8 +311,8 @@ export const formDefaultValues: Partial<FormFields> = {
 		value: 0,
 		unit: "tys./μl",
 	},
-	ALTprev: { value: null },
-	ASTprev: { value: null },
+	ALTprev: { value: null, unit: "U/L" },
+	ASTprev: { value: null, unit: "U/L" },
 };
 
 export const formTestValues: Partial<FormFields> = {
@@ -325,39 +325,39 @@ export const formTestValues: Partial<FormFields> = {
 	"pain-anxiety-rating": "",
 	"mucosal-toxicities-rating": "",
 	HGB: {
-		value: 11.6,
-		unit: "g/dl",
-	},
-	WBC: {
-		value: 1.1,
-		unit: "K/μl",
-	},
-	PLT: {
-		value: 68,
-		unit: "K/μl",
-	},
-	NEUT: {
-		value: 0,
-		unit: "tys./μl",
-	},
-	ALT: { value: null },
-	AST: { value: null },
-	HGBprev: {
 		value: 10.9,
 		unit: "g/dl",
 	},
-	WBCprev: {
+	WBC: {
 		value: 1.9,
 		unit: "K/μl",
 	},
-	PLTprev: {
+	PLT: {
 		value: 306,
 		unit: "K/μl",
 	},
-	NEUTprev: {
+	NEUT: {
 		value: 0.26,
 		unit: "tys./μl",
 	},
-	ALTprev: { value: null },
-	ASTprev: { value: null },
+	ALT: { value: null, unit: "U/L" },
+	AST: { value: null, unit: "U/L" },
+	HGBprev: {
+		value: 11.6,
+		unit: "g/dl",
+	},
+	WBCprev: {
+		value: 1.1,
+		unit: "K/μl",
+	},
+	PLTprev: {
+		value: 68,
+		unit: "K/μl",
+	},
+	NEUTprev: {
+		value: 0.31,
+		unit: "tys./μl",
+	},
+	ALTprev: { value: null, unit: "U/L" },
+	ASTprev: { value: null, unit: "U/L" },
 };
