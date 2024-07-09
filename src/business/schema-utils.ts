@@ -57,13 +57,25 @@ export const NEUTschema = z
 		path: ["value"],
 	});
 
-export const ALTschema = z.object({
-	value: nullableNumberSchema,
-});
+export const ALTschema = z
+	.object({
+		value: nullableNumberSchema,
+		unit: z.enum(["U/l"]),
+	})
+	.refine((data) => !(data.value && data.value > 99), {
+		message: "maksymalna wartość parametru: 99",
+		path: ["value"],
+	});
 
-export const ASTschema = z.object({
-	value: nullableNumberSchema,
-});
+export const ASTschema = z
+	.object({
+		value: nullableNumberSchema,
+		unit: z.enum(["U/l"]),
+	})
+	.refine((data) => !(data.value && data.value > 99), {
+		message: "maksymalna wartość parametru: 99",
+		path: ["value"],
+	});
 
 export const dateSchema = z.date({
 	errorMap: (issue, ctx) =>
