@@ -7,9 +7,9 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import ReplayIcon from "@mui/icons-material/Replay";
 import { grey } from "@mui/material/colors";
-import imageDesktopFormSideBackground from "/images/desktop-form-side-background.png";
 import imageMobileFormTopBackground from "/images/mobile-form-top-background.png";
 import imageLogo from "/images/logo-mm.svg";
+import imageOrnament from "/images/ornament.svg";
 import LandingPage from "./LandingPage";
 import { versionTag, StepType, steps } from "../business";
 import { Summary } from "./Summary";
@@ -151,7 +151,7 @@ export default function StepController() {
 				sx={{
 					backgroundImage: {
 						xs: `url(${imageMobileFormTopBackground})`,
-						sm: `url(${imageDesktopFormSideBackground})`,
+						sm: `linear-gradient(to bottom, rgba(0, 96, 31, 0.8), rgba(95, 170, 40, 0.8)), url(${imageOrnament})`,
 					},
 					backgroundSize: "cover",
 					backgroundPosition: "top",
