@@ -52,8 +52,8 @@ export const Summary = () => {
 		WBC: createMedicalParameter("WBC", "10^3/μl"),
 		PLT: createMedicalParameter("PLT", "tys./mm³"),
 		NEUT: createMedicalParameter("NEUT", "tys./μl"),
-		ALT: createMedicalParameter("ALT", "U/L"),
-		AST: createMedicalParameter("AST", "U/L"),
+		ALT: createMedicalParameter("ALT", "U/l"),
+		AST: createMedicalParameter("AST", "U/l"),
 	};
 
 	/* HGB */
@@ -95,14 +95,20 @@ export const Summary = () => {
 		updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
 
 	/* ALT */
+
+	/* REMOVE ON PRODUCTION! */
+	calculatedDiagnoseLevel = DiagnoseLevel.Unconclusive;
+
+	if (inRange(bloodMarkers.ALT.in("U/l"), "[0, 0.5)"))
+		updateDiagnoseLevel(DiagnoseLevel.Unconclusive);
+
 	/* AST */
 
 	// calculatedDiagnoseLevel = DiagnoseLevel.Unconclusive;
 
 	/* Temperature */
 
-	if (temperature < 38.0) updateDiagnoseLevel(DiagnoseLevel.OK);
-	else updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
+	if (temperature >= 38.0) updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
 
 	/* Symptoms */
 
