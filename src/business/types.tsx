@@ -19,7 +19,7 @@ export const BloodMarkerDescriptions: { [key in BloodMarkersNames]: string } = {
 	HGB: "stężenie hemoglobiny",
 	WBC: "liczba białych krwinek (leukocyty)",
 	PLT: "liczba płytek krwi",
-	NEUT: "granulocyty obojętochłonne (neutrofile)",
+	NEUT: "liczba (#) granulocytów obojętochłonnych (neutrofile, neutrocyty)",
 	ALT: "poziom aminotransferazy alaninowej (ALAT)",
 	AST: "poziom aminotransferazy asparaginianowej (ASPAT)",
 };
