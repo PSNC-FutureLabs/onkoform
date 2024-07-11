@@ -11,7 +11,7 @@ export default function Step4() {
 	return (
 		<Stack spacing={4} p={2}>
 			<Alert variant="outlined" severity="info">
-				W tym kroku należy podać wyniki z poprzedniego badania laboratoryjnego.
+				W tym kroku należy podać wyniki z <strong>poprzedniego</strong> badania laboratoryjnego.
 			</Alert>
 			<FormInputDate name="previous-lab-test-date" control={control} label="Data wykonania badania" />
 			<MarkerRow
