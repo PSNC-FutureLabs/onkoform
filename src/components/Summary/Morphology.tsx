@@ -14,10 +14,10 @@ export const Morphology = ({ bloodMarkers }: { bloodMarkers: BloodMarkers }) => 
 				<MorphologyCard markerName="WBC" bloodMarker={bloodMarkers.WBC} />
 				<MorphologyCard markerName="PLT" bloodMarker={bloodMarkers.PLT} />
 				<MorphologyCard markerName="NEUT" bloodMarker={bloodMarkers.NEUT} />
-				{bloodMarkers.ALT.getValue() ? (
+				{bloodMarkers.ALT.getValue() || bloodMarkers.ALT.reference?.getValue() ? (
 					<MorphologyCard markerName="ALT" bloodMarker={bloodMarkers.ALT} />
 				) : null}
-				{bloodMarkers.AST.getValue() ? (
+				{bloodMarkers.AST.getValue() || bloodMarkers.AST.reference?.getValue() ? (
 					<MorphologyCard markerName="AST" bloodMarker={bloodMarkers.AST} />
 				) : null}
 			</Grid>
