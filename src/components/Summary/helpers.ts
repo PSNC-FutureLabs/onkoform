@@ -15,7 +15,7 @@ export const getCurrentAge = (dateOfBirthTimestamp: number): { years: number; mo
 		years--;
 		months += 12;
 	}
-	
+
 	return {
 		years,
 		months,
@@ -55,9 +55,9 @@ export function getPolishAgeDescription(dateOfBirth: Date): string {
 	const yearDeclination = getYearDeclination(years);
 	const monthDeclination = getMonthDeclination(months);
 
-	let ageString = `${years} ${yearDeclination}`;
+	let ageString = years > 0 ? (years > 1 ? `${years} ` : "") + `${yearDeclination}` : "";
 	if (months > 0) {
-		ageString += ` i ${months} ${monthDeclination}`;
+		ageString += (years > 0 ? " i " : "") + `${months} ${monthDeclination}`;
 	}
 
 	// return ageString + ` (${dateOfBirth.toLocaleString()})`;
