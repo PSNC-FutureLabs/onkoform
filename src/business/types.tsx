@@ -47,20 +47,24 @@ export type Analysis = {
 
 export type UnitType =
 	| "%"
-	| "°C"
 	| "%/μl"
+	| "10^3/mm³"
+	| "10^3/μl"
+	| "°C"
 	| "G/l"
+	| "K/mm³"
 	| "K/μl"
+	| "M/ml"
 	| "M/μl"
 	| "U/L"
 	| "U/l"
 	| "g/dl"
 	| "mg/%"
 	| "mg/dl"
+	| "mm³"
 	| "mmol/l"
 	| "tys./mm³"
 	| "tys./μl"
-	| "10^3/μl"
 	| "μl";
 
 export type FormInputProps = {
@@ -141,18 +145,14 @@ export function inRange(value: NullableNumber, range: string): boolean {
 export function getUnitConversionRatio(baseUnit: UnitType, targetUnit: UnitType): NullableNumber {
 	if (baseUnit === targetUnit) return 1;
 
+	const EquivalentUnitSets: Array<Array<UnitType>> = [
+		["mm³", "μl"],
+		["G/l", "M/ml", "K/μl", "tys./μl", "10^3/μl", "K/mm³", "tys./mm³", "10^3/mm³"],
+		["mg/dl", "mg/%"],
+		["U/L", "U/l"],
+	];
+
 	const conversionRatios: Record<string, NullableNumber> = {
-		"mg/dl:mg/%": 1,
-
-		"K/μl:10^3/μl": 1,
-		"G/l:10^3/μl": 1,
-		"tys./μl:10^3/μl": 1,
-
-		"K/μl:10^3/mm³": 1,
-		"G/l:10^3/mm³": 1,
-		"tys./μl:10^3/mm³": 1,
-
-		"K/μl:tys./mm³":1,
 		"g/dl:mg/%": 100,
 		"g/dl:mg/dl": 1000,
 		"mg/%:mg/dl": 10,
@@ -161,6 +161,8 @@ export function getUnitConversionRatio(baseUnit: UnitType, targetUnit: UnitType)
 		"mmol/l:mg/dl": 18.01559, // Example for glucose
 		"mg/dl:mmol/l": 1 / 18.01559,
 	};
+
+	if (EquivalentUnitSets.find((unitSet) => unitSet.includes(baseUnit) && unitSet.includes(targetUnit))) return 1;
 
 	const key = `${baseUnit}:${targetUnit}`;
 
@@ -174,7 +176,13 @@ export class MedicalParameter {
 	date?: NullableDate;
 	reference?: MedicalParameter;
 
-	constructor(actualValue: number, unit: UnitType, baseUnit: UnitType, date?: NullableDate, reference?: MedicalParameter) {
+	constructor(
+		actualValue: number,
+		unit: UnitType,
+		baseUnit: UnitType,
+		date?: NullableDate,
+		reference?: MedicalParameter
+	) {
 		this.value = actualValue;
 		this.unit = unit;
 		this.baseUnit = baseUnit;
