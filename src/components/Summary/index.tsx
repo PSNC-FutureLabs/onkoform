@@ -96,15 +96,19 @@ export const Summary = () => {
 
 	/* ALT */
 
-	/* REMOVE ON PRODUCTION! */
-	calculatedDiagnoseLevel = DiagnoseLevel.Unconclusive;
-
-	if (inRange(bloodMarkers.ALT.in("U/l"), "[0, 0.5)"))
-		updateDiagnoseLevel(DiagnoseLevel.Unconclusive);
+	if (bloodMarkers.ALT.getValue() && bloodMarkers.ALT.reference?.getValue()) {
+		/* check if increased by 50% or more */
+		if ((bloodMarkers.ALT.in("U/l") ?? 0) / (bloodMarkers.ALT.reference?.in("U/l") ?? 1) - 1 >= 0.5)
+			updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
+	}
 
 	/* AST */
 
-	// calculatedDiagnoseLevel = DiagnoseLevel.Unconclusive;
+	if (bloodMarkers.AST.getValue() && bloodMarkers.AST.reference?.getValue()) {
+		/* check if increased by 50% or more */
+		if ((bloodMarkers.AST.in("U/l") ?? 0) / (bloodMarkers.AST.reference?.in("U/l") ?? 1) - 1 >= 0.5)
+			updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
+	}
 
 	/* Temperature */
 
