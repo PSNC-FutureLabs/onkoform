@@ -116,18 +116,17 @@ export const Summary = () => {
 
 	/* Symptoms */
 
-	if (hasSymptom(symptoms, "drowsiness-weakness")) updateDiagnoseLevel(DiagnoseLevel.Unconclusive);
-
 	if (hasAnyOfSymptoms(symptoms, ["vomiting", "diarrhea"])) updateDiagnoseLevel(DiagnoseLevel.ConsultationNeeded);
 
 	if (
 		hasAnyOfSymptoms(symptoms, [
-			"chills",
 			"bleeding",
-			"fresh-petechiae",
+			"chills",
 			"cyanosis-or-body-bruising",
-			"severe-peripheral-edema",
+			"drowsiness-weakness",
+			"fresh-petechiae",
 			"seizures-unresponsiveness",
+			"severe-peripheral-edema",
 			"vision-disturbances",
 		])
 	)
