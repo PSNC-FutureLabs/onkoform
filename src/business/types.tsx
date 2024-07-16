@@ -39,7 +39,7 @@ export type Analysis = {
 	patient: Patient;
 	medicalParameters: Array<MedicalParameter>;
 	symptoms: Array<SymptomValues>;
-	diagnose: Diagnose;
+	diagnosis: Diagnosis;
 	headacheRating: NullableNumber;
 	painAnxietyRating: NullableNumber;
 	mucosalToxicitiesRating: NullableNumber;
@@ -227,7 +227,7 @@ export class MedicalParameter {
 	}
 }
 
-export enum DiagnoseLevel {
+export enum DiagnosisLevel {
 	Unconclusive,
 	OK,
 	RepeatTestIn3Days,
@@ -236,48 +236,48 @@ export enum DiagnoseLevel {
 	UrgentConsultationNeeded,
 }
 
-export type Diagnose = {
-	level: DiagnoseLevel;
+export type Diagnosis = {
+	level: DiagnosisLevel;
 	header: string;
 	body: string;
 	severity: OverridableStringUnion<AlertColor, AlertPropsColorOverrides>;
 };
 
-export type Diagnoses = Array<Diagnose>;
+export type Diagnoses = Array<Diagnosis>;
 
 export const DiagnosesDefinitions: Diagnoses = [
 	{
-		level: DiagnoseLevel.Unconclusive,
+		level: DiagnosisLevel.Unconclusive,
 		header: "Brak diagnozy",
 		body: "Aplikacja nie jest w stanie określić wyniku. Skontaktuj się z dostawcą.",
 		severity: "warning",
 	},
 	{
-		level: DiagnoseLevel.OK,
+		level: DiagnosisLevel.OK,
 		header: "Wyniki są w normie",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "success",
 	},
 	{
-		level: DiagnoseLevel.RepeatTestIn3Days,
+		level: DiagnosisLevel.RepeatTestIn3Days,
 		header: "Powtórz badanie za 3 dni",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "warning",
 	},
 	{
-		level: DiagnoseLevel.RepeatTestIn2Days,
+		level: DiagnosisLevel.RepeatTestIn2Days,
 		header: "Powtórz badanie za 2 dni",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "warning",
 	},
 	{
-		level: DiagnoseLevel.ConsultationNeeded,
+		level: DiagnosisLevel.ConsultationNeeded,
 		header: "Wyniki wymagają konsultacji z lekarzem.",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "error",
 	},
 	{
-		level: DiagnoseLevel.UrgentConsultationNeeded,
+		level: DiagnosisLevel.UrgentConsultationNeeded,
 		header: "Wyniki wymagają pilnej konsultacji z lekarzem.",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "error",
