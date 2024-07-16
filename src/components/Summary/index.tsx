@@ -26,15 +26,15 @@ export const Summary = () => {
 	const hasAnyOfSymptoms = (symptoms: Array<SymptomValues>, selectedSymptoms: Array<SymptomValues>): boolean =>
 		selectedSymptoms.some((symptom) => symptoms.includes(symptom));
 
-	const updateDiagnoseLevel = (diagnoseLevel: DiagnosisLevel): void => {
-		const currentDiagnosisLevel = calculatedDiagnoseLevel;
-		calculatedDiagnoseLevel = Math.max(calculatedDiagnoseLevel, diagnoseLevel);
+	const updateDiagnosisLevel = (diagnosisLevel: DiagnosisLevel): void => {
+		const currentDiagnosisLevel = calculatedDiagnosisLevel;
+		calculatedDiagnosisLevel = Math.max(calculatedDiagnosisLevel, diagnosisLevel);
 		diagnosisLog.push(
-			`${diagnosisStep}: ${currentDiagnosisLevel} --(${diagnoseLevel})--> ${calculatedDiagnoseLevel}`
+			`${diagnosisStep}: ${currentDiagnosisLevel} --(${diagnosisLevel})--> ${calculatedDiagnosisLevel}`
 		);
 	};
 
-	let calculatedDiagnoseLevel: DiagnosisLevel = DiagnosisLevel.Unconclusive;
+	let calculatedDiagnosisLevel: DiagnosisLevel = DiagnosisLevel.Unconclusive;
 
 	const temperature = getValues("temperature");
 	const symptoms = getValues("symptoms");
@@ -69,13 +69,13 @@ export const Summary = () => {
 
 	diagnosisStep = "HGB";
 
-	if (inRange(bloodMarkers.HGB.in("g/dl"), "[0, 8.0)")) updateDiagnoseLevel(DiagnosisLevel.UrgentConsultationNeeded);
+	if (inRange(bloodMarkers.HGB.in("g/dl"), "[0, 8.0)")) updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
 	else if (inRange(bloodMarkers.HGB.in("g/dl"), "[8.0, 9.0)")) {
-		if (bloodMarkers.HGB.isDeclining()) updateDiagnoseLevel(DiagnosisLevel.RepeatTestIn2Days);
-		else updateDiagnoseLevel(DiagnosisLevel.RepeatTestIn3Days);
+		if (bloodMarkers.HGB.isDeclining()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn2Days);
+		else updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
 	} else if (inRange(bloodMarkers.HGB.in("g/dl"), "[9, 100]")) {
-		if (bloodMarkers.HGB.isDeclining()) updateDiagnoseLevel(DiagnosisLevel.RepeatTestIn3Days);
-		else updateDiagnoseLevel(DiagnosisLevel.OK);
+		if (bloodMarkers.HGB.isDeclining()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
+		else updateDiagnosisLevel(DiagnosisLevel.OK);
 	}
 
 	/* WBC */
@@ -83,13 +83,13 @@ export const Summary = () => {
 	diagnosisStep = "WBC";
 
 	if (inRange(bloodMarkers.WBC.in("10^3/μl"), "[0, 1.0)"))
-		updateDiagnoseLevel(DiagnosisLevel.UrgentConsultationNeeded);
+		updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
 	else if (inRange(bloodMarkers.WBC.in("10^3/μl"), "[1.0, 1.5)")) {
-		if (bloodMarkers.WBC.isDeclining()) updateDiagnoseLevel(DiagnosisLevel.RepeatTestIn2Days);
-		else updateDiagnoseLevel(DiagnosisLevel.RepeatTestIn3Days);
+		if (bloodMarkers.WBC.isDeclining()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn2Days);
+		else updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
 	} else if (inRange(bloodMarkers.WBC.in("10^3/μl"), "[1.5, 100]")) {
-		if (bloodMarkers.WBC.isDeclining()) updateDiagnoseLevel(DiagnosisLevel.RepeatTestIn3Days);
-		else updateDiagnoseLevel(DiagnosisLevel.OK);
+		if (bloodMarkers.WBC.isDeclining()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
+		else updateDiagnosisLevel(DiagnosisLevel.OK);
 	}
 
 	/* PLT */
@@ -97,22 +97,22 @@ export const Summary = () => {
 	diagnosisStep = "PLT";
 
 	if (inRange(bloodMarkers.PLT.in("tys./mm³"), "[0, 25)"))
-		updateDiagnoseLevel(DiagnosisLevel.UrgentConsultationNeeded);
-	if (inRange(bloodMarkers.PLT.in("tys./mm³"), "[25, 35)")) updateDiagnoseLevel(DiagnosisLevel.RepeatTestIn2Days);
-	if (inRange(bloodMarkers.PLT.in("tys./mm³"), "[35, 50)")) updateDiagnoseLevel(DiagnosisLevel.RepeatTestIn3Days);
-	if (inRange(bloodMarkers.PLT.in("tys./mm³"), "[50, 1000)")) updateDiagnoseLevel(DiagnosisLevel.OK);
+		updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
+	if (inRange(bloodMarkers.PLT.in("tys./mm³"), "[25, 35)")) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn2Days);
+	if (inRange(bloodMarkers.PLT.in("tys./mm³"), "[35, 50)")) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
+	if (inRange(bloodMarkers.PLT.in("tys./mm³"), "[50, 1000)")) updateDiagnosisLevel(DiagnosisLevel.OK);
 
 	/* NEUT */
 
 	diagnosisStep = "NEUT";
 
 	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0, 0.5)") && bloodMarkers.NEUT.isGrowing()) {
-		if (temperature >= 37.0) updateDiagnoseLevel(DiagnosisLevel.UrgentConsultationNeeded);
-		else updateDiagnoseLevel(DiagnosisLevel.ConsultationNeeded);
+		if (temperature >= 37.0) updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
+		else updateDiagnosisLevel(DiagnosisLevel.ConsultationNeeded);
 	}
 
 	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0.5, 100)") && bloodMarkers.NEUT.isDeclining())
-		updateDiagnoseLevel(DiagnosisLevel.RepeatTestIn3Days);
+		updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
 
 	/* ALT */
 
@@ -121,7 +121,7 @@ export const Summary = () => {
 	if (bloodMarkers.ALT.getValue() && bloodMarkers.ALT.reference?.getValue()) {
 		/* check if increased by 50% or more */
 		if ((bloodMarkers.ALT.in("U/l") ?? 0) / (bloodMarkers.ALT.reference?.in("U/l") ?? 1) - 1 >= 0.5)
-			updateDiagnoseLevel(DiagnosisLevel.ConsultationNeeded);
+			updateDiagnosisLevel(DiagnosisLevel.ConsultationNeeded);
 	}
 
 	/* AST */
@@ -131,20 +131,20 @@ export const Summary = () => {
 	if (bloodMarkers.AST.getValue() && bloodMarkers.AST.reference?.getValue()) {
 		/* check if increased by 50% or more */
 		if ((bloodMarkers.AST.in("U/l") ?? 0) / (bloodMarkers.AST.reference?.in("U/l") ?? 1) - 1 >= 0.5)
-			updateDiagnoseLevel(DiagnosisLevel.ConsultationNeeded);
+			updateDiagnosisLevel(DiagnosisLevel.ConsultationNeeded);
 	}
 
 	/* Temperature */
 
 	diagnosisStep = "Temperature";
 
-	if (temperature >= 38.0) updateDiagnoseLevel(DiagnosisLevel.ConsultationNeeded);
+	if (temperature >= 38.0) updateDiagnosisLevel(DiagnosisLevel.ConsultationNeeded);
 
 	/* Symptoms */
 
 	diagnosisStep = "Symptoms";
 
-	if (hasAnyOfSymptoms(symptoms, ["vomiting", "diarrhea"])) updateDiagnoseLevel(DiagnosisLevel.ConsultationNeeded);
+	if (hasAnyOfSymptoms(symptoms, ["vomiting", "diarrhea"])) updateDiagnosisLevel(DiagnosisLevel.ConsultationNeeded);
 
 	if (
 		hasAnyOfSymptoms(symptoms, [
@@ -158,20 +158,20 @@ export const Summary = () => {
 			"vision-disturbances",
 		])
 	)
-		updateDiagnoseLevel(DiagnosisLevel.UrgentConsultationNeeded);
+		updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
 
 	if (hasSymptom(symptoms, "headache")) {
 		switch (headacheRating) {
 			case 1:
 			case 2:
-				updateDiagnoseLevel(DiagnosisLevel.OK);
+				updateDiagnosisLevel(DiagnosisLevel.OK);
 				break;
 			case 3:
 			case 4:
-				updateDiagnoseLevel(DiagnosisLevel.ConsultationNeeded);
+				updateDiagnosisLevel(DiagnosisLevel.ConsultationNeeded);
 				break;
 			case 5:
-				updateDiagnoseLevel(DiagnosisLevel.UrgentConsultationNeeded);
+				updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
 				break;
 		}
 	}
@@ -180,20 +180,20 @@ export const Summary = () => {
 		switch (painAnxietyRating) {
 			case 1:
 			case 2:
-				updateDiagnoseLevel(DiagnosisLevel.OK);
+				updateDiagnosisLevel(DiagnosisLevel.OK);
 				break;
 			case 3:
 			case 4:
-				updateDiagnoseLevel(DiagnosisLevel.ConsultationNeeded);
+				updateDiagnosisLevel(DiagnosisLevel.ConsultationNeeded);
 				break;
 			case 5:
-				updateDiagnoseLevel(DiagnosisLevel.UrgentConsultationNeeded);
+				updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
 				break;
 		}
 	}
 
 	const diagnose =
-		DiagnosesDefinitions.find((item) => item.level === calculatedDiagnoseLevel) ??
+		DiagnosesDefinitions.find((item) => item.level === calculatedDiagnosisLevel) ??
 		DiagnosesDefinitions[DiagnosisLevel.Unconclusive];
 
 	if (window.location.hostname === "localhost" && diagnosisLog.length > 0) {
