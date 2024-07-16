@@ -1,9 +1,8 @@
 import { Stack, FormLabel, Tooltip } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { FormInputNumber } from "./FormInputNumber";
-import { UnitCard } from "./UnitCard";
 import { MarkerRowProps } from "../../business/types";
-import { MultiButton } from "./MultiButton";
+import { FormUnitSelector } from "./FormUnitSelector";
 
 export const MarkerRow = ({ control, markerName, label, options, description }: MarkerRowProps) => {
 	return (
@@ -16,8 +15,7 @@ export const MarkerRow = ({ control, markerName, label, options, description }: 
 			</Stack>
 			<Stack direction="row" spacing={1} alignItems={"center"}>
 				<FormInputNumber name={`${markerName}.value`} control={control} />
-				{options.length === 1 && <UnitCard unit={options[0]} />}
-				{options.length > 1 && <MultiButton name={`${markerName}.unit`} options={options} />}
+				<FormUnitSelector name={`${markerName}.unit`} control={control} options={options} />
 			</Stack>
 		</Stack>
 	);

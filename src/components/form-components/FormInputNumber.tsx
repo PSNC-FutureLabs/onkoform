@@ -21,7 +21,7 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 					error={!!error}
 					helperText={error?.message}
 					placeholder={placeholder}
-					sx={{width: 120}}
+					sx={{width: 160}}
 					size="medium"
 					margin="none"
 					hiddenLabel

@@ -3,6 +3,9 @@ import { Control, FieldValues, UseFormGetValues, UseFormSetValue } from "react-h
 import { OverridableStringUnion } from "@mui/types";
 import { AlertColor, AlertPropsColorOverrides } from "@mui/material";
 
+export type NullableNumber = number | null;
+export type NullableDate = Date | null;
+
 type OptionType = {
 	label: string;
 	value: string;
@@ -12,6 +15,39 @@ type OptionType = {
 export type RadioOptionsType = OptionType;
 export type MultiCheckboxOptionsType = OptionType;
 export type DropdownOptionsType = OptionType;
+
+export type FormInputProps = {
+	name: string;
+	control: Control<FieldValues, any>;
+	label?: string;
+	placeholder?: string;
+	unit?: Array<UnitType>;
+};
+
+export type InputRadioProps = FormInputProps & {
+	options: RadioOptionsType[];
+};
+
+export type InputDropdownProps = FormInputProps & {
+	options: DropdownOptionsType[];
+};
+
+export type UnitSelectorProps = FormInputProps & {
+	options: UnitType[];
+};
+
+export type FormInputMultiCheckboxProps = FormInputProps & {
+	setValue: UseFormSetValue<FieldValues>;
+	getValues: UseFormGetValues<FieldValues>;
+};
+
+export type MarkerRowProps = {
+	control: Control<FieldValues, any>;
+	markerName: string;
+	label: string;
+	options: UnitType[];
+	description?: string;
+};
 
 export type BloodMarkersNames = "HGB" | "WBC" | "PLT" | "NEUT" | "ALT" | "AST";
 
@@ -67,35 +103,6 @@ export type UnitType =
 	| "tys./μl"
 	| "μl";
 
-export type FormInputProps = {
-	name: string;
-	control: Control<FieldValues, any>;
-	label?: string;
-	placeholder?: string;
-	unit?: Array<UnitType>;
-};
-
-export type InputRadioProps = FormInputProps & {
-	options: RadioOptionsType[];
-};
-
-export type InputDropdownProps = FormInputProps & {
-	options: DropdownOptionsType[];
-};
-
-export type FormInputMultiCheckboxProps = FormInputProps & {
-	setValue: UseFormSetValue<FieldValues>;
-	getValues: UseFormGetValues<FieldValues>;
-};
-
-export type MarkerRowProps = {
-	control: Control<FieldValues, any>;
-	markerName: string;
-	label: string;
-	options: UnitType[];
-	description?: string;
-};
-
 export type SymptomValues =
 	| "chills"
 	| "drowsiness-weakness"
@@ -111,8 +118,62 @@ export type SymptomValues =
 	| "vision-disturbances"
 	| "pain-anxiety";
 
-export type NullableNumber = number | null;
-export type NullableDate = Date | null;
+export enum DiagnosisLevel {
+	Unconclusive,
+	OK,
+	RepeatTestIn3Days,
+	RepeatTestIn2Days,
+	ConsultationNeeded,
+	UrgentConsultationNeeded,
+}
+
+export type Diagnosis = {
+	level: DiagnosisLevel;
+	header: string;
+	body: string;
+	severity: OverridableStringUnion<AlertColor, AlertPropsColorOverrides>;
+};
+
+export type Diagnoses = Array<Diagnosis>;
+
+export const DiagnosesDefinitions: Diagnoses = [
+	{
+		level: DiagnosisLevel.Unconclusive,
+		header: "Brak diagnozy",
+		body: "Aplikacja nie jest w stanie określić wyniku. Skontaktuj się z dostawcą.",
+		severity: "warning",
+	},
+	{
+		level: DiagnosisLevel.OK,
+		header: "Wyniki są w normie",
+		body: "Zapoznaj się ze szczegółami poniżej",
+		severity: "success",
+	},
+	{
+		level: DiagnosisLevel.RepeatTestIn3Days,
+		header: "Powtórz badanie za 3 dni",
+		body: "Zapoznaj się ze szczegółami poniżej",
+		severity: "warning",
+	},
+	{
+		level: DiagnosisLevel.RepeatTestIn2Days,
+		header: "Powtórz badanie za 2 dni",
+		body: "Zapoznaj się ze szczegółami poniżej",
+		severity: "warning",
+	},
+	{
+		level: DiagnosisLevel.ConsultationNeeded,
+		header: "Wyniki wymagają konsultacji z lekarzem.",
+		body: "Zapoznaj się ze szczegółami poniżej",
+		severity: "error",
+	},
+	{
+		level: DiagnosisLevel.UrgentConsultationNeeded,
+		header: "Wyniki wymagają pilnej konsultacji z lekarzem.",
+		body: "Zapoznaj się ze szczegółami poniżej",
+		severity: "error",
+	},
+];
 
 export function inRange(value: NullableNumber, range: string): boolean {
 	if (!value) return false;
@@ -199,11 +260,11 @@ export class MedicalParameter {
 	}
 
 	isGrowing(): boolean {
-		return (this.in(this.baseUnit) ?? 0) > (this.reference?.in(this.baseUnit) ?? 0)
+		return (this.in(this.baseUnit) ?? 0) > (this.reference?.in(this.baseUnit) ?? 0);
 	}
 
 	isDeclining(): boolean {
-		return (this.in(this.baseUnit) ?? 0) < (this.reference?.in(this.baseUnit) ?? 0)
+		return (this.in(this.baseUnit) ?? 0) < (this.reference?.in(this.baseUnit) ?? 0);
 	}
 
 	getValue(): NullableNumber {
@@ -226,60 +287,3 @@ export class MedicalParameter {
 		this.unit = unit;
 	}
 }
-
-export enum DiagnosisLevel {
-	Unconclusive,
-	OK,
-	RepeatTestIn3Days,
-	RepeatTestIn2Days,
-	ConsultationNeeded,
-	UrgentConsultationNeeded,
-}
-
-export type Diagnosis = {
-	level: DiagnosisLevel;
-	header: string;
-	body: string;
-	severity: OverridableStringUnion<AlertColor, AlertPropsColorOverrides>;
-};
-
-export type Diagnoses = Array<Diagnosis>;
-
-export const DiagnosesDefinitions: Diagnoses = [
-	{
-		level: DiagnosisLevel.Unconclusive,
-		header: "Brak diagnozy",
-		body: "Aplikacja nie jest w stanie określić wyniku. Skontaktuj się z dostawcą.",
-		severity: "warning",
-	},
-	{
-		level: DiagnosisLevel.OK,
-		header: "Wyniki są w normie",
-		body: "Zapoznaj się ze szczegółami poniżej",
-		severity: "success",
-	},
-	{
-		level: DiagnosisLevel.RepeatTestIn3Days,
-		header: "Powtórz badanie za 3 dni",
-		body: "Zapoznaj się ze szczegółami poniżej",
-		severity: "warning",
-	},
-	{
-		level: DiagnosisLevel.RepeatTestIn2Days,
-		header: "Powtórz badanie za 2 dni",
-		body: "Zapoznaj się ze szczegółami poniżej",
-		severity: "warning",
-	},
-	{
-		level: DiagnosisLevel.ConsultationNeeded,
-		header: "Wyniki wymagają konsultacji z lekarzem.",
-		body: "Zapoznaj się ze szczegółami poniżej",
-		severity: "error",
-	},
-	{
-		level: DiagnosisLevel.UrgentConsultationNeeded,
-		header: "Wyniki wymagają pilnej konsultacji z lekarzem.",
-		body: "Zapoznaj się ze szczegółami poniżej",
-		severity: "error",
-	},
-];
