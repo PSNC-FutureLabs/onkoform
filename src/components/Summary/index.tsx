@@ -29,7 +29,9 @@ export const Summary = () => {
 	const updateDiagnoseLevel = (diagnoseLevel: DiagnoseLevel): void => {
 		const currentDiagnosisLevel = calculatedDiagnoseLevel;
 		calculatedDiagnoseLevel = Math.max(calculatedDiagnoseLevel, diagnoseLevel);
-		diagnosisLog.push(`${diagnosisStep}: ${currentDiagnosisLevel} --(${diagnoseLevel})--> ${calculatedDiagnoseLevel}`);
+		diagnosisLog.push(
+			`${diagnosisStep}: ${currentDiagnosisLevel} --(${diagnoseLevel})--> ${calculatedDiagnoseLevel}`
+		);
 	};
 
 	let calculatedDiagnoseLevel: DiagnoseLevel = DiagnoseLevel.Unconclusive;
@@ -106,6 +108,7 @@ export const Summary = () => {
 
 	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0, 0.5)") && bloodMarkers.NEUT.isDeclining())
 		updateDiagnoseLevel(DiagnoseLevel.UrgentConsultationNeeded);
+
 	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0.5, 100)") && bloodMarkers.NEUT.isGrowing())
 		updateDiagnoseLevel(DiagnoseLevel.RepeatTestIn3Days);
 
@@ -192,7 +195,7 @@ export const Summary = () => {
 		DiagnosesDefinitions[DiagnoseLevel.Unconclusive];
 
 	if (window.location.hostname === "localhost" && diagnosisLog.length > 0) {
-		console.table(diagnosisLog);
+		console.log(diagnosisLog);
 	}
 
 	return (
