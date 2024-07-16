@@ -261,11 +261,15 @@ export class MedicalParameter {
 		return ratio ? ratio * this.value : null;
 	}
 
-	isGrowing(): boolean {
+	isStable(): boolean {
+		return (this.in(this.baseUnit) ?? 0) == (this.reference?.in(this.baseUnit) ?? 0);
+	}
+
+	isRising(): boolean {
 		return (this.in(this.baseUnit) ?? 0) > (this.reference?.in(this.baseUnit) ?? 0);
 	}
 
-	isDeclining(): boolean {
+	isFalling(): boolean {6
 		return (this.in(this.baseUnit) ?? 0) < (this.reference?.in(this.baseUnit) ?? 0);
 	}
 
