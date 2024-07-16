@@ -112,7 +112,7 @@ export const Summary = () => {
 	}
 
 	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0.5, 100)") && bloodMarkers.NEUT.isDeclining())
-		updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
+		updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn2Days);
 
 	/* ALT */
 
