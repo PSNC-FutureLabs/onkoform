@@ -106,10 +106,12 @@ export const Summary = () => {
 
 	diagnosisStep = "NEUT";
 
-	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0, 0.5)") && bloodMarkers.NEUT.isDeclining())
-		updateDiagnoseLevel(DiagnosisLevel.UrgentConsultationNeeded);
+	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0, 0.5)") && bloodMarkers.NEUT.isGrowing()) {
+		if (temperature >= 37.0) updateDiagnoseLevel(DiagnosisLevel.UrgentConsultationNeeded);
+		else updateDiagnoseLevel(DiagnosisLevel.ConsultationNeeded);
+	}
 
-	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0.5, 100)") && bloodMarkers.NEUT.isGrowing())
+	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0.5, 100)") && bloodMarkers.NEUT.isDeclining())
 		updateDiagnoseLevel(DiagnosisLevel.RepeatTestIn3Days);
 
 	/* ALT */
