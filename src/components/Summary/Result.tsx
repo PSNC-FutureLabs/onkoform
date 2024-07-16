@@ -1,7 +1,7 @@
 import { Stack, Alert, Typography } from "@mui/material";
-import { Diagnose } from "../../business/types";
+import { Diagnosis } from "../../business/types";
 
-export const Result = ({ diagnose }: { diagnose: Diagnose }) => {
+export const Result = ({ diagnose }: { diagnose: Diagnosis }) => {
 	return (
 		<Stack>
 			<Alert severity={diagnose.severity}>

@@ -19,7 +19,7 @@ export const BloodMarkerDescriptions: { [key in BloodMarkersNames]: string } = {
 	HGB: "stężenie hemoglobiny",
 	WBC: "liczba białych krwinek (leukocyty)",
 	PLT: "liczba płytek krwi",
-	NEUT: "granulocyty obojętochłonne (neutrofile)",
+	NEUT: "liczba (#) granulocytów obojętochłonnych (neutrofile, neutrocyty)",
 	ALT: "poziom aminotransferazy alaninowej (ALAT)",
 	AST: "poziom aminotransferazy asparaginianowej (ASPAT)",
 };
@@ -39,7 +39,7 @@ export type Analysis = {
 	patient: Patient;
 	medicalParameters: Array<MedicalParameter>;
 	symptoms: Array<SymptomValues>;
-	diagnose: Diagnose;
+	diagnosis: Diagnosis;
 	headacheRating: NullableNumber;
 	painAnxietyRating: NullableNumber;
 	mucosalToxicitiesRating: NullableNumber;
@@ -47,20 +47,24 @@ export type Analysis = {
 
 export type UnitType =
 	| "%"
-	| "°C"
 	| "%/μl"
+	| "10^3/mm³"
+	| "10^3/μl"
+	| "°C"
 	| "G/l"
+	| "K/mm³"
 	| "K/μl"
+	| "M/ml"
 	| "M/μl"
 	| "U/L"
 	| "U/l"
 	| "g/dl"
 	| "mg/%"
 	| "mg/dl"
+	| "mm³"
 	| "mmol/l"
 	| "tys./mm³"
 	| "tys./μl"
-	| "10^3/μl"
 	| "μl";
 
 export type FormInputProps = {
@@ -141,18 +145,14 @@ export function inRange(value: NullableNumber, range: string): boolean {
 export function getUnitConversionRatio(baseUnit: UnitType, targetUnit: UnitType): NullableNumber {
 	if (baseUnit === targetUnit) return 1;
 
+	const EquivalentUnitSets: Array<Array<UnitType>> = [
+		["mm³", "μl"],
+		["G/l", "M/ml", "K/μl", "tys./μl", "10^3/μl", "K/mm³", "tys./mm³", "10^3/mm³"],
+		["mg/dl", "mg/%"],
+		["U/L", "U/l"],
+	];
+
 	const conversionRatios: Record<string, NullableNumber> = {
-		"mg/dl:mg/%": 1,
-
-		"K/μl:10^3/μl": 1,
-		"G/l:10^3/μl": 1,
-		"tys./μl:10^3/μl": 1,
-
-		"K/μl:10^3/mm³": 1,
-		"G/l:10^3/mm³": 1,
-		"tys./μl:10^3/mm³": 1,
-
-		"K/μl:tys./mm³":1,
 		"g/dl:mg/%": 100,
 		"g/dl:mg/dl": 1000,
 		"mg/%:mg/dl": 10,
@@ -161,6 +161,8 @@ export function getUnitConversionRatio(baseUnit: UnitType, targetUnit: UnitType)
 		"mmol/l:mg/dl": 18.01559, // Example for glucose
 		"mg/dl:mmol/l": 1 / 18.01559,
 	};
+
+	if (EquivalentUnitSets.find((unitSet) => unitSet.includes(baseUnit) && unitSet.includes(targetUnit))) return 1;
 
 	const key = `${baseUnit}:${targetUnit}`;
 
@@ -174,7 +176,13 @@ export class MedicalParameter {
 	date?: NullableDate;
 	reference?: MedicalParameter;
 
-	constructor(actualValue: number, unit: UnitType, baseUnit: UnitType, date?: NullableDate, reference?: MedicalParameter) {
+	constructor(
+		actualValue: number,
+		unit: UnitType,
+		baseUnit: UnitType,
+		date?: NullableDate,
+		reference?: MedicalParameter
+	) {
 		this.value = actualValue;
 		this.unit = unit;
 		this.baseUnit = baseUnit;
@@ -191,11 +199,11 @@ export class MedicalParameter {
 	}
 
 	isGrowing(): boolean {
-		return this.reference ? this.value > this.reference.value : false;
+		return (this.in(this.baseUnit) ?? 0) > (this.reference?.in(this.baseUnit) ?? 0)
 	}
 
 	isDeclining(): boolean {
-		return this.reference ? this.value < this.reference.value : false;
+		return (this.in(this.baseUnit) ?? 0) < (this.reference?.in(this.baseUnit) ?? 0)
 	}
 
 	getValue(): NullableNumber {
@@ -219,7 +227,7 @@ export class MedicalParameter {
 	}
 }
 
-export enum DiagnoseLevel {
+export enum DiagnosisLevel {
 	Unconclusive,
 	OK,
 	RepeatTestIn3Days,
@@ -228,48 +236,48 @@ export enum DiagnoseLevel {
 	UrgentConsultationNeeded,
 }
 
-export type Diagnose = {
-	level: DiagnoseLevel;
+export type Diagnosis = {
+	level: DiagnosisLevel;
 	header: string;
 	body: string;
 	severity: OverridableStringUnion<AlertColor, AlertPropsColorOverrides>;
 };
 
-export type Diagnoses = Array<Diagnose>;
+export type Diagnoses = Array<Diagnosis>;
 
 export const DiagnosesDefinitions: Diagnoses = [
 	{
-		level: DiagnoseLevel.Unconclusive,
+		level: DiagnosisLevel.Unconclusive,
 		header: "Brak diagnozy",
 		body: "Aplikacja nie jest w stanie określić wyniku. Skontaktuj się z dostawcą.",
 		severity: "warning",
 	},
 	{
-		level: DiagnoseLevel.OK,
+		level: DiagnosisLevel.OK,
 		header: "Wyniki są w normie",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "success",
 	},
 	{
-		level: DiagnoseLevel.RepeatTestIn3Days,
+		level: DiagnosisLevel.RepeatTestIn3Days,
 		header: "Powtórz badanie za 3 dni",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "warning",
 	},
 	{
-		level: DiagnoseLevel.RepeatTestIn2Days,
+		level: DiagnosisLevel.RepeatTestIn2Days,
 		header: "Powtórz badanie za 2 dni",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "warning",
 	},
 	{
-		level: DiagnoseLevel.ConsultationNeeded,
+		level: DiagnosisLevel.ConsultationNeeded,
 		header: "Wyniki wymagają konsultacji z lekarzem.",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "error",
 	},
 	{
-		level: DiagnoseLevel.UrgentConsultationNeeded,
+		level: DiagnosisLevel.UrgentConsultationNeeded,
 		header: "Wyniki wymagają pilnej konsultacji z lekarzem.",
 		body: "Zapoznaj się ze szczegółami poniżej",
 		severity: "error",

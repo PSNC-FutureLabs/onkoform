@@ -25,10 +25,12 @@ export const MorphologyCard = ({ markerName, bloodMarker }: MorphologyCardProps)
 						</Stack>
 						<Stack direction="row">
 							<Box width="50%">
-								<MorphologyCardTile parameter={bloodMarker} valueType="actual" />
+								{bloodMarker.getValue() ? (
+									<MorphologyCardTile parameter={bloodMarker} valueType="actual" />
+								) : null}
 							</Box>
 							<Box width="50%">
-								{bloodMarker.reference ? (
+								{bloodMarker.reference?.getValue() ? (
 									<MorphologyCardTile parameter={bloodMarker.reference} valueType="reference" />
 								) : null}
 							</Box>
