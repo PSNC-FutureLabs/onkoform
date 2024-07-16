@@ -266,7 +266,7 @@ export const TemperatureUnits: UnitType[] = ["°C"];
 export const HGBUnits: UnitType[] = ["g/dl", "mg/%"];
 export const WBCUnits: UnitType[] = ["K/μl", "G/l", "10^3/μl", "tys./μl"];
 export const PLTUnits: UnitType[] = ["K/μl", "G/l", "10^3/μl", "tys./μl"];
-export const NEUTUnits: UnitType[] = ["K/μl", "G/l", "10^3/μl", "tys./μl"];
+export const NEUTUnits: UnitType[] = ["#/μl", "K/μl", "G/l", "10^3/μl", "tys./μl"];
 export const ALTUnits: UnitType[] = ["U/l"];
 export const ASTUnits: UnitType[] = ["U/l"];
 
