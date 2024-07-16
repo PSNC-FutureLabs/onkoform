@@ -60,7 +60,7 @@ export const Summary = () => {
 		HGB: createMedicalParameter("HGB", "g/dl"),
 		WBC: createMedicalParameter("WBC", "10^3/μl"),
 		PLT: createMedicalParameter("PLT", "tys./mm³"),
-		NEUT: createMedicalParameter("NEUT", "tys./μl"),
+		NEUT: createMedicalParameter("NEUT", "K/μl"),
 		ALT: createMedicalParameter("ALT", "U/l"),
 		AST: createMedicalParameter("AST", "U/l"),
 	};
