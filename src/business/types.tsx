@@ -199,11 +199,11 @@ export class MedicalParameter {
 	}
 
 	isGrowing(): boolean {
-		return this.reference ? this.value > this.reference.value : false;
+		return (this.in(this.baseUnit) ?? 0) > (this.reference?.in(this.baseUnit) ?? 0)
 	}
 
 	isDeclining(): boolean {
-		return this.reference ? this.value < this.reference.value : false;
+		return (this.in(this.baseUnit) ?? 0) < (this.reference?.in(this.baseUnit) ?? 0)
 	}
 
 	getValue(): NullableNumber {
