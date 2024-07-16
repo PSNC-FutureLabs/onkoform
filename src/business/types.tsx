@@ -140,7 +140,7 @@ export const DiagnosesDefinitions: Diagnoses = [
 	{
 		level: DiagnosisLevel.Unconclusive,
 		header: "Brak diagnozy",
-		body: "Aplikacja nie jest w stanie określić wyniku. Skontaktuj się z dostawcą.",
+		body: "Aplikacja nie jest w stanie określić wyniku. Skontaktuj się z lekarzem prowadzącym.",
 		severity: "warning",
 	},
 	{
