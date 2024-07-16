@@ -83,6 +83,10 @@ export type InputDropdownProps = FormInputProps & {
 	options: DropdownOptionsType[];
 };
 
+export type UnitSelectorProps = FormInputProps & {
+	options: UnitType[];
+};
+
 export type FormInputMultiCheckboxProps = FormInputProps & {
 	setValue: UseFormSetValue<FieldValues>;
 	getValues: UseFormGetValues<FieldValues>;
