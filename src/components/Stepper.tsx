@@ -225,7 +225,7 @@ export default function StepController() {
 						</Typography>
 						{invalidLabTestDates ? (
 							<Alert variant="outlined" severity="warning">
-								Niepoprawne daty badań. Data badania referencyjnego jest późniejsza niż aktualnego
+								Data poprzedniego badania nie może być późniejsza niż data aktualnego badania.
 							</Alert>
 						) : null}
 						<ActiveStep activeStep={activeStep} />
