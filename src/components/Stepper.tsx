@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Grid, Box, Stack, Typography, Button } from "@mui/material";
+import { Grid, Box, Stack, Typography, Button, Alert } from "@mui/material";
 import { FieldValues, SubmitErrorHandler, SubmitHandler, useFormContext } from "react-hook-form";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import CheckIcon from "@mui/icons-material/Check";
@@ -20,7 +20,9 @@ const stepLandingPage: number = -1;
 export default function StepController() {
 	const [activeStep, setActiveStep] = useState<number>(stepLandingPage);
 	const [lastValidatedStep, setLastValidatedStep] = useState<number>(0);
-	const { trigger, handleSubmit } = useFormContext();
+	const { trigger, handleSubmit, getValues } = useFormContext();
+
+	const [invalidLabTestDates, setInvalidLabTestDates] = useState<boolean>(false);
 
 	const onSubmit: SubmitHandler<FieldValues> = async (data) => console.log(data);
 
@@ -31,6 +33,19 @@ export default function StepController() {
 	const validateStep = async () => {
 		const fields = steps[activeStep].fields;
 		const output = await trigger(fields.flat(), { shouldFocus: true });
+		const actualLabTestDate = getValues("actual-lab-test-date");
+		const previousLabTestDate = getValues("previous-lab-test-date");
+		if (
+			activeStep === steps.length - 2 &&
+			actualLabTestDate &&
+			previousLabTestDate &&
+			actualLabTestDate < previousLabTestDate
+		) {
+			setInvalidLabTestDates(true);
+			scrollToTop();
+			return false;
+		} else setInvalidLabTestDates(false);
+
 		return output;
 	};
 
@@ -208,6 +223,11 @@ export default function StepController() {
 						<Typography variant="h4" color="black" align="left" py={4}>
 							Uważnie wypełnij wszystkie pola
 						</Typography>
+						{invalidLabTestDates ? (
+							<Alert variant="outlined" severity="warning">
+								Niepoprawne daty badań. Data badania referencyjnego jest późniejsza niż aktualnego
+							</Alert>
+						) : null}
 						<ActiveStep activeStep={activeStep} />
 						<Stack direction="row" justifyContent="space-between" py={4} width="100%">
 							<Button
