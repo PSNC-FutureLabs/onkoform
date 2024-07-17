@@ -28,6 +28,8 @@ export const FormUnitSelector: React.FC<UnitSelectorProps> = ({ name, control, l
 							value={value}
 							error={!!error}
 							label={label}
+							sx={{minWidth: 120}}
+							variant="standard"
 						>
 							{generateSingleOptions()}
 						</Select>
