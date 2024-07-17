@@ -12,7 +12,7 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 				<TextField
 					value={value}
 					onSubmit={(e) => e.preventDefault()}
-					onChange={(e) => onChange(e.target.value === "" ? null : Number(e.target.value))}
+					onChange={(e) => onChange(e.target.value === "" ? null : Number(e.target.value.replace(/,/g, ".")))}
 					onFocus={(e) => e.target.select()}
 					onBlur={onBlur}
 					ref={ref}
@@ -21,7 +21,7 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 					error={!!error}
 					helperText={error?.message}
 					placeholder={placeholder}
-					sx={{width: 160}}
+					sx={{ width: 160 }}
 					size="medium"
 					margin="none"
 					hiddenLabel
@@ -29,7 +29,7 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 						unit
 							? {
 									endAdornment: <InputAdornment position="end">{unit[0]}</InputAdornment>,
-							}
+							  }
 							: {}
 					}
 					inputProps={{
