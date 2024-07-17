@@ -21,7 +21,7 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 					error={!!error}
 					helperText={error?.message}
 					placeholder={placeholder}
-					sx={{ width: 160 }}
+					fullWidth
 					size="medium"
 					margin="none"
 					hiddenLabel
@@ -29,7 +29,7 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 						unit
 							? {
 									endAdornment: <InputAdornment position="end">{unit[0]}</InputAdornment>,
-							  }
+							}
 							: {}
 					}
 					inputProps={{
