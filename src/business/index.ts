@@ -4,7 +4,7 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 7,
-	patchNo: 17,
+	patchNo: 18,
 	status: "alpha",
 	date: "2024.07.17",
 };
