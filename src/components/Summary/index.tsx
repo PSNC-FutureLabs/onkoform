@@ -71,10 +71,10 @@ export const Summary = () => {
 
 	if (inRange(bloodMarkers.HGB.in("g/dl"), "[0, 8.0)")) updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
 	else if (inRange(bloodMarkers.HGB.in("g/dl"), "[8.0, 9.0)")) {
-		if (bloodMarkers.HGB.isDeclining()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn2Days);
+		if (bloodMarkers.HGB.isFalling()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn2Days);
 		else updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
 	} else if (inRange(bloodMarkers.HGB.in("g/dl"), "[9, 100]")) {
-		if (bloodMarkers.HGB.isDeclining()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
+		if (bloodMarkers.HGB.isFalling()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
 		else updateDiagnosisLevel(DiagnosisLevel.OK);
 	}
 
@@ -85,10 +85,10 @@ export const Summary = () => {
 	if (inRange(bloodMarkers.WBC.in("10^3/μl"), "[0, 1.0)"))
 		updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
 	else if (inRange(bloodMarkers.WBC.in("10^3/μl"), "[1.0, 1.5)")) {
-		if (bloodMarkers.WBC.isDeclining()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn2Days);
+		if (bloodMarkers.WBC.isFalling()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn2Days);
 		else updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
 	} else if (inRange(bloodMarkers.WBC.in("10^3/μl"), "[1.5, 100]")) {
-		if (bloodMarkers.WBC.isDeclining()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
+		if (bloodMarkers.WBC.isFalling()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
 		else updateDiagnosisLevel(DiagnosisLevel.OK);
 	}
 
@@ -106,13 +106,22 @@ export const Summary = () => {
 
 	diagnosisStep = "NEUT";
 
-	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0, 0.5)") && bloodMarkers.NEUT.isGrowing()) {
-		if (temperature >= 37.0) updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
-		else updateDiagnosisLevel(DiagnosisLevel.ConsultationNeeded);
+	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0, 0.5)")) {
+		if (bloodMarkers.NEUT.isFalling()) updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
+		if (bloodMarkers.NEUT.isStable() || bloodMarkers.NEUT.isRising()) {
+			if (temperature >= 37.0) updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
+			else updateDiagnosisLevel(DiagnosisLevel.ConsultationNeeded);
+		}
 	}
 
-	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0.5, 100)") && bloodMarkers.NEUT.isDeclining())
-		updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn2Days);
+	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0.5, 100)")) {
+		if (bloodMarkers.NEUT.isFalling()) {
+			if (temperature >= 37.0) updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
+			else updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn2Days);
+		}
+		if (bloodMarkers.NEUT.isStable() || bloodMarkers.NEUT.isRising())
+			updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
+	}
 
 	/* ALT */
 
