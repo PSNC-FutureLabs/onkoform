@@ -55,13 +55,13 @@ export const PLTschema = z
 export const NEUTschema = z
 	.object({
 		value: valueSchema,
-		unit: z.enum(["#/μl", "K/μl", "10^3/μl", "tys./μl", "G/l"]),
+		unit: z.enum(["/μl", "K/μl", "10^3/μl", "tys./μl", "G/l"]),
 	})
-	.refine((data) => !(data.unit != "#/μl" && data.value > 20), {
+	.refine((data) => !(data.unit != "/μl" && data.value > 20), {
 		message: "maksymalna wartość parametru: 20",
 		path: ["value"],
 	})
-	.refine((data) => !(data.unit == "#/μl" && data.value > 20000), {
+	.refine((data) => !(data.unit == "/μl" && data.value > 20000), {
 		message: "maksymalna wartość parametru: 20000",
 		path: ["value"],
 	});
