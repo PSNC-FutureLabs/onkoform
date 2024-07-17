@@ -4,6 +4,8 @@ export const ERROR_MESSAGES = {
 	required: "Wartość jest wymagana",
 };
 
+const nullableNumberSchema = z.number().nullable();
+
 const valueSchema = z
 	.number({
 		required_error: ERROR_MESSAGES.required,
@@ -11,7 +13,10 @@ const valueSchema = z
 	})
 	.min(0, { message: "Wartość nie może być ujemna" });
 
-const nullableNumberSchema = z.number().nullable();
+export const temperatureSchema = z
+	.number({ required_error: ERROR_MESSAGES.required, invalid_type_error: ERROR_MESSAGES.required })
+	.min(34, { message: "Minimalna wartość temperatury wynosi 34°C" })
+	.max(42, { message: "Maksymalna wartość temperatury wynosi 42°C" });
 
 export const HGBschema = z
 	.object({
@@ -92,8 +97,3 @@ export const dateSchema = z.date({
 export const dropdownSchema = z
 	.string({ required_error: ERROR_MESSAGES.required })
 	.min(1, { message: ERROR_MESSAGES.required });
-
-export const temperatureSchema = z
-	.number({ required_error: ERROR_MESSAGES.required })
-	.min(34, { message: "Minimalna wartość temperatury wynosi 34°C" })
-	.max(42, { message: "Maksymalna wartość temperatury wynosi 42°C" });
