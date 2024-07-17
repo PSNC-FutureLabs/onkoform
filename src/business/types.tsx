@@ -84,6 +84,7 @@ export type Analysis = {
 export type UnitType =
 	| "%"
 	| "%/μl"
+	| "#/μl"
 	| "10^3/mm³"
 	| "10^3/μl"
 	| "°C"
@@ -140,7 +141,7 @@ export const DiagnosesDefinitions: Diagnoses = [
 	{
 		level: DiagnosisLevel.Unconclusive,
 		header: "Brak diagnozy",
-		body: "Aplikacja nie jest w stanie określić wyniku. Skontaktuj się z dostawcą.",
+		body: "Aplikacja nie jest w stanie określić wyniku. Skontaktuj się z lekarzem prowadzącym.",
 		severity: "warning",
 	},
 	{
@@ -214,6 +215,7 @@ export function getUnitConversionRatio(baseUnit: UnitType, targetUnit: UnitType)
 	];
 
 	const conversionRatios: Record<string, NullableNumber> = {
+		"#/μl:K/μl": 0.001,
 		"g/dl:mg/%": 100,
 		"g/dl:mg/dl": 1000,
 		"mg/%:mg/dl": 10,
@@ -259,11 +261,15 @@ export class MedicalParameter {
 		return ratio ? ratio * this.value : null;
 	}
 
-	isGrowing(): boolean {
+	isStable(): boolean {
+		return (this.in(this.baseUnit) ?? 0) == (this.reference?.in(this.baseUnit) ?? 0);
+	}
+
+	isRising(): boolean {
 		return (this.in(this.baseUnit) ?? 0) > (this.reference?.in(this.baseUnit) ?? 0);
 	}
 
-	isDeclining(): boolean {
+	isFalling(): boolean {6
 		return (this.in(this.baseUnit) ?? 0) < (this.reference?.in(this.baseUnit) ?? 0);
 	}
 
