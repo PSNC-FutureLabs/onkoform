@@ -1,6 +1,7 @@
 import Grid from "@mui/material/Grid";
 import { Box, Stack, Typography, Link } from "@mui/material";
 import { grey } from "@mui/material/colors";
+import { versionText } from "../business";
 
 export default function Footer() {
 	return (
@@ -15,22 +16,11 @@ export default function Footer() {
 						. All rights reserved.
 					</Typography>
 				</Box>
-				<Stack direction="row">
-					<Box>
-						<Typography variant="body2" align="center" color="white" p={1}>
-							<Link href="#" color="inherit" underline="hover">
-								Privacy policy
-							</Link>
-						</Typography>
-					</Box>
-					<Box>
-						<Typography variant="body2" align="center" color="white" p={1}>
-							<Link href="#" color="inherit" underline="hover">
-								Terms & Conditions
-							</Link>
-						</Typography>
-					</Box>
-				</Stack>
+				<Box>
+					<Typography variant="body2" align="center" color="white" p={1}>
+						{versionText()}
+					</Typography>
+				</Box>
 			</Stack>
 		</Grid>
 	);

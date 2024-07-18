@@ -4,10 +4,13 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 7,
-	patchNo: 18,
+	patchNo: 19,
 	status: "alpha",
 	date: "2024.07.18",
 };
+
+export const versionText = (): string =>
+	`wersja ${versionTag.majorNo}.${versionTag.minorNo}.${versionTag.patchNo}-${versionTag.status} (${versionTag.date})`;
 
 export type StepType = {
 	id: number;

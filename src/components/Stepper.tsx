@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import { Grid, Box, Stack, Typography, Button, Alert } from "@mui/material";
 import { FieldValues, SubmitErrorHandler, SubmitHandler, useFormContext } from "react-hook-form";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CheckIcon from "@mui/icons-material/Check";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import ReplayIcon from "@mui/icons-material/Replay";
-import { grey } from "@mui/material/colors";
 import imageMobileFormTopBackground from "/images/mobile-form-top-background.png";
 import imageLogo from "/images/logo-mm.svg";
 import imageOrnament from "/images/ornament.svg";
 import LandingPage from "./LandingPage";
-import { versionTag, StepType, steps } from "../business";
+import { StepType, steps } from "../business";
 import { Summary } from "./Summary";
 import ActiveStep from "./ActiveStep";
 
@@ -130,7 +130,11 @@ export default function StepController() {
 				</Stack>
 				{index + 1 < count && (
 					<Box width={56} py={2} justifyContent="center" display={{ xs: "none", sm: "flex" }}>
-						<HorizontalRuleIcon fontSize="large" color="inherit" sx={{ transform: "rotate(90deg)" }} />
+						{index >= activeStep ? (
+							<MoreVertIcon fontSize="large" color="inherit" />
+						) : (
+							<HorizontalRuleIcon fontSize="large" color="inherit" sx={{ transform: "rotate(90deg)" }} />
+						)}
 					</Box>
 				)}
 			</Stack>
@@ -194,15 +198,9 @@ export default function StepController() {
 							cursor: "pointer",
 						}}
 						mt={2}
-						mb={1}
+						mb={4}
 						onClick={handleGoToLandingPage}
 					/>
-					<Box>
-						<Typography variant="body2" align="center" mt={0} mb={3} color={grey[800]}>
-							wersja {versionTag.majorNo}.{versionTag.minorNo}.{versionTag.patchNo}-{versionTag.status} (
-							{versionTag.date})
-						</Typography>
-					</Box>
 					<Box display={{ xs: "none", sm: "block" }}>
 						{steps.map((item, idx) => (
 							<Step
