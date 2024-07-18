@@ -9,7 +9,7 @@ export default function Step3() {
 	const { control } = useFormContext();
 
 	return (
-		<Stack spacing={4} p={2}>
+		<Stack spacing={4}>
 			<Alert variant="outlined" severity="info">
 				W tym kroku należy podać <strong>najnowsze</strong> wyniki badań.
 				<br />W kolejnym kroku podasz wyniki z poprzedniego badania laboratoryjnego.

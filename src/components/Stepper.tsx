@@ -15,14 +15,15 @@ import { versionTag, StepType, steps } from "../business";
 import { Summary } from "./Summary";
 import ActiveStep from "./ActiveStep";
 
-const stepLandingPage: number = -1;
+const landingPage: number = -1;
+const lastStep: number = steps.length - 1 - 1;
 
 export default function StepController() {
-	const [activeStep, setActiveStep] = useState<number>(stepLandingPage);
+	const [activeStep, setActiveStep] = useState<number>(landingPage);
 	const [lastValidatedStep, setLastValidatedStep] = useState<number>(0);
 	const { trigger, handleSubmit, getValues } = useFormContext();
 
-	const [invalidLabTestDates, setInvalidLabTestDates] = useState<boolean>(false);
+	const [validationAlertText, setValidationAlertText] = useState<string | null>(null);
 
 	const onSubmit: SubmitHandler<FieldValues> = async (data) => console.log(data);
 
@@ -33,18 +34,28 @@ export default function StepController() {
 	const validateStep = async () => {
 		const fields = steps[activeStep].fields;
 		const output = await trigger(fields.flat(), { shouldFocus: true });
+
+		const dateOfBirth = getValues("dateOfBirth");
 		const actualLabTestDate = getValues("actual-lab-test-date");
 		const previousLabTestDate = getValues("previous-lab-test-date");
-		if (
-			activeStep === steps.length - 2 &&
-			actualLabTestDate &&
-			previousLabTestDate &&
-			actualLabTestDate < previousLabTestDate
-		) {
-			setInvalidLabTestDates(true);
-			scrollToTop();
-			return false;
-		} else setInvalidLabTestDates(false);
+
+		if (dateOfBirth && actualLabTestDate && previousLabTestDate) {
+			if (actualLabTestDate < dateOfBirth || previousLabTestDate < dateOfBirth) {
+				setValidationAlertText("Data badania nie może być wcześniejsza niż data urodzenia.");
+				scrollToTop();
+				return false;
+			}
+			if (actualLabTestDate < previousLabTestDate && activeStep === lastStep) {
+				setValidationAlertText(
+					"Data poprzedniego badania nie może być późniejsza niż data aktualnego badania."
+				);
+				scrollToTop();
+				return false;
+			}
+			setValidationAlertText(null);
+		} else {
+			setValidationAlertText(null);
+		}
 
 		return output;
 	};
@@ -127,7 +138,7 @@ export default function StepController() {
 	}
 
 	const handleGoToLandingPage = () => {
-		setActiveStep(stepLandingPage);
+		setActiveStep(landingPage);
 	};
 
 	const handleGoToSummary = async () => {
@@ -138,8 +149,8 @@ export default function StepController() {
 	};
 
 	const handleStart = () => {
-		setActiveStep(stepLandingPage + 1);
-		setLastValidatedStep(stepLandingPage + 1);
+		setActiveStep(landingPage + 1);
+		setLastValidatedStep(landingPage + 1);
 	};
 
 	const handlePrevious = () => {
@@ -153,7 +164,7 @@ export default function StepController() {
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
 	};
 
-	if (activeStep === stepLandingPage) {
+	if (activeStep === landingPage) {
 		return <LandingPage onClickStart={handleStart} />;
 	}
 
@@ -218,14 +229,14 @@ export default function StepController() {
 				</Stack>
 			</Grid>
 			<Grid item xs={12} sm={8}>
-				{activeStep < steps.length - 1 ? (
+				{activeStep <= lastStep ? (
 					<Stack width={{ xs: "90vw", sm: "60%" }}>
 						<Typography variant="h4" color="black" align="left" py={4}>
 							Uważnie wypełnij wszystkie pola
 						</Typography>
-						{invalidLabTestDates ? (
-							<Alert variant="outlined" severity="warning">
-								Data poprzedniego badania nie może być późniejsza niż data aktualnego badania.
+						{validationAlertText ? (
+							<Alert variant="outlined" severity="warning" sx={{ mb: 2 }}>
+								{validationAlertText}
 							</Alert>
 						) : null}
 						<ActiveStep activeStep={activeStep} />
@@ -241,7 +252,7 @@ export default function StepController() {
 								variant="outlined"
 								onClick={activeStep === steps.length - 1 ? handleGoToSummary : handleNext}
 							>
-								{activeStep === steps.length - 2 ? "Wyniki" : "Dalej"}
+								{activeStep === lastStep ? "Wyniki" : "Dalej"}
 								<NavigateNextIcon />
 							</Button>
 						</Stack>
