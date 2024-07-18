@@ -11,7 +11,7 @@ import imageMobileFormTopBackground from "/images/mobile-form-top-background.png
 import imageLogo from "/images/logo-mm.svg";
 import imageOrnament from "/images/ornament.svg";
 import LandingPage from "./LandingPage";
-import { versionTag, StepType, steps } from "../business";
+import { StepType, steps } from "../business";
 import { Summary } from "./Summary";
 import ActiveStep from "./ActiveStep";
 
@@ -194,15 +194,9 @@ export default function StepController() {
 							cursor: "pointer",
 						}}
 						mt={2}
-						mb={1}
+						mb={4}
 						onClick={handleGoToLandingPage}
 					/>
-					<Box>
-						<Typography variant="body2" align="center" mt={0} mb={3} color={grey[800]}>
-							wersja {versionTag.majorNo}.{versionTag.minorNo}.{versionTag.patchNo}-{versionTag.status} (
-							{versionTag.date})
-						</Typography>
-					</Box>
 					<Box display={{ xs: "none", sm: "block" }}>
 						{steps.map((item, idx) => (
 							<Step
