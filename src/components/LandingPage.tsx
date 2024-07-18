@@ -64,14 +64,14 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				minHeight={{ sm: "100vh" }}
 				alignItems="flex-start"
 			>
-				<Grid item xs={12} height="40px">
+				<Grid item xs={12} height={{ xs: 64, sm: 80 }}>
 					<Stack direction="row" width="100%" justifyContent={{ xs: "center", sm: "flex-start" }}>
 						<Box
 							component="img"
 							src={imageTextLogo}
 							alt="Logo projektu Mali Mocni"
 							height={{ xs: "20", sm: "32" }}
-							p={4}
+							px={4}
 						/>
 					</Stack>
 				</Grid>
