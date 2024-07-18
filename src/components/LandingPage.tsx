@@ -15,8 +15,6 @@ import imageCoCreatorLogo1 from "/images/logo-szpital-kliniczny-im-karola-jonsch
 import imageCoCreatorLogo2 from "/images/logo-fundacja-pomocy-dzieciom-z-chorobami-nowotworowymi.svg";
 import imageCoCreatorLogo3 from "/images/logo-capgemini.svg";
 import imageCoCreatorLogo4 from "/images/logo-psnc-future-labs.svg";
-import { grey } from "@mui/material/colors";
-import { versionTag } from "../business";
 
 interface LandingPageProps {
 	onClickStart: () => void;
@@ -111,10 +109,6 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 								Rozpocznij
 							</Button>
 						</Box>
-						<Typography variant="body2" align="center" mt={2} mb={1} color={grey[800]}>
-							wersja {versionTag.majorNo}.{versionTag.minorNo}.{versionTag.patchNo}-{versionTag.status} (
-							{versionTag.date})
-						</Typography>
 					</Stack>
 				</Grid>
 				<Grid item xs={6} sm={3}>
