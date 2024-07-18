@@ -6,7 +6,6 @@ import CheckIcon from "@mui/icons-material/Check";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import ReplayIcon from "@mui/icons-material/Replay";
-import { grey } from "@mui/material/colors";
 import imageMobileFormTopBackground from "/images/mobile-form-top-background.png";
 import imageLogo from "/images/logo-mm.svg";
 import imageOrnament from "/images/ornament.svg";
