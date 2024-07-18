@@ -67,6 +67,28 @@ let theme = createTheme(
 				dark: blue[200],
 			},
 		},
+		components: {
+			MuiButton: {
+				styleOverrides: {
+					contained: {
+						backgroundColor: "#131313",
+						boxShadow: "none",
+						"&:hover": {
+							backgroundColor: "#696D76",
+							boxShadow: "none",
+						},
+						"&:active": {
+							backgroundColor: "#41444A",
+							boxShadow: "none",
+						},
+						"&.Mui-disabled": {
+							backgroundColor: "#F7F9FC",
+							boxShadow: "none",
+						},
+					},
+				},
+			},
+		},
 	},
 	plPL
 );
