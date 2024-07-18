@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Grid, Box, Stack, Typography, Button, Alert } from "@mui/material";
 import { FieldValues, SubmitErrorHandler, SubmitHandler, useFormContext } from "react-hook-form";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CheckIcon from "@mui/icons-material/Check";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -129,7 +130,11 @@ export default function StepController() {
 				</Stack>
 				{index + 1 < count && (
 					<Box width={56} py={2} justifyContent="center" display={{ xs: "none", sm: "flex" }}>
-						<HorizontalRuleIcon fontSize="large" color="inherit" sx={{ transform: "rotate(90deg)" }} />
+						{index >= activeStep ? (
+							<MoreVertIcon fontSize="large" color="inherit" />
+						) : (
+							<HorizontalRuleIcon fontSize="large" color="inherit" sx={{ transform: "rotate(90deg)" }} />
+						)}
 					</Box>
 				)}
 			</Stack>
