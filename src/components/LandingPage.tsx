@@ -30,16 +30,14 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 	const CoCreatorSubSection: React.FC<CoCreatorSubSectionProps> = ({ image, title, body }) => {
 		return (
 			<Grid item component="section" xs={12} sm={6} lg={3}>
-				<Box>
-					<Stack alignItems="center">
-						<Box height={100} display="flex" alignItems="center">
-							<Box component="img" src={image} alt={"logo " + title} />
-						</Box>
-						<Typography variant="h6" align="center" p={2}>
-							{body}
-						</Typography>
-					</Stack>
-				</Box>
+				<Stack alignItems="center" height="100%">
+					<Box height={150} display="flex" alignItems="center">
+						<Box component="img" src={image} alt={"logo " + title} />
+					</Box>
+					<Typography variant="h6" align="center" p={2}>
+						{body}
+					</Typography>
+				</Stack>
 			</Grid>
 		);
 	};
@@ -295,22 +293,22 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 			<CoCreatorSubSection
 				image={imageCoCreatorLogo1}
 				title="Szpital"
-				body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut consectetur nesciunt..."
+				body="Zapewniamy poprawność i rzetelność danych medycznych, jesteśmy inicjatorem platformy Mali Mocni."
 			/>
 			<CoCreatorSubSection
 				image={imageCoCreatorLogo2}
 				title="Fundacja"
-				body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut consectetur nesciunt..."
+				body="Wspieramy cały zespół, pomagamy na każdym etapie prac. Dzięki nam realizacja projektu jest możliwa."
 			/>
 			<CoCreatorSubSection
 				image={imageCoCreatorLogo3}
 				title="Software House"
-				body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut consectetur nesciunt..."
+				body="Realizujemy prace developerskie, dbając o każdy aspekt techniczny aplikacji."
 			/>
 			<CoCreatorSubSection
 				image={imageCoCreatorLogo4}
 				title="Koordynacja"
-				body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex animi quae libero aut consectetur nesciunt..."
+				body="Naszym zadaniem jest inkubacja pomysłu, koordynacja i zarządzanie projektem oraz działania UX/UI."
 			/>
 			<Grid item component="section" xs={12} pb={{ xs: 3, sm: 6 }}>
 				<Box display="flex" justifyContent="center" p={4}>
