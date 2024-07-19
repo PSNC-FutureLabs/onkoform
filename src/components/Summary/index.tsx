@@ -106,7 +106,7 @@ export const Summary = () => {
 
 	diagnosisStep = "NEUT";
 
-	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0, 0.5)")) {
+	if (inRange(bloodMarkers.NEUT.in("/μl"), "[0, 500)")) {
 		if (bloodMarkers.NEUT.isFalling()) updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
 		if (bloodMarkers.NEUT.isStable() || bloodMarkers.NEUT.isRising()) {
 			if (temperature >= 37.0) updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
@@ -114,7 +114,7 @@ export const Summary = () => {
 		}
 	}
 
-	if (inRange(bloodMarkers.NEUT.in("tys./μl"), "[0.5, 100)")) {
+	if (inRange(bloodMarkers.NEUT.in("/μl"), "[500, 1000)")) {
 		if (bloodMarkers.NEUT.isFalling()) {
 			if (temperature >= 37.0) updateDiagnosisLevel(DiagnosisLevel.UrgentConsultationNeeded);
 			else updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn2Days);
@@ -123,6 +123,9 @@ export const Summary = () => {
 			updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
 	}
 
+	if (inRange(bloodMarkers.NEUT.in("/μl"), "[1000, 10000)"))
+		if (bloodMarkers.NEUT.isFalling()) updateDiagnosisLevel(DiagnosisLevel.RepeatTestIn3Days);
+		else updateDiagnosisLevel(DiagnosisLevel.OK);
 	/* ALT */
 
 	diagnosisStep = "ALT";
