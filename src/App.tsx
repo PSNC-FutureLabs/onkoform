@@ -6,7 +6,6 @@ import { plPL } from "@mui/x-date-pickers/locales";
 import { Container, CssBaseline, Grid } from "@mui/material";
 import { FormFields, schema } from "./business/form-schema";
 import { useForm, FormProvider } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formDefaultValues, formTestValues } from "./business";
 import Stepper from "./components/Stepper";
@@ -14,8 +13,16 @@ import Footer from "./components/Footer";
 import { lightGreen, grey, blue } from "@mui/material/colors";
 import "./App.css";
 
+const defaultTheme = createTheme();
+
 let theme = createTheme(
 	{
+		breakpoints: {
+			values: {
+				...defaultTheme.breakpoints.values,
+				lg: 1140, // Custom value for lg breakpoint
+			},
+		},
 		typography: {
 			fontFamily: "'Bio Sans', sans-serif",
 			h1: {
@@ -111,7 +118,7 @@ function App() {
 						<CssBaseline />
 						<Container
 							disableGutters
-							maxWidth="lg"
+							maxWidth={false}
 							sx={{
 								minWidth: {
 									xs: "100%",
@@ -119,11 +126,8 @@ function App() {
 								},
 							}}
 						>
-							<Grid container>
-								<Stepper />
-								{"" && <DevTool control={methods.control} />}
-								<Footer />
-							</Grid>
+							<Stepper />
+							<Footer />
 						</Container>
 					</LocalizationProvider>
 				</form>
