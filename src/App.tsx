@@ -78,9 +78,12 @@ let theme = createTheme(
 			MuiButton: {
 				styleOverrides: {
 					contained: {
+						color: "#F7F9FC",
 						backgroundColor: "#131313",
-						boxShadow: "none",
 						borderRadius: 0,
+						boxShadow: "none",
+						fontWeight: 600,
+						letterSpacing: "0.05em",
 						"&:hover": {
 							backgroundColor: "#696D76",
 							boxShadow: "none",
@@ -95,8 +98,25 @@ let theme = createTheme(
 						},
 					},
 					outlined: {
-						borderRadius: 0
-					}
+						color: "#464F60",
+						borderColor: "#D5DBE5",
+						fontWeight: 600,
+						borderRadius: 0,
+						boxShadow: "none",
+						letterSpacing: "0.05em",
+						"&:hover": {
+							backgroundColor: "#E9EDF5",
+							boxShadow: "none",
+						},
+						"&:active": {
+							backgroundColor: "#D5DBE5",
+							boxShadow: "none",
+						},
+						"&.Mui-disabled": {
+							backgroundColor: "#F7F9FC",
+							boxShadow: "none",
+						},
+					},
 				},
 			},
 		},
