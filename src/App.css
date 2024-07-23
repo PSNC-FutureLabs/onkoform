@@ -4,33 +4,3 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
-body .warning {
-	color: #d32f2f;
-}
-
-body .MuiToggleButton-root {
-	text-transform: none;
-}
-
-body .MuiGrid-root .MuiGrid-item {
-	padding-left: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-body .MuiRating-iconEmpty .MuiSvgIcon-root {
-	color: #aaa;
-}
-
-.arrow-icon {
-	width: 26px;
-	height: 26px;
-	background-color: #e73b3f;
-	border-radius: 50%;
-	color: white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}

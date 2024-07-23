@@ -55,21 +55,24 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					<Grid
 						container
 						component="header"
-						pt={{ xs: 2, sm: 0 }}
-						pb={{ xs: 4, sm: 0 }}
 						color="white"
 						minHeight={{ sm: "900px" }}
 						alignItems="flex-start"
 					>
-						<Grid item xs={12} height={{ xs: 64, sm: 80 }}>
-							<Stack direction="row" width="100%" justifyContent={{ xs: "center", sm: "flex-start" }}>
-								<Box
-									component="img"
-									src={imageTextLogo}
-									alt="Logo projektu Mali Mocni"
-									height={{ xs: "20", sm: "32" }}
-								/>
-							</Stack>
+						<Grid
+							item
+							xs={12}
+							height={{ xs: 64, sm: 80 }}
+							display="flex"
+							alignItems="center"
+							justifyContent={{ xs: "center", sm: "flex-start" }}
+						>
+							<Box
+								component="img"
+								src={imageTextLogo}
+								alt="Logo projektu Mali Mocni"
+								height={{ xs: "20", sm: "32" }}
+							/>
 						</Grid>
 						<Grid item xs={12} sm={3}>
 							<Stack direction="row">
@@ -89,7 +92,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 							</Stack>
 						</Grid>
 						<Grid item xs={12} sm={6}>
-							<Stack>
+							<Stack pb={4}>
 								<Typography variant="h1" align="center" mt={2} mb={2}>
 									Wyniki badań krwi
 									<br />u dzieci z chorobami
