@@ -3,7 +3,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import "dayjs/locale/pl";
 import { plPL } from "@mui/x-date-pickers/locales";
-import { Container, CssBaseline, Grid } from "@mui/material";
+import { Container, CssBaseline } from "@mui/material";
 import { FormFields, schema } from "./business/form-schema";
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,7 +20,7 @@ let theme = createTheme(
 		breakpoints: {
 			values: {
 				...defaultTheme.breakpoints.values,
-				lg: 1140, // Custom value for lg breakpoint
+				lg: 1140,
 			},
 		},
 		typography: {
