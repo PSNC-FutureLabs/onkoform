@@ -80,6 +80,7 @@ let theme = createTheme(
 					contained: {
 						backgroundColor: "#131313",
 						boxShadow: "none",
+						borderRadius: 0,
 						"&:hover": {
 							backgroundColor: "#696D76",
 							boxShadow: "none",
@@ -93,6 +94,9 @@ let theme = createTheme(
 							boxShadow: "none",
 						},
 					},
+					outlined: {
+						borderRadius: 0
+					}
 				},
 			},
 		},
