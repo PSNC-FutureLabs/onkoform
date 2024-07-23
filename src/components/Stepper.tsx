@@ -181,15 +181,15 @@ export default function StepController() {
 			}}
 		>
 			<Container maxWidth="lg" disableGutters>
-				<Grid container component="main" minHeight="90vh">
+				<Grid container component="main" minHeight="100vh">
 					<Grid item xs={12} sm={4}>
-						<Stack mt={2} mb={{ xs: 0, sm: 4 }} height="100%">
+						<Stack p={{xs:2, sm:0}} height="100%" alignItems="flex-start">
 							<Box
 								component="img"
 								src={imageLogo}
 								alt="logo MaliMocni"
 								sx={{
-									height: { xs: 20, sm: 40 },
+									height: { xs: 24 },
 									cursor: "pointer",
 								}}
 								mt={2}
