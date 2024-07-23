@@ -221,7 +221,14 @@ export default function StepController() {
 							</Box>
 						</Stack>
 					</Grid>
-					<Grid item xs={12} sm={8}  sx={{ backgroundColor: "white" }}>
+					<Grid
+						item
+						xs={12}
+						sm={8}
+						display="flex"
+						justifyContent={"center"}
+						sx={{ backgroundColor: "white" }}
+					>
 						{activeStep <= lastStep ? (
 							<Stack width={{ xs: "90vw", sm: "60%" }}>
 								<Typography variant="h4" color="black" align="left" py={4}>
