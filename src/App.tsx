@@ -80,7 +80,6 @@ let theme = createTheme(
 					contained: {
 						color: "#F7F9FC",
 						backgroundColor: "#131313",
-						borderRadius: 0,
 						boxShadow: "none",
 						fontWeight: 600,
 						letterSpacing: "0.05em",
@@ -101,7 +100,6 @@ let theme = createTheme(
 						color: "#464F60",
 						borderColor: "#D5DBE5",
 						fontWeight: 600,
-						borderRadius: 0,
 						boxShadow: "none",
 						letterSpacing: "0.05em",
 						"&:hover": {

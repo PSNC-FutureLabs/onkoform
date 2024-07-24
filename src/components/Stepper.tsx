@@ -15,11 +15,12 @@ import { Summary } from "./Summary";
 import ActiveStep from "./ActiveStep";
 
 const landingPage: number = -1;
+const firstStep: number = 0;
 const lastStep: number = steps.length - 1 - 1;
 
 export default function StepController() {
 	const [activeStep, setActiveStep] = useState<number>(landingPage);
-	const [lastValidatedStep, setLastValidatedStep] = useState<number>(0);
+	const [lastValidatedStep, setLastValidatedStep] = useState<number>(firstStep);
 	const { trigger, handleSubmit, getValues } = useFormContext();
 
 	const [validationAlertText, setValidationAlertText] = useState<string | null>(null);
@@ -152,8 +153,8 @@ export default function StepController() {
 	};
 
 	const handleStart = () => {
-		setActiveStep(landingPage + 1);
-		setLastValidatedStep(landingPage + 1);
+		setActiveStep(firstStep);
+		setLastValidatedStep(firstStep);
 	};
 
 	const handlePrevious = () => {
@@ -181,15 +182,15 @@ export default function StepController() {
 			}}
 		>
 			<Container maxWidth="lg" disableGutters>
-				<Grid container component="main" minHeight="90vh">
+				<Grid container component="main" minHeight="100vh">
 					<Grid item xs={12} sm={4}>
-						<Stack mt={2} mb={{ xs: 0, sm: 4 }} height="100%">
+						<Stack p={{ xs: 2, sm: 0 }} height="100%" alignItems="flex-start">
 							<Box
 								component="img"
 								src={imageLogo}
 								alt="logo MaliMocni"
 								sx={{
-									height: { xs: 20, sm: 40 },
+									height: { xs: 24 },
 									cursor: "pointer",
 								}}
 								mt={2}
