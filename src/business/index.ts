@@ -6,7 +6,7 @@ export const versionTag = {
 	minorNo: 7,
 	patchNo: 24,
 	status: "alpha",
-	date: "2024.07.23",
+	date: "2024.07.24",
 };
 
 export const versionText = (): string =>
