@@ -175,9 +175,13 @@ export default function StepController() {
 	return (
 		<Box
 			sx={{
-				background: `linear-gradient(to bottom, rgba(0, 96, 31, 0.8), rgba(95, 170, 40, 0.8)), url(${imageOrnament})`,
-				backgroundSize: "cover",
-				backgroundPosition: "center",
+				background: `
+			  linear-gradient(to right, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 50%),
+			  linear-gradient(to bottom, rgba(0, 96, 31, 0.8), rgba(95, 170, 40, 0.8)), 
+			  url(${imageOrnament})
+			`,
+				backgroundSize: "50% 100%, cover",
+				backgroundPosition: "right, center",
 				backgroundRepeat: "no-repeat",
 			}}
 		>
