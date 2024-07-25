@@ -383,7 +383,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						<CoCreatorSubSection
 							image={imageCoCreatorLogo3}
 							title="Software House"
-							body="Realizujemy prace developerskie, dbając o każdy aspekt techniczny aplikacji."
+							body="Konsultujemy techniczne aspekty aplikacji"
 						/>
 						<CoCreatorSubSection
 							image={imageCoCreatorLogo4}
