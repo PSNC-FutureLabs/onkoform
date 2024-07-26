@@ -180,7 +180,7 @@ export default function StepController() {
 			  linear-gradient(to bottom, rgba(0, 96, 31, 0.8), rgba(95, 170, 40, 0.8)), 
 			  url(${imageOrnament})
 			`,
-				backgroundSize: "50% 100%, cover",
+				backgroundSize: "50%, 100%, cover",
 				backgroundPosition: "right, center",
 				backgroundRepeat: "no-repeat",
 			}}
