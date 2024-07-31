@@ -56,7 +56,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						container
 						component="header"
 						color="white"
-						minHeight={{ sm: "100vh" }}
+						minHeight={{ xs: "100vh" }}
 						alignItems="flex-start"
 					>
 						<Grid
