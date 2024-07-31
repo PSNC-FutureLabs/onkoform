@@ -172,17 +172,19 @@ export default function StepController() {
 		return <LandingPage onClickStart={handleStart} />;
 	}
 
+	const xsBackground = "linear-gradient(to top right, #7FBB53 40%, #04804C)";
+	const smBackground = `
+		linear-gradient(to right, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 50%),
+		linear-gradient(to bottom, rgba(0, 96, 31, 0.8), rgba(95, 170, 40, 0.8)),
+		url(${imageOrnament})`;
+
 	return (
 		<Box
 			sx={{
-				background: `
-			  linear-gradient(to right, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 50%),
-			  linear-gradient(to bottom, rgba(0, 96, 31, 0.8), rgba(95, 170, 40, 0.8)), 
-			  url(${imageOrnament})
-			`,
-				backgroundSize: "50%, 100%, cover",
-				backgroundPosition: "right, center",
-				backgroundRepeat: "no-repeat",
+				background: { xs: xsBackground, sm: smBackground },
+				backgroundSize: { sm: "50%, 100%, cover" },
+				backgroundPosition: { sm: "right, center" },
+				backgroundRepeat: { sm: "no-repeat" },
 			}}
 		>
 			<Container maxWidth="lg" disableGutters>
