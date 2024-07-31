@@ -190,19 +190,19 @@ export default function StepController() {
 			<Container maxWidth="lg" disableGutters>
 				<Grid container component="main" minHeight="100vh">
 					<Grid item xs={12} sm={4}>
-						<Stack p={{ xs: 2, sm: 0 }} height="100%" alignItems="flex-start">
-							<Box
-								component="img"
-								src={imageLogo}
-								alt="logo MaliMocni"
-								sx={{
-									height: { xs: 24 },
-									cursor: "pointer",
-								}}
-								mt={2}
-								mb={4}
-								onClick={handleGoToLandingPage}
-							/>
+						<Stack px={{ xs: 2, sm: 0 }} height="100%" alignItems="flex-start">
+							<Box height={{ xs: 64, sm: 80 }} display="flex" alignItems="center">
+								<Box
+									component="img"
+									src={imageLogo}
+									alt="logo MaliMocni"
+									sx={{
+										height: { xs: 24 },
+										cursor: "pointer",
+									}}
+									onClick={handleGoToLandingPage}
+								/>
+							</Box>
 							<Box display={{ xs: "none", sm: "block" }}>
 								{steps.map((item, idx) => (
 									<Step
@@ -215,7 +215,7 @@ export default function StepController() {
 									/>
 								))}
 							</Box>
-							<Box display={{ xs: "block", sm: "none" }}>
+							<Box display={{ xs: "block", sm: "none" }} pb={2}>
 								{activeStep < steps.length && (
 									<Step
 										key={activeStep}
