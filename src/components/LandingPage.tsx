@@ -33,7 +33,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					<Box height={150} display="flex" alignItems="center">
 						<Box component="img" src={image} alt={"logo " + title} />
 					</Box>
-					<Typography variant="h6" align="center" p={2}>
+					<Typography variant="subtitle1" align="center" p={2} lineHeight="23.76px">
 						{body}
 					</Typography>
 				</Stack>
@@ -52,13 +52,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 				}}
 			>
 				<Container maxWidth="lg" disableGutters>
-					<Grid
-						container
-						component="header"
-						color="white"
-						minHeight={{ xs: "100vh" }}
-						alignItems="flex-start"
-					>
+					<Grid container component="header" minHeight={{ xs: "100vh" }} alignItems="flex-start">
 						<Grid
 							item
 							xs={12}
@@ -66,6 +60,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 							display="flex"
 							alignItems="center"
 							justifyContent={{ xs: "center", sm: "flex-start" }}
+							px={{ sm: 2 }}
 						>
 							<Box
 								component="img"
@@ -92,18 +87,30 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 							</Stack>
 						</Grid>
 						<Grid item xs={12} sm={6}>
-							<Stack pb={4}>
-								<Typography variant="h1" align="center" mt={2} mb={2}>
+							<Stack pb={4} color="white">
+								<Typography
+									variant="h1"
+									lineHeight={{ xs: "52.08px", sm: "59.52px" }}
+									align="center"
+									mt={2}
+									mb={2}
+								>
 									Wyniki badań krwi
 									<br />u dzieci z chorobami
 									<br />
 									nowotworowymi
 								</Typography>
-								<Typography variant="h3" align="center" mb={4} px={{ xs: 6, sm: 0 }}>
+								<Typography
+									variant="h4"
+									lineHeight={{ xs: "26.4px", sm: "32.64px" }}
+									align="center"
+									mb={4}
+									px={{ xs: 6, sm: 0 }}
+								>
 									Kliknij “Rozpocznij” i przejdź do szybkiej i prostej analizy wyników badania krwi
 									Twojego dziecka
 								</Typography>
-								<Box display="flex" justifyContent="center" mb={0}>
+								<Box display="flex" justifyContent="center">
 									<Button variant="contained" size="large" onClick={onClickStart}>
 										Rozpocznij
 									</Button>
@@ -127,12 +134,12 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					<Grid
 						container
 						component="section"
-						pt={{ xs: 2, sm: 0 }}
-						pb={{ xs: 4, sm: 0 }}
+						pt={{ xs: 2, sm: 10 }}
+						pb={{ xs: 2, sm: 10 }}
 						alignItems="flex-start"
 					>
 						<Grid item component="section" xs={12}>
-							<Stack direction={{ xs: "column", sm: "row" }} p={4}>
+							<Stack direction={{ xs: "column", sm: "row" }} alignItems="center">
 								<Box
 									component="img"
 									sx={{
@@ -141,17 +148,21 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 									src={imageSectionOverview}
 									alt="poglądowy wygląd aplikacji na smartfonie"
 								/>
-								<Box pl={{ xs: 2, sm: 0 }} pr={{ xs: 2, sm: 15 }} py={{ xs: 2, sm: 10 }} color="black">
+								<Box px={{ xs: 2, sm: 0 }} py={{ xs: 2, sm: 0 }}>
 									<Typography
 										variant="h2"
-										lineHeight={1.5}
+										lineHeight="50.4px"
 										mb={3}
 										sx={{ textAlign: { xs: "left", sm: "left" } }}
 									>
 										W prosty i intuicyjny sposób zweryfikuj <strong>niepokojące</strong> objawy i
 										wyniki badań laboratoryjnych <strong>Twojego dziecka</strong>.
 									</Typography>
-									<Typography variant="h3" sx={{ textAlign: { xs: "left", sm: "left" } }}>
+									<Typography
+										variant="h4"
+										lineHeight="32.64px"
+										sx={{ textAlign: { xs: "left", sm: "left" } }}
+									>
 										Dowiedz się czy konieczne jest powtórzenie badań lub pilna konsultacja z
 										lekarzem. Jeśli tak - otrzymasz także potrzebny numer telefonu. Zajmie Ci to
 										jedynie około trzech minut.
@@ -167,31 +178,25 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					<Grid
 						container
 						component="section"
-						pt={{ xs: 2, sm: 0 }}
-						pb={{ xs: 4, sm: 0 }}
+						pt={{ xs: 2, sm: 10 }}
+						pb={{ xs: 2, sm: 10 }}
 						alignItems="flex-start"
 					>
 						<Grid item component="section" xs={12}>
-							<Typography variant="h2" align="center" p={4} fontWeight={700}>
-								Przygotuj
+							<Typography variant="h3" align="center" p={4}>
+								<strong>Przygotuj</strong>
 							</Typography>
 						</Grid>
 						<Grid item component="section" xs={12} sm={4}>
 							<Box py={2} px={4}>
 								<Stack alignItems="center">
 									<Box component="img" src={iconPatientInfo} />
-									<Typography
-										variant="h5"
-										align="center"
-										p={2}
-										fontWeight={700}
-										sx={{ textTransform: "uppercase" }}
-									>
+									<Typography variant="h5" align="center" p={2} sx={{ textTransform: "uppercase" }}>
 										Dane
 										<br />
 										pacjenta
 									</Typography>
-									<Typography variant="body1" align="center">
+									<Typography variant="body2" align="center">
 										Podstawowe dane, takie jak data urodzenia czy prowadzący oddział szpitalny.
 									</Typography>
 								</Stack>
@@ -201,18 +206,12 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 							<Box py={2} px={4}>
 								<Stack alignItems="center">
 									<Box component="img" src={iconSymptoms} />
-									<Typography
-										variant="h5"
-										align="center"
-										p={2}
-										fontWeight={700}
-										sx={{ textTransform: "uppercase" }}
-									>
+									<Typography variant="h5" align="center" p={2} sx={{ textTransform: "uppercase" }}>
 										Zaobserwowane
 										<br />
 										objawy
 									</Typography>
-									<Typography variant="body1" align="center">
+									<Typography variant="body2" align="center">
 										Temperatura i niepokojące symptomy np. dreszcze, toksyczności śluzówkowe.
 									</Typography>
 								</Stack>
@@ -222,18 +221,12 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 							<Box py={2} px={4}>
 								<Stack alignItems="center">
 									<Box component="img" src={iconLabTests} />
-									<Typography
-										variant="h5"
-										align="center"
-										p={2}
-										fontWeight={700}
-										sx={{ textTransform: "uppercase" }}
-									>
+									<Typography variant="h5" align="center" p={2} sx={{ textTransform: "uppercase" }}>
 										Aktualne i poprzednie
 										<br />
 										badania
 									</Typography>
-									<Typography variant="body1" align="center">
+									<Typography variant="body2" align="center">
 										Wyniki badań laboratoryjnych (HGB, WBC, PLT, NEUT, ALT, AST).
 									</Typography>
 								</Stack>
@@ -254,9 +247,9 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 					<Grid
 						container
 						component="section"
-						pt={{ xs: 2, sm: 0 }}
-						pb={{ xs: 4, sm: 0 }}
-						alignItems="flex-start"
+						pt={{ xs: 2, sm: 6 }}
+						pb={{ xs: 2, sm: 6 }}
+						alignItems={{ xs: "flex-start", sm: "center" }}
 					>
 						<Grid item component="section" xs={12} sm={6}>
 							<Box p={{ xs: 5, sm: 10 }}>
@@ -264,7 +257,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 									Tworzymy przestrzeń wsparcia dla <strong>dzieci z chorobami nowotworowymi</strong> i
 									ich opiekunów.
 								</Typography>
-								<Typography variant="body1">
+								<Typography variant="h4">
 									Dzięki zaangażowaniu doświadczonych lekarzy, programistów i grafików pomagamy lepiej
 									zrozumieć sytuację zdrowotną dziecka oraz podjąć odpowiednie kroki w odpowiednim
 									czasie.
@@ -300,11 +293,11 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						container
 						component="section"
 						pt={{ xs: 2, sm: 0 }}
-						pb={{ xs: 4, sm: 0 }}
+						pb={{ xs: 2, sm: 0 }}
 						alignItems="flex-start"
 					>
 						<Grid item component="section">
-							<Stack px={{ xs: 10, sm: 30 }} py={{ xs: 10, sm: 15 }}>
+							<Stack px={{ xs: 5, sm: 20 }} py={{ xs: 10, sm: 20 }}>
 								<Box
 									component="img"
 									src={imageCrownLogo}
@@ -315,9 +308,11 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 									}}
 								/>
 								<Box>
-									<Typography variant="h2" align="center" color="white" fontWeight={400}>
-										Rodzic zna swoje dziecko najlepiej i często jako pierwszy dostrzega niepokojące
-										objawy. Dlatego zapewniamy mu wsparcie, aby mógł szybko i pewnie reagować.
+									<Typography variant="h2" align="center" color="white">
+										Rodzic zna swoje dziecko najlepiej i często jako pierwszy dostrzega{" "}
+										<strong>niepokojące objawy</strong>. Dlatego{" "}
+										<strong>zapewniamy mu wsparcie</strong>, aby mógł{" "}
+										<strong>szybko i pewnie reagować</strong>.
 									</Typography>
 								</Box>
 							</Stack>
@@ -327,14 +322,16 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 			</Box>
 			<Box sx={{ background: "white" }}>
 				<Container maxWidth="lg" disableGutters>
-					<Grid
-						container
-						component="section"
-						pt={{ xs: 2, sm: 0 }}
-						pb={{ xs: 4, sm: 0 }}
-						alignItems="flex-start"
-					>
-						<Grid item component="section" xs={12} sm={6} p={{ xs: 7, sm: 10 }}>
+					<Grid container component="section" pt={{ xs: 6, sm: 12 }} pb={{ xs: 6, sm: 12 }}>
+						<Grid
+							item
+							component="section"
+							xs={12}
+							sm={6}
+							display="flex"
+							alignItems="center"
+							justifyContent="center"
+						>
 							<Box
 								component="img"
 								sx={{
@@ -344,10 +341,12 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 								alt="chłopiec, dziewczynka, pluszowy miś"
 							/>
 						</Grid>
-						<Grid item component="section" xs={12} sm={6} p={{ xs: 2, sm: 10 }} mb={{ xs: 10, sm: 0 }}>
-							<Box p={{ xs: 0, sm: 10 }} px={{ xs: 2, sm: 10 }}>
-								<Typography variant="h2">Kim są Mali Mocni?</Typography>
-								<Typography variant="h4" mt={3}>
+						<Grid item component="section" xs={12} sm={6} display="flex" alignItems={"center"}>
+							<Box px={{ xs: 2, sm: 0 }} py={{ xs: 6, sm: 0 }}>
+								<Typography variant="h2">
+									<strong>Kim są Mali Mocni?</strong>
+								</Typography>
+								<Typography variant="h3" mt={3}>
 									Mali Mocni to prawdziwi bohaterowie, wykazujący się niezwykłą odwagą i siłą w
 									obliczu walki z chorobami onkologicznymi.
 								</Typography>
@@ -366,8 +365,8 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						alignItems="flex-start"
 					>
 						<Grid item component="section" xs={12}>
-							<Typography variant="h2" align="center" p={{ xs: 2, sm: 4 }} fontWeight={700}>
-								Współtwórcy
+							<Typography variant="h3" align="center" p={{ xs: 2, sm: 4 }} color="#15181E">
+								<strong>Współtwórcy</strong>
 							</Typography>
 						</Grid>
 						<CoCreatorSubSection

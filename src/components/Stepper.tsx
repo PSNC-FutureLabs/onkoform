@@ -121,7 +121,7 @@ export default function StepController() {
 						</Box>
 					</Box>
 					<Box pl={2}>
-						<Typography variant="body2">
+						<Typography variant="h6" color="inherit">
 							{prefix}
 							{step.id}/{count}
 						</Typography>
@@ -190,7 +190,7 @@ export default function StepController() {
 			<Container maxWidth="lg" disableGutters>
 				<Grid container component="main" minHeight="100vh">
 					<Grid item xs={12} sm={4}>
-						<Stack px={{ xs: 2, sm: 0 }} height="100%" alignItems="flex-start">
+						<Stack px={{ xs: 2, sm: 2 }} height="100%" alignItems="flex-start">
 							<Box height={{ xs: 64, sm: 80 }} display="flex" alignItems="center">
 								<Box
 									component="img"
