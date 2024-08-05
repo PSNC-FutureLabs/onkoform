@@ -26,29 +26,38 @@ let theme = createTheme(
 		typography: {
 			fontFamily: "'Bio Sans', sans-serif",
 			h1: {
-				fontSize: "44px",
+				fontSize: "48px",
 				fontWeight: "700",
+				color: "white",
 			},
 			h2: {
-				fontSize: "32px",
-				fontWeight: "700",
+				fontSize: "42px",
+				fontWeight: "400",
+				color: "#1F2023",
 			},
 			h3: {
+				fontSize: "36px",
+				fontWeight: "400",
+				color: "#41444A",
+			},
+			h4: {
 				fontSize: "24px",
 				fontWeight: "400",
 			},
-			h4: {
-				fontSize: "20px",
-				fontWeight: "400",
-			},
 			h5: {
-				fontSize: "20px",
-				fontWeight: "400",
+				fontSize: "18px",
+				fontWeight: "600",
 			},
 			h6: {
-				fontSize: "16px",
+				fontSize: "14px",
 				fontWeight: "400",
 			},
+			subtitle1: { fontSize: "18px", fontWeight: 400, color: "#5A6376" },
+			subtitle2: {},
+			body1: { fontWeight: 400, color: "#41444A" },
+			body2: { fontSize: "14px", fontWeight: 400, color: "#5A6376" },
+			button: {},
+			caption: {},
 		},
 		palette: {
 			background: {

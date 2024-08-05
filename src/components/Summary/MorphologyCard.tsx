@@ -2,7 +2,6 @@ import { Card, Grid, Typography, Tooltip, Stack, Box, CardContent } from "@mui/m
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { MorphologyCardTile } from "./MorphologyCardTile";
 import { BloodMarkerDescriptions, BloodMarkersNames, MedicalParameter } from "../../business/types";
-import { grey } from "@mui/material/colors";
 
 type MorphologyCardProps = {
 	markerName: BloodMarkersNames;
@@ -16,11 +15,11 @@ export const MorphologyCard = ({ markerName, bloodMarker }: MorphologyCardProps)
 				<CardContent>
 					<Stack spacing={2}>
 						<Stack direction="row" spacing={1} alignItems="center">
-							<Typography variant="h5" color={grey[800]} fontWeight={700}>
-								{markerName}
+							<Typography variant="h3" color="#1F2023">
+								<strong>{markerName}</strong>
 							</Typography>
 							<Tooltip title={BloodMarkerDescriptions[markerName]}>
-								<InfoOutlinedIcon sx={{ cursor: "pointer" }} color="info" />
+								<InfoOutlinedIcon sx={{ cursor: "pointer", color: "#41444A" }} />
 							</Tooltip>
 						</Stack>
 						<Stack direction="row">
