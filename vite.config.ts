@@ -10,7 +10,7 @@ export default defineConfig(({ command }) => {
 	} else {
 		return {
 			plugins: [react()],
-			base: "/onkoform/",
+			base: "/",
 		};
 	}
 });
