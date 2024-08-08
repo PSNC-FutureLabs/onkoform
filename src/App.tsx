@@ -84,6 +84,13 @@ let theme = createTheme(
 			},
 		},
 		components: {
+			MuiCssBaseline: {
+				styleOverrides: {
+					strong: {
+						fontWeight: 600,
+					},
+				},
+			},
 			MuiButton: {
 				styleOverrides: {
 					contained: {
