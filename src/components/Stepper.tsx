@@ -264,10 +264,9 @@ export default function StepController() {
 						) : (
 							<Stack>
 								<Summary />
-								<Stack direction="row" justifyContent="center" mb={4}>
+								<Stack direction="row" mt={3} mx={2} pt={4} borderTop="1px solid #EFF0F1">
 									<Button variant="outlined" onClick={handleStart}>
-										<ReplayIcon />
-										&nbsp;Wypełnij ponownie
+										Wypełnij ponownie
 									</Button>
 								</Stack>
 							</Stack>
