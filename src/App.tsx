@@ -84,9 +84,17 @@ let theme = createTheme(
 			},
 		},
 		components: {
+			MuiCssBaseline: {
+				styleOverrides: {
+					strong: {
+						fontWeight: 600,
+					},
+				},
+			},
 			MuiButton: {
 				styleOverrides: {
 					contained: {
+						fontWeight: 600,
 						color: "#F7F9FC",
 						backgroundColor: "#131313",
 						boxShadow: "none",
@@ -105,6 +113,7 @@ let theme = createTheme(
 						},
 					},
 					outlined: {
+						fontWeight: 600,
 						color: "#464F60",
 						borderColor: "#D5DBE5",
 						boxShadow: "none",

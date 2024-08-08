@@ -6,7 +6,6 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CheckIcon from "@mui/icons-material/Check";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import ReplayIcon from "@mui/icons-material/Replay";
 import imageLogo from "/images/logo-mm.svg";
 import imageOrnament from "/images/ornament.svg";
 import LandingPage from "./LandingPage";
@@ -264,10 +263,9 @@ export default function StepController() {
 						) : (
 							<Stack>
 								<Summary />
-								<Stack direction="row" justifyContent="center" mb={4}>
+								<Stack direction="row" mt={3} mx={2} pt={4} borderTop="1px solid #EFF0F1">
 									<Button variant="outlined" onClick={handleStart}>
-										<ReplayIcon />
-										&nbsp;Wypełnij ponownie
+										Wypełnij ponownie
 									</Button>
 								</Stack>
 							</Stack>

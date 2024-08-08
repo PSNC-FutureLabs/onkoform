@@ -11,11 +11,11 @@ type MorphologyCardProps = {
 export const MorphologyCard = ({ markerName, bloodMarker }: MorphologyCardProps) => {
 	return (
 		<Grid item xs={12} sm={6}>
-			<Card variant="outlined" sx={{ background: "#F8F8F8", width: "95%", m: 1, borderRadius: 3 }}>
+			<Card variant="outlined" sx={{ background: "#F8F8F8", width: "95%", m: 1, borderColor: "#EFF0F1", borderRadius: 3 }}>
 				<CardContent>
 					<Stack spacing={2}>
 						<Stack direction="row" spacing={1} alignItems="center">
-							<Typography variant="h3" color="#1F2023">
+							<Typography variant="h4" color="#1F2023">
 								<strong>{markerName}</strong>
 							</Typography>
 							<Tooltip title={BloodMarkerDescriptions[markerName]}>

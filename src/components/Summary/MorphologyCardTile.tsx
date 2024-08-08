@@ -1,7 +1,6 @@
 import { Stack, Typography } from "@mui/material";
 import { MedicalParameter } from "../../business/types";
 import { getFormattedNumber } from "./helpers";
-import { grey } from "@mui/material/colors";
 
 type MorphologyCardTileProps = {
 	parameter: MedicalParameter;
@@ -10,7 +9,7 @@ type MorphologyCardTileProps = {
 
 export const MorphologyCardTile = ({ parameter, valueType }: MorphologyCardTileProps) => {
 	return (
-		<Stack color={`${valueType === "actual" ? "inherit" : grey[600]} `}>
+		<Stack color={`${valueType === "actual" ? "inherit" : "#696D76"} `}>
 			<Typography variant="h6">
 				{`${valueType === "actual" ? "Aktualny" : "Poprzedni"} `}
 				<strong>{parameter.date ? `${parameter.date.toLocaleDateString("de-DE")}` : "-"}</strong>
