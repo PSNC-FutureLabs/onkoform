@@ -6,7 +6,6 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CheckIcon from "@mui/icons-material/Check";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import ReplayIcon from "@mui/icons-material/Replay";
 import imageLogo from "/images/logo-mm.svg";
 import imageOrnament from "/images/ornament.svg";
 import LandingPage from "./LandingPage";
