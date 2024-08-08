@@ -1,8 +1,9 @@
 import { Grid, Typography } from "@mui/material";
+import React from "react";
 
 type BasicInfoCardProps = {
 	label: string;
-	value: string;
+	value: string | string[];
 };
 
 export const BasicInfoCard = ({ label, value }: BasicInfoCardProps) => {
@@ -13,7 +14,16 @@ export const BasicInfoCard = ({ label, value }: BasicInfoCardProps) => {
 			</Grid>
 			<Grid item xs={12} sm={6}>
 				<Typography variant="body1">
-					<strong>{value}</strong>
+					<strong>
+						{Array.isArray(value)
+							? value.map((item, index) => (
+									<React.Fragment key={index}>
+										{item}
+										<br />
+									</React.Fragment>
+							))
+							: value}
+					</strong>
 				</Typography>
 			</Grid>
 		</>
