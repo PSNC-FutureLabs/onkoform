@@ -22,8 +22,8 @@ export const AlarmingSymptoms = () => {
 		.join(", ");
 
 	return (
-		<Stack mt={3} pt={2} borderTop={1}>
-			<Typography variant="h5" color="black">
+		<Stack mt={3} pt={2} borderTop="1px solid #EFF0F1">
+			<Typography variant="h5" color="black" mb={2}>
 				Niepokojące objawy
 			</Typography>
 			<Grid container spacing={2}>
