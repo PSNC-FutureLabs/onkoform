@@ -12,13 +12,13 @@ export const BasicInfo = () => {
 	const hospitalWard = getHospitalWardValue(getValues("hospitalWard"));
 
 	return (
-		<Stack mt={3} pt={2} borderTop={1}>
-			<Typography variant="h5" color="black">
+		<Stack mt={3} pt={2} borderTop="1px solid #EFF0F1">
+			<Typography variant="h5" mb={2} color="#1F2023">
 				Podstawowe informacje
 			</Typography>
 			<Grid container spacing={2}>
-				<BasicInfoCard label="Płeć" value={genderValue ?? ""} />
 				<BasicInfoCard label="Wiek" value={ageDescription ?? ""} />
+				<BasicInfoCard label="Płeć" value={genderValue ?? ""} />
 				<BasicInfoCard label="Schorzenie" value={medicalCondition ?? ""} />
 				<BasicInfoCard label="Oddział" value={hospitalWard ?? ""} />
 			</Grid>
