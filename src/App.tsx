@@ -49,7 +49,7 @@ let theme = createTheme(
 				fontWeight: "600",
 			},
 			h6: {
-				fontSize: "14px",
+				fontSize: "16px",
 				fontWeight: "400",
 			},
 			subtitle1: { fontSize: "18px", fontWeight: 400, color: "#5A6376" },
