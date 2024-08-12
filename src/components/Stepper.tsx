@@ -78,14 +78,7 @@ export default function StepController() {
 		isValidated?: boolean;
 	}) {
 		function StepConnector({ isVisited }: { isVisited: boolean }) {
-			return (
-				<Box
-					height={28}
-					width={0}
-					border={1}
-					sx={{ borderStyle: isVisited ? "solid" : "dashed" }}
-				></Box>
-			);
+			return <Box height={28} width={0} border={1} sx={{ borderStyle: isVisited ? "solid" : "dashed" }}></Box>;
 		}
 
 		const isActive: boolean = index === activeStep;
@@ -138,7 +131,7 @@ export default function StepController() {
 				</Stack>
 				{index + 1 < count && (
 					<Box width={56} py={3} justifyContent="center" display={{ xs: "none", sm: "flex" }}>
-						<StepConnector isVisited={index < activeStep} />
+						<StepConnector isVisited={index < activeStep || index < lastValidatedStep - 1} />
 					</Box>
 				)}
 			</Stack>
