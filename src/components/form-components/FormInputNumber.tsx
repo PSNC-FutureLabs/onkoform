@@ -36,6 +36,16 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 						inputMode: "decimal",
 						step: 0.1,
 					}}
+					sx={{
+						"& input[type=number]::-webkit-inner-spin-button, & input[type=number]::-webkit-outer-spin-button":
+							{
+								"-webkit-appearance": "none",
+								margin: 0,
+							},
+						"& input[type=number]": {
+							"-moz-appearance": "textfield",
+						},
+					}}
 				/>
 			)}
 		/>
