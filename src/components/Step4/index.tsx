@@ -17,43 +17,42 @@ export default function Step4() {
 			<MarkerRow
 				control={control}
 				markerName="HGBprev"
-				label="HGB"
+				label="HGB - hemoglobina"
 				description={BloodMarkerDescriptions.HGB}
 				options={HGBUnits}
 			/>
 			<MarkerRow
 				control={control}
 				markerName="WBCprev"
-				label="WBC"
+				label="WBC - białe krwinki (leukocyty)"
 				description={BloodMarkerDescriptions.WBC}
 				options={WBCUnits}
 			/>
 			<MarkerRow
 				control={control}
 				markerName="PLTprev"
-				label="PLT"
+				label="PLT - płytki krwi"
 				description={BloodMarkerDescriptions.PLT}
 				options={PLTUnits}
 			/>
 			<MarkerRow
 				control={control}
 				markerName="NEUTprev"
-				label="NEUT"
+				label="NEUT - granulocyty obojętochłonne (neutrofile)"
 				description={BloodMarkerDescriptions.NEUT}
 				options={NEUTUnits}
 			/>
 			<MarkerRow
 				control={control}
 				markerName="ALTprev"
-				label="ALT"
+				label="ALT - aminotransferaza alaninowa"
 				description={BloodMarkerDescriptions.ALT}
 				options={ALTUnits}
 			/>
 			<MarkerRow
 				control={control}
 				markerName="ASTprev"
-				label="AST"
-				description={BloodMarkerDescriptions.AST}
+				label="AST - aminotransferaza asparaginianowa"
 				options={ASTUnits}
 			/>
 		</Stack>
