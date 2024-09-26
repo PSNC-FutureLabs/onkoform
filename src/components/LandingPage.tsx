@@ -65,7 +65,6 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
       </Grid>
     );
   };
-
   return (
     <>
       <Box
