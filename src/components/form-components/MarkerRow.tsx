@@ -9,9 +9,11 @@ export const MarkerRow = ({ control, markerName, label, options, description }: 
 		<Stack spacing={1}>
 			<Stack direction="row" spacing={1}>
 				<FormLabel>{label}</FormLabel>
-				<Tooltip title={description ?? markerName}>
-					<InfoOutlinedIcon sx={{ cursor: "pointer" }} color="info" />
-				</Tooltip>
+				{false && (
+					<Tooltip title={description ?? markerName}>
+						<InfoOutlinedIcon sx={{ cursor: "pointer" }} color="info" />
+					</Tooltip>
+				)}
 			</Stack>
 			<Stack direction="row" spacing={1} alignItems="flex-start">
 				<Box maxWidth={120}>
