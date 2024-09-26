@@ -3,6 +3,7 @@ import { Box, Stack, Button, Typography, Container } from "@mui/material";
 import imageOrnament from "/images/desktop-main-background-ornament.svg";
 import imageTextLogo from "/images/logo-mm.svg";
 import imageCrownLogo from "/images/logo-mm-crown.svg";
+import imageScrollButton from "/images/scroll-button-down-arrow.svg";
 import imageBoyGirlTeddyBear from "/images/boy-girl-teddybear.svg";
 import imageMomKid from "/images/mom-kid.svg";
 import imageSectionOverview from "/images/section-overview.svg";
@@ -14,6 +15,16 @@ import imageCoCreatorLogo1 from "/images/logo-szpital-kliniczny-im-karola-jonsch
 import imageCoCreatorLogo2 from "/images/logo-fundacja-pomocy-dzieciom-z-chorobami-nowotworowymi.svg";
 import imageCoCreatorLogo3 from "/images/logo-capgemini.svg";
 import imageCoCreatorLogo4 from "/images/logo-psnc-future-labs.svg";
+
+const handleScroll = (id: string) => {
+	const targetElement = document.getElementById(id);
+	if (targetElement) {
+		window.scrollTo({
+			top: targetElement.offsetTop,
+			behavior: "smooth",
+		});
+	}
+};
 
 interface LandingPageProps {
 	onClickStart: () => void;
@@ -115,6 +126,17 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 										Rozpocznij
 									</Button>
 								</Box>
+								<Box display="flex" justifyContent="center">
+									<Box
+										component="img"
+										src={imageScrollButton}
+										alt="Przewiń do treści"
+										mt={10}
+										width={{ xs: "32px", sm: "64px" }}
+										onClick={() => handleScroll("sectionOverview")}
+										sx={{ cursor: "pointer" }}
+									/>
+								</Box>
 							</Stack>
 						</Grid>
 						<Grid item xs={6} sm={3}>
@@ -138,7 +160,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						pb={{ xs: 2, sm: 10 }}
 						alignItems="flex-start"
 					>
-						<Grid item component="section" xs={12}>
+						<Grid item component="section" xs={12} id="sectionOverview">
 							<Stack direction={{ xs: "column", sm: "row" }} alignItems="center">
 								<Box
 									component="img"
