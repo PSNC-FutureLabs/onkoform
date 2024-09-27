@@ -3,15 +3,15 @@ import { FormLabel, Typography } from "@mui/material";
 
 interface RequiredFormLabelProps {
 	children: React.ReactNode;
-	required?: boolean;
+	optional?: boolean;
 }
 
-const RequiredFormLabel: React.FC<RequiredFormLabelProps> = ({ children, required }) => {
+const RequiredFormLabel: React.FC<RequiredFormLabelProps> = ({ children, optional }) => {
 	return (
 		<FormLabel>
-			{required && (
+			{!optional && (
 				<Typography component="span" color="error">
-					* {/* Red asterisk */}
+					*&nbsp;
 				</Typography>
 			)}
 			{children}
