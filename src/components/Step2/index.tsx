@@ -1,8 +1,9 @@
-import { Stack, FormLabel } from "@mui/material";
+import { Stack } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { FormInputNumber } from "../form-components/FormInputNumber";
 import { FormInputMultiCheckbox } from "../form-components/FormInputMultiCheckbox";
 import { TemperatureUnits } from "../../business";
+import RequiredFormLabel from "../form-components/RequiredFormLabel";
 
 export default function Step2() {
 	const { control, setValue, getValues } = useFormContext();
@@ -10,7 +11,7 @@ export default function Step2() {
 	return (
 		<Stack spacing={4}>
 			<Stack spacing={1}>
-				<FormLabel>Pomiar temperatury ciała</FormLabel>
+				<RequiredFormLabel>Pomiar temperatury ciała</RequiredFormLabel>
 				<FormInputNumber
 					name="temperature"
 					control={control}

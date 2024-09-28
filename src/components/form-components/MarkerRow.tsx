@@ -1,14 +1,15 @@
-import { Stack, FormLabel, Tooltip, Box } from "@mui/material";
+import { Stack, Tooltip, Box } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { MarkerRowProps } from "../../business/types";
 import { FormInputNumber } from "./FormInputNumber";
 import { FormUnitSelector } from "./FormUnitSelector";
+import RequiredFormLabel from "../form-components/RequiredFormLabel";
 
 export const MarkerRow = ({ control, markerName, label, options, description }: MarkerRowProps) => {
 	return (
 		<Stack spacing={1}>
 			<Stack direction="row" spacing={1}>
-				<FormLabel>{label}</FormLabel>
+				<RequiredFormLabel>{label}</RequiredFormLabel>
 				{false && (
 					<Tooltip title={description ?? markerName}>
 						<InfoOutlinedIcon sx={{ cursor: "pointer" }} color="info" />

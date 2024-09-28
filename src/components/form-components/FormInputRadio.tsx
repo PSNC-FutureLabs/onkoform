@@ -1,7 +1,9 @@
-import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
+import { FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { Controller } from "react-hook-form";
 import { InputRadioProps } from "../../business/types";
 import { FormWarningText } from "./FormWarningText";
+import RequiredFormLabel from "../form-components/RequiredFormLabel";
+
 
 export const FormInputRadio: React.FC<InputRadioProps> = ({ name, control, label, options }) => {
 	const generateRadioOptions = () => {
@@ -16,7 +18,7 @@ export const FormInputRadio: React.FC<InputRadioProps> = ({ name, control, label
 	};
 	return (
 		<FormControl component="fieldset" style={{ textAlign: "left" }}>
-			<FormLabel component="legend">{label}</FormLabel>
+			<RequiredFormLabel>{label}</RequiredFormLabel>
 			<Controller
 				name={name}
 				control={control}
