@@ -261,8 +261,20 @@ export default function StepController() {
 						) : (
 							<Stack>
 								<Summary />
-								<Stack direction="row" mt={3} mx={2} pt={4} borderTop="1px solid #EFF0F1">
-									<Button variant="outlined" onClick={handleStart}>
+								<Stack
+									direction="row"
+									mt={3}
+									mb={6}
+									mx={2}
+									pt={4}
+									borderTop="1px solid #EFF0F1"
+									justifyContent="space-between"
+								>
+									<Button variant="outlined" onClick={handlePrevious}>
+										<NavigateBeforeIcon />
+										Cofnij
+									</Button>
+									<Button variant="contained" onClick={handleStart}>
 										Wypełnij ponownie
 									</Button>
 								</Stack>
