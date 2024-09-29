@@ -1,4 +1,4 @@
-import { medicalConditionOptions, genderOptions, hospitalWardOptions } from "../../business";
+import { medicalConditionOptions, genderOptions, hospitalWardOptions } from "./business";
 
 export function getFormattedNumber(n: number, decimalPlaces: number = 0): string {
 	if (decimalPlaces < 0) {

@@ -1,9 +1,9 @@
 import { Stack } from "@mui/material";
 import { useFormContext } from "react-hook-form";
-import { FormInputNumber } from "../form-components/FormInputNumber";
-import { FormInputMultiCheckbox } from "../form-components/FormInputMultiCheckbox";
+import { FormInputNumber } from "../Form/FormInputNumber";
+import { FormInputMultiCheckbox } from "../Form/FormInputMultiCheckbox";
 import { TemperatureUnits } from "../../business";
-import RequiredFormLabel from "../form-components/RequiredFormLabel";
+import RequiredFormLabel from "../Form/RequiredFormLabel";
 
 export default function Step2() {
 	const { control, setValue, getValues } = useFormContext();

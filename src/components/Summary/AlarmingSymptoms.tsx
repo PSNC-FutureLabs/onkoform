@@ -2,7 +2,7 @@ import { Grid, Stack, Typography } from "@mui/material";
 import { BasicInfoCard } from "./BasicInfoCard";
 import { useFormContext } from "react-hook-form";
 import { symptomsOptions } from "../../business";
-import { getFormattedNumber } from "./helpers";
+import { getFormattedNumber } from "../../helpers";
 
 export const AlarmingSymptoms = () => {
 	const { getValues } = useFormContext();

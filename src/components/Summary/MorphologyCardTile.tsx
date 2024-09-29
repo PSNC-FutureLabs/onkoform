@@ -1,6 +1,6 @@
 import { Stack, Typography } from "@mui/material";
 import { MedicalParameter } from "../../business/types";
-import { getFormattedNumber } from "./helpers";
+import { getFormattedNumber } from "../../helpers";
 
 type MorphologyCardTileProps = {
 	parameter: MedicalParameter;

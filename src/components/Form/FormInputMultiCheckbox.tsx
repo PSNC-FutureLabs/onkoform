@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Checkbox, FormControl, FormControlLabel, FormLabel, Stack, Tooltip } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { Controller } from "react-hook-form";
-import { FormInputMultiCheckboxProps, MultiCheckboxOptionsType } from "../../business/types";
 import { mucosalToxicitiesLevels, symptomsOptions } from "../../business";
+import { FormInputMultiCheckboxProps, MultiCheckboxOptionsType } from "../../business/types";
 import { FormCustomRating } from "./FormCustomRating";
 import { FormMucosalToxicitiesRating } from "./FormMucosalToxicitiesRating";
 
