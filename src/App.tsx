@@ -4,14 +4,14 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import "dayjs/locale/pl";
 import { plPL } from "@mui/x-date-pickers/locales";
 import { Container, CssBaseline } from "@mui/material";
-import { FormFields, schema } from "./business/form-schema";
+import { lightGreen, grey, blue } from "@mui/material/colors";
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { FormFields, schema } from "./business/form";
 import { formDefaultValues, formTestValues } from "./business";
+import "./App.css";
 import Stepper from "./components/Stepper";
 import Footer from "./components/Footer";
-import { lightGreen, grey, blue } from "@mui/material/colors";
-import "./App.css";
 
 const defaultTheme = createTheme();
 

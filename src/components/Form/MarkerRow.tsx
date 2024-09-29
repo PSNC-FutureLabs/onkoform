@@ -1,9 +1,9 @@
 import { Stack, Tooltip, Box } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { MarkerRowProps } from "../../business/types";
+import RequiredFormLabel from "./RequiredFormLabel";
 import { FormInputNumber } from "./FormInputNumber";
 import { FormUnitSelector } from "./FormUnitSelector";
-import RequiredFormLabel from "../form-components/RequiredFormLabel";
 
 export const MarkerRow = ({ control, markerName, label, options, description }: MarkerRowProps) => {
 	return (

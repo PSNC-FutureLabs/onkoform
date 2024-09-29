@@ -10,7 +10,7 @@ import {
 	PLTschema,
 	temperatureSchema,
 	WBCschema,
-} from "./schema-utils";
+} from "./schemas";
 
 export const schema = z.object({
 	dateOfBirth: dateSchema,

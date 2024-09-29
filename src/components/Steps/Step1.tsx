@@ -1,10 +1,10 @@
 import { Stack } from "@mui/material";
 import { useFormContext } from "react-hook-form";
-import { FormInputRadio } from "../form-components/FormInputRadio";
 import { medicalConditionOptions, genderOptions, hospitalWardOptions } from "../../business";
-import { FormInputDate } from "../form-components/FormInputDate";
-import { FormInputDropdown } from "../form-components/FormInputDropdown";
-import RequiredFormLabel from "../form-components/RequiredFormLabel";
+import { FormInputRadio } from "../Form/FormInputRadio";
+import { FormInputDate } from "../Form/FormInputDate";
+import { FormInputDropdown } from "../Form/FormInputDropdown";
+import RequiredFormLabel from "../Form/RequiredFormLabel";
 
 export default function Step1() {
 	const { control } = useFormContext();

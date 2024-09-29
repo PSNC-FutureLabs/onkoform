@@ -1,10 +1,10 @@
-import { FormFields } from "./form-schema";
+import { FormFields } from "./form";
 import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitType } from "./types";
 
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 7,
-	patchNo: 35,
+	patchNo: 36,
 	status: "alpha",
 	date: "2024.09.29",
 };

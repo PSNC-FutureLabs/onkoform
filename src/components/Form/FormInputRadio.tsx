@@ -2,7 +2,7 @@ import { FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material"
 import { Controller } from "react-hook-form";
 import { InputRadioProps } from "../../business/types";
 import { FormWarningText } from "./FormWarningText";
-import RequiredFormLabel from "../form-components/RequiredFormLabel";
+import RequiredFormLabel from "./RequiredFormLabel";
 
 
 export const FormInputRadio: React.FC<InputRadioProps> = ({ name, control, label, options }) => {
