@@ -81,6 +81,10 @@ export default function StepController() {
 			return <Box height={28} width={0} border={1} sx={{ borderStyle: isVisited ? "solid" : "dashed" }}></Box>;
 		}
 
+		function canBeClicked(index: number): boolean {
+			return index <= lastValidatedStep + 1 ? true : false;
+		}
+
 		const isActive: boolean = index === activeStep;
 		isValidated = isActive ? false : isValidated;
 
@@ -98,6 +102,14 @@ export default function StepController() {
 						position="relative"
 						sx={{
 							background: isValidated ? "#7FBB53" : "transparent",
+							cursor: canBeClicked(index) ? "pointer" : "not-allowed",
+						}}
+						onClick={(event) => {
+							if (canBeClicked(index)) {
+								handleChangeStep(index);
+							} else {
+								event.preventDefault();
+							}
 						}}
 					>
 						<Box
@@ -163,6 +175,17 @@ export default function StepController() {
 		if (!isStepValid) return;
 
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
+	};
+
+	const handleChangeStep = async (index: number) => {
+		if (index == activeStep) return;
+
+		if (index > lastValidatedStep) {
+			const isStepValid = await validateStep();
+			if (!isStepValid) return;
+		}
+		
+		setActiveStep(index);
 	};
 
 	if (activeStep === landingPage) {
