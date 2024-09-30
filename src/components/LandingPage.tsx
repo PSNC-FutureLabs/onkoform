@@ -135,6 +135,8 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 										width={{ xs: "32px", sm: "64px" }}
 										onClick={() => handleScroll("sectionOverview")}
 										sx={{
+											borderRadius: "100%",
+											boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.5)",
 											width: { xs: "32px", sm: "64px" },
 											animation: "pulse 1.5s infinite ease-in-out",
 											"@keyframes pulse": {
