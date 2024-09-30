@@ -1,3 +1,13 @@
+# Mali Mocni
+
+## development
+
+[psnc-futurelabs.github.io/onkoform](https://psnc-futurelabs.github.io/onkoform/)
+
+## production
+
+[malimocni.pl](https://malimocni.pl)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
