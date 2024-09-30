@@ -1,8 +1,6 @@
 import { medicalConditionOptions, genderOptions, hospitalWardOptions } from "./business";
 
-export function isLocalhost(): boolean {
-	return window.location.hostname === "localhost";
-}
+export const isLocalhost: boolean = window.location.hostname === "localhost";
 
 export function getFormattedNumber(n: number, decimalPlaces: number = 0): string {
 	if (decimalPlaces < 0) {
