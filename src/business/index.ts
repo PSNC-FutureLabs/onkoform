@@ -6,7 +6,7 @@ export const versionTag = {
 	minorNo: 8,
 	patchNo: 1,
 	status: "alpha",
-	date: "2024.09.29",
+	date: "2024.09.30",
 };
 
 export const versionText = (): string =>
@@ -321,7 +321,7 @@ export const formDefaultValues: Partial<FormFields> = {
 export const formTestValues: Partial<FormFields> = {
 	gender: "male",
 	medicalCondition: "all",
-	hospitalWard: "o3",
+	hospitalWard: "",
 	temperature: 36.6,
 	symptoms: [],
 	"headache-rating": "",
