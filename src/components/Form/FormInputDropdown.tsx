@@ -19,6 +19,7 @@ export const FormInputDropdown: React.FC<InputDropdownProps> = ({ name, control,
 							value={value}
 							error={!!error}
 							label={label}
+							displayEmpty
 						>
 							<MenuItem disabled value="">
 								<em>Wybierz...</em>
