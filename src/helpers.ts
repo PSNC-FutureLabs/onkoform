@@ -1,8 +1,13 @@
 import { medicalConditionOptions, genderOptions, hospitalWardOptions } from "./business";
 
+export const isLocalhost: boolean = window.location.hostname === "localhost";
+
 export function getFormattedNumber(n: number, decimalPlaces: number = 0): string {
 	if (decimalPlaces < 0) {
-		return n.toFixed(5).replace(/(\.\d*[1-9])0+|\.0*$/, '$1').replace(".", ",");
+		return n
+			.toFixed(5)
+			.replace(/(\.\d*[1-9])0+|\.0*$/, "$1")
+			.replace(".", ",");
 	}
 	return n.toFixed(decimalPlaces).replace(".", ",");
 }

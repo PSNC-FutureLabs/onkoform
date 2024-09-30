@@ -7,7 +7,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import imageLogo from "/images/logo-mm.svg";
 import imageOrnament from "/images/ornament.svg";
 import LandingPage from "./LandingPage";
-import { StepType, steps } from "../business";
+import { StepType, steps, formDefaultValues, formTestValues } from "../business";
 import { Summary } from "./Summary";
 import ActiveStep from "./ActiveStep";
 
@@ -18,7 +18,7 @@ const lastStep: number = steps.length - 1 - 1;
 export default function StepController() {
 	const [activeStep, setActiveStep] = useState<number>(landingPage);
 	const [lastValidatedStep, setLastValidatedStep] = useState<number>(firstStep);
-	const { trigger, handleSubmit, getValues } = useFormContext();
+	const { reset, trigger, handleSubmit, getValues } = useFormContext();
 
 	const [validationAlertText, setValidationAlertText] = useState<string | null>(null);
 
@@ -161,7 +161,8 @@ export default function StepController() {
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
 	};
 
-	const handleStart = () => {
+	const handleStart = (resetForm : boolean = true) => {
+		if (resetForm) reset(window.location.hostname === "localhost" ? formTestValues : formDefaultValues);
 		setActiveStep(firstStep);
 		setLastValidatedStep(firstStep);
 	};
@@ -184,12 +185,12 @@ export default function StepController() {
 			const isStepValid = await validateStep();
 			if (!isStepValid) return;
 		}
-		
+
 		setActiveStep(index);
 	};
 
 	if (activeStep === landingPage) {
-		return <LandingPage onClickStart={handleStart} />;
+		return <LandingPage onClickStart={() => handleStart(false)} />;
 	}
 
 	const xsBackground = "linear-gradient(to top right, #7FBB53 40%, #04804C)";
@@ -297,7 +298,7 @@ export default function StepController() {
 										<NavigateBeforeIcon />
 										Cofnij
 									</Button>
-									<Button variant="contained" onClick={handleStart}>
+									<Button variant="contained" onClick={() => handleStart(true)}>
 										Wypełnij ponownie
 									</Button>
 								</Stack>
