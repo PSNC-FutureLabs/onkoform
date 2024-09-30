@@ -23,7 +23,14 @@ export const steps: Array<StepType> = [
 	{
 		id: 1,
 		name: "Informacje o pacjencie",
-		fields: ["dateOfBirth", "gender", "medicalCondition", "hospitalWard"],
+		fields: [
+			"dateOfBirth",
+			"gender",
+			"medicalCondition",
+			"hospitalWard",
+			"actual-lab-test-date",
+			"previous-lab-test-date",
+		],
 	},
 	{
 		id: 2,
@@ -34,7 +41,6 @@ export const steps: Array<StepType> = [
 		id: 3,
 		name: "Aktualne badania",
 		fields: [
-			"actual-lab-test-date",
 			["HGB.value", "HGB.unit"],
 			["WBC.value", "WBC.unit"],
 			["PLT.value", "PLT.unit"],
@@ -47,7 +53,6 @@ export const steps: Array<StepType> = [
 		id: 4,
 		name: "Poprzednie badania",
 		fields: [
-			"previous-lab-test-date",
 			["HGBprev.value", "Hgbprev.unit"],
 			["WBCprev.value", "WBCprev.unit"],
 			["PLTprev.value", "PLTprev.unit"],
