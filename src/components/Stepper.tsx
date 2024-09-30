@@ -161,8 +161,8 @@ export default function StepController() {
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
 	};
 
-	const handleStart = () => {
-		reset(window.location.hostname === "localhost" ? formTestValues : formDefaultValues);
+	const handleStart = (resetForm : boolean = true) => {
+		if (resetForm) reset(window.location.hostname === "localhost" ? formTestValues : formDefaultValues);
 		setActiveStep(firstStep);
 		setLastValidatedStep(firstStep);
 	};
@@ -190,7 +190,7 @@ export default function StepController() {
 	};
 
 	if (activeStep === landingPage) {
-		return <LandingPage onClickStart={handleStart} />;
+		return <LandingPage onClickStart={() => handleStart(false)} />;
 	}
 
 	const xsBackground = "linear-gradient(to top right, #7FBB53 40%, #04804C)";
@@ -298,7 +298,7 @@ export default function StepController() {
 										<NavigateBeforeIcon />
 										Cofnij
 									</Button>
-									<Button variant="contained" onClick={handleStart}>
+									<Button variant="contained" onClick={() => handleStart(true)}>
 										Wypełnij ponownie
 									</Button>
 								</Stack>

@@ -8,7 +8,7 @@ import { lightGreen, grey, blue } from "@mui/material/colors";
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormFields, schema } from "./business/form";
-import { formDefaultValues } from "./business";
+import { formDefaultValues, formTestValues } from "./business";
 import "./App.css";
 import Stepper from "./components/Stepper";
 import Footer from "./components/Footer";
@@ -142,7 +142,7 @@ theme = responsiveFontSizes(theme);
 
 function App() {
 	const methods = useForm<FormFields>({
-		defaultValues: formDefaultValues,
+		defaultValues: window.location.hostname === "localhost" ? formTestValues : formDefaultValues,
 		resolver: zodResolver(schema),
 		reValidateMode: "onChange",
 		mode: "all",
