@@ -1,3 +1,4 @@
+import { isLocalhost } from "../helpers";
 import { FormFields } from "./form";
 import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitType } from "./types";
 
@@ -364,3 +365,7 @@ export const formTestValues: Partial<FormFields> = {
 	ALTprev: { value: null, unit: "U/l" },
 	ASTprev: { value: null, unit: "U/l" },
 };
+
+export function getFormDefaultValues(): Partial<FormFields> {
+	return isLocalhost ? formTestValues : formDefaultValues;
+}
