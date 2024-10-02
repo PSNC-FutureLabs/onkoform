@@ -10,6 +10,7 @@ import LandingPage from "./LandingPage";
 import { StepType, steps, formDefaultValues, formTestValues } from "../business";
 import { Summary } from "./Summary";
 import ActiveStep from "./ActiveStep";
+import { isLocalhost } from "../helpers";
 
 const landingPage: number = -1;
 const firstStep: number = 0;
@@ -151,6 +152,7 @@ export default function StepController() {
 	}
 
 	const handleGoToLandingPage = () => {
+		reset(isLocalhost ? formTestValues : formDefaultValues);
 		setActiveStep(landingPage);
 	};
 
@@ -162,7 +164,7 @@ export default function StepController() {
 	};
 
 	const handleStart = (resetForm : boolean = true) => {
-		if (resetForm) reset(window.location.hostname === "localhost" ? formTestValues : formDefaultValues);
+		if (resetForm) reset(isLocalhost ? formTestValues : formDefaultValues);
 		setActiveStep(firstStep);
 		setLastValidatedStep(firstStep);
 	};
