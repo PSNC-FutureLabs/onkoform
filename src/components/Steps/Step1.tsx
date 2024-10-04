@@ -24,6 +24,14 @@ export default function Step1() {
 				<RequiredFormLabel>Prowadzący oddział szpitalny</RequiredFormLabel>
 				<FormInputDropdown name="hospitalWard" control={control} options={hospitalWardOptions} />
 			</Stack>
+			<Stack spacing={1}>
+				<RequiredFormLabel>Data wykonania aktualnego badania</RequiredFormLabel>
+				<FormInputDate name="actual-lab-test-date" control={control} />
+			</Stack>
+			<Stack spacing={1}>
+				<RequiredFormLabel>Data wykonania poprzedniego badania</RequiredFormLabel>
+				<FormInputDate name="previous-lab-test-date" control={control} />
+			</Stack>
 		</Stack>
 	);
 }

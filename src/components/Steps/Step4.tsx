@@ -1,19 +1,17 @@
-import { Stack, Alert } from "@mui/material";
+import { Stack } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { ALTUnits, ASTUnits, HGBUnits, NEUTUnits, PLTUnits, WBCUnits } from "../../business";
 import { BloodMarkerDescriptions } from "../../business/types";
-import { FormInputDate } from "../Form/FormInputDate";
 import { MarkerRow } from "../Form/MarkerRow";
+import Header from "./LabTestHeader";
 
 export default function Step4() {
-	const { control } = useFormContext();
+	const { control, getValues } = useFormContext();
+	const labTestDate = new Date(getValues("actual-lab-test-date")).toLocaleDateString("de-DE");
 
 	return (
 		<Stack spacing={4}>
-			<Alert variant="outlined" severity="info">
-				W tym kroku należy podać wyniki z <strong>poprzedniego</strong> badania laboratoryjnego.
-			</Alert>
-			<FormInputDate name="previous-lab-test-date" control={control} label="Data wykonania badania" />
+			<Header date={labTestDate} backgroundColor="#41444A" />
 			<MarkerRow
 				control={control}
 				markerName="HGBprev"

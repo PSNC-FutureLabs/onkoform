@@ -43,7 +43,7 @@ export default function StepController() {
 				scrollToTop();
 				return false;
 			}
-			if (actualLabTestDate < previousLabTestDate && activeStep === lastStep) {
+			if (actualLabTestDate < previousLabTestDate) {
 				setValidationAlertText(
 					"Data poprzedniego badania nie może być późniejsza niż data aktualnego badania."
 				);
@@ -163,8 +163,13 @@ export default function StepController() {
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
 	};
 
+<<<<<<< HEAD
 	const handleStart = (resetForm : boolean = true) => {
 		if (resetForm) reset(isLocalhost ? formTestValues : formDefaultValues);
+=======
+	const handleStart = (resetForm: boolean = true) => {
+		if (resetForm) reset(window.location.hostname === "localhost" ? formTestValues : formDefaultValues);
+>>>>>>> feature/steps-redesign
 		setActiveStep(firstStep);
 		setLastValidatedStep(firstStep);
 	};
@@ -258,9 +263,13 @@ export default function StepController() {
 					>
 						{activeStep <= lastStep ? (
 							<Stack width={{ xs: "90vw", sm: "60%" }}>
-								<Typography variant="h4" color="black" align="left" py={4}>
-									Uważnie wypełnij wszystkie pola
-								</Typography>
+								<Typography
+									variant="h4"
+									color="black"
+									align="left"
+									py={4}
+									dangerouslySetInnerHTML={{ __html: steps[activeStep].header }}
+								/>
 								{validationAlertText ? (
 									<Alert variant="outlined" severity="warning" sx={{ mb: 2 }}>
 										{validationAlertText}

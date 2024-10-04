@@ -16,6 +16,7 @@ export const versionText = (): string =>
 export type StepType = {
 	id: number;
 	name: string;
+	header: string;
 	fields: Array<string | Array<string>>;
 };
 
@@ -23,18 +24,27 @@ export const steps: Array<StepType> = [
 	{
 		id: 1,
 		name: "Informacje o pacjencie",
-		fields: ["dateOfBirth", "gender", "medicalCondition", "hospitalWard"],
+		header: "Uważnie wypełnij wszystkie pola",
+		fields: [
+			"dateOfBirth",
+			"gender",
+			"medicalCondition",
+			"hospitalWard",
+			"actual-lab-test-date",
+			"previous-lab-test-date",
+		],
 	},
 	{
 		id: 2,
 		name: "Niepokojące objawy",
+		header: "Uważnie wypełnij wszystkie pola",
 		fields: ["temperature", "symptoms"],
 	},
 	{
 		id: 3,
 		name: "Aktualne badania",
+		header: "Podaj wyniki <strong>aktualnego</strong> badania krwi",
 		fields: [
-			"actual-lab-test-date",
 			["HGB.value", "HGB.unit"],
 			["WBC.value", "WBC.unit"],
 			["PLT.value", "PLT.unit"],
@@ -46,8 +56,8 @@ export const steps: Array<StepType> = [
 	{
 		id: 4,
 		name: "Poprzednie badania",
+		header: "Podaj wyniki <strong>poprzedniego</strong> badania krwi",
 		fields: [
-			"previous-lab-test-date",
 			["HGBprev.value", "Hgbprev.unit"],
 			["WBCprev.value", "WBCprev.unit"],
 			["PLTprev.value", "PLTprev.unit"],
@@ -59,6 +69,7 @@ export const steps: Array<StepType> = [
 	{
 		id: 5,
 		name: "Wyniki",
+		header: "Wyniki",
 		fields: [],
 	},
 ];
