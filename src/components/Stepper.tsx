@@ -163,13 +163,8 @@ export default function StepController() {
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
 	};
 
-<<<<<<< HEAD
-	const handleStart = (resetForm : boolean = true) => {
-		if (resetForm) reset(isLocalhost ? formTestValues : formDefaultValues);
-=======
 	const handleStart = (resetForm: boolean = true) => {
-		if (resetForm) reset(window.location.hostname === "localhost" ? formTestValues : formDefaultValues);
->>>>>>> feature/steps-redesign
+		if (resetForm) reset(isLocalhost ? formTestValues : formDefaultValues);
 		setActiveStep(firstStep);
 		setLastValidatedStep(firstStep);
 	};
