@@ -1,11 +1,12 @@
-import { Stack, Alert } from "@mui/material";
+import { Stack, Alert, Box, Typography } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { ALTUnits, ASTUnits, HGBUnits, NEUTUnits, PLTUnits, WBCUnits } from "../../business";
 import { BloodMarkerDescriptions } from "../../business/types";
 import { MarkerRow } from "../Form/MarkerRow";
 
 export default function Step3() {
-	const { control } = useFormContext();
+	const { control, getValues } = useFormContext();
+	const labTestDate = new Date(getValues("actual-lab-test-date")).toLocaleDateString("de-DE")
 
 	return (
 		<Stack spacing={4}>
@@ -13,6 +14,9 @@ export default function Step3() {
 				W tym kroku należy podać <strong>najnowsze</strong> wyniki badań.
 				<br />W kolejnym kroku podasz wyniki z poprzedniego badania laboratoryjnego.
 			</Alert>
+			<Box>
+				<Typography>{labTestDate}</Typography>
+			</Box>
 			<MarkerRow
 				control={control}
 				markerName="HGB"
