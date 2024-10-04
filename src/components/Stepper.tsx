@@ -42,7 +42,7 @@ export default function StepController() {
 				scrollToTop();
 				return false;
 			}
-			if (actualLabTestDate < previousLabTestDate && activeStep === lastStep) {
+			if (actualLabTestDate < previousLabTestDate) {
 				setValidationAlertText(
 					"Data poprzedniego badania nie może być późniejsza niż data aktualnego badania."
 				);
