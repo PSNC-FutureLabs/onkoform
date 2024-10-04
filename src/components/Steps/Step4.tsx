@@ -1,8 +1,9 @@
-import { Stack, Alert, Box, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { ALTUnits, ASTUnits, HGBUnits, NEUTUnits, PLTUnits, WBCUnits } from "../../business";
 import { BloodMarkerDescriptions } from "../../business/types";
 import { MarkerRow } from "../Form/MarkerRow";
+import Header from "./LabTestHeader";
 
 export default function Step4() {
 	const { control, getValues } = useFormContext();
@@ -10,13 +11,7 @@ export default function Step4() {
 
 	return (
 		<Stack spacing={4}>
-			<Alert variant="outlined" severity="info">
-				W tym kroku należy podać wyniki z <strong>poprzedniego</strong> badania laboratoryjnego.
-			</Alert>
-			<Box>
-				<Typography>{labTestDate}</Typography>
-			</Box>
-
+			<Header date={labTestDate} backgroundColor="#41444A" />
 			<MarkerRow
 				control={control}
 				markerName="HGBprev"
