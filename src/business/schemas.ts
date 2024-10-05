@@ -2,7 +2,8 @@ import { z } from "zod";
 
 export const ERROR_MESSAGES = {
 	requiredInput: "Wpisz wartość",
-	requiredSelection: "Wybierz",
+	requiredSelection: "Wybierz z listy",
+	requiredDate: "Wybierz datę"
 };
 
 const nullableNumberSchema = z.number().nullable();
@@ -95,11 +96,11 @@ export const ASTschema = z
 export const dateSchema = z.date({
 	errorMap: (issue, ctx) =>
 		issue.code === z.ZodIssueCode.invalid_date
-			? { message: ERROR_MESSAGES.requiredInput }
+			? { message: ERROR_MESSAGES.requiredDate }
 			: { message: ctx.defaultError },
 	coerce: true,
 });
 
 export const dropdownSchema = z
-	.string({ required_error: ERROR_MESSAGES.requiredInput })
-	.min(1, { message: ERROR_MESSAGES.requiredInput });
+	.string({ required_error: ERROR_MESSAGES.requiredSelection })
+	.min(1, { message: ERROR_MESSAGES.requiredSelection });
