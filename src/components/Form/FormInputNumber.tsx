@@ -19,7 +19,7 @@ export const FormInputNumber = ({ name, control, label, placeholder, unit }: For
 					label={label}
 					type="number"
 					error={!!error}
-					helperText={error?.message}
+					helperText={error ? error?.message : " "}
 					placeholder={placeholder}
 					fullWidth
 					size="medium"
