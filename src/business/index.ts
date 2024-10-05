@@ -333,16 +333,12 @@ export const formDefaultValues: Partial<FormFields> = {
 export const formTestValues: Partial<FormFields> = {
 	gender: "male",
 	medicalCondition: "all",
-	hospitalWard: "",
+	hospitalWard: "o3",
 	temperature: 36.6,
 	symptoms: [],
 	"headache-rating": "",
 	"pain-anxiety-rating": "",
 	"mucosal-toxicities-rating": "",
-	HGB: {
-		value: 10.9,
-		unit: "g/dl",
-	},
 	WBC: {
 		value: 1.9,
 		unit: "K/μl",
