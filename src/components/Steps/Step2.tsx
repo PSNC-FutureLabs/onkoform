@@ -9,7 +9,7 @@ export default function Step2() {
 	const { control, setValue, getValues } = useFormContext();
 
 	return (
-		<Stack spacing={4}>
+		<Stack spacing={3}>
 			<Stack spacing={1}>
 				<RequiredFormLabel>Pomiar temperatury ciała</RequiredFormLabel>
 				<FormInputNumber
