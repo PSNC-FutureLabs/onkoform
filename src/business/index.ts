@@ -338,5 +338,5 @@ export const formTestValues: Partial<FormFields> = {
 };
 
 export function getFormDefaultValues(): Partial<FormFields> {
-	return isLocalhost ? formTestValues : formDefaultValues;
+	return isLocalhost ? formDefaultValues : formDefaultValues;
 }
