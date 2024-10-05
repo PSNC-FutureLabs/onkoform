@@ -292,42 +292,6 @@ export const formDefaultValues: Partial<FormFields> = {
 	"headache-rating": "",
 	"pain-anxiety-rating": "",
 	"mucosal-toxicities-rating": "",
-	HGB: {
-		value: 0,
-		unit: "g/dl",
-	},
-	WBC: {
-		value: 0,
-		unit: "K/μl",
-	},
-	PLT: {
-		value: 0,
-		unit: "K/μl",
-	},
-	NEUT: {
-		value: 0,
-		unit: "K/μl",
-	},
-	ALT: { value: null, unit: "U/l" },
-	AST: { value: null, unit: "U/l" },
-	HGBprev: {
-		value: 0,
-		unit: "g/dl",
-	},
-	WBCprev: {
-		value: 0,
-		unit: "K/μl",
-	},
-	PLTprev: {
-		value: 0,
-		unit: "K/μl",
-	},
-	NEUTprev: {
-		value: 0,
-		unit: "K/μl",
-	},
-	ALTprev: { value: null, unit: "U/l" },
-	ASTprev: { value: null, unit: "U/l" },
 };
 
 export const formTestValues: Partial<FormFields> = {
