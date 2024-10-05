@@ -10,7 +10,7 @@ export default function Step1() {
 	const { control } = useFormContext();
 
 	return (
-		<Stack spacing={3}>
+		<Stack spacing={2}>
 			<Stack spacing={1}>
 				<RequiredFormLabel>Data urodzenia</RequiredFormLabel>
 				<FormInputDate name="dateOfBirth" control={control} />
