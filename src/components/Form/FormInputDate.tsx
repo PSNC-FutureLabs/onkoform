@@ -17,8 +17,9 @@ export const FormInputDate = ({ name, control, label }: FormInputProps) => {
 					slotProps={{
 						textField: {
 							error: !!error,
-							helperText: error?.message,
+							helperText: error ? error?.message : " ",
 							onBlur,
+							disabled: true
 						},
 					}}
 				/>

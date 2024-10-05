@@ -10,7 +10,7 @@ export default function Step4() {
 	const labTestDate = new Date(getValues("actual-lab-test-date")).toLocaleDateString("de-DE");
 
 	return (
-		<Stack spacing={4}>
+		<Stack spacing={2}>
 			<Header date={labTestDate} backgroundColor="#41444A" />
 			<MarkerRow
 				control={control}

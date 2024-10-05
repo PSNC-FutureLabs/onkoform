@@ -5,7 +5,6 @@ import { InputDropdownProps, DropdownOptionsType } from "../../business/types";
 import { FormWarningText } from "./FormWarningText";
 
 export const FormInputDropdown: React.FC<InputDropdownProps> = ({ name, control, label, options }) => {
-
 	return (
 		<FormControl size={"small"}>
 			<InputLabel>{label}</InputLabel>
@@ -30,7 +29,7 @@ export const FormInputDropdown: React.FC<InputDropdownProps> = ({ name, control,
 								</MenuItem>
 							))}
 						</Select>
-						{error ? <FormWarningText text={error?.message} /> : null}
+						<FormWarningText text={error?.message} />
 					</>
 				)}
 				control={control}

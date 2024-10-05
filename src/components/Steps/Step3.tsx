@@ -10,7 +10,7 @@ export default function Step3() {
 	const labTestDate = new Date(getValues("actual-lab-test-date"));
 
 	return (
-		<Stack spacing={4}>
+		<Stack spacing={2}>
 			<Header date={labTestDate} backgroundColor="#04804C" />
 			<MarkerRow
 				control={control}

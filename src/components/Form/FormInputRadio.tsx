@@ -27,7 +27,7 @@ export const FormInputRadio: React.FC<InputRadioProps> = ({ name, control, label
 						<RadioGroup value={value} onChange={onChange} ref={ref} onBlur={onBlur} row>
 							{generateRadioOptions()}
 						</RadioGroup>
-						{error ? <FormWarningText text={error?.message} /> : null}
+						<FormWarningText text={error?.message} />
 					</>
 				)}
 			/>

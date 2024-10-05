@@ -1,27 +1,34 @@
 import { z } from "zod";
 
 export const ERROR_MESSAGES = {
-	required: "Wartość jest wymagana",
+	requiredInput: "Wpisz wartość",
+	requiredSelection: "Wybierz z listy",
+	requiredDate: "Wybierz datę"
 };
 
 const nullableNumberSchema = z.number().nullable();
 
 const valueSchema = z
 	.number({
-		required_error: ERROR_MESSAGES.required,
-		invalid_type_error: ERROR_MESSAGES.required,
+		required_error: ERROR_MESSAGES.requiredInput,
+		invalid_type_error: ERROR_MESSAGES.requiredInput,
 	})
 	.min(0, { message: "Wartość nie może być ujemna" });
 
+const unitSchema = z.enum(["g/dl", "mmol/l", "mg/%"], {
+	required_error: ERROR_MESSAGES.requiredSelection,
+	invalid_type_error: "Nieprawidłowa jednostka",
+});
+
 export const temperatureSchema = z
-	.number({ required_error: ERROR_MESSAGES.required, invalid_type_error: ERROR_MESSAGES.required })
+	.number({ required_error: ERROR_MESSAGES.requiredInput, invalid_type_error: ERROR_MESSAGES.requiredInput })
 	.min(34, { message: "Minimalna wartość temperatury wynosi 34°C" })
 	.max(42, { message: "Maksymalna wartość temperatury wynosi 42°C" });
 
 export const HGBschema = z
 	.object({
 		value: valueSchema,
-		unit: z.enum(["g/dl", "mmol/l", "mg/%"]),
+		unit: unitSchema,
 	})
 	.refine((data) => !(data.unit == "g/dl" && data.value > 20), {
 		message: "Dla jednostki g/dl maksymalna wartość to 20",
@@ -89,11 +96,11 @@ export const ASTschema = z
 export const dateSchema = z.date({
 	errorMap: (issue, ctx) =>
 		issue.code === z.ZodIssueCode.invalid_date
-			? { message: ERROR_MESSAGES.required }
+			? { message: ERROR_MESSAGES.requiredDate }
 			: { message: ctx.defaultError },
 	coerce: true,
 });
 
 export const dropdownSchema = z
-	.string({ required_error: ERROR_MESSAGES.required })
-	.min(1, { message: ERROR_MESSAGES.required });
+	.string({ required_error: ERROR_MESSAGES.requiredSelection })
+	.min(1, { message: ERROR_MESSAGES.requiredSelection });

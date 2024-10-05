@@ -17,7 +17,7 @@ export const MarkerRow = ({ control, markerName, label, options, description }: 
 				)}
 			</Stack>
 			<Stack direction="row" spacing={1} alignItems="flex-start">
-				<Box maxWidth={120}>
+				<Box maxWidth={160}>
 					<FormInputNumber name={`${markerName}.value`} control={control} />
 				</Box>
 				<Box>

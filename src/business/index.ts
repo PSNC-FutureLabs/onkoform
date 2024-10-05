@@ -5,7 +5,7 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 8,
-	patchNo: 5,
+	patchNo: 6,
 	status: "alpha",
 	date: "2024.10.05",
 };
@@ -292,57 +292,17 @@ export const formDefaultValues: Partial<FormFields> = {
 	"headache-rating": "",
 	"pain-anxiety-rating": "",
 	"mucosal-toxicities-rating": "",
-	HGB: {
-		value: 0,
-		unit: "g/dl",
-	},
-	WBC: {
-		value: 0,
-		unit: "K/μl",
-	},
-	PLT: {
-		value: 0,
-		unit: "K/μl",
-	},
-	NEUT: {
-		value: 0,
-		unit: "K/μl",
-	},
-	ALT: { value: null, unit: "U/l" },
-	AST: { value: null, unit: "U/l" },
-	HGBprev: {
-		value: 0,
-		unit: "g/dl",
-	},
-	WBCprev: {
-		value: 0,
-		unit: "K/μl",
-	},
-	PLTprev: {
-		value: 0,
-		unit: "K/μl",
-	},
-	NEUTprev: {
-		value: 0,
-		unit: "K/μl",
-	},
-	ALTprev: { value: null, unit: "U/l" },
-	ASTprev: { value: null, unit: "U/l" },
 };
 
 export const formTestValues: Partial<FormFields> = {
 	gender: "male",
 	medicalCondition: "all",
-	hospitalWard: "",
+	hospitalWard: "o3",
 	temperature: 36.6,
 	symptoms: [],
 	"headache-rating": "",
 	"pain-anxiety-rating": "",
 	"mucosal-toxicities-rating": "",
-	HGB: {
-		value: 10.9,
-		unit: "g/dl",
-	},
 	WBC: {
 		value: 1.9,
 		unit: "K/μl",

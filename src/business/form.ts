@@ -14,7 +14,7 @@ import {
 
 export const schema = z.object({
 	dateOfBirth: dateSchema,
-	gender: z.string({ required_error: ERROR_MESSAGES.required }),
+	gender: z.string({ required_error: ERROR_MESSAGES.requiredSelection }),
 	medicalCondition: dropdownSchema,
 	hospitalWard: dropdownSchema,
 	temperature: temperatureSchema,
