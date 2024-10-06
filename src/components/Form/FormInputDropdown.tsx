@@ -3,38 +3,55 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { Controller } from "react-hook-form";
 import { InputDropdownProps, DropdownOptionsType } from "../../business/types";
 import { FormWarningText } from "./FormWarningText";
+import { Trans, useTranslation } from "react-i18next";
 
-export const FormInputDropdown: React.FC<InputDropdownProps> = ({ name, control, label, options }) => {
-	return (
-		<FormControl size={"small"}>
-			<InputLabel>{label}</InputLabel>
-			<Controller
-				render={({ field: { onChange, onBlur, ref, value }, fieldState: { error } }) => (
-					<>
-						<Select
-							onChange={onChange}
-							onBlur={onBlur}
-							ref={ref}
-							value={value}
-							error={!!error}
-							label={label}
-							displayEmpty
-						>
-							<MenuItem disabled value="">
-								<em>Wybierz...</em>
-							</MenuItem>
-							{options.map((option: DropdownOptionsType) => (
-								<MenuItem key={option.value} value={option.value}>
-									{option.label}
-								</MenuItem>
-							))}
-						</Select>
-						<FormWarningText text={error?.message} />
-					</>
-				)}
-				control={control}
-				name={name}
-			/>
-		</FormControl>
-	);
+export const FormInputDropdown: React.FC<InputDropdownProps> = ({
+  name,
+  control,
+  label,
+  options,
+}) => {
+  function onBlur(
+    event: FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>
+  ): void {
+    throw new Error("Function not implemented.");
+  }
+  const { t } = useTranslation();
+  return (
+    <FormControl size={"small"}>
+      <InputLabel>{label}</InputLabel>
+      <Controller
+        render={({
+          field: { onChange, onBlur, ref, value },
+          fieldState: { error },
+        }) => (
+          <>
+            <Select
+              onChange={onChange}
+              onBlur={onBlur}
+              ref={ref}
+              value={value}
+              error={!!error}
+              label={label}
+              displayEmpty
+            >
+              <MenuItem disabled value="">
+                <em>
+                  <Trans t={t}>ns2:Select</Trans>...
+                </em>
+              </MenuItem>
+              {options.map((option: DropdownOptionsType) => (
+                <MenuItem key={option.value} value={option.value}>
+                  <Trans t={t}>{option.label}</Trans>
+                </MenuItem>
+              ))}
+            </Select>
+            <FormWarningText text={error?.message} />
+          </>
+        )}
+        control={control}
+        name={name}
+      />
+    </FormControl>
+  );
 };

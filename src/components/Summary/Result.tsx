@@ -1,15 +1,17 @@
 import { Stack, Alert, Typography } from "@mui/material";
 import { Diagnosis } from "../../business/types";
+import { Trans, useTranslation } from "react-i18next";
 
 export const Result = ({ diagnose }: { diagnose: Diagnosis }) => {
-	return (
-		<Stack>
-			<Alert severity={diagnose.severity}>
-				<Typography variant="h6" color="black">
-					{diagnose.header}
-				</Typography>
-				{diagnose.body}
-			</Alert>
-		</Stack>
-	);
+  const { t } = useTranslation();
+  return (
+    <Stack>
+      <Alert severity={diagnose.severity}>
+        <Typography variant="h6" color="black">
+          <Trans t={t}>{diagnose.header}</Trans>
+        </Typography>
+        <Trans t={t}>{diagnose.body}</Trans>
+      </Alert>
+    </Stack>
+  );
 };
