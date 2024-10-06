@@ -19,7 +19,6 @@ export const FormInputDate = ({ name, control, label }: FormInputProps) => {
 							error: !!error,
 							helperText: error ? error?.message : " ",
 							onBlur,
-							disabled: true
 						},
 					}}
 				/>
