@@ -4,6 +4,7 @@ import { BasicInfo } from "./BasicInfo";
 import { Result } from "./Result";
 import { AlarmingSymptoms } from "./AlarmingSymptoms";
 import { Morphology } from "./Morphology";
+import { isLocalhost } from "../../helpers";
 import {
 	UnitType,
 	SymptomValues,
@@ -208,7 +209,7 @@ export const Summary = () => {
 		DiagnosesDefinitions.find((item) => item.level === calculatedDiagnosisLevel) ??
 		DiagnosesDefinitions[DiagnosisLevel.Unconclusive];
 
-	if (window.location.hostname === "localhost" && diagnosisLog.length > 0) {
+	if (isLocalhost && diagnosisLog.length > 0) {
 		console.log(diagnosisLog);
 	}
 
