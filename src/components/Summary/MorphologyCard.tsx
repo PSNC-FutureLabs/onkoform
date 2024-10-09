@@ -54,7 +54,7 @@ export const MorphologyCard = ({
                 />
               </Tooltip>
             </Stack>
-            <Stack direction="row">
+            <Stack direction="row" spacing={3}>
               <Box width="50%">
                 {bloodMarker.getValue() ? (
                   <MorphologyCardTile

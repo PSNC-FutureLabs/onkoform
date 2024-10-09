@@ -8,13 +8,14 @@ import plNs1 from "../locales/pl/ns1.json";
 import plNs2 from "../locales/pl/ns2.json";
 import uaNs1 from "../locales/ua/ns1.json";
 import uaNs2 from "../locales/ua/ns2.json";
+import { isLocalhost } from "../helpers";
 export const defaultNS = "ns1";
 
 i18next
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    debug: true,
+    debug: isLocalhost ? true : false,
     fallbackLng: "pl",
     supportedLngs: ["pl", "en", "ua"],
     defaultNS,

@@ -4,17 +4,19 @@ import {
   getMedicalConditionValue,
   getGenderValue,
   getHospitalWardValue,
-  getPolishAgeDescription,
+  //getPolishAgeDescription,
+  getAgeDescription,
 } from "../../helpers";
 import { BasicInfoCard } from "./BasicInfoCard";
 import { Trans, useTranslation } from "react-i18next";
 
 export const BasicInfo = () => {
   const { getValues } = useFormContext();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const genderValue = getGenderValue(getValues("gender"));
-  const ageDescription = getPolishAgeDescription(
-    new Date(getValues("dateOfBirth"))
+  const ageDescription = getAgeDescription(
+    new Date(getValues("dateOfBirth")),
+    i18n.language
   );
   const medicalCondition = getMedicalConditionValue(
     getValues("medicalCondition")
@@ -29,10 +31,14 @@ export const BasicInfo = () => {
         </Trans>
       </Typography>
       <Grid container spacing={2}>
-        <BasicInfoCard label="Age" value={ageDescription ?? ""} />
-        <BasicInfoCard label="Gender" value={genderValue ?? ""} />
-        <BasicInfoCard label="Affliction" value={medicalCondition ?? ""} />
-        <BasicInfoCard label="Ward" value={hospitalWard ?? ""} />
+        <BasicInfoCard
+          label="ns2:Age"
+          value={ageDescription ?? ""}
+          skipValTrans={true}
+        />
+        <BasicInfoCard label="ns2:Gender" value={genderValue ?? ""} />
+        <BasicInfoCard label="ns2:Affliction" value={medicalCondition ?? ""} />
+        <BasicInfoCard label="ns2:Ward" value={hospitalWard ?? ""} />
       </Grid>
     </Stack>
   );

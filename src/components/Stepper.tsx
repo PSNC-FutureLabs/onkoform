@@ -67,16 +67,12 @@ export default function StepController() {
         actualLabTestDate < dateOfBirth ||
         previousLabTestDate < dateOfBirth
       ) {
-        setValidationAlertText(
-          "Data badania nie może być wcześniejsza niż data urodzenia."
-        );
+        setValidationAlertText(t("errorDateOfBirthMustBeEralier"));
         scrollToTop();
         return false;
       }
       if (actualLabTestDate < previousLabTestDate) {
-        setValidationAlertText(
-          "Data poprzedniego badania nie może być późniejsza niż data aktualnego badania."
-        );
+        setValidationAlertText(t("errorDateOfExaminationMustBeLater"));
         scrollToTop();
         return false;
       }
@@ -385,7 +381,9 @@ export default function StepController() {
                 >
                   <Button variant="outlined" onClick={handlePrevious}>
                     <NavigateBeforeIcon />
-                    Cofnij
+                    <Trans t={t} ns="ns2">
+                      Back
+                    </Trans>
                   </Button>
                   <Button variant="contained" onClick={() => handleStart(true)}>
                     <Trans t={t} ns="ns2">

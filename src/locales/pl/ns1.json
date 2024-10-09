@@ -1,6 +1,6 @@
 {
   "landing-1": "Wyniki badań krwi<br/>u dzieci z chorobami<br/>nowotworowymi",
-  "landing-2": "Kliknij “Rozpocznij” i przejdź do szybkiej i prostej analizy wyników badania krwi Twojego dziecka",
+  "landing-2": "Kliknij “Rozpocznij”, aby przejść do szybkiej i prostej analizy wyników badania krwi Twojego dziecka",
   "landing-3": "W prosty i intuicyjny sposób zweryfikuj <strong>niepokojące</strong> objawy i wyniki badań laboratoryjnych <strong>Twojego dziecka</strong>.",
   "landing-4": "Dowiedz się czy konieczne jest powtórzenie badań lub pilna konsultacja z lekarzem. Jeśli tak - otrzymasz także potrzebny numer telefonu. Zajmie Ci to jedynie około trzech minut.",
   "landing-5": "Dane<br/>pacjenta",
@@ -67,10 +67,18 @@
   "errorNEUTMaxValue2": "Maksymalna wartość parametru: 20000",
   "errorALTMaxValue": "Maksymalna wartość parametru: 99",
   "errorASTMaxValue": "Maksymalna wartość parametru: 99",
+  "errorDateOfBirthMustBeEralier": "Data badania nie może być wcześniejsza niż data urodzenia.",
+  "errorDateOfExaminationMustBeLater": "Data poprzedniego badania nie może być późniejsza niż data aktualnego badania.",
 
   "female": "kobieta",
   "male": "mężczyzna",
   "other": "inna",
+  "year": "rok",
+  "years": "lata",
+  "years2": "lat",
+  "month": "miesiąc",
+  "months": "miesiące",
+  "months2": "miesięcy",
 
   "medicalConditionALL": "ALL (ostra białaczka limfoblastyczna)",
   "medicalConditionAML": "AML (ostra białaczka mieloblastyczna/szpikowa)",

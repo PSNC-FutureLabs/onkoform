@@ -11,21 +11,20 @@ export const AlarmingSymptoms = () => {
   const temperature = getValues("temperature");
 
   const symptoms = getValues("symptoms");
+
   const selectedSymptoms = symptomsOptions
     .filter((option) => symptoms.includes(option.value))
-    .map(
-      (option) =>
-        option.label +
-        (option.value == "headache"
-          ? ` (${getValues("headache-rating")}/5)`
-          : "") +
-        (option.value == "pain-anxiety"
-          ? ` (${getValues("pain-anxiety-rating")}/5)`
-          : "") +
-        (option.value == "mucosal-toxicities"
-          ? ` (${getValues("mucosal-toxicities-rating")}/4)`
-          : "")
-    );
+    .map((option) => {
+      let rating = "";
+      if (option.value === "headache") {
+        rating = ` (${getValues("headache-rating")}/5)`;
+      } else if (option.value === "pain-anxiety") {
+        rating = ` (${getValues("pain-anxiety-rating")}/5)`;
+      } else if (option.value === "mucosal-toxicities") {
+        rating = ` (${getValues("mucosal-toxicities-rating")}/4)`;
+      }
+      return `${t(option.label)}${rating}`;
+    });
 
   return (
     <Stack mt={3} pt={2} borderTop="1px solid #EFF0F1">
@@ -36,10 +35,14 @@ export const AlarmingSymptoms = () => {
       </Typography>
       <Grid container spacing={2}>
         <BasicInfoCard
-          label="BodyTemperature"
+          label="ns2:BodyTemperature"
           value={`${getFormattedNumber(temperature, 1)} °C`}
+          skipValTrans={true}
         />
-        <BasicInfoCard label="AssociatedSymptoms" value={selectedSymptoms} />
+        <BasicInfoCard
+          label="ns2:AssociatedSymptoms"
+          value={selectedSymptoms}
+        />
       </Grid>
     </Stack>
   );
