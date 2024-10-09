@@ -137,13 +137,26 @@ export function getAgeDescription(dateOfBirth: Date, language: string): string {
     }
   }
 
+  function getAndString(lang: Language): string {
+    switch (lang) {
+      case "en":
+        return "and";
+      case "pl":
+        return "i";
+      case "ua":
+        return "і";
+    }
+  }
+
   const yearDeclination = getYearDeclination(years, language as Language);
   const monthDeclination = getMonthDeclination(months, language as Language);
+  const andString = getAndString(language as Language);
 
   let ageString =
     years > 0 ? (years > 1 ? `${years} ` : "") + `${yearDeclination}` : "";
   if (months > 0) {
-    ageString += (years > 0 ? " and " : "") + `${months} ${monthDeclination}`;
+    ageString +=
+      (years > 0 ? ` ${andString} ` : "") + `${months} ${monthDeclination}`;
   }
 
   return ageString.trim();

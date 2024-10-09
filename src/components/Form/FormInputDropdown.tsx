@@ -11,11 +11,6 @@ export const FormInputDropdown: React.FC<InputDropdownProps> = ({
   label,
   options,
 }) => {
-  function onBlur(
-    event: FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>
-  ): void {
-    throw new Error("Function not implemented.");
-  }
   const { t } = useTranslation();
   return (
     <FormControl size={"small"}>
