@@ -1,5 +1,6 @@
 import { TextField } from "@mui/material";
 import { Control, Controller, FieldValues } from "react-hook-form";
+import { Trans, useTranslation } from "react-i18next";
 
 type FormTextAreaProps = {
   name: string;
@@ -13,6 +14,7 @@ export const FormTextArea = ({
   control,
   placeholder,
 }: FormTextAreaProps) => {
+  const { t } = useTranslation();
   return (
     <Controller
       name={name}
@@ -23,7 +25,7 @@ export const FormTextArea = ({
           onChange={onChange}
           multiline
           error={!!error}
-          helperText={error?.message}
+          helperText={<Trans t={t}>{error?.message}</Trans>}
           placeholder={placeholder}
           style={{ width: "100%" }}
         />

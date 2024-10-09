@@ -6,6 +6,7 @@ import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDiss
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import React from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 const customIcons: {
 	[index: string]: {
@@ -13,25 +14,25 @@ const customIcons: {
 		label: string;
 	};
 } = {
-	1: {
+	"1": {
 		icon: <SentimentSatisfiedIcon color="success" />,
-		label: "Trochę boli",
+		label: "headacheRating1",
 	},
-	2: {
+	"2": {
 		icon: <SentimentDissatisfiedIcon color="warning" />,
-		label: "Boli trochę mocniej",
+		label: "headacheRating2",
 	},
-	3: {
+	"3": {
 		icon: <SentimentDissatisfiedIcon color="warning" />,
-		label: "Mocno boli",
+		label: "headacheRating3",
 	},
-	4: {
+	"4": {
 		icon: <SentimentDissatisfiedIcon color="error" />,
-		label: "Bardzo mocno boli",
+		label: "headacheRating4",
 	},
-	5: {
+	"5": {
 		icon: <SentimentVeryDissatisfiedIcon color="error" />,
-		label: "Strasznie boli",
+		label: "headacheRating5",
 	},
 };
 
@@ -42,6 +43,7 @@ function IconContainer(props: IconContainerProps) {
 
 export const FormCustomRating: React.FC<FormInputProps> = ({ name, control }) => {
 	const [hover, setHover] = React.useState<number>(-1);
+	const { t } = useTranslation();
 	return (
 		<FormControl>
 			<Controller
@@ -59,18 +61,26 @@ export const FormCustomRating: React.FC<FormInputProps> = ({ name, control }) =>
 							onBlur={onBlur}
 							size="large"
 							IconContainerComponent={IconContainer}
-							getLabelText={(value: number) => customIcons[value].label}
+							getLabelText={(value: number) => t(customIcons[value].label)}
 							highlightSelectedOnly
 						/>
-						{ (
+						{
 							<Chip
-								variant={ hover > 0 ? "outlined" : "filled"}
+								variant={hover > 0 ? "outlined" : "filled"}
 								color="warning"
 								size="medium"
 								sx={{ ml: 1 }}
-								label={ hover > 0 ? customIcons[hover].label : value > 0 ? customIcons[value].label : "?"}
+								label={
+									hover > 0 ? (
+										<Trans t={t}>{customIcons[hover].label}</Trans>
+									) : value > 0 ? (
+										<Trans t={t}>{customIcons[value].label}</Trans>
+									) : (
+										"?"
+									)
+								}
 							/>
-						)}
+						}
 					</Stack>
 				)}
 			/>

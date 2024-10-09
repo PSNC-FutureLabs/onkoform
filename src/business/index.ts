@@ -4,10 +4,10 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 
 export const versionTag = {
 	majorNo: 0,
-	minorNo: 8,
-	patchNo: 8,
+	minorNo: 9,
+	patchNo: 0,
 	status: "alpha",
-	date: "2024.10.06",
+	date: "2024.10.09",
 };
 
 export const versionText = (): string =>
@@ -23,8 +23,8 @@ export type StepType = {
 export const steps: Array<StepType> = [
 	{
 		id: 1,
-		name: "Informacje o pacjencie",
-		header: "Uważnie wypełnij wszystkie pola",
+		name: "stepperStepName1",
+		header: "stepperStepHeader1",
 		fields: [
 			"dateOfBirth",
 			"gender",
@@ -36,14 +36,14 @@ export const steps: Array<StepType> = [
 	},
 	{
 		id: 2,
-		name: "Niepokojące objawy",
-		header: "Uważnie wypełnij wszystkie pola",
+		name: "ns2:ConcerningSymptoms",
+		header: "stepperStepHeader2",
 		fields: ["temperature", "symptoms"],
 	},
 	{
 		id: 3,
-		name: "Aktualne badania",
-		header: "Podaj wyniki <strong>aktualnego</strong> badania krwi",
+		name: "stepperStepName3",
+		header: "stepperStepHeader3",
 		fields: [
 			["HGB.value", "HGB.unit"],
 			["WBC.value", "WBC.unit"],
@@ -55,8 +55,8 @@ export const steps: Array<StepType> = [
 	},
 	{
 		id: 4,
-		name: "Poprzednie badania",
-		header: "Podaj wyniki <strong>poprzedniego</strong> badania krwi",
+		name: "stepperStepName4",
+		header: "stepperStepHeader4",
 		fields: [
 			["HGBprev.value", "Hgbprev.unit"],
 			["WBCprev.value", "WBCprev.unit"],
@@ -68,42 +68,42 @@ export const steps: Array<StepType> = [
 	},
 	{
 		id: 5,
-		name: "Wyniki",
-		header: "Wyniki",
+		name: "stepperStepName5",
+		header: "stepperStepHeader5",
 		fields: [],
 	},
 ];
 
 export const genderOptions: RadioOptionsType[] = [
 	{
-		label: "kobieta",
+		label: "female",
 		value: "female",
 	},
 	{
-		label: "mężczyzna",
+		label: "male",
 		value: "male",
 	},
 	{
-		label: "inna",
+		label: "other",
 		value: "other",
 	},
 ];
 
 export const mucosalToxicitiesLevels: RadioOptionsType[] = [
 	{
-		label: "Pojawienie się bólu z możliwym towarzyszącym zaczerwienieniem śluzówek",
+		label: "mucosalToxicitiesLevels1",
 		value: "1",
 	},
 	{
-		label: "Silne zaczerwienienie, owrzodzenia, dziecko może przyjmować pokarmy doustne",
+		label: "mucosalToxicitiesLevels2",
 		value: "2",
 	},
 	{
-		label: "Nasilone owrzodzenia z towarzyszącym obrzękiem, dziecko odmawia przyjmowania pokarmów stałych",
+		label: "mucosalToxicitiesLevels3",
 		value: "3",
 	},
 	{
-		label: "Objawy są bardzo nasilone, uniemożliwiają przyjmowanie pokarmów stałych",
+		label: "mucosalToxicitiesLevels4",
 		value: "4",
 	},
 ];
@@ -122,158 +122,151 @@ export const measurementPlaceOptions: RadioOptionsType[] = [
 
 export const medicalConditionOptions: DropdownOptionsType[] = [
 	{
-		label: "ALL (ostra białaczka limfoblastyczna)",
+		label: "medicalConditionALL",
 		value: "all",
 	},
 	{
-		label: "AML (ostra białaczka mieloblastyczna/szpikowa)",
+		label: "medicalConditionAML",
 		value: "aml",
 	},
 	{
-		label: "CML (przewlekły nowotwór mieloproliferacyjny)",
+		label: "medicalConditionCML",
 		value: "cml",
 	},
 	{
-		label: "Guzy germinalne",
+		label: "medicalConditionGermCellTumors",
 		value: "germ-cell-tumors",
 	},
 	{
-		label: "Chłoniak Hodgkina",
+		label: "medicalConditionHodgkinLymphoma",
 		value: "hodgkin-lymphoma",
 	},
 	{
-		label: "Chłoniak Burkitta",
+		label: "medicalConditionBurkittLymphoma",
 		value: "burkitt-lymphoma",
 	},
 	{
-		label: "Inne chłoniaki",
+		label: "medicalConditionOtherLymphomas",
 		value: "other-lymphomas",
 	},
 	{
-		label: "Neuroblastoma",
+		label: "medicalConditionNeuroblastoma",
 		value: "neuroblastoma",
 	},
 	{
-		label: "Guz Wilmsa",
+		label: "medicalConditionWilmsTumor",
 		value: "wilms-tumor",
 	},
 	{
-		label: "Mięsaki tkanek miękkich",
+		label: "medicalConditionSoftTissueSarcomas",
 		value: "soft-tissue-sarcomas",
 	},
 	{
-		label: "Guzy OUN",
+		label: "medicalConditionCentralNervousSystemsTumors",
 		value: "central-nervous-systems-tumors",
 	},
 	{
-		label: "MDS (zespoły mielodysplastyczne)",
+		label: "medicalConditionMDS",
 		value: "mds",
 	},
 	{
-		label: "HLH (limfohistiocytoza hemofagocytowa)",
+		label: "medicalConditionHLH",
 		value: "hlh",
 	},
 ];
 
 export const hospitalWardOptions: DropdownOptionsType[] = [
 	{
-		label: "Oddział III",
+		label: "hospitalWardo3",
 		value: "o3",
 	},
 	{
-		label: "Oddział V",
+		label: "hospitalWardo5",
 		value: "o5",
 	},
 	{
-		label: "Oddział TSK",
+		label: "hospitalWardotsk",
 		value: "otsk",
 	},
 	{
-		label: "Oddział Dzienny V/D",
+		label: "hospitalWardodvd",
 		value: "odvd",
 	},
 	{
-		label: "Poradnia Onkologiczna",
+		label: "hospitalWardpo",
 		value: "po",
 	},
 	{
-		label: "Poradnia TSK",
+		label: "hospitalWardptsk",
 		value: "ptsk",
 	},
 ];
 
 export const symptomsOptions: MultiCheckboxOptionsType[] = [
 	{
-		label: "dreszcze",
+		label: "symptomsOptionsChillsLabel",
 		value: "chills",
-		description: "uczucie zimna połączone z drżeniem mięśni",
+		description: "symptomsOptionsChillsDesc",
 	},
 	{
-		label: "senność/osłabienie",
+		label: "symptomsOptionsDrowsinessWeaknessLabel",
 		value: "drowsiness-weakness",
-		description: "zwiększona potrzeba snu/obniżenie sił fizycznych",
+		description: "symptomsOptionsDrowsinessWeaknessDesc",
 	},
 	{
-		label: "ból głowy",
+		label: "symptomsOptionsHeadacheLabel",
 		value: "headache",
-		description:
-			"dolegliwości bólowe, lokalizujące się w okolicy głowy - zarówno w obrębie jej skóry, jak i lokalizujący się wewnątrzczaszkowo",
+		description: "symptomsOptionsHeadacheDesc",
 	},
 	{
-		label: "toksyczności śluzówkowe",
+		label: "symptomsOptionsMucosalToxicitiesLabel",
 		value: "mucosal-toxicities",
-		description:
-			"powikłania śluzówkowe chemioterapii, zmiany toksyczne śluzówek jamy ustnej, przewodu pokarmowego oraz często okolic krocza oraz odbytu; nadżerki, afty, zmiany podkrwawiające, często bolesne, wymagające podawania leków przeciwbólowych.",
+		description: "symptomsOptionsMucosalToxicitiesDesc",
 	},
 	{
-		label: "utrzymujące się wymioty",
+		label: "symptomsOptionsVomitingLabel",
 		value: "vomiting",
-		description: "nagłe wydalenie treści żołądkowej, zazwyczaj poprzedzone nudnościami",
+		description: "symptomsOptionsVomitingDesc",
 	},
 	{
-		label: "biegunka",
+		label: "symptomsOptionsDiarrheaLabel",
 		value: "diarrhea",
-		description:
-			"oddanie 3 lub więcej luźnych/wodnistych stolców w ciągu doby lub stolec zawierający śluz, krew lub ropę",
+		description: "symptomsOptionsDiarrheaDesc",
 	},
 	{
-		label: "krwawienie",
+		label: "symptomsOptionsBleedingLabel",
 		value: "bleeding",
-		description:
-			"utrata krwi w skutek np. urazu naczynia krwionośnego, które może być szczególnie nasilone i gwałtowne w przypadku zaburzeń hematologicznych takich, jak obniżona liczna płytek krwi czy zaburzenia krzepnięcia",
+		description: "symptomsOptionsBleedingDesc",
 	},
 	{
-		label: "nowe/świeże wybroczyny",
+		label: "symptomsOptionsFreshPetechiaeLabel",
 		value: "fresh-petechiae",
-		description:
-			"punkcikowe, czerwone zmiany, pojawiające się przy niskiej liczbie płytek krwi, świadczące o skazie krwotocznej",
+		description: "symptomsOptionsFreshPetechiaeDesc",
 	},
 	{
-		label: "sinica lub zasinienie ciała",
+		label: "symptomsOptionsCyanosisOrBodyBruisingLabel",
 		value: "cyanosis-or-body-bruising",
-		description:
-			"pojawienie się niebieskawego zabarwienia skóry, a także błon śluzowych u dziecka, wiążąca się z rozpoczynającym się niedotlenieniem organizmu.",
+		description: "symptomsOptionsCyanosisOrBodyBruisingDesc",
 	},
 	{
-		label: "nasilone obrzęki obwodowe",
+		label: "symptomsOptionsSeverePeripheralEdemaLabel",
 		value: "severe-peripheral-edema",
-		description:
-			"gromadzenie nadmiaru płynu najczęściej w okolicy kostek lub, w przypadku pozycji leżącej, w okolicy lędźwiowej",
+		description: "symptomsOptionsSeverePeripheralEdemaDesc",
 	},
 	{
-		label: "drgawki / brak kontaktu",
+		label: "symptomsOptionsSeizuresUnresponsivenessLabel",
 		value: "seizures-unresponsiveness",
-		description:
-			"mimowolne, gwałtowne skurcze mięśni u dzieci, mogące być objawem choroby neurologicznej, jak i współwystępować z podwyższoną ciepłotą ciała",
+		description: "symptomsOptionsSeizuresUnresponsivenessDesc",
 	},
 	{
-		label: "zaburzenia widzenia",
+		label: "symptomsOptionsVisionDisturbancesLabel",
 		value: "vision-disturbances",
-		description: "zgłaszane przez dziecko pogorszenie jakości widzenia, zniekształcenie obrazu, utrata wzroku",
+		description: "symptomsOptionsVisionDisturbancesDesc",
 	},
 	{
-		label: "ból / niepokój",
+		label: "symptomsOptionspainAnxietyLabel",
 		value: "pain-anxiety",
+		/*description: "symptomsOptionspainAnxietyDesc",*/
 	},
 ];
 
@@ -303,6 +296,10 @@ export const formTestValues: Partial<FormFields> = {
 	"headache-rating": "",
 	"pain-anxiety-rating": "",
 	"mucosal-toxicities-rating": "",
+	HGB: {
+		value: 10.9,
+		unit: "g/dl",
+	},
 	WBC: {
 		value: 1.9,
 		unit: "K/μl",
@@ -315,8 +312,8 @@ export const formTestValues: Partial<FormFields> = {
 		value: 0.26,
 		unit: "K/μl",
 	},
-	ALT: { value: null, unit: "U/l" },
-	AST: { value: null, unit: "U/l" },
+	ALT: { value: 1, unit: "U/l" },
+	AST: { value: 1, unit: "U/l" },
 	HGBprev: {
 		value: 11.6,
 		unit: "g/dl",
@@ -333,8 +330,8 @@ export const formTestValues: Partial<FormFields> = {
 		value: 0.31,
 		unit: "K/μl",
 	},
-	ALTprev: { value: null, unit: "U/l" },
-	ASTprev: { value: null, unit: "U/l" },
+	ALTprev: { value: 1, unit: "U/l" },
+	ASTprev: { value: 1, unit: "U/l" },
 };
 
 export function getFormDefaultValues(): Partial<FormFields> {
