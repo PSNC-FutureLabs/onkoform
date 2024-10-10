@@ -47,6 +47,7 @@ export type MarkerRowProps = {
 	label: React.ReactNode;
 	options: UnitType[];
 	description?: string;
+	optional?: boolean;
 };
 
 export type BloodMarkersNames = "HGB" | "WBC" | "PLT" | "NEUT" | "ALT" | "AST";
