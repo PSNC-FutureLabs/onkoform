@@ -20,6 +20,7 @@ import { getFormDefaultValues } from "./business";
 import "./App.css";
 import Stepper from "./components/Stepper";
 import Footer from "./components/Footer";
+import { useState } from "react";
 
 const defaultTheme = createTheme();
 
@@ -164,6 +165,7 @@ const localesText: Record<SupportedLocales, any> = {
 };
 
 function App() {
+  const [locale, setLocale] = useState(i18n.language);
   const methods = useForm<FormFields>({
     defaultValues: getFormDefaultValues(),
     resolver: zodResolver(schema),
@@ -175,14 +177,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <FormProvider {...methods}>
         <form>
-          {" "}
           <LocalizationProvider
             dateAdapter={AdapterDayjs}
-            adapterLocale={
-              locales[(i18n.language as keyof typeof locales) || "pl"]
-            }
+            adapterLocale={locales[(locale as keyof typeof locales) || "pl"]}
             localeText={
-              localesText[(i18n.language as keyof typeof localesText) || "pl"]
+              localesText[(locale as keyof typeof localesText) || "pl"]
             }
           >
             <CssBaseline />
@@ -196,7 +195,7 @@ function App() {
                 },
               }}
             >
-              <Stepper />
+              <Stepper setLocale={setLocale} locale={locale} />
               <Footer />
             </Container>
           </LocalizationProvider>

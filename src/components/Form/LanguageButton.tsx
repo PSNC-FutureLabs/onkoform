@@ -18,12 +18,9 @@ const LanguageButton: React.FC<LanguageButtonProps> = ({
         variant="outlined"
         size="large"
         sx={{
-          width: "41px",
-          height: "40px",
           padding: "8px 10px",
-          gap: "8px",
-          border: activeLanguage === lang ? "none" : "1px solid white",
-          borderRadius: 0,
+          border:
+            activeLanguage === lang ? "1px solid black" : "1px solid white",
           opacity: activeLanguage === lang ? 1 : 0.5,
           backgroundColor: activeLanguage === lang ? "black" : "transparent",
           color: "white",
@@ -31,6 +28,8 @@ const LanguageButton: React.FC<LanguageButtonProps> = ({
             backgroundColor: activeLanguage === lang ? "black" : "transparent",
             opacity: 1,
           },
+          minWidth: "unset",
+          lineHeight: 1,
         }}
         onClick={() => changeLanguage(lang)}
       >
