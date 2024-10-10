@@ -146,7 +146,12 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 									<Trans t={t}>landing-2</Trans>
 								</Typography>
 								<Box display="flex" justifyContent="center">
-									<Button variant="contained" size="large" onClick={onClickStart}>
+									<Button
+										variant="contained"
+										size="large"
+										onClick={onClickStart}
+										sx={{ minWidth: "140px" }}
+									>
 										<Trans t={t} ns="ns2">
 											Start
 										</Trans>
@@ -288,7 +293,12 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						</Grid>
 						<Grid item component="section" xs={12}>
 							<Box display="flex" justifyContent="center" p={4}>
-								<Button variant="contained" size="large" onClick={onClickStart}>
+								<Button
+									variant="contained"
+									size="large"
+									onClick={onClickStart}
+									sx={{ minWidth: "240px" }}
+								>
 									<Trans t={t} ns="ns2">
 										Go-to-form
 									</Trans>
@@ -447,7 +457,12 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 						/>
 						<Grid item component="section" xs={12} pb={{ xs: 3, sm: 6 }}>
 							<Box display="flex" justifyContent="center" p={4}>
-								<Button variant="contained" size="large" onClick={onClickStart}>
+								<Button
+									variant="contained"
+									size="large"
+									onClick={onClickStart}
+									sx={{ minWidth: "240px" }}
+								>
 									<Trans t={t} ns="ns2">
 										Go-to-form
 									</Trans>
