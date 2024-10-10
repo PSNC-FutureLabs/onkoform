@@ -53,6 +53,7 @@ export default function Step3() {
         label="LabelALT"
         description={BloodMarkerDescriptions.ALT}
         options={ALTUnits}
+        optional
       />
       <MarkerRow
         control={control}
@@ -60,6 +61,7 @@ export default function Step3() {
         label="LabelAST"
         description={BloodMarkerDescriptions.AST}
         options={ASTUnits}
+        optional
       />
     </Stack>
   );
