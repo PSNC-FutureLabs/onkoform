@@ -32,9 +32,15 @@ const handleScroll = (id: string) => {
 
 interface LandingPageProps {
   onClickStart: () => void;
+  setLocale: (language: string) => void;
+  locale: string;
 }
 
-export default function LandingPage({ onClickStart }: LandingPageProps) {
+export default function LandingPage({
+  onClickStart,
+  setLocale,
+  locale,
+}: LandingPageProps) {
   interface CoCreatorSubSectionProps {
     image: string;
     title: string;
@@ -87,7 +93,6 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
 
   const { t } = useTranslation();
   const [isModalOpen, setModalOpen] = useState(false);
-
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
@@ -106,6 +111,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
           onClose={closeModal}
           onClickStart={onClickStart}
         />
+
         <Container maxWidth="lg" disableGutters>
           <Grid
             container
@@ -119,8 +125,9 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
                 alignItems="center"
                 height={{ xs: 114, sm: 80 }}
                 px={{ sm: 2 }}
-                direction={{ xs: "column", sm: "row" }}
-                justifyContent={{ xs: "center", sm: "space-between" }}
+                direction={"row"}
+                justifyContent={"space-between"}
+                padding={3}
               >
                 <Box
                   component="img"
@@ -129,7 +136,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
                   height={{ xs: "20", sm: "32" }}
                 />
                 <Box my={{ xs: 2 }}>
-                  <LanguageSwitcher />
+                  <LanguageSwitcher setLocale={setLocale} locale={locale} />
                 </Box>
               </Stack>
             </Grid>
@@ -192,7 +199,7 @@ export default function LandingPage({ onClickStart }: LandingPageProps) {
                     onClick={() => handleScroll("sectionOverview")}
                     sx={{
                       borderRadius: "100%",
-                      boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.5)",
+                      //boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.5)",
                       width: { xs: "32px", sm: "64px" },
                       animation: "pulse 1.5s infinite ease-in-out",
                       "@keyframes pulse": {

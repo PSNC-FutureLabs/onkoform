@@ -35,7 +35,15 @@ const landingPage: number = -1;
 const firstStep: number = 0;
 const lastStep: number = steps.length - 1 - 1;
 
-export default function StepController() {
+interface StepControllerProps {
+  setLocale: (language: string) => void;
+  locale: string;
+}
+
+export default function StepController({
+  setLocale,
+  locale,
+}: StepControllerProps) {
   const [activeStep, setActiveStep] = useState<number>(landingPage);
   const [lastValidatedStep, setLastValidatedStep] = useState<number>(firstStep);
   const { reset, trigger, handleSubmit, getValues } = useFormContext();
@@ -236,7 +244,13 @@ export default function StepController() {
   };
 
   if (activeStep === landingPage) {
-    return <LandingPage onClickStart={() => handleStart(false)} />;
+    return (
+      <LandingPage
+        setLocale={setLocale}
+        locale={locale}
+        onClickStart={() => handleStart(false)}
+      />
+    );
   }
 
   const xsBackground = "linear-gradient(to top right, #7FBB53 40%, #04804C)";
@@ -259,6 +273,7 @@ export default function StepController() {
                 height={{ xs: 64, sm: 80 }}
                 display="flex"
                 alignItems="center"
+                sx={{ marginBottom: 5.25 }}
               >
                 <Box
                   component="img"
