@@ -19,7 +19,7 @@ export default function Step2() {
         <FormInputNumber
           name="temperature"
           control={control}
-          placeholder="podaj wartość w °C"
+          placeholder={t("SpecifyValueIn", { ns: "ns2" }) + " °C"}
           unit={TemperatureUnits}
         />
       </Stack>

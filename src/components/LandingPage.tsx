@@ -17,6 +17,8 @@ import imageCoCreatorLogo3 from "/images/logo-capgemini.svg";
 import imageCoCreatorLogo4 from "/images/logo-psnc-future-labs.svg";
 import { Trans, useTranslation } from "react-i18next";
 import LanguageSwitcher from "./Form/FormLanguageSwitcher";
+import { TransitionsModal } from "./TransitionsModal";
+import { useState } from "react";
 
 const handleScroll = (id: string) => {
   const targetElement = document.getElementById(id);
@@ -90,6 +92,9 @@ export default function LandingPage({
   };
 
   const { t } = useTranslation();
+  const [isModalOpen, setModalOpen] = useState(false);
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
   return (
     <>
@@ -101,6 +106,12 @@ export default function LandingPage({
           backgroundRepeat: "no-repeat",
         }}
       >
+        <TransitionsModal
+          open={isModalOpen}
+          onClose={closeModal}
+          onClickStart={onClickStart}
+        />
+
         <Container maxWidth="lg" disableGutters>
           <Grid
             container
@@ -170,7 +181,7 @@ export default function LandingPage({
                   <Button
                     variant="contained"
                     size="large"
-                    onClick={onClickStart}
+                    onClick={openModal}
                     sx={{ minWidth: "140px" }}
                   >
                     <Trans t={t} ns="ns2">
@@ -335,7 +346,7 @@ export default function LandingPage({
                 <Button
                   variant="contained"
                   size="large"
-                  onClick={onClickStart}
+                  onClick={openModal}
                   sx={{ minWidth: "240px" }}
                 >
                   <Trans t={t} ns="ns2">
@@ -516,7 +527,7 @@ export default function LandingPage({
                 <Button
                   variant="contained"
                   size="large"
-                  onClick={onClickStart}
+                  onClick={openModal}
                   sx={{ minWidth: "240px" }}
                 >
                   <Trans t={t} ns="ns2">
