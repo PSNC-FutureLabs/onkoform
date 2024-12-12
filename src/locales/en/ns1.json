@@ -137,5 +137,8 @@
   "headacheRating2": "Hurts a bit more",
   "headacheRating3": "Hurts a lot",
   "headacheRating4": "Hurts very much",
-  "headacheRating5": "Hurts terribly"
+  "headacheRating5": "Hurts terribly",
+
+  "transitionsPopupHeader": "Dear user!",
+  "transitionsPopupText": "Remember that this is only an auxiliary tool. The information included in this form does not constitute a medical diagnosis. Mali Mocni is only a tool with  educational value and illustrative information that is not binding the user in any way."
 }
