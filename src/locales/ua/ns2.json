@@ -7,6 +7,7 @@
   "Exit": "Вийти",
   "Back": "Назад",
   "Next": "Далі",
+  "Resign": "Відмовитися",
   "Results": "Результати",
   "FillAgain": "Заповнити знову",
   "Date-of-test": "Дата обстеження",
@@ -26,5 +27,6 @@
   "AssociatedSymptoms": "Супутні симптоми",
   "BodyTemperature": "Температура тіла",
   "ConcerningSymptoms": "Тривожні симптоми",
-  "Select": "Вибрати"
+  "Select": "Вибрати",
+  "SpecifyValueIn": "Вкажіть значення в"
 }

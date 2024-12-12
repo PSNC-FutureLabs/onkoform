@@ -137,5 +137,8 @@
   "headacheRating2": "Boli trochę mocniej",
   "headacheRating3": "Mocno boli",
   "headacheRating4": "Bardzo mocno boli",
-  "headacheRating5": "Strasznie boli"
+  "headacheRating5": "Strasznie boli",
+
+  "transitionsPopupHeader": "Drogi Użytkowniku!",
+  "transitionsPopupText": "Pamiętaj, że jest to jedynie narzędzie pomocnicze. Informacje zawarte w niniejszym formularzy nie stanowią diagnozy lekarskiej. Mali Mocni jest jedynie narzędziem stanowiącym wyłącznie wartość edukacyjną oraz informację poglądową niewiążącą użytkownika w żaden sposób."
 }

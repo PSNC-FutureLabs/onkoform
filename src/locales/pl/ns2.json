@@ -7,6 +7,7 @@
   "Exit": "Wyjdź",
   "Back": "Cofnij",
   "Next": "Dalej",
+  "Resign": "Rezygnuję",
   "Results": "Wyniki",
   "FillAgain": "Wypełnij ponownie",
   "Date-of-test": "Data badania",
@@ -26,5 +27,6 @@
   "AssociatedSymptoms": "Symptomy towarzyszące",
   "BodyTemperature": "Temperatura ciała",
   "ConcerningSymptoms": "Niepokojące objawy",
-  "Select": "Wybierz"
+  "Select": "Wybierz",
+  "SpecifyValueIn": "Podaj wartość w"
 }

@@ -7,6 +7,7 @@
   "Exit": "Exit",
   "Back": "Back",
   "Next": "Next",
+  "Resign": "Resign",
   "Results": "Results",
   "FillAgain": "Fill in again",
   "Date-of-test": "Date of test",
@@ -26,5 +27,8 @@
   "AssociatedSymptoms": "Associated symptoms",
   "BodyTemperature": "Body temperature",
   "ConcerningSymptoms": "Concerning symptoms",
-  "Select": "Select"
+  "Select": "Select",
+  "SpecifyValueIn": "Specify value in",
+  "": "Przechodzę Dalej",
+  "": "Rezygnuję"
 }
