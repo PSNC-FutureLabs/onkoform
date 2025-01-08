@@ -15,7 +15,7 @@ export default function Footer() {
 					>
 						<Box py={1}>
 							<Typography variant="body2" align="center" color="white">
-								&copy; 2024 by{" "}
+								&copy; 2025 by{" "}
 								<Link
 									href="https://psnc.pl"
 									target="_blank"

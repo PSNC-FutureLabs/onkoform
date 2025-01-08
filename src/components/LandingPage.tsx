@@ -1,5 +1,5 @@
 import Grid from "@mui/material/Grid";
-import { Box, Stack, Button, Typography, Container } from "@mui/material";
+import { Box, Stack, Button, Typography, Container, Link } from "@mui/material";
 import imageOrnament from "/images/desktop-main-background-ornament.svg";
 import imageTextLogo from "/images/logo-mm.svg";
 import imageCrownLogo from "/images/logo-mm-crown.svg";
@@ -45,12 +45,14 @@ export default function LandingPage({
     image: string;
     title: string;
     body: React.ReactNode;
+    link: string;
   }
 
   const CoCreatorSubSection: React.FC<CoCreatorSubSectionProps> = ({
     image,
     title,
     body,
+    link = "",
   }) => {
     return (
       <Grid item component="section" xs={12} sm={6} lg={3}>
@@ -65,17 +67,19 @@ export default function LandingPage({
             }}
           >
             <Box height={150} display="flex" alignItems="center">
-              <Box
-                component="img"
-                src={image}
-                alt={"logo " + title}
-                sx={{
-                  width: "100%",
-                  height: "auto",
-                  maxHeight: 150,
-                  objectFit: "contain",
-                }}
-              />
+              <Link href={link} target="_blank" rel="noopener noreferrer" underline="none">
+                <Box
+                  component="img"
+                  src={image}
+                  alt={"logo " + title}
+                  sx={{
+                    width: "100%",
+                    height: "auto",
+                    maxHeight: 150,
+                    objectFit: "contain",
+                  }}
+                />
+              </Link>
             </Box>
           </Box>
           <Typography
@@ -244,7 +248,7 @@ export default function LandingPage({
                   sx={{
                     height: { xs: 405, sm: 647 },
                   }}
-                  src={imageSectionOverview}
+                  src={t('imageSectionOverview')}
                   alt="poglądowy wygląd aplikacji na smartfonie"
                 />
                 <Box px={{ xs: 2, sm: 0 }} py={{ xs: 2, sm: 0 }}>
@@ -506,21 +510,25 @@ export default function LandingPage({
               image={imageCoCreatorLogo1}
               title="Szpital"
               body={<Trans t={t}>landing-16</Trans>}
+              link="https://www.skp.ump.edu.pl/"
             />
             <CoCreatorSubSection
               image={imageCoCreatorLogo2}
               title="Fundacja"
               body={<Trans t={t}>landing-17</Trans>}
+              link="https://fundacjapomocydzieciom.com.pl/"
             />
             <CoCreatorSubSection
               image={imageCoCreatorLogo3}
               title="Software House"
               body={<Trans t={t}>landing-18</Trans>}
+              link="https://www.capgemini.com"
             />
             <CoCreatorSubSection
               image={imageCoCreatorLogo4}
               title="Koordynacja"
               body={<Trans t={t}>landing-19</Trans>}
+              link="https://futurelabs.psnc.pl/"
             />
             <Grid item component="section" xs={12} pb={{ xs: 3, sm: 6 }}>
               <Box display="flex" justifyContent="center" p={4}>

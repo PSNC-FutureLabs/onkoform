@@ -140,5 +140,7 @@
   "headacheRating5": "Strasznie boli",
 
   "transitionsPopupHeader": "Drogi Użytkowniku!",
-  "transitionsPopupText": "Pamiętaj, że jest to jedynie narzędzie pomocnicze. Informacje zawarte w niniejszym formularzy nie stanowią diagnozy lekarskiej. Mali Mocni jest jedynie narzędziem stanowiącym wyłącznie wartość edukacyjną oraz informację poglądową niewiążącą użytkownika w żaden sposób."
+  "transitionsPopupText": "Pamiętaj, że jest to jedynie narzędzie pomocnicze. Informacje zawarte w niniejszym formularzy nie stanowią diagnozy lekarskiej. Mali Mocni jest jedynie narzędziem stanowiącym wyłącznie wartość edukacyjną oraz informację poglądową niewiążącą użytkownika w żaden sposób.",
+  
+  "imageSectionOverview": "/onkoform/images/section-overview.svg"
 }
