@@ -6,7 +6,6 @@ import imageCrownLogo from "/images/logo-mm-crown.svg";
 import imageScrollButton from "/images/scroll-button-down-arrow.svg";
 import imageBoyGirlTeddyBear from "/images/boy-girl-teddybear.svg";
 import imageMomKid from "/images/mom-kid.svg";
-import imageSectionOverview from "/images/section-overview.svg";
 import imageSectionMission from "/images/section-mission.svg";
 import iconPatientInfo from "/images/icon-patient-info.svg";
 import iconSymptoms from "/images/icon-symptoms.svg";
