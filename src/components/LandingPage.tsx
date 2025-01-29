@@ -28,17 +28,12 @@ const handleScroll = (id: string) => {
     });
   }
 };
-
 interface LandingPageProps {
   onClickStart: () => void;
-  setLocale: (language: string) => void;
-  locale: string;
 }
 
 export default function LandingPage({
-  onClickStart,
-  setLocale,
-  locale,
+  onClickStart
 }: LandingPageProps) {
   interface CoCreatorSubSectionProps {
     image: string;
@@ -69,6 +64,7 @@ export default function LandingPage({
               <Link href={link} target="_blank" rel="noopener noreferrer" underline="none">
                 <Box
                   component="img"
+                  loading="lazy"
                   src={image}
                   alt={"logo " + title}
                   sx={{
@@ -134,12 +130,13 @@ export default function LandingPage({
               >
                 <Box
                   component="img"
+                  loading="lazy"
                   src={imageTextLogo}
                   alt="Logo projektu Mali Mocni"
                   height={{ xs: "20", sm: "32" }}
                 />
                 <Box my={{ xs: 2 }}>
-                  <LanguageSwitcher setLocale={setLocale} locale={locale} />
+                  <LanguageSwitcher />
                 </Box>
               </Stack>
             </Grid>
@@ -147,12 +144,14 @@ export default function LandingPage({
               <Stack direction="row">
                 <Box
                   component="img"
+                  loading="lazy"
                   src={imageBoyGirlTeddyBear}
                   alt="chłopiec, dziewczynka, pluszowy miś"
                   width={{ xs: "50%", sm: "100%" }}
                 />
                 <Box
                   component="img"
+                  loading="lazy"
                   src={imageMomKid}
                   alt="mama i dziecko"
                   display={{ xs: "block", sm: "none" }}
@@ -195,6 +194,7 @@ export default function LandingPage({
                 <Box display="flex" justifyContent="center">
                   <Box
                     component="img"
+                    loading="lazy"
                     src={imageScrollButton}
                     alt="Przewiń do treści"
                     mt={10}
@@ -219,6 +219,7 @@ export default function LandingPage({
             <Grid item xs={6} sm={3}>
               <Box
                 component="img"
+                loading="lazy"
                 src={imageMomKid}
                 alt="mama i dziecko"
                 display={{ xs: "none", sm: "block" }}
@@ -244,6 +245,7 @@ export default function LandingPage({
               >
                 <Box
                   component="img"
+                  loading="lazy"
                   sx={{
                     height: { xs: 405, sm: 647 },
                   }}
@@ -293,54 +295,63 @@ export default function LandingPage({
             <Grid item component="section" xs={12} sm={4}>
               <Box py={2} px={4}>
                 <Stack alignItems="center">
-                  <Box component="img" src={iconPatientInfo} />
-                  <Typography
-                    variant="h5"
-                    align="center"
-                    p={2}
-                    sx={{ textTransform: "uppercase" }}
-                  >
-                    <Trans t={t}>landing-5</Trans>
-                  </Typography>
-                  <Typography variant="body2" align="center">
-                    <Trans t={t}>landing-6</Trans>
-                  </Typography>
+                  <Box
+                    component="img"
+                    loading="lazy"
+                    src={iconPatientInfo} />
+                    <Typography
+                      variant="h5"
+                      align="center"
+                      p={2}
+                      sx={{ textTransform: "uppercase" }}
+                    >
+                      <Trans t={t}>landing-5</Trans>
+                    </Typography>
+                    <Typography variant="body2" align="center">
+                      <Trans t={t}>landing-6</Trans>
+                    </Typography>
                 </Stack>
               </Box>
             </Grid>
             <Grid item component="section" xs={12} sm={4}>
               <Box py={2} px={4}>
                 <Stack alignItems="center">
-                  <Box component="img" src={iconSymptoms} />
-                  <Typography
-                    variant="h5"
-                    align="center"
-                    p={2}
-                    sx={{ textTransform: "uppercase" }}
-                  >
-                    <Trans t={t}>landing-7</Trans>
-                  </Typography>
-                  <Typography variant="body2" align="center">
-                    <Trans t={t}>landing-8</Trans>
-                  </Typography>
+                  <Box
+                    component="img"
+                    loading="lazy"
+                    src={iconSymptoms} />
+                    <Typography
+                      variant="h5"
+                      align="center"
+                      p={2}
+                      sx={{ textTransform: "uppercase" }}
+                    >
+                      <Trans t={t}>landing-7</Trans>
+                    </Typography>
+                    <Typography variant="body2" align="center">
+                      <Trans t={t}>landing-8</Trans>
+                    </Typography>
                 </Stack>
               </Box>
             </Grid>
             <Grid item component="section" xs={12} sm={4}>
               <Box py={2} px={4}>
                 <Stack alignItems="center">
-                  <Box component="img" src={iconLabTests} />
-                  <Typography
-                    variant="h5"
-                    align="center"
-                    p={2}
-                    sx={{ textTransform: "uppercase" }}
-                  >
-                    <Trans t={t}>landing-9</Trans>
-                  </Typography>
-                  <Typography variant="body2" align="center">
-                    <Trans t={t}>landing-10</Trans>
-                  </Typography>
+                  <Box
+                    component="img"
+                    loading="lazy"
+                    src={iconLabTests} />
+                    <Typography
+                      variant="h5"
+                      align="center"
+                      p={2}
+                      sx={{ textTransform: "uppercase" }}
+                    >
+                      <Trans t={t}>landing-9</Trans>
+                    </Typography>
+                    <Typography variant="body2" align="center">
+                      <Trans t={t}>landing-10</Trans>
+                    </Typography>
                 </Stack>
               </Box>
             </Grid>
@@ -383,6 +394,7 @@ export default function LandingPage({
             <Grid item component="section" xs={12} sm={6}>
               <Box
                 component="img"
+                loading="lazy"
                 src={imageSectionMission}
                 alt="zespół podczas pracy nad aplikacją"
                 p={4}
@@ -416,6 +428,7 @@ export default function LandingPage({
               <Stack px={{ xs: 5, sm: 20 }} py={{ xs: 10, sm: 20 }}>
                 <Box
                   component="img"
+                  loading="lazy"
                   src={imageCrownLogo}
                   alt="logo MaliMocni"
                   mb={4}
@@ -452,6 +465,7 @@ export default function LandingPage({
             >
               <Box
                 component="img"
+                loading="lazy"
                 sx={{
                   height: { xs: 260, sm: 416 },
                 }}

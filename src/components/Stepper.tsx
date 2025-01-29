@@ -35,15 +35,7 @@ const landingPage: number = -1;
 const firstStep: number = 0;
 const lastStep: number = steps.length - 1 - 1;
 
-interface StepControllerProps {
-  setLocale: (language: string) => void;
-  locale: string;
-}
-
-export default function StepController({
-  setLocale,
-  locale,
-}: StepControllerProps) {
+export default function StepController() {
   const [activeStep, setActiveStep] = useState<number>(landingPage);
   const [lastValidatedStep, setLastValidatedStep] = useState<number>(firstStep);
   const { reset, trigger, handleSubmit, getValues } = useFormContext();
@@ -246,8 +238,6 @@ export default function StepController({
   if (activeStep === landingPage) {
     return (
       <LandingPage
-        setLocale={setLocale}
-        locale={locale}
         onClickStart={() => handleStart(false)}
       />
     );
@@ -277,6 +267,7 @@ export default function StepController({
               >
                 <Box
                   component="img"
+                  loading="lazy"
                   src={imageLogo}
                   alt="logo MaliMocni"
                   sx={{

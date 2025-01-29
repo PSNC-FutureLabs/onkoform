@@ -1,6 +1,7 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import { SupportedLocales, locales } from "../helpers";
 
 import enNs1 from "../locales/en/ns1.json";
 import enNs2 from "../locales/en/ns2.json";
@@ -16,8 +17,8 @@ i18next
   .use(initReactI18next)
   .init({
     debug: isLocalhost ? true : false,
-    fallbackLng: "pl",
-    supportedLngs: ["pl", "en", "ua"],
+    fallbackLng: Object.keys(locales)[0] as SupportedLocales,
+    supportedLngs: Object.keys(locales) as SupportedLocales[],
     defaultNS,
     interpolation: {
       escapeValue: false,

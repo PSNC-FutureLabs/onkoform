@@ -39,52 +39,15 @@ export const getCurrentAge = (
   };
 };
 
-/*
-export function getPolishAgeDescription(dateOfBirth: Date): string {
-	const now = new Date();
-	let years: number = now.getFullYear() - dateOfBirth.getFullYear();
-	let months: number = now.getMonth() - dateOfBirth.getMonth();
+export type SupportedLocales = "pl" | "en" | "ua";
+export const locales: Record<SupportedLocales, string> = {
+  pl: "pl",
+  en: "en",
+  ua: "uk",
+};
 
-	if (months < 0) {
-		years--;
-		months += 12;
-	}
 
-	function getYearDeclination(years: number): string {
-		if (years === 1) {
-			return "rok";
-		} else if (years % 10 >= 2 && years % 10 <= 4 && (years % 100 < 10 || years % 100 >= 20)) {
-			return "lata";
-		} else {
-			return "lat";
-		}
-	}
-
-	function getMonthDeclination(months: number): string {
-		if (months === 1) {
-			return "miesiąc";
-		} else if (months >= 2 && months <= 4) {
-			return "miesiące";
-		} else {
-			return "miesięcy";
-		}
-	}
-
-	const yearDeclination = getYearDeclination(years);
-	const monthDeclination = getMonthDeclination(months);
-
-	let ageString = years > 0 ? (years > 1 ? `${years} ` : "") + `${yearDeclination}` : "";
-	if (months > 0) {
-		ageString += (years > 0 ? " i " : "") + `${months} ${monthDeclination}`;
-	}
-
-	// return ageString + ` (${dateOfBirth.toLocaleString()})`;
-	return ageString;
-}
-*/
-type Language = "en" | "pl" | "ua";
-
-export function getAgeDescription(dateOfBirth: Date, language: string): string {
+export function getAgeDescription(dateOfBirth: Date, language: SupportedLocales): string {
   const now = new Date();
   let years: number = now.getFullYear() - dateOfBirth.getFullYear();
   let months: number = now.getMonth() - dateOfBirth.getMonth();
@@ -97,7 +60,7 @@ export function getAgeDescription(dateOfBirth: Date, language: string): string {
     language = "pl";
   }
 
-  function getYearDeclination(years: number, lang: Language): string {
+  function getYearDeclination(years: number, lang: SupportedLocales): string {
     switch (lang) {
       case "en":
         return years === 1 ? "year" : "years";
@@ -122,7 +85,7 @@ export function getAgeDescription(dateOfBirth: Date, language: string): string {
     }
   }
 
-  function getMonthDeclination(months: number, lang: Language): string {
+  function getMonthDeclination(months: number, lang: SupportedLocales): string {
     switch (lang) {
       case "en":
         return months === 1 ? "month" : "months";
@@ -137,7 +100,7 @@ export function getAgeDescription(dateOfBirth: Date, language: string): string {
     }
   }
 
-  function getAndString(lang: Language): string {
+  function getAndString(lang: SupportedLocales): string {
     switch (lang) {
       case "en":
         return "and";
@@ -148,9 +111,9 @@ export function getAgeDescription(dateOfBirth: Date, language: string): string {
     }
   }
 
-  const yearDeclination = getYearDeclination(years, language as Language);
-  const monthDeclination = getMonthDeclination(months, language as Language);
-  const andString = getAndString(language as Language);
+  const yearDeclination = getYearDeclination(years, language as SupportedLocales);
+  const monthDeclination = getMonthDeclination(months, language as SupportedLocales);
+  const andString = getAndString(language as SupportedLocales);
 
   let ageString =
     years > 0 ? (years > 1 ? `${years} ` : "") + `${yearDeclination}` : "";

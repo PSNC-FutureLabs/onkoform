@@ -1,23 +1,8 @@
 import { Grid } from "@mui/material";
 import LanguageButton from "./LanguageButton";
-import i18n from "../../utils/i18n";
+import { SupportedLocales, locales } from "../../helpers";
 
-interface LanguageSwitcherProps {
-  setLocale: (language: string) => void;
-  locale: string;
-}
-
-const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
-  setLocale,
-  locale,
-}) => {
-  const languageCodes: Array<string> = ["pl", "ua", "en"];
-
-  const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang);
-    setLocale(lang);
-  };
-
+const LanguageSwitcher = () => {
   return (
     <Grid
       container
@@ -26,12 +11,10 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
         maxWidth: "max-content",
       }}
     >
-      {languageCodes.map((code) => (
+      {(Object.keys(locales) as SupportedLocales[]).map((localeCode) => (
         <LanguageButton
-          key={code}
-          lang={code}
-          activeLanguage={locale}
-          changeLanguage={changeLanguage}
+          key={localeCode}
+          lang={localeCode}
         />
       ))}
     </Grid>

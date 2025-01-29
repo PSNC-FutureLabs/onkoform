@@ -1,20 +1,22 @@
 import React from "react";
 import { Button, Grid } from "@mui/material";
+import { Link } from "react-router-dom";
+import i18n from "../../utils/i18n";
+import { SupportedLocales } from "../../helpers";
 
 interface LanguageButtonProps {
-  lang: string;
-  activeLanguage: string;
-  changeLanguage: (lang: string) => void;
+  lang: SupportedLocales;
 }
 
 const LanguageButton: React.FC<LanguageButtonProps> = ({
   lang,
-  activeLanguage,
-  changeLanguage,
 }) => {
+  const activeLanguage = i18n.language
   return (
     <Grid item>
       <Button
+        component={Link}
+        to={`/${lang}`}
         variant="outlined"
         size="large"
         sx={{
@@ -31,7 +33,7 @@ const LanguageButton: React.FC<LanguageButtonProps> = ({
           minWidth: "unset",
           lineHeight: 1,
         }}
-        onClick={() => changeLanguage(lang)}
+        //onClick={() => changeLanguage(lang)}
       >
         {lang.toUpperCase()}
       </Button>

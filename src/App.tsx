@@ -3,6 +3,8 @@ import {
   createTheme,
   responsiveFontSizes,
 } from "@mui/material/styles";
+import { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import "dayjs/locale/pl";
@@ -20,7 +22,8 @@ import { getFormDefaultValues } from "./business";
 import "./App.css";
 import Stepper from "./components/Stepper";
 import Footer from "./components/Footer";
-import { useState } from "react";
+import { RedirectComponent } from "./components/RedirectComponent";
+import { SupportedLocales, locales } from "./helpers";
 
 const defaultTheme = createTheme();
 
@@ -150,13 +153,6 @@ let theme = createTheme(
 
 theme = responsiveFontSizes(theme);
 
-type SupportedLocales = "en" | "pl" | "ua";
-
-const locales: Record<SupportedLocales, string> = {
-  en: "en",
-  pl: "pl",
-  ua: "uk",
-};
 
 const localesText: Record<SupportedLocales, any> = {
   en: enUS.components.MuiLocalizationProvider.defaultProps.localeText,
@@ -164,8 +160,19 @@ const localesText: Record<SupportedLocales, any> = {
   ua: ukUA.components.MuiLocalizationProvider.defaultProps.localeText,
 };
 
-function App() {
-  const [locale, setLocale] = useState(i18n.language);
+interface AppContentProps {
+  lang: SupportedLocales;
+}
+
+const AppContent = ({
+  lang
+}: AppContentProps) => {
+  useEffect(() => {
+    if (i18n.language !== lang) {
+      i18n.changeLanguage(lang);
+    }
+  }, [lang]);
+
   const methods = useForm<FormFields>({
     defaultValues: getFormDefaultValues(),
     resolver: zodResolver(schema),
@@ -179,29 +186,33 @@ function App() {
         <form>
           <LocalizationProvider
             dateAdapter={AdapterDayjs}
-            adapterLocale={locales[(locale as keyof typeof locales) || "pl"]}
-            localeText={
-              localesText[(locale as keyof typeof localesText) || "pl"]
-            }
+            adapterLocale={locales[(lang as keyof typeof locales) || "pl"]}
+            localeText={localesText[(lang as keyof typeof localesText) || "pl"]}
           >
             <CssBaseline />
-            <Container
-              disableGutters
-              maxWidth={false}
-              sx={{
-                minWidth: {
-                  xs: "100%",
-                  sm: "800px",
-                },
-              }}
-            >
-              <Stepper setLocale={setLocale} locale={locale} />
+            <Container disableGutters maxWidth={false} sx={{ minWidth: { xs: "100%", sm: "800px" } }}>
+              <Stepper />
               <Footer />
             </Container>
           </LocalizationProvider>
         </form>
       </FormProvider>
     </ThemeProvider>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/en" element={<AppContent lang="en" />} />
+        <Route path="/uk" element={<AppContent lang="ua" />} />
+        <Route path="/ua" element={<AppContent lang="ua" />} />
+        <Route path="/pl" element={<AppContent lang="pl" />} />
+        <Route path="/" element={<AppContent lang="pl" />} />
+        <Route path="*" element={<RedirectComponent />} />
+      </Routes>
+    </Router>
   );
 }
 
