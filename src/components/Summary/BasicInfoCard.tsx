@@ -24,7 +24,10 @@ export const BasicInfoCard = ({
       <Grid item xs={12} sm={6}>
         <Typography variant="body1">
           <strong>
-            {Array.isArray(value) ? (
+            {!value || (Array.isArray(value) && value.length === 0) ? (
+              <Trans t={t} ns="ns2">NoData</Trans>
+            ) :
+            Array.isArray(value) ? (
               value.map((item, index) => (
                 <React.Fragment key={index}>
                   <Trans t={t}>{item}</Trans>

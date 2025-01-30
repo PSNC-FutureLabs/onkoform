@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
-import i18n from "../../utils/i18n";
+import { useTranslation } from "react-i18next";
 import { SupportedLocales } from "../../helpers";
 
 interface LanguageButtonProps {
@@ -11,7 +11,9 @@ interface LanguageButtonProps {
 const LanguageButton: React.FC<LanguageButtonProps> = ({
   lang,
 }) => {
-  const activeLanguage = i18n.language
+  const { i18n } = useTranslation();
+  const activeLanguage = i18n.language;
+  const isLangMatch = activeLanguage === lang;
   return (
     <Grid item>
       <Button
@@ -22,18 +24,17 @@ const LanguageButton: React.FC<LanguageButtonProps> = ({
         sx={{
           padding: "8px 10px",
           border:
-            activeLanguage === lang ? "1px solid black" : "1px solid white",
-          opacity: activeLanguage === lang ? 1 : 0.5,
-          backgroundColor: activeLanguage === lang ? "black" : "transparent",
+            isLangMatch ? "1px solid black" : "1px solid white",
+          opacity: isLangMatch ? 1 : 0.5,
+          backgroundColor: isLangMatch ? "black" : "transparent",
           color: "white",
           "&:hover": {
-            backgroundColor: activeLanguage === lang ? "black" : "transparent",
+            backgroundColor: isLangMatch ? "black" : "transparent",
             opacity: 1,
           },
           minWidth: "unset",
           lineHeight: 1,
         }}
-        //onClick={() => changeLanguage(lang)}
       >
         {lang.toUpperCase()}
       </Button>

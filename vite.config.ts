@@ -6,6 +6,7 @@ export default defineConfig(({ command }) => {
 		plugins: [react()],
 		base: command === "serve"
 		? "/"
-		: "/onkoform/"
+		: "/"
+		//:"/onkoform"
 	};
 });

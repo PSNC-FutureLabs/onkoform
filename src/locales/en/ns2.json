@@ -25,10 +25,9 @@
   "Affliction": "Affliction",
   "Ward": "Ward",
   "AssociatedSymptoms": "Associated symptoms",
+  "NoData": "No Data",
   "BodyTemperature": "Body temperature",
   "ConcerningSymptoms": "Concerning symptoms",
   "Select": "Select",
-  "SpecifyValueIn": "Specify value in",
-  "": "Przechodzę Dalej",
-  "": "Rezygnuję"
+  "SpecifyValueIn": "Specify value in"
 }

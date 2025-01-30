@@ -1,5 +1,5 @@
 import Grid from "@mui/material/Grid";
-import { Box, Stack, Button, Typography, Container, Link } from "@mui/material";
+import { Box, Stack, Button, Typography, Container } from "@mui/material";
 import imageOrnament from "/images/desktop-main-background-ornament.svg";
 import imageTextLogo from "/images/logo-mm.svg";
 import imageCrownLogo from "/images/logo-mm-crown.svg";
@@ -15,8 +15,9 @@ import imageCoCreatorLogo2 from "/images/logo-fundacja-pomocy-dzieciom-z-choroba
 import imageCoCreatorLogo3 from "/images/logo-capgemini.svg";
 import imageCoCreatorLogo4 from "/images/logo-psnc-future-labs.svg";
 import { Trans, useTranslation } from "react-i18next";
-import LanguageSwitcher from "./Form/FormLanguageSwitcher";
+import LanguageSwitcher from "./LanguageSwitcher/LanguageSwitcher";
 import { TransitionsModal } from "./TransitionsModal";
+import {CoCreatorSubSection} from "./CoCreatorSubSection"
 import { useState } from "react";
 
 const handleScroll = (id: string) => {
@@ -28,6 +29,8 @@ const handleScroll = (id: string) => {
     });
   }
 };
+
+
 interface LandingPageProps {
   onClickStart: () => void;
 }
@@ -35,60 +38,6 @@ interface LandingPageProps {
 export default function LandingPage({
   onClickStart
 }: LandingPageProps) {
-  interface CoCreatorSubSectionProps {
-    image: string;
-    title: string;
-    body: React.ReactNode;
-    link: string;
-  }
-
-  const CoCreatorSubSection: React.FC<CoCreatorSubSectionProps> = ({
-    image,
-    title,
-    body,
-    link = "",
-  }) => {
-    return (
-      <Grid item component="section" xs={12} sm={6} lg={3}>
-        <Stack alignItems="center" height="100%">
-          <Box
-            sx={{
-              width: "100%",
-              maxWidth: "100%",
-              padding: "0 20px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <Box height={150} display="flex" alignItems="center">
-              <Link href={link} target="_blank" rel="noopener noreferrer" underline="none">
-                <Box
-                  component="img"
-                  loading="lazy"
-                  src={image}
-                  alt={"logo " + title}
-                  sx={{
-                    width: "100%",
-                    height: "auto",
-                    maxHeight: 150,
-                    objectFit: "contain",
-                  }}
-                />
-              </Link>
-            </Box>
-          </Box>
-          <Typography
-            variant="subtitle1"
-            align="center"
-            p={2}
-            lineHeight="23.76px"
-          >
-            {body}
-          </Typography>
-        </Stack>
-      </Grid>
-    );
-  };
 
   const { t } = useTranslation();
   const [isModalOpen, setModalOpen] = useState(false);

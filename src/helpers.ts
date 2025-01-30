@@ -51,7 +51,13 @@ export function getAgeDescription(dateOfBirth: Date, language: SupportedLocales)
   const now = new Date();
   let years: number = now.getFullYear() - dateOfBirth.getFullYear();
   let months: number = now.getMonth() - dateOfBirth.getMonth();
+  let days: number = now.getDate() - dateOfBirth.getDate();
 
+  if (days < 0) {
+    months--;
+    const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 0);
+    days += lastMonth.getDate();
+  }
   if (months < 0) {
     years--;
     months += 12;
@@ -100,6 +106,21 @@ export function getAgeDescription(dateOfBirth: Date, language: SupportedLocales)
     }
   }
 
+  function getDayDeclination(days: number, lang: SupportedLocales): string {
+    switch (lang) {
+      case "en":
+        return days === 1 ? "day" : "days";
+      case "pl":
+        if (days === 1) return "dzień";
+        else if (days >= 2 && days <= 4) return "dni";
+        else return "dni";
+      case "ua":
+        if (days === 1) return "день";
+        else if (days >= 2 && days <= 4) return "дні";
+        else return "днів";
+    }
+  }
+
   function getAndString(lang: SupportedLocales): string {
     switch (lang) {
       case "en":
@@ -113,6 +134,7 @@ export function getAgeDescription(dateOfBirth: Date, language: SupportedLocales)
 
   const yearDeclination = getYearDeclination(years, language as SupportedLocales);
   const monthDeclination = getMonthDeclination(months, language as SupportedLocales);
+  const dayDeclination = getDayDeclination(days, language as SupportedLocales);
   const andString = getAndString(language as SupportedLocales);
 
   let ageString =
@@ -120,6 +142,10 @@ export function getAgeDescription(dateOfBirth: Date, language: SupportedLocales)
   if (months > 0) {
     ageString +=
       (years > 0 ? ` ${andString} ` : "") + `${months} ${monthDeclination}`;
+  }
+  if (months === 0 && days > 0) {
+    ageString +=
+      (years > 0 || months > 0 ? ` ${andString} ` : "") + `${days} ${dayDeclination}`;
   }
 
   return ageString.trim();

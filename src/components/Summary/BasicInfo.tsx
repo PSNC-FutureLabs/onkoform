@@ -6,6 +6,7 @@ import {
   getHospitalWardValue,
   //getPolishAgeDescription,
   getAgeDescription,
+  SupportedLocales,
 } from "../../helpers";
 import { BasicInfoCard } from "./BasicInfoCard";
 import { Trans, useTranslation } from "react-i18next";
@@ -16,7 +17,7 @@ export const BasicInfo = () => {
   const genderValue = getGenderValue(getValues("gender"));
   const ageDescription = getAgeDescription(
     new Date(getValues("dateOfBirth")),
-    i18n.language
+    i18n.language as SupportedLocales
   );
   const medicalCondition = getMedicalConditionValue(
     getValues("medicalCondition")

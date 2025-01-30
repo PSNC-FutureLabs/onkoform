@@ -3,7 +3,6 @@ import {
   createTheme,
   responsiveFontSizes,
 } from "@mui/material/styles";
-import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -12,7 +11,7 @@ import { plPL, ukUA, enUS } from "@mui/x-date-pickers/locales";
 import "dayjs/locale/pl";
 import "dayjs/locale/en";
 import "dayjs/locale/uk";
-import i18n from "./utils/i18n";
+import { useTranslation } from "react-i18next";
 import { Container, CssBaseline } from "@mui/material";
 import { lightGreen, grey, blue } from "@mui/material/colors";
 import { useForm, FormProvider } from "react-hook-form";
@@ -22,8 +21,9 @@ import { getFormDefaultValues } from "./business";
 import "./App.css";
 import Stepper from "./components/Stepper";
 import Footer from "./components/Footer";
-import { RedirectComponent } from "./components/RedirectComponent";
 import { SupportedLocales, locales } from "./helpers";
+import ErrorPage from "./components/ErrorPage";
+import { useEffect, useState } from "react";
 
 const defaultTheme = createTheme();
 
@@ -167,11 +167,16 @@ interface AppContentProps {
 const AppContent = ({
   lang
 }: AppContentProps) => {
+  const { i18n } = useTranslation();
+  const [isLanguageSet, setIsLanguageSet] = useState(false);
+
   useEffect(() => {
     if (i18n.language !== lang) {
-      i18n.changeLanguage(lang);
+      i18n.changeLanguage(lang).then(() => setIsLanguageSet(true));
+    } else {
+      setIsLanguageSet(true);
     }
-  }, [lang]);
+  }, [lang, i18n]);
 
   const methods = useForm<FormFields>({
     defaultValues: getFormDefaultValues(),
@@ -179,6 +184,20 @@ const AppContent = ({
     reValidateMode: "onChange",
     mode: "all",
   });
+
+  if (!isLanguageSet) {
+    return (
+      <div className="preloader-container">
+        <div className="load-container">
+          <div className="preloader">
+            <span className="green"></span>
+            <span className="yellow"></span>
+            <span className="red"></span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -210,7 +229,7 @@ function App() {
         <Route path="/ua" element={<AppContent lang="ua" />} />
         <Route path="/pl" element={<AppContent lang="pl" />} />
         <Route path="/" element={<AppContent lang="pl" />} />
-        <Route path="*" element={<RedirectComponent />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
   );

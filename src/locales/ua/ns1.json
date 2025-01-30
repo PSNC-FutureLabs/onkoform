@@ -142,5 +142,8 @@
   "transitionsPopupHeader": "Шановний користувачу!",
   "transitionsPopupText": "Пам’ятай, що це лише допоміжний інструмент. Інформація, наведена в цій формі, не є медичним діагнозом. Mali Mocni слугує виключно освітньою та ознайомчою платформою і не може бути підставою для прийняття медичних рішень.",
 
-  "imageSectionOverview": "/images/sectionOverviewUA.svg"
+  "imageSectionOverview": "/images/sectionOverviewUA.svg",
+
+  "went-wrong":"сторінку не знайдено",
+  "back-home":"додому"
 }

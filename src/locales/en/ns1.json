@@ -78,7 +78,7 @@
   "years2": "years",
   "month": "month",
   "months": "months",
-  "months2": "mmonths",
+  "months2": "months",
 
   "medicalConditionALL": "ALL (acute lymphoblastic leukemia)",
   "medicalConditionAML": "AML (acute myeloid/myelogenous leukemia)",
@@ -142,5 +142,8 @@
   "transitionsPopupHeader": "Dear user!",
   "transitionsPopupText": "Remember that this is only an auxiliary tool. The information included in this form does not constitute a medical diagnosis. Mali Mocni is only a tool with  educational value and illustrative information that is not binding the user in any way.",
 
-  "imageSectionOverview": "/images/sectionOverviewEN.svg"
+  "imageSectionOverview": "/images/sectionOverviewEN.svg",
+
+  "went-wrong":"Page Not Found",
+  "back-home":"Back Home"
 }
