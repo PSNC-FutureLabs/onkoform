@@ -153,8 +153,9 @@ let theme = createTheme(
 
 theme = responsiveFontSizes(theme);
 
+type LocaleText = Partial<typeof enUS.components.MuiLocalizationProvider.defaultProps.localeText>;
 
-const localesText: Record<SupportedLocales, any> = {
+const localesText: Record<SupportedLocales, LocaleText> = {
   en: enUS.components.MuiLocalizationProvider.defaultProps.localeText,
   pl: plPL.components.MuiLocalizationProvider.defaultProps.localeText,
   uk: ukUA.components.MuiLocalizationProvider.defaultProps.localeText,

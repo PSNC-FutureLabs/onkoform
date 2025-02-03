@@ -140,7 +140,6 @@ export default function LandingPage({
                 <Box display="flex" justifyContent="center">
                   <Box
                     component="img"
-                    loading="lazy"
                     src={imageScrollButton}
                     alt="Przewiń do treści"
                     mt={10}
