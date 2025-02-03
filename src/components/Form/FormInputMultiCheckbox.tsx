@@ -27,7 +27,7 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
 }) => {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const { t } = useTranslation();
-  // we are handling the selection manually here
+
   const handleSelect = (value: string) => {
     const isPresent = selectedItems.indexOf(value) !== -1;
     if (isPresent) {
@@ -48,7 +48,6 @@ export const FormInputMultiCheckbox: React.FC<FormInputMultiCheckboxProps> = ({
     setSelectedItems(getValues(name));
   }, [getValues, name]);
 
-  // we are setting form value manually here
   useEffect(() => {
     setValue(name, selectedItems);
   }, [name, selectedItems, setValue]);

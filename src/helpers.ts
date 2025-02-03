@@ -39,11 +39,11 @@ export const getCurrentAge = (
   };
 };
 
-export type SupportedLocales = "pl" | "en" | "ua";
+export type SupportedLocales = "pl" | "en" | "uk";
 export const locales: Record<SupportedLocales, string> = {
   pl: "pl",
   en: "en",
-  ua: "uk",
+  uk: "uk",
 };
 
 
@@ -62,7 +62,7 @@ export function getAgeDescription(dateOfBirth: Date, language: SupportedLocales)
     years--;
     months += 12;
   }
-  if (language !== "en" && language !== "ua") {
+  if (language !== "en" && language !== "uk") {
     language = "pl";
   }
 
@@ -79,7 +79,7 @@ export function getAgeDescription(dateOfBirth: Date, language: SupportedLocales)
         )
           return "lata";
         else return "lat";
-      case "ua":
+      case "uk":
         if (years === 1) return "рік";
         else if (
           years % 10 >= 2 &&
@@ -99,7 +99,7 @@ export function getAgeDescription(dateOfBirth: Date, language: SupportedLocales)
         if (months === 1) return "miesiąc";
         else if (months >= 2 && months <= 4) return "miesiące";
         else return "miesięcy";
-      case "ua":
+      case "uk":
         if (months === 1) return "місяць";
         else if (months >= 2 && months <= 4) return "місяці";
         else return "місяців";
@@ -114,7 +114,7 @@ export function getAgeDescription(dateOfBirth: Date, language: SupportedLocales)
         if (days === 1) return "dzień";
         else if (days >= 2 && days <= 4) return "dni";
         else return "dni";
-      case "ua":
+      case "uk":
         if (days === 1) return "день";
         else if (days >= 2 && days <= 4) return "дні";
         else return "днів";
@@ -127,7 +127,7 @@ export function getAgeDescription(dateOfBirth: Date, language: SupportedLocales)
         return "and";
       case "pl":
         return "i";
-      case "ua":
+      case "uk":
         return "і";
     }
   }

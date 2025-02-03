@@ -157,7 +157,7 @@ theme = responsiveFontSizes(theme);
 const localesText: Record<SupportedLocales, any> = {
   en: enUS.components.MuiLocalizationProvider.defaultProps.localeText,
   pl: plPL.components.MuiLocalizationProvider.defaultProps.localeText,
-  ua: ukUA.components.MuiLocalizationProvider.defaultProps.localeText,
+  uk: ukUA.components.MuiLocalizationProvider.defaultProps.localeText,
 };
 
 interface AppContentProps {
@@ -225,8 +225,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/en" element={<AppContent lang="en" />} />
-        <Route path="/uk" element={<AppContent lang="ua" />} />
-        <Route path="/ua" element={<AppContent lang="ua" />} />
+        <Route path="/uk" element={<AppContent lang="uk" />} />
         <Route path="/pl" element={<AppContent lang="pl" />} />
         <Route path="/" element={<AppContent lang="pl" />} />
         <Route path="*" element={<ErrorPage />} />

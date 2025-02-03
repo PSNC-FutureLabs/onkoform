@@ -1,8 +1,10 @@
 import { Container, Grid, Box, Stack, Typography, Link } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { versionText } from "../business";
+import { Trans, useTranslation } from "react-i18next";
 
 export default function Footer() {
+	const { t } = useTranslation();
 	return (
 		<Box sx={{ backgroundColor: grey[900] }}>
 			<Container maxWidth="lg" disableGutters>
@@ -15,17 +17,17 @@ export default function Footer() {
 					>
 						<Box py={1}>
 							<Typography variant="body2" align="center" color="white">
-								&copy; 2025 by{" "}
+								&copy; {new Date().getFullYear() + " "}
 								<Link
-									href="https://psnc.pl"
+									href="https://fundacjapomocydzieciom.com.pl/"
 									target="_blank"
 									rel="noreferrer"
 									color="inherit"
 									underline="hover"
 								>
-									PSNC
+									Fundacja Pomocy Dzieciom z Chorobami Nowotworowymi w Poznaniu
 								</Link>
-								. All rights reserved.
+								.  <Trans t={t}>AllRightsReserved</Trans>.
 							</Typography>
 						</Box>
 						<Box>

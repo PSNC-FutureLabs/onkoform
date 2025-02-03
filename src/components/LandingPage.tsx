@@ -247,7 +247,8 @@ export default function LandingPage({
                   <Box
                     component="img"
                     loading="lazy"
-                    src={iconPatientInfo} />
+                    src={iconPatientInfo}
+                    alt="ikona pacjenta, informacja" />
                     <Typography
                       variant="h5"
                       align="center"
@@ -268,7 +269,8 @@ export default function LandingPage({
                   <Box
                     component="img"
                     loading="lazy"
-                    src={iconSymptoms} />
+                    src={iconSymptoms}
+                    alt="ikona, symptomy" />
                     <Typography
                       variant="h5"
                       align="center"
@@ -289,7 +291,8 @@ export default function LandingPage({
                   <Box
                     component="img"
                     loading="lazy"
-                    src={iconLabTests} />
+                    src={iconLabTests}
+                    alt="ikona, labolatoria, testy" />
                     <Typography
                       variant="h5"
                       align="center"

@@ -7,8 +7,8 @@ import enNs1 from "../locales/en/ns1.json";
 import enNs2 from "../locales/en/ns2.json";
 import plNs1 from "../locales/pl/ns1.json";
 import plNs2 from "../locales/pl/ns2.json";
-import uaNs1 from "../locales/ua/ns1.json";
-import uaNs2 from "../locales/ua/ns2.json";
+import ukNs1 from "../locales/uk/ns1.json";
+import ukNs2 from "../locales/uk/ns2.json";
 import { isLocalhost } from "../helpers";
 export const defaultNS = "ns1";
 
@@ -32,9 +32,9 @@ i18next
         ns1: plNs1,
         ns2: plNs2,
       },
-      ua: {
-        ns1: uaNs1,
-        ns2: uaNs2,
+      uk: {
+        ns1: ukNs1,
+        ns2: ukNs2,
       },
     },
     react: {

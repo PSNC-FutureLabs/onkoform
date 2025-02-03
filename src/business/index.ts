@@ -11,7 +11,7 @@ export const versionTag = {
 };
 
 export const versionText = (): string =>
-	`wersja ${versionTag.majorNo}.${versionTag.minorNo}.${versionTag.patchNo}-${versionTag.status} (${versionTag.date})`;
+	`${versionTag.majorNo}.${versionTag.minorNo}.${versionTag.patchNo}-${versionTag.status} (${versionTag.date})`;
 
 export type StepType = {
 	id: number;
