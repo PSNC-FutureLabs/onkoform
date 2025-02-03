@@ -185,21 +185,7 @@ const AppContent = ({
     mode: "all",
   });
 
-  if (!isLanguageSet) {
-    return (
-      <div className="preloader-container">
-        <div className="load-container">
-          <div className="preloader">
-            <span className="green"></span>
-            <span className="yellow"></span>
-            <span className="red"></span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
+  return !isLanguageSet? null : (
     <ThemeProvider theme={theme}>
       <FormProvider {...methods}>
         <form>

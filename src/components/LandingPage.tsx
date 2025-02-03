@@ -6,7 +6,7 @@ import imageCrownLogo from "/images/logo-mm-crown.svg";
 import imageScrollButton from "/images/scroll-button-down-arrow.svg";
 import imageBoyGirlTeddyBear from "/images/boy-girl-teddybear.svg";
 import imageMomKid from "/images/mom-kid.svg";
-import imageSectionMission from "/images/section-mission.svg";
+import imageSectionMission from "/images/section-mission-2.svg";
 import iconPatientInfo from "/images/icon-patient-info.svg";
 import iconSymptoms from "/images/icon-symptoms.svg";
 import iconLabTests from "/images/icon-lab-tests.svg";
@@ -79,7 +79,6 @@ export default function LandingPage({
               >
                 <Box
                   component="img"
-                  loading="lazy"
                   src={imageTextLogo}
                   alt="Logo projektu Mali Mocni"
                   height={{ xs: "20", sm: "32" }}
@@ -93,14 +92,12 @@ export default function LandingPage({
               <Stack direction="row">
                 <Box
                   component="img"
-                  loading="lazy"
                   src={imageBoyGirlTeddyBear}
                   alt="chłopiec, dziewczynka, pluszowy miś"
                   width={{ xs: "50%", sm: "100%" }}
                 />
                 <Box
                   component="img"
-                  loading="lazy"
                   src={imageMomKid}
                   alt="mama i dziecko"
                   display={{ xs: "block", sm: "none" }}
