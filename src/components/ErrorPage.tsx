@@ -6,6 +6,7 @@ import imageMomKid from "/images/mom-kid.svg";
 import imageOrnament from "/images/desktop-main-background-ornament.svg";
 import { Link } from "react-router-dom";
 import "../App.css";
+import LanguageSwitcher from "./LanguageSwitcher/LanguageSwitcher";
 
 const defaultTheme = createTheme();
 
@@ -91,27 +92,31 @@ export default function ErrorPage() {
               minHeight={{ xs: "100vh" }}
               alignItems="flex-start"
             >
-            <Grid item xs={12}>
-            <Stack
-              display="flex"
-              alignItems="center"
-              height={{ xs: 114, sm: 80 }}
-              px={{ sm: 2 }}
-              direction={"row"}
-              justifyContent={"space-between"}
-              padding={3}
-            >
-              <Link to='/'>
-                <Box
-                  component="img"
-                  loading="lazy"
-                  src={imageTextLogo}
-                  alt="Logo projektu Mali Mocni"
-                  height={{ xs: "20", sm: "32" }}
-                />
-                </Link>
-            </Stack>
-          </Grid>
+              <Grid item xs={12}>
+                <Stack
+                    display="flex"
+                    alignItems="center"
+                    height={{ xs: 114, sm: 80 }}
+                    px={{ sm: 2 }}
+                    direction={"row"}
+                    justifyContent={"space-between"}
+                    padding={3}
+                  >
+                  <Link to='/'>
+                    <Box
+                      component="img"
+                      loading="lazy"
+                      src={imageTextLogo}
+                      alt="Logo projektu Mali Mocni"
+                      height={{ xs: "20", sm: "32" }}
+                    />
+                  </Link>
+                  <Box my={{ xs: 2 }}>
+                    <LanguageSwitcher />
+                  </Box>
+                </Stack>
+
+              </Grid>
               <Grid item xs={12} sm={3}>
                 <Stack direction="row">
                   <Box
