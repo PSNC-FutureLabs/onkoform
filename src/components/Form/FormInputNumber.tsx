@@ -26,7 +26,7 @@ export const FormInputNumber = ({
           onChange={(e) =>
             onChange(
               e.target.value === ""
-                ? null
+                ? ""
                 : Number(e.target.value.replace(/,/g, "."))
             )
           }
@@ -56,13 +56,12 @@ export const FormInputNumber = ({
             step: 0.1,
           }}
           sx={{
-            "& input[type=number]::-webkit-inner-spin-button, & input[type=number]::-webkit-outer-spin-button":
-              {
-                "-webkit-appearance": "none",
-                margin: 0,
-              },
+            "& input[type=number]::-webkit-inner-spin-button, & input[type=number]::-webkit-outer-spin-button": {
+              WebkitAppearance: "none",
+              margin: 0,
+            },
             "& input[type=number]": {
-              "-moz-appearance": "textfield",
+              MozAppearance: "textfield",
             },
           }}
         />

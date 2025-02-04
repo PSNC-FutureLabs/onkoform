@@ -56,17 +56,18 @@
   "errorRequiredSelection": "Виберіть зі списку",
   "errorRequiredDate": "Виберіть дату",
   "errorNumberBelowZero": "Значення не може бути від'ємним",
+  "errorInvalidNumber":"Неправильний номер",
   "errorInvalidUnit": "Неправильна одиниця виміру",
   "errorTemperatureMinValue": "Мінімальна температура становить 34°C",
   "errorTemperatureMaxValue": "Максимальна температура становить 42°C",
   "errorHGBMaxValue1": "Для одиниці виміру г/дл максимальне значення становить 20",
   "errorHGBMaxValue2": "Для одиниці виміру ммоль/л максимальне значення становить 32",
-  "errorWBCMaxValue": "Максимальне значення параметра: 30",
+  "errorWBCMaxValue": "Максимальне значення параметра: 9999",
   "errorPLTMaxValue": "Максимальне значення параметра: 900",
   "errorNEUTMaxValue1": "Максимальне значення параметра: 20",
   "errorNEUTMaxValue2": "Максимальне значення параметра: 20000",
-  "errorALTMaxValue": "Максимальне значення параметра: 99",
-  "errorASTMaxValue": "Максимальне значення параметра: 99",
+  "errorALTMaxValue": "Максимальне значення параметра: 9999",
+  "errorASTMaxValue": "Максимальне значення параметра: 9999",
   "errorDateOfBirthMustBeEralier": "Дата обстеження не повинна бути раніше дати народження.",
   "errorDateOfExaminationMustBeLater": "Дата попереднього обстеження не повинна бути пізнішою за дату поточного обстеження.",
 
@@ -146,5 +147,6 @@
 
   "went-wrong":"сторінку не знайдено",
   "back-home":"додому",
-  "AllRightsReserved": "Всі права захищені"
+  "AllRightsReserved": "Всі права захищені",
+  "Required":"Потрібно"
 }

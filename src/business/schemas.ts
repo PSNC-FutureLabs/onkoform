@@ -6,7 +6,15 @@ export const ERROR_MESSAGES = {
   requiredDate: "errorRequiredDate",
 };
 
-const nullableNumberSchema = z.number().nullable();
+const nullableNumberSchema = z
+  .union([
+    z.literal(""),
+    z.number({
+      required_error: ERROR_MESSAGES.requiredInput,
+      invalid_type_error: ERROR_MESSAGES.requiredInput,
+    }).min(0, { message: "errorNumberBelowZero" }),
+  ])
+  .optional();
 
 const valueSchema = z
   .number({
@@ -47,7 +55,7 @@ export const WBCschema = z
     value: valueSchema,
     unit: z.enum(["K/μl", "10^3/μl", "tys./μl", "G/l"]),
   })
-  .refine((data) => !(data.value > 30), {
+  .refine((data) => !(data.value > 9999), {
     message: "errorWBCMaxValue",
     path: ["value"],
   });
@@ -79,9 +87,9 @@ export const NEUTschema = z
 export const ALTschema = z
   .object({
     value: nullableNumberSchema,
-    unit: z.enum(["U/l"]),
+    unit: z.enum(["U/l"]).optional(),
   })
-  .refine((data) => !(data.value && data.value > 99), {
+  .refine((data) => !(data.value && data.value > 9999), {
     message: "errorALTMaxValue",
     path: ["value"],
   });
@@ -89,9 +97,9 @@ export const ALTschema = z
 export const ASTschema = z
   .object({
     value: nullableNumberSchema,
-    unit: z.enum(["U/l"]),
+    unit: z.enum(["U/l"]).optional(),
   })
-  .refine((data) => !(data.value && data.value > 99), {
+  .refine((data) => !(data.value && data.value > 9999), {
     message: "errorASTMaxValue",
     path: ["value"],
   });

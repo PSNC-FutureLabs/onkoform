@@ -5,9 +5,9 @@ import { DropdownOptionsType, MultiCheckboxOptionsType, RadioOptionsType, UnitTy
 export const versionTag = {
 	majorNo: 0,
 	minorNo: 9,
-	patchNo: 3,
+	patchNo: 4,
 	status: "beta",
-	date: "2024.10.10",
+	date: "2025.02.05",
 };
 
 export const versionText = (): string =>
@@ -271,7 +271,7 @@ export const symptomsOptions: MultiCheckboxOptionsType[] = [
 ];
 
 export const TemperatureUnits: UnitType[] = ["°C"];
-export const HGBUnits: UnitType[] = ["g/dl", "mg/%"];
+export const HGBUnits: UnitType[] = ["g/dl", "mg/%", "mmol/l"];
 export const WBCUnits: UnitType[] = ["K/μl", "10^3/μl", "tys./μl"];
 export const PLTUnits: UnitType[] = ["K/μl", "10^3/μl", "tys./μl"];
 export const NEUTUnits: UnitType[] = ["/μl", "K/μl", "10^3/μl", "tys./μl"];

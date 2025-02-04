@@ -226,6 +226,7 @@ export function getUnitConversionRatio(baseUnit: UnitType, targetUnit: UnitType)
 		"mg/dl:g/dl": 0.001,
 		"mmol/l:mg/dl": 18.01559, // Example for glucose
 		"mg/dl:mmol/l": 1 / 18.01559,
+		"mmol/l:g/dl": 1.801559,
 	};
 
 	if (EquivalentUnitSets.find((unitSet) => unitSet.includes(baseUnit) && unitSet.includes(targetUnit))) return 1;

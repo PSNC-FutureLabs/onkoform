@@ -10,7 +10,7 @@ export const FormInputDate = ({ name, control, label }: FormInputProps) => {
       name={name}
       control={control}
       render={({
-        field: { onChange, value, onBlur, ref },
+        field: { onChange, value = null, onBlur, ref },
         fieldState: { error },
       }) => (
         <DatePicker

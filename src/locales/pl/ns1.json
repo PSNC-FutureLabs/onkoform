@@ -56,17 +56,18 @@
   "errorRequiredSelection": "Wybierz z listy",
   "errorRequiredDate": "Wybierz datę",
   "errorNumberBelowZero": "Wartość nie może być ujemna",
+  "errorInvalidNumber":"Nieprawidłowa liczba",
   "errorInvalidUnit": "Nieprawidłowa jednostka",
   "errorTemperatureMinValue": "Minimalna wartość temperatury wynosi 34°C",
   "errorTemperatureMaxValue": "Maksymalna wartość temperatury wynosi 42°C",
   "errorHGBMaxValue1": "Dla jednostki g/dl maksymalna wartość to 20",
   "errorHGBMaxValue2": "Dla jednostki mmol/l maksymalna wartość to 32",
-  "errorWBCMaxValue": "Maksymalna wartość parametru: 30",
+  "errorWBCMaxValue": "Maksymalna wartość parametru: 9999",
   "errorPLTMaxValue": "Maksymalna wartość parametru: 900",
   "errorNEUTMaxValue1": "Maksymalna wartość parametru: 20",
   "errorNEUTMaxValue2": "Maksymalna wartość parametru: 20000",
-  "errorALTMaxValue": "Maksymalna wartość parametru: 99",
-  "errorASTMaxValue": "Maksymalna wartość parametru: 99",
+  "errorALTMaxValue": "Maksymalna wartość parametru: 9999",
+  "errorASTMaxValue": "Maksymalna wartość parametru: 9999",
   "errorDateOfBirthMustBeEralier": "Data badania nie może być wcześniejsza niż data urodzenia.",
   "errorDateOfExaminationMustBeLater": "Data poprzedniego badania nie może być późniejsza niż data aktualnego badania.",
 
@@ -146,5 +147,6 @@
 
   "went-wrong":"Nie znaleziono strony",
   "back-home":"Strona główna",
-  "AllRightsReserved": "Wszelkie prawa zastrzeżone"
+  "AllRightsReserved": "Wszelkie prawa zastrzeżone",
+  "Required": "Wymagane"
 }

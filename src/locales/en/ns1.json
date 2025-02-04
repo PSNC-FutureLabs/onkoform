@@ -56,17 +56,18 @@
   "errorRequiredSelection": "Select from the list",
   "errorRequiredDate": "Select a date",
   "errorNumberBelowZero": "Value cannot be negative",
+  "errorInvalidNumber":"Invalid number",
   "errorInvalidUnit": "Invalid unit",
   "errorTemperatureMinValue": "The minimum temperature value is 34°C",
   "errorTemperatureMaxValue": "The maximum temperature value is 42°C",
   "errorHGBMaxValue1": "For g/dl unit, the maximum value is 20",
   "errorHGBMaxValue2": "For mmol/l unit, the maximum value is 32",
-  "errorWBCMaxValue": "The maximum parameter value: 30",
+  "errorWBCMaxValue": "The maximum parameter value: 9999",
   "errorPLTMaxValue": "The maximum parameter value: 900",
   "errorNEUTMaxValue1": "The maximum parameter value: 20",
   "errorNEUTMaxValue2": "The maximum parameter value: 20000",
-  "errorALTMaxValue": "The maximum parameter value: 99",
-  "errorASTMaxValue": "The maximum parameter value: 99",
+  "errorALTMaxValue": "The maximum parameter value: 9999",
+  "errorASTMaxValue": "The maximum parameter value: 9999",
   "errorDateOfBirthMustBeEralier": "Date of examination must not be earlier than date of birth.",
   "errorDateOfExaminationMustBeLater": "The date of the previous examination must not be later than the date of the current examination.",
 
@@ -146,5 +147,6 @@
 
   "went-wrong":"Page Not Found",
   "back-home":"Back Home",
-  "AllRightsReserved": "All rights reserved"
+  "AllRightsReserved": "All rights reserved",
+  "Required": "Required"
 }
