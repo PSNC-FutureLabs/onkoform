@@ -92,6 +92,10 @@ export const ALTschema = z
   .refine((data) => !(data.value && data.value > 9999), {
     message: "errorALTMaxValue",
     path: ["value"],
+  })
+  .refine((data) => !(data.value && data.unit === undefined), {
+    message: "errorUnitProvidedButSelectNotSet",
+    path: ["unit"],
   });
 
 export const ASTschema = z
@@ -102,6 +106,10 @@ export const ASTschema = z
   .refine((data) => !(data.value && data.value > 9999), {
     message: "errorASTMaxValue",
     path: ["value"],
+  })
+  .refine((data) => !(data.value && data.unit === undefined), {
+    message: "errorUnitProvidedButSelectNotSet",
+    path: ["unit"],
   });
 
 export const dateSchema = z.date({

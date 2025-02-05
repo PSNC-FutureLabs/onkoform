@@ -70,6 +70,7 @@
   "errorASTMaxValue": "Maksymalna wartość parametru: 9999",
   "errorDateOfBirthMustBeEralier": "Data badania nie może być wcześniejsza niż data urodzenia.",
   "errorDateOfExaminationMustBeLater": "Data poprzedniego badania nie może być późniejsza niż data aktualnego badania.",
+  "errorUnitProvidedButSelectNotSet":"Jednostka jest wymagana, gdy podawana jest wartość",
 
   "female": "kobieta",
   "male": "mężczyzna",

@@ -58,7 +58,7 @@ export const steps: Array<StepType> = [
 		name: "stepperStepName4",
 		header: "stepperStepHeader4",
 		fields: [
-			["HGBprev.value", "Hgbprev.unit"],
+			["HGBprev.value", "HGBprev.unit"],
 			["WBCprev.value", "WBCprev.unit"],
 			["PLTprev.value", "PLTprev.unit"],
 			["NEUTprev.value", "NEUTprev.unit"],

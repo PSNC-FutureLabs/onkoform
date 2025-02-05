@@ -70,6 +70,7 @@
   "errorASTMaxValue": "Максимальне значення параметра: 9999",
   "errorDateOfBirthMustBeEralier": "Дата обстеження не повинна бути раніше дати народження.",
   "errorDateOfExaminationMustBeLater": "Дата попереднього обстеження не повинна бути пізнішою за дату поточного обстеження.",
+  "errorUnitProvidedButSelectNotSet":"Одиниця виміру потрібна, якщо вказано значення",
 
   "female": "жінка",
   "male": "чоловік",
