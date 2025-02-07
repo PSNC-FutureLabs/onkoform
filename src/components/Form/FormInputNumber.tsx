@@ -24,17 +24,18 @@ export const FormInputNumber = ({
           value={value}
           onSubmit={(e) => e.preventDefault()}
           onChange={(e) =>
-            onChange(
-              e.target.value === ""
-                ? ""
-                : Number(e.target.value.replace(/,/g, "."))
-            )
+          {
+            let inputValue = e.target.value;
+            if (!/^[0-9]*[.,]?[0-9]*$/.test(inputValue)) return;
+            inputValue = inputValue.replace(",", ".");
+            onChange(inputValue.endsWith(".") ? inputValue : inputValue ? parseFloat(inputValue) : "");
+          }
           }
           onFocus={(e) => e.target.select()}
           onBlur={onBlur}
           ref={ref}
           label={label}
-          type="number"
+          type="text"
           error={!!error}
           helperText={error ? <Trans t={t}>{error?.message}</Trans> : " "}
           placeholder={placeholder}

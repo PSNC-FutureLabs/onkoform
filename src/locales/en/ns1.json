@@ -71,6 +71,7 @@
   "errorDateOfBirthMustBeEralier": "Date of examination must not be earlier than date of birth.",
   "errorDateOfExaminationMustBeLater": "The date of the previous examination must not be later than the date of the current examination.",
   "errorUnitProvidedButSelectNotSet":"Unit is required when value is provided",
+  "errorInvalidInputFormat":"Incorrect format",
 
   "female": "female",
   "male": "male",
