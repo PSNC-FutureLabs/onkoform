@@ -8,12 +8,14 @@ export default function Footer() {
 	return (
 		<Box sx={{ backgroundColor: grey[900] }}>
 			<Container maxWidth="lg" disableGutters>
-				<Grid item component="footer" xs={12} maxHeight="3rem">
+				<Grid item component="footer" xs={12}>
 					<Stack
-						direction="row"
 						alignContent="space-between"
 						justifyContent="space-between"
-						sx={{ width: "100%" }}
+						sx={{
+							width: "100%",
+							direction: { xs: "column", sm: "row" }
+						}}
 					>
 						<Box py={1}>
 							<Typography variant="body2" align="center" color="white">

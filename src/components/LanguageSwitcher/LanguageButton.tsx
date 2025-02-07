@@ -22,7 +22,7 @@ const LanguageButton: React.FC<LanguageButtonProps> = ({
         variant="outlined"
         size="large"
         sx={{
-          padding: "8px 10px",
+          padding: {xs:"6px 8px", sm: "8px 10px", xl: "10px 12px"},
           border:
             isLangMatch ? "1px solid black" : "1px solid white",
           opacity: isLangMatch ? 1 : 0.5,

@@ -75,7 +75,7 @@ export default function LandingPage({
                 px={{ sm: 2 }}
                 direction={"row"}
                 justifyContent={"space-between"}
-                padding={3}
+                padding={{ xs: 1, sm: 3 }}
               >
                 <Box
                   component="img"
@@ -113,6 +113,7 @@ export default function LandingPage({
                   align="center"
                   mt={2}
                   mb={2}
+                  px={{ xs: 2, sm: 0 }}
                 >
                   <Trans t={t}>landing-1</Trans>
                 </Typography>
@@ -121,7 +122,7 @@ export default function LandingPage({
                   lineHeight={{ xs: "26.4px", sm: "32.64px" }}
                   align="center"
                   mb={4}
-                  px={{ xs: 6, sm: 0 }}
+                  px={{ xs: 2, sm: 0 }}
                 >
                   <Trans t={t}>landing-2</Trans>
                 </Typography>
