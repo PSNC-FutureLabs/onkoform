@@ -6,7 +6,9 @@ const LanguageSwitcher = () => {
   return (
     <Grid
       container
-      spacing={1}
+      display="flex"
+      gap={1}
+      flexWrap={"nowrap"}
       sx={{
         maxWidth: "max-content",
       }}

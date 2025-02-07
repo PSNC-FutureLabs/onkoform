@@ -76,6 +76,7 @@ export default function LandingPage({
                 direction={"row"}
                 justifyContent={"space-between"}
                 padding={{ xs: 1, sm: 3 }}
+                gap={1}
               >
                 <Box
                   component="img"
@@ -83,7 +84,7 @@ export default function LandingPage({
                   alt="Logo projektu Mali Mocni"
                   height={{ xs: "20", sm: "32" }}
                 />
-                <Box my={{ xs: 2 }}>
+                <Box>
                   <LanguageSwitcher />
                 </Box>
               </Stack>
