@@ -202,6 +202,17 @@ export const hospitalWardOptions: DropdownOptionsType[] = [
 	},
 ];
 
+export const hospitalWardPhones: Record<string, string> =
+{
+	o3: "61 8491 487",
+	o5: "61 8491 498",
+	otsk: "61 8491 472",
+	odvd: "-",
+	po: "61 8491 600",
+	ptsk: "61 8491 606",
+	dutyOfficer: "500 673 587"
+};
+
 export const symptomsOptions: MultiCheckboxOptionsType[] = [
 	{
 		label: "symptomsOptionsChillsLabel",

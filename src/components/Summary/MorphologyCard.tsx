@@ -41,7 +41,7 @@ export const MorphologyCard = ({
         <CardContent>
           <Stack spacing={2}>
             <Stack direction="row" spacing={1} alignItems="center">
-              <Typography variant="h4" color="#1F2023">
+              <Typography variant="h4" color="#1F2023" sx={{ userSelect: 'none' }}>
                 <strong>{markerName}</strong>
               </Typography>
               <Tooltip

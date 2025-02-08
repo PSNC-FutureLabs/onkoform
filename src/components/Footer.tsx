@@ -10,11 +10,12 @@ export default function Footer() {
 			<Container maxWidth="lg" disableGutters>
 				<Grid item component="footer" xs={12}>
 					<Stack
-						alignContent="space-between"
-						justifyContent="space-between"
 						sx={{
+							display:"flex",
+							alignContent:"space-between",
+							justifyContent:"space-between",
 							width: "100%",
-							direction: { xs: "column", sm: "row" }
+							flexDirection: { xs: "column", sm: "row" }
 						}}
 					>
 						<Box py={1}>

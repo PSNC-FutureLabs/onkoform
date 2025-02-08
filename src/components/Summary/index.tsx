@@ -1,6 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import { Stack } from "@mui/material";
 import { BasicInfo } from "./BasicInfo";
+import { ContactInfo } from "./ContactInfo";
 import { Result } from "./Result";
 import { AlarmingSymptoms } from "./AlarmingSymptoms";
 import { Morphology } from "./Morphology";
@@ -15,6 +16,7 @@ import {
 	BloodMarkers,
 	BloodMarkersNames,
 } from "../../business/types";
+
 
 export const Summary = () => {
 	const { getValues } = useFormContext();
@@ -219,6 +221,7 @@ export const Summary = () => {
 			<Morphology bloodMarkers={bloodMarkers} />
 			<BasicInfo />
 			<AlarmingSymptoms />
+			{diagnose.level === DiagnosisLevel.ConsultationNeeded || diagnose.level === DiagnosisLevel.UrgentConsultationNeeded ? <ContactInfo /> : ""}
 		</Stack>
 	);
 };

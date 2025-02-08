@@ -382,6 +382,7 @@ export default function StepController() {
                   mb={6}
                   mx={2}
                   pt={4}
+                  gap={{xs:1}}
                   borderTop="1px solid #EFF0F1"
                   justifyContent="space-between"
                 >
